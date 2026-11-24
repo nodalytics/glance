@@ -109,10 +109,12 @@ int main(int argc, char** argv) {
 
   // --- compose the screenshot ----------------------------------------------
   cv::Mat shot = make_background(shot_w, shot_h, 7);
-  shot(cv::Rect(anchor_at.x, anchor_at.y, anchor.cols, anchor.rows)) = anchor;
+  // NOTE: paste with copyTo — `shot(cv::Rect(...)) = m` is a no-op (it only
+  // reassigns the temporary Mat's header, the image data is never touched).
+  anchor.copyTo(shot(cv::Rect(anchor_at.x, anchor_at.y, anchor.cols, anchor.rows)));
   // Cards (window-relative positions; the window starts at anchor_at).
   auto paste = [&](const cv::Mat& m, int wx, int wy) {
-    shot(cv::Rect(anchor_at.x + wx, anchor_at.y + wy, m.cols, m.rows)) = m;
+    m.copyTo(shot(cv::Rect(anchor_at.x + wx, anchor_at.y + wy, m.cols, m.rows)));
   };
   paste(card_ah, 60, 300);   // my1
   paste(card_2c, 110, 300);  // my2
@@ -190,6 +192,24 @@ int main(int argc, char** argv) {
 
   cv::Mat blank = make_background(shot_w, shot_h, 99);
   CHECK(!scraper.scrape(blank).has_value(), "anchor not found in blank image");
+
+  // OpenCV sanity: a template pasted verbatim must match EXACTLY where it was
+  // placed (TM_SQDIFF_NORMED min = 0.0, at the planted position). Any deviation
+  // means template matching is broken in some way; fail loudly instead of
+  // letting every downstream check fail cryptically. Note: matchTemplate result
+  // matrices are CV_32F — read them with .at<float> (reading them as doubles
+  // reinterprets float pairs and yields ~1e60 "corrupted" values).
+  {
+    cv::Mat res;
+    cv::matchTemplate(shot(cv::Rect(0, 0, 400, 300)), anchor, res, cv::TM_SQDIFF_NORMED);
+    double mn = 0, mx = 0;
+    cv::Point mnl, mxl;
+    cv::minMaxLoc(res, &mn, &mx, &mnl, &mxl);
+    CHECK(mn < 1e-9 && mnl == anchor_at,
+          "matchTemplate exact match scores 0 at planted position (OpenCV sanity)");
+    CHECK(std::fabs(mn - double(res.at<float>(mnl.y, mnl.x))) < 1e-6,
+          "minMaxLoc consistent with result grid (OpenCV sanity)");
+  }
 
   std::optional<glance::TableState> state = scraper.scrape(shot);
   CHECK(state.has_value(), "table anchor found in screenshot");
