@@ -55,11 +55,12 @@ jobs:
           CTEST_RC=0
           ctest --test-dir glance/build --output-on-failure || CTEST_RC=$?
           # imgcodecs diagnostics: what encoders does this runner's OpenCV
-          # actually expose? This step exists because one runner returned
-          # "could not find a writer for the specified extension" from
-          # imwrite — it prints the Image I/O build section and exercises
-          # imwrite/imencode so a missing codec is visible regardless of
-          # whether the selftest reaches that call.
+          # actually expose? Kept after run 45493631662 ("could not find a
+          # writer for the specified extension" from imwrite) as a guard:
+          # the root cause turned out to be an extensionless mkstemp path in
+          # ocr.cpp (imwrite resolves encoders BY EXTENSION), but if a future
+          # runner ever ships OpenCV without a PNG encoder, this step tells
+          # us so even when the selftest dies before reaching it.
           ./glance/build/glance-opencv-probe || true
           echo "--- apt: opencv/imgcodecs image-related packages ---"
           dpkg -l | grep -iE 'opencv|libpng|libjpeg|libtiff|libwebp|libopenexr|libjasper|libgif' | awk '{print $2, $3}' || true

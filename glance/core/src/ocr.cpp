@@ -73,8 +73,12 @@ std::optional<double> ocr_number(const cv::Mat& region) {
   cv::Mat prep = prepare_for_ocr(region);
   if (prep.empty()) return std::nullopt;
 
-  char tmpl[] = "/tmp/glance_ocr_XXXXXX";
-  int fd = mkstemp(tmpl);
+  // The temp path MUST end in a real image extension: cv::imwrite looks up
+  // its encoder by file extension (findEncoder in loadsave.cpp), and an
+  // extensionless name throws "could not find a writer for the specified
+  // extension" — the CI imwrite abort from run 45477292136.
+  char tmpl[] = "/tmp/glance_ocr_XXXXXX.png";
+  int fd = mkstemps(tmpl, 4);
   if (fd < 0) return std::nullopt;
   ::close(fd);
   std::string in_path = tmpl;
