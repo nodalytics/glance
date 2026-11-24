@@ -20,15 +20,20 @@ project lives in `glance/`; the old Python prototype is preserved in
 - CI: `.github/workflows/ci.yml` builds + runs the selftest on ubuntu-24.04
   **with tesseract installed** — it is the only place the OCR numeric checks
   (pot/stack/bet) ever run, because the lab host has no tesseract. It is the
-  canonical full test; the lab is used for heavy builds only.
+  canonical full test; the lab remains the primary build/compute host.
 
 ## Setup (first time)
 
-1. CMake >= 3.24, a C++20 compiler (g++ 13 verified).
+1. `bash research/scripts/install_deps.sh` (or manually): a C++20 compiler,
+   CMake >= 3.24, and **`libopencv-dev`** (the distro's prebuilt OpenCV 4.x).
 2. Optional: `apt install tesseract-ocr` (build falls back to no-OCR without it).
-3. `cmake -B build && cmake --build build -j$(nproc)` — FetchContent pulls
-   nlohmann/json v3.11.3, cpp-httplib v0.67.0, and OpenCV 5.1.0 from source
-   (minimal modules: core;imgproc;imgcodecs).
+3. `cmake -B build && cmake --build build -j$(nproc)` — the build compiles
+   glance's sources and Fetches two single-header deps (nlohmann/json v3.11.3,
+   cpp-httplib v0.67.0). **OpenCV is never built from source**: the host's
+   system package is linked (see CMakeLists `find_package(OpenCV 4.5 ...)`).
+   Do not reintroduce a source build — it dominated build time/disk for no
+   benefit; OpenCV 5.1.0 from source once aborted our selftest, but a correct
+   probe proved that was our test code, not OpenCV (see global memory).
 
 ## Layout
 
@@ -57,18 +62,18 @@ glance/              # repo root
 
 ## Conventions
 
-- C++20, no external deps beyond what `CMakeLists.txt` already Fetches (json,
-  httplib, OpenCV). Pin versions there; there is no lockfile.
-- The LSP/clangd in this workspace reports "file not found" for `opencv2/...`,
-  `nlohmann/json.hpp`, and headers in sibling subdirs — that's because the
-  include paths only exist after a CMake configure (FetchContent). The real
-  compile check is the build (`cmake --build build`).
+- C++20. Deps: the distro's OpenCV 4.x (linked, never built), plus
+  nlohmann/json v3.11.3 and cpp-httplib v0.67.0 which `CMakeLists.txt`
+  Fetches. Pin versions there; there is no lockfile.
+- The LSP/clangd in this workspace reports "file not found" for
+  `nlohmann/json.hpp` and headers in sibling subdirs — those include paths
+  only exist after a CMake configure. The real compile check is the build
+  (`cmake --build build`).
 - OCR must stay optional: `ocr_available()` gates every numeric read, and the
   selftest passes (minus the numeric checks) on machines without tesseract.
-- Heavy builds (the OpenCV-from-source configure is large) run on the lab
-  machine. To prepare a fresh machine/labs state, run
-  `research/scripts/install_deps.sh` (idempotent; installs tesseract-ocr +
-  build tooling via apt, with sudo). `.secrets/` is gitignored — never commit
+- To prepare a fresh machine, run `research/scripts/install_deps.sh`
+  (idempotent; installs the C++ toolchain, `libopencv-dev` and optional
+  tesseract-ocr via apt, with sudo). `.secrets/` is gitignored — never commit
   it.
 
 ## Memory (always keep current)

@@ -12,11 +12,14 @@ architecture.
 
 - CMake >= 3.24
 - C++20 compiler (tested with g++ 13 on Ubuntu 24.04)
+- `libopencv-dev` — the distro's prebuilt OpenCV 4.x. glance links it; it is
+  never built from source. (`bash research/scripts/install_deps.sh` installs
+  all of the above in one go.)
 - Optional: `tesseract-ocr` — enables reading pot/stack/bet numbers (the build
   auto-disables OCR when the binary is missing)
 
-OpenCV (from source, minimal modules), nlohmann/json, and cpp-httplib are
-fetched by CMake at configure time (FetchContent) — nothing else to install.
+nlohmann/json and cpp-httplib are single-header deps fetched by CMake at
+configure time — nothing else to install.
 
 ## Build
 
@@ -88,10 +91,11 @@ glance/              # repo root
 
 ## Development
 
-- Dependencies are pinned in `CMakeLists.txt` via FetchContent — bump a tag/URL
-  there to update, no lockfile.
-- The OpenCV build from source is large (~15 GB during build); build with
-  `-j$(nproc)` on a machine with headroom.
+- Deps: OpenCV comes from the distro (`libopencv-dev`; pinned to >= 4.5 in
+  CMakeLists), json + httplib are pinned in `CMakeLists.txt` via FetchContent —
+  bump versions there to update, no lockfile.
+- The build is small (glance's sources + two single-header deps); there is no
+  OpenCV build step to wait for.
 - No linter/format tooling yet.
 
 ## References
