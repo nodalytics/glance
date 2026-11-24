@@ -1,21 +1,22 @@
-# Python
+# CMake
+build/
+CMakeUserPresets.json
+
+# Python leftovers (pre-port)
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Virtual environments
 .venv/
 venv/
 env/
-
-# Build
-build/
 dist/
 *.egg-info/
+.ruff_cache/
 
 # IDE
 .vscode/
 .idea/
 
-# Environment
+# Environment / lab credentials
 .env
+.secrets/
