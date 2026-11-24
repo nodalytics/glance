@@ -17,27 +17,16 @@ FetchContent_Declare(httplib GIT_REPOSITORY https://github.com/yhirose/cpp-httpl
 set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
 FetchContent_MakeAvailable(json)
 
-# OpenCV from source, minimal module list (template matching + image codecs)
-set(BUILD_LIST "core;imgproc;imgcodecs" CACHE STRING "" FORCE)
-set(BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(BUILD_PERF_TESTS OFF CACHE BOOL "" FORCE)
-set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-set(BUILD_opencv_apps OFF CACHE BOOL "" FORCE)
-set(WITH_IPP OFF CACHE BOOL "" FORCE)
-set(WITH_OPENCL OFF CACHE BOOL "" FORCE)
-set(OPENCV_ENABLE_NONFREE OFF CACHE BOOL "" FORCE)
-set(WITH_QUIRC OFF CACHE BOOL "" FORCE)
-set(WITH_PROTOBUF OFF CACHE BOOL "" FORCE)
-set(INSTALL_CREATE_DISTRIB OFF CACHE BOOL "" FORCE)
-set(BUILD_ZLIB OFF CACHE BOOL "" FORCE)   # build bundled zlib/JPEG/PNG
-set(BUILD_JPEG OFF CACHE BOOL "" FORCE)
-set(BUILD_PNG OFF CACHE BOOL "" FORCE)
-# Release tarball (not a git checkout): much smaller working tree on the lab,
-# where the OpenCV build dominates disk usage. URL_HASH pins the exact source.
-FetchContent_Declare(OpenCV
-  URL https://github.com/opencv/opencv/archive/refs/tags/5.1.0.tar.gz
-  URL_HASH SHA256=638c1dae7e37e45afea21aa217dc667ad7cf57acc66cdf652c074f1e0e5ad6d2)
-FetchContent_MakeAvailable(OpenCV)
+# OpenCV: the distro's prebuilt package (libopencv-dev), NOT a source build.
+# The from-source 5.1.0 we previously Fetched is what made builds slow and disk
+# heavy (a full OpenCV build on a 2-core CI runner), and from-source 5.1.0 once
+# aborted with `malloc(): corrupted top size` on two AVX-512 AMD hosts (NOT
+# proven to be OpenCV's fault — a correct probe later showed the prebuilt
+# 4.6 computes matchTemplate/minMaxLoc exactly right, so the abort was in our
+# test code — see global memory, Nov 2026). Either way: the distro package
+# (4.6 on Ubuntu 24.04; 4.x elsewhere) is already built and tuned by the
+# maintainer, so we never compile OpenCV at build time.
+find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
 
 find_package(Threads REQUIRED)
 
@@ -60,19 +49,13 @@ add_library(glance_core
   core/src/scraper.cpp
   core/src/server.cpp)
 target_include_directories(glance_core PUBLIC core/include)
-# OpenCV from source (add_subdirectory) exposes plain module targets — the
-# OpenCV:: namespaced targets only exist in an installed package.
+# find_package(OpenCV) exposes the per-module imported targets that carry the
+# public header include paths. The namespaced aliases (OpenCV::core) only
+# exist in OpenCV >= 4.9 configs, but the classic opencv_* names are what
+# every 4.x install exports (Ubuntu 24.04 ships 4.6; newer distros both), so
+# link those.
 target_link_libraries(glance_core
   PUBLIC nlohmann_json::nlohmann_json opencv_core opencv_imgproc opencv_imgcodecs Threads::Threads)
-# A from-source (add_subdirectory) OpenCV build marks each module's per-module
-# `opencv2/` header directory PRIVATE, so linking opencv_core alone does not
-# let us #include <opencv2/core.hpp>. Add the headers for the modules we use.
-target_include_directories(glance_core SYSTEM PUBLIC
-  ${OpenCV_SOURCE_DIR}/modules/core/include
-  ${OpenCV_SOURCE_DIR}/modules/imgproc/include
-  ${OpenCV_SOURCE_DIR}/modules/imgcodecs/include
-  ${OpenCV_SOURCE_DIR}/3rdparty/ittnotify/include
-  ${CMAKE_BINARY_DIR})
 if(HAS_OCR)
   string(REPLACE "\"" "\\\"" TESSERACT_BIN_ESCAPED "${TESSERACT_BIN_PATH}")
   target_compile_definitions(glance_core PUBLIC "GLANCE_OCR=1" "GLANCE_TESSERACT_BIN=\"${TESSERACT_BIN_ESCAPED}\"")

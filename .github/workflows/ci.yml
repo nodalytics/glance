@@ -6,10 +6,13 @@
 # GLANCE_OCR=1 (see CMakeLists find_program(tesseract)) so the numeric branch
 # is exercised. The anchor/cards/turn/dealer checks run on both.
 #
-# The slow step is building OpenCV from source (OpenCV is a FetchContent
-# dependency, built as part of the top-level build). It takes a while on a
-# 2-core runner. The _deps cache below skips the re-download + re-build of
-# OpenCV/json/httplib on subsequent runs with the same CMakeLists.txt.
+# OpenCV is the distro's prebuilt libopencv-dev (Ubuntu 24.04: 4.6.0), NOT a
+# source build — building it from source is what this workflow previously
+# dominated. (A from-source 5.1.0 selftest abort was once blamed on the OpenCV
+# build itself; a correct probe showed the prebuilt 4.6 computes everything
+# exactly right, so it was our test code — see global memory.)
+# json + cpp-httplib are still FetchContent, but they are tiny. No _deps cache
+# is worth it, so there is no cache step at all.
 name: CI
 
 on:
@@ -20,31 +23,18 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # libopencv-dev: glance links the distro's prebuilt OpenCV 4.x.
       # tesseract-ocr: enables GLANCE_OCR=1 so the selftest's numeric checks
-      # run. build-essential + git + xz are already on the 24.04 runner.
-      - name: Install tesseract
+      # run (see CMakeLists find_program(tesseract)).
+      - name: Install host dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq tesseract-ocr
-
-      # Cache the FetchContent population (OpenCV dominates). Keyed only on the
-      # CMakeLists.txt (where all dep versions are pinned): an unchanged
-      # CMakeLists restores the already-built OpenCV and skips the rebuild
-      # entirely. A dep/version bump invalidates the key automatically.
-      # NOTE: actions/cache caps at 10 GB per key; glance's 3-module OpenCV
-      # build stays well under that on a 2-core runner.
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: glance/build/_deps
-          key: deps-${{ runner.os }}-${{ hashFiles('glance/CMakeLists.txt') }}
-          restore-keys: |
-            deps-${{ runner.os }}-
+          sudo apt-get install -y -qq libopencv-dev tesseract-ocr
 
       - name: Configure
         run: cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release
@@ -53,6 +43,9 @@ jobs:
         run: cmake --build glance/build -j"$(nproc)"
 
       # Runs the glance-selftest target registered in CMakeLists.txt via
-      # add_test(selftest ...). Fails the build if any check trips.
+      # add_test(selftest ...). Fails the build if any check trips. Includes
+      # a sanity check that byte-identical template matching scores 0 (the
+      # property the from-source 5.1.0 build violated before we switched to
+      # the distro package).
       - name: Test
         run: ctest --test-dir glance/build --output-on-failure

@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # install_deps.sh — idempotent host setup for building glance.
 #
-# glance's CMake build fetches OpenCV, nlohmann/json and cpp-httplib itself;
-# the only host requirements are a C++20 toolchain, CMake >= 3.24 and
-# (optionally) tesseract-ocr for the OCR numeric reads. This script installs
-# exactly what is missing and verifies what is present, so it is the one
-# command to bootstrap a fresh machine. Re-running it is always safe:
-# apt-get install is idempotent and the version checks re-run each time.
+# glance links the distro's prebuilt OpenCV (libopencv-dev: 4.x on
+# Debian/Ubuntu) and uses FetchContent only for the tiny single-header deps
+# (nlohmann/json, cpp-httplib). Host requirements: a C++20 toolchain,
+# CMake >= 3.24, libopencv-dev, and (optionally) tesseract-ocr for the OCR
+# numeric reads. This script installs exactly what is missing and verifies
+# what is present, so it is the one command to bootstrap a fresh machine.
+# Re-running it is always safe: apt-get install is idempotent and the version
+# checks re-run each time.
 #
 # Usage (Debian/Ubuntu only):
 #   bash research/scripts/install_deps.sh                  # install (may prompt for sudo)
@@ -14,10 +16,10 @@
 #   bash research/scripts/install_deps.sh --check          # report only, install nothing
 #
 # Notes:
-# - tesseract-ocr is the only non-build tool; without it glance builds fine
-#   and reports OCR disabled (numeric fields are simply omitted).
-# - Building OpenCV from source needs ~15 GB of headroom and takes a while;
-#   this script does not start a build, it only prepares the host.
+# - tesseract-ocr is optional; without it glance builds fine and reports OCR
+#   disabled (numeric fields are simply omitted).
+# - glance's CMake build itself is small: it compiles glance's ~10 source
+#   files plus the two single-header FetchContent deps. No OpenCV is built.
 
 set -euo pipefail
 
@@ -78,6 +80,9 @@ have git || add_pkg git
 # --- xz (FetchContent unpacks json.tar.xz) ----------------------------------
 have xz || add_pkg xz-utils
 
+# --- libopencv-dev (prebuilt OpenCV 4.x; glance links, never builds, it) ----
+have opencv4 || add_pkg libopencv-dev
+
 # --- tesseract-ocr (optional OCR for pot/stack/bet numbers) ------------------
 have tesseract || add_pkg tesseract-ocr
 
@@ -98,5 +103,6 @@ fi
 echo "--- verification ---"
 g++ --version 2>/dev/null | head -1 || echo "g++: MISSING"
 cmake --version 2>/dev/null | head -1 || echo "cmake: MISSING"
+pkg-config --modversion opencv4 2>/dev/null | sed 's/^/OpenCV (system): /' || echo "OpenCV (system): MISSING (install: apt-get install libopencv-dev)"
 tesseract --version 2>&1 | head -1 || echo "tesseract: not installed (glance will build with OCR disabled)"
 echo "install_deps: done. Next: cmake -B build ... (see the repo README)."
