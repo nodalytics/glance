@@ -45,6 +45,7 @@ static int failures = 0;
       std::printf("  FAIL: %s\n", msg);                     \
       ++failures;                                           \
     }                                                       \
+    std::fflush(stdout);                                    \
   } while (0)
 
 // Deterministic grayscale-noise pattern. Random enough that template matching
@@ -76,13 +77,23 @@ cv::Mat make_background(int w, int h, unsigned seed) {
 
 static void write_img(const fs::path& p, const cv::Mat& m) {
   fs::create_directories(p.parent_path());
-  if (!cv::imwrite(p.string(), m)) {
+  bool ok = false;
+  try {
+    ok = cv::imwrite(p.string(), m);
+  } catch (const cv::Exception& e) {
+    std::printf("  imwrite %s threw: %s\n", p.c_str(), e.what());
+  }
+  if (!ok || !fs::exists(p)) {
     std::printf("  FAIL: could not write %s\n", p.c_str());
     ++failures;
   }
 }
 
 int main(int argc, char** argv) {
+  // CHECK (and the line below) fflush(stdout) after every print: printf
+  // buffers stdout when piped (as ctest runs us), and an abort mid-run would
+  // otherwise lose every line printed before it — which is exactly how the
+  // CI imwrite abort stayed silent for one diagnostic round.
   fs::path fixture_dir;
   for (int i = 1; i + 1 < argc; ++i)
     if (std::string(argv[i]) == "--fixtures") fixture_dir = argv[i + 1];
@@ -183,6 +194,7 @@ int main(int argc, char** argv) {
   // --- run the scraper --------------------------------------------------------
   std::printf("selftest: mapping at %s, ocr=%s\n", (base / "mapping.json").c_str(),
               glance::ocr_available() ? "yes" : "no (numeric checks skipped)");
+  std::fflush(stdout);
 
   glance::TableScraper scraper;
   CHECK(scraper.load_mapping((base / "mapping.json").string()), "mapping loads");

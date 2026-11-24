@@ -74,6 +74,13 @@ target_link_libraries(glance-server PRIVATE glance_acr glance_core)
 add_executable(glance-selftest tools/selftest.cpp)
 target_link_libraries(glance-selftest PRIVATE glance_core)
 
+# Diagnostics only: prints the imgcodecs "Image I/O" build section and
+# exercises imwrite/imencode per format. Run standalone (the CI workflow has
+# a dedicated step for it) so a host without the right codecs still reports
+# what it can encode before the selftest is expected to work.
+add_executable(glance-opencv-probe tools/opencv_probe.cpp)
+target_link_libraries(glance-opencv-probe PRIVATE opencv_core opencv_imgcodecs)
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(glance_core PRIVATE -Wall -Wextra)
   target_compile_options(glance_acr PRIVATE -Wall -Wextra)

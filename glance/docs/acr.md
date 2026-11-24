@@ -162,4 +162,5 @@ deck gives the most robust result.
 ## Reference
 
 - [dickreuter/Poker](https://github.com/dickreuter/Poker/) — screen-scraping technique
+- [Gongsta/Poker-AI](https://github.com/Gongsta/Poker-AI/) — solves heads-up no-limit hold'em with CFR + equity-based card abstraction (game-strategy side; benchmarked vs Slumbot in BB/100). Complements the recognition work: its roadmap explicitly includes a CV/deep-learning card recognizer (the consumer of what glance produces).
 - [ACR Poker](https://www.acrpoker.eu/)

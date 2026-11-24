@@ -103,4 +103,5 @@ glance/              # repo root
 ## References
 
 - [dickreuter/Poker](https://github.com/dickreuter/Poker/) — technique reference
+- [Gongsta/Poker-AI](https://github.com/Gongsta/Poker-AI/) — CFR + equity-based card abstraction for heads-up no-limit hold'em (game-strategy side; complements the recognition work)
 - [ACR Poker](https://www.acrpoker.eu/)

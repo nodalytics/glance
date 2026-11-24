@@ -48,4 +48,19 @@ jobs:
       # property the from-source 5.1.0 build violated before we switched to
       # the distro package).
       - name: Test
-        run: ctest --test-dir glance/build --output-on-failure
+        run: |
+          # Diagnostics must run even when ctest fails (that is when we need
+          # them most), so ctest's result is captured, not fatal, until the
+          # end of the script.
+          CTEST_RC=0
+          ctest --test-dir glance/build --output-on-failure || CTEST_RC=$?
+          # imgcodecs diagnostics: what encoders does this runner's OpenCV
+          # actually expose? This step exists because one runner returned
+          # "could not find a writer for the specified extension" from
+          # imwrite — it prints the Image I/O build section and exercises
+          # imwrite/imencode so a missing codec is visible regardless of
+          # whether the selftest reaches that call.
+          ./glance/build/glance-opencv-probe || true
+          echo "--- apt: opencv/imgcodecs image-related packages ---"
+          dpkg -l | grep -iE 'opencv|libpng|libjpeg|libtiff|libwebp|libopenexr|libjasper|libgif' | awk '{print $2, $3}' || true
+          exit $CTEST_RC
