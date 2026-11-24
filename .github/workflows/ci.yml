@@ -1,0 +1,58 @@
+# CI: build + selftest on every push/PR to main.
+#
+# What this covers that the lab does NOT: the tesseract/OCR numeric path. The
+# lab host has no tesseract, so GLANCE_OCR is off there and the selftest always
+# skips the pot/stack/bet checks. Installing tesseract-ocr here forces
+# GLANCE_OCR=1 (see CMakeLists find_program(tesseract)) so the numeric branch
+# is exercised. The anchor/cards/turn/dealer checks run on both.
+#
+# The slow step is building OpenCV from source (OpenCV is a FetchContent
+# dependency, built as part of the top-level build). It takes a while on a
+# 2-core runner. The _deps cache below skips the re-download + re-build of
+# OpenCV/json/httplib on subsequent runs with the same CMakeLists.txt.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # tesseract-ocr: enables GLANCE_OCR=1 so the selftest's numeric checks
+      # run. build-essential + git + xz are already on the 24.04 runner.
+      - name: Install tesseract
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
+
+      # Cache the FetchContent population (OpenCV dominates). Keyed only on the
+      # CMakeLists.txt (where all dep versions are pinned): an unchanged
+      # CMakeLists restores the already-built OpenCV and skips the rebuild
+      # entirely. A dep/version bump invalidates the key automatically.
+      # NOTE: actions/cache caps at 10 GB per key; glance's 3-module OpenCV
+      # build stays well under that on a 2-core runner.
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: glance/build/_deps
+          key: deps-${{ runner.os }}-${{ hashFiles('glance/CMakeLists.txt') }}
+          restore-keys: |
+            deps-${{ runner.os }}-
+
+      - name: Configure
+        run: cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build glance/build -j"$(nproc)"
+
+      # Runs the glance-selftest target registered in CMakeLists.txt via
+      # add_test(selftest ...). Fails the build if any check trips.
+      - name: Test
+        run: ctest --test-dir glance/build --output-on-failure

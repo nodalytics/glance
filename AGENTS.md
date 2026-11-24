@@ -17,6 +17,10 @@ project lives in `glance/`; the old Python prototype is preserved in
 - Test: `ctest --test-dir glance/build` (runs `glance-selftest`) or
   `glance/build/glance-selftest [--fixtures <dir>]`
 - Run: `glance/build/glance-server path/to/mapping.json [port]`
+- CI: `.github/workflows/ci.yml` builds + runs the selftest on ubuntu-24.04
+  **with tesseract installed** — it is the only place the OCR numeric checks
+  (pot/stack/bet) ever run, because the lab host has no tesseract. It is the
+  canonical full test; the lab is used for heavy builds only.
 
 ## Setup (first time)
 
@@ -66,6 +70,19 @@ glance/              # repo root
   `research/scripts/install_deps.sh` (idempotent; installs tesseract-ocr +
   build tooling via apt, with sudo). `.secrets/` is gitignored — never commit
   it.
+
+## Memory (always keep current)
+
+- **After meaningful work, update global memory before ending the session.**
+  Cross-session findings — bugs found/fixed and their state, what builds
+  where, lab quirks, workflow or infra changes, current commit state — go to
+  `~/.config/opencode/AGENTS.md` (global, machine-level). Don't let
+  discoveries die in a transcript: the next session starts from memory and
+  must know where things stand. Record conclusions with confidence levels,
+  not just observations.
+- Repo-local conventions stay in this file; machine/session-spanning facts
+  (lab behavior, environment quirks, project state) go to global memory.
+  Keep both in sync when one references the other.
 
 ## Where to build: lab first, local is fallback
 
