@@ -50,7 +50,7 @@ static int failures = 0;
 // Deterministic grayscale-noise pattern. Random enough that template matching
 // only scores at/below a tight threshold at the pattern's exact placement.
 cv::Mat make_pattern(int w, int h, unsigned seed) {
-  cv::Mat m(w, h, CV_8UC3);
+  cv::Mat m(h, w, CV_8UC3);  // Mat ctor takes (rows, cols) — keep w/h upright!
   std::mt19937 rng(seed);
   std::uniform_int_distribution<int> d(0, 255);
   for (int y = 0; y < h; ++y)
@@ -63,7 +63,7 @@ cv::Mat make_pattern(int w, int h, unsigned seed) {
 
 // Low-amplitude noisy dark background for the "screenshot".
 cv::Mat make_background(int w, int h, unsigned seed) {
-  cv::Mat m(w, h, CV_8UC3);
+  cv::Mat m(h, w, CV_8UC3);  // Mat ctor takes (rows, cols) — keep w/h upright!
   std::mt19937 rng(seed);
   std::uniform_int_distribution<int> d(12, 28);
   for (int y = 0; y < h; ++y)
@@ -193,22 +193,32 @@ int main(int argc, char** argv) {
   cv::Mat blank = make_background(shot_w, shot_h, 99);
   CHECK(!scraper.scrape(blank).has_value(), "anchor not found in blank image");
 
-  // OpenCV sanity: a template pasted verbatim must match EXACTLY where it was
-  // placed (TM_SQDIFF_NORMED min = 0.0, at the planted position). Any deviation
-  // means template matching is broken in some way; fail loudly instead of
-  // letting every downstream check fail cryptically. Note: matchTemplate result
-  // matrices are CV_32F — read them with .at<float> (reading them as doubles
-  // reinterprets float pairs and yields ~1e60 "corrupted" values).
+  // OpenCV sanity: a template pasted verbatim MUST be the unique best match at
+  // its planted position.
+  //
+  // Exactness caveat (measured, not assumed): matchTemplate's SQDIFF variant
+  // is built on OpenCV's integral images, which are float32. For a real
+  // (hundreds-of-thousands-of-pixels, d2 sum ~1e8) random pattern, float32
+  // rounding alone leaves dozens of d2 units of "error" at a byte-identical
+  // plant — verified with a manual per-pixel reference (0 diff, kernel
+  // agrees to float32 precision on every neighbouring cell). After
+  // TM_SQDIFF_NORMED's N/(I2+T2) rescaling that residual is ~1e-7, far
+  // below the 0.01 anchor threshold, and the plant is still the unique grid
+  // minimum (second-best d2 is ~5e7). So the guard asserts: the planted cell
+  // is the grid minimum AT the planted position, its value is tiny (< 1e-4),
+  // and minMaxLoc agrees with the grid. (matchTemplate results are CV_32F —
+  // always read with .at<float>: reading them as doubles puns float pairs and
+  // yields ~1e60 "corrupted" values.)
   {
     cv::Mat res;
     cv::matchTemplate(shot(cv::Rect(0, 0, 400, 300)), anchor, res, cv::TM_SQDIFF_NORMED);
     double mn = 0, mx = 0;
     cv::Point mnl, mxl;
     cv::minMaxLoc(res, &mn, &mx, &mnl, &mxl);
-    CHECK(mn < 1e-9 && mnl == anchor_at,
-          "matchTemplate exact match scores 0 at planted position (OpenCV sanity)");
-    CHECK(std::fabs(mn - double(res.at<float>(mnl.y, mnl.x))) < 1e-6,
-          "minMaxLoc consistent with result grid (OpenCV sanity)");
+    float plant = res.at<float>(anchor_at.y, anchor_at.x);
+    CHECK(mnl == anchor_at, "matchTemplate scores its minimum at the planted position");
+    CHECK(plant < 1e-4 && std::fabs(mn - double(plant)) < 1e-9,
+          "exact match is a tiny, unique minimum (OpenCV sanity)");
   }
 
   std::optional<glance::TableState> state = scraper.scrape(shot);
