@@ -5,6 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "ipykernel>=7.4.0",
+    "jupyter>=1.1.1",
     "numpy>=2.5.5",
     "opencv-python>=5.1.0.95",
+    "roboflow>=1.7.3",
+    "tesserocr>=2.13.0",
 ]
