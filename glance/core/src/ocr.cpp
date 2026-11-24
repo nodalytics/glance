@@ -8,17 +8,17 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 
-#ifndef POKER_APIS_OCR
-#define POKER_APIS_OCR 0
+#ifndef GLANCE_OCR
+#define GLANCE_OCR 0
 #endif
 
-#if !POKER_APIS_OCR
-#define POKER_APIS_TESSERACT_BIN ""
-#elif !defined(POKER_APIS_TESSERACT_BIN)
-#define POKER_APIS_TESSERACT_BIN ""
+#if !GLANCE_OCR
+#define GLANCE_TESSERACT_BIN ""
+#elif !defined(GLANCE_TESSERACT_BIN)
+#define GLANCE_TESSERACT_BIN ""
 #endif
 
-namespace poker {
+namespace glance {
 
 namespace {
 
@@ -26,17 +26,17 @@ namespace {
 // a digits + currency whitelist. Single quotes keep the shell from expanding
 // the '$' in the whitelist.
 std::string tesseract_cmd(const std::string& in_path) {
-  return std::string("'") + POKER_APIS_TESSERACT_BIN + "' '" + in_path +
+  return std::string("'") + GLANCE_TESSERACT_BIN + "' '" + in_path +
          "' stdout --psm 7 -c 'tessedit_char_whitelist=0123456789.,$,-B' 2>/dev/null";
 }
 
 }  // namespace
 
 bool ocr_available() {
-#if POKER_APIS_OCR
+#if GLANCE_OCR
   static int cached = -1;
   if (cached < 0) {
-    std::string cmd = std::string("'") + POKER_APIS_TESSERACT_BIN + "' --version 1>/dev/null 2>&1";
+    std::string cmd = std::string("'") + GLANCE_TESSERACT_BIN + "' --version 1>/dev/null 2>&1";
     std::FILE* p = popen(cmd.c_str(), "r");
     if (!p) {
       cached = 0;
@@ -73,7 +73,7 @@ std::optional<double> ocr_number(const cv::Mat& region) {
   cv::Mat prep = prepare_for_ocr(region);
   if (prep.empty()) return std::nullopt;
 
-  char tmpl[] = "/tmp/poker_ocr_XXXXXX";
+  char tmpl[] = "/tmp/glance_ocr_XXXXXX";
   int fd = mkstemp(tmpl);
   if (fd < 0) return std::nullopt;
   ::close(fd);
@@ -123,4 +123,4 @@ std::optional<double> ocr_number(const cv::Mat& region) {
   return val;
 }
 
-}  // namespace poker
+}  // namespace glance

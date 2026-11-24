@@ -6,7 +6,7 @@
 
 namespace fs = std::filesystem;
 
-namespace poker {
+namespace glance {
 
 namespace {
 
@@ -222,4 +222,4 @@ bool TableMapping::has_button(const std::string& name) const {
   return false;
 }
 
-}  // namespace poker
+}  // namespace glance

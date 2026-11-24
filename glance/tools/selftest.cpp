@@ -9,8 +9,8 @@
 // pass, so this works on machines without OCR.
 //
 // Usage:
-//   poker-selftest                      run checks, clean up after
-//   poker-selftest --fixtures <dir>     same, but leave the generated mapping
+//   glance-selftest                      run checks, clean up after
+//   glance-selftest --fixtures <dir>     same, but leave the generated mapping
 //                                       + screenshot in <dir> for smoke tests
 //                                       (e.g. feed <dir>/screenshot.png to the
 //                                       server started with <dir>/mapping.json)
@@ -87,9 +87,9 @@ int main(int argc, char** argv) {
   for (int i = 1; i + 1 < argc; ++i)
     if (std::string(argv[i]) == "--fixtures") fixture_dir = argv[i + 1];
 
-  char tmpl[] = "/tmp/poker_selftest_XXXXXX";
+  char tmpl[] = "/tmp/glance_selftest_XXXXXX";
   char* dir = mkdtemp(tmpl);
-  fs::path base = dir ? dir : std::string("/tmp/poker_selftest");
+  fs::path base = dir ? dir : std::string("/tmp/glance_selftest");
   fs::create_directories(base);
 
   // --- geometry -------------------------------------------------------------
@@ -180,9 +180,9 @@ int main(int argc, char** argv) {
 
   // --- run the scraper --------------------------------------------------------
   std::printf("selftest: mapping at %s, ocr=%s\n", (base / "mapping.json").c_str(),
-              poker::ocr_available() ? "yes" : "no (numeric checks skipped)");
+              glance::ocr_available() ? "yes" : "no (numeric checks skipped)");
 
-  poker::TableScraper scraper;
+  glance::TableScraper scraper;
   CHECK(scraper.load_mapping((base / "mapping.json").string()), "mapping loads");
   if (failures) {
     std::printf("  mapping error: %s\n", scraper.error().c_str());
@@ -191,7 +191,7 @@ int main(int argc, char** argv) {
   cv::Mat blank = make_background(shot_w, shot_h, 99);
   CHECK(!scraper.scrape(blank).has_value(), "anchor not found in blank image");
 
-  std::optional<poker::TableState> state = scraper.scrape(shot);
+  std::optional<glance::TableState> state = scraper.scrape(shot);
   CHECK(state.has_value(), "table anchor found in screenshot");
   if (state) {
     CHECK(scraper.table_origin().x == anchor_at.x && scraper.table_origin().y == anchor_at.y,
@@ -225,7 +225,7 @@ int main(int argc, char** argv) {
       std::printf("  %s: %s = %.2f (expected ~%.2f)\n", ok ? "ok" : "FAIL", what, *v, expected);
       if (!ok) ++failures;
     };
-    if (poker::ocr_available()) {
+    if (glance::ocr_available()) {
       check_value("pot", s.total_pot, 243.5);
       check_value("p1 stack", s.seats[0].stack >= 0 ? std::optional<double>(s.seats[0].stack)
                                                     : std::nullopt,
@@ -233,14 +233,14 @@ int main(int argc, char** argv) {
     }
 
     // --- to_json -------------------------------------------------------------
-    nlohmann::json j = poker::to_json(s);
+    nlohmann::json j = glance::to_json(s);
     CHECK(j.contains("my_cards") && j["my_cards"][0] == "Ah" && j["my_cards"][1] == "2c",
           "json my_cards Ah 2c");
     CHECK(j["stage"] == "Flop", "json stage Flop");
     CHECK(j["my_turn"] == true, "json my_turn true");
     CHECK(j["dealer"] == 3, "json dealer is seat 3 (1-based)");
     CHECK(j["seats"][0]["cards"][0] == "Ah", "json seats are 1-based with bot at seat 1");
-    if (poker::ocr_available()) {
+    if (glance::ocr_available()) {
       if (j.contains("pot") && std::fabs(j["pot"].get<double>() - 243.5) < 1.0)
         std::printf("  ok: json pot %s\n", j["pot"].dump().c_str());
       else {
@@ -252,7 +252,7 @@ int main(int argc, char** argv) {
     // --- ScreenshotService (the HTTP layer's state holder) ---------------------
     std::vector<unsigned char> buf;
     cv::imencode(".png", shot, buf);
-    poker::ScreenshotService service(&scraper);
+    glance::ScreenshotService service(&scraper);
     CHECK(service.update(buf), "service accepts an encoded screenshot");
     CHECK(service.has_state(), "service holds the parsed state");
     CHECK(service.state_json()["stage"] == "Flop", "service state matches");

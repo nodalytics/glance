@@ -5,7 +5,7 @@
 #include <optional>
 #include <opencv2/core.hpp>
 
-namespace poker {
+namespace glance {
 
 // A template match result: the top-left corner of the match, plus the
 // normalized match score (TM_SQDIFF_NORMED: 0.0 is a perfect match).
@@ -34,4 +34,4 @@ bool has_template_in_area(const cv::Mat& image, const cv::Mat& template_img, dou
 // rule).
 int count_template_hits(const cv::Mat& image, const cv::Mat& template_img, double threshold);
 
-}  // namespace poker
+}  // namespace glance

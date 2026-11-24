@@ -6,7 +6,7 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 
-namespace poker {
+namespace glance {
 
 cv::Mat load_template(const std::string& path) {
   cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
@@ -77,4 +77,4 @@ int count_template_hits(const cv::Mat& image, const cv::Mat& template_img, doubl
   return cv::countNonZero(good);
 }
 
-}  // namespace poker
+}  // namespace glance

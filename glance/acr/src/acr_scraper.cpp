@@ -2,7 +2,7 @@
 
 #include "scraper.h"
 
-namespace poker::acr {
+namespace glance::acr {
 
 bool AcrScraper::load_mapping(const std::string& mapping_json_path) {
   return scraper_.load_mapping(mapping_json_path);
@@ -22,4 +22,4 @@ nlohmann::json AcrScraper::scrape_json(const cv::Mat& screenshot) {
   return to_json(*state);
 }
 
-}  // namespace poker::acr
+}  // namespace glance::acr

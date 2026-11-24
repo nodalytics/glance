@@ -4,7 +4,7 @@
 
 #include "scraper.h"
 
-namespace poker {
+namespace glance {
 
 ScreenshotService::ScreenshotService(TableScraper* scraper) : scraper_(scraper) {}
 
@@ -27,4 +27,4 @@ bool ScreenshotService::update(const std::vector<unsigned char>& data) {
   return true;
 }
 
-}  // namespace poker
+}  // namespace glance

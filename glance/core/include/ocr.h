@@ -4,7 +4,7 @@
 #include <optional>
 #include <opencv2/core.hpp>
 
-namespace poker {
+namespace glance {
 
 // Read a number (stack sizes, pot, bet amounts) from a region of a screenshot
 // with tesseract. Returns std::nullopt when OCR is unavailable or yields no
@@ -18,4 +18,4 @@ bool ocr_available();
 // binarize. Returns the transformed copy.
 cv::Mat prepare_for_ocr(const cv::Mat& region);
 
-}  // namespace poker
+}  // namespace glance

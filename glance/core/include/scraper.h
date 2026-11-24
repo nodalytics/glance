@@ -6,7 +6,7 @@
 #include <nlohmann/json.hpp>
 #include <opencv2/core.hpp>
 
-namespace poker {
+namespace glance {
 
 struct Seat {
   int index = 0;  // 0 is the bot's own seat
@@ -98,4 +98,4 @@ class TableScraper {
   std::string error_;
 };
 
-}  // namespace poker
+}  // namespace glance

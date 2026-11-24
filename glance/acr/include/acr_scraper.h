@@ -7,7 +7,7 @@
 
 #include "scraper.h"
 
-namespace poker::acr {
+namespace glance::acr {
 
 // ACR-specific table scraper for https://www.acrpoker.eu/.
 //
@@ -31,10 +31,10 @@ class AcrScraper {
   bool table_found() const { return scraper_.table_found(); }
   // The wrapped core scraper, for callers that need to drive it directly
   // (e.g. the ScreenshotService around the HTTP API).
-  poker::TableScraper* core_scraper() { return &scraper_; }
+  glance::TableScraper* core_scraper() { return &scraper_; }
 
  private:
-  poker::TableScraper scraper_;
+  glance::TableScraper scraper_;
 };
 
-}  // namespace poker::acr
+}  // namespace glance::acr

@@ -13,7 +13,7 @@ namespace {
 
 void usage() {
   std::fprintf(stderr,
-               "usage: poker-apis-server <table-mapping.json> [port]\n"
+               "usage: glance-server <table-mapping.json> [port]\n"
                "  <table-mapping.json>  path to the ACR table mapping JSON\n"
                "  [port]                HTTP port (default 8000)\n");
 }
@@ -29,12 +29,12 @@ int main(int argc, char** argv) {
   int port = 8000;
   if (argc >= 3) port = std::atoi(argv[2]);
 
-  poker::acr::AcrScraper acr;
+  glance::acr::AcrScraper acr;
   if (!acr.load_mapping(mapping_path)) {
     std::fprintf(stderr, "failed to load mapping: %s\n", acr.error().c_str());
     return 1;
   }
-  poker::ScreenshotService service(acr.core_scraper());
+  glance::ScreenshotService service(acr.core_scraper());
 
   httplib::Server srv;
 
@@ -71,6 +71,6 @@ int main(int argc, char** argv) {
     res.set_content(service.state_json().dump(), "application/json");
   });
 
-  std::fprintf(stderr, "poker-apis server listening on :%d\n", port);
+  std::fprintf(stderr, "glance server listening on :%d\n", port);
   return srv.listen("0.0.0.0", port) ? 0 : 1;
 }

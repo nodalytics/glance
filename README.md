@@ -1,7 +1,12 @@
-# poker-apis
+# Glance
 
-C++ (CMake, OpenCV, cpp-httplib) tool for screen-scraping [ACR Poker](https://www.acrpoker.eu/)
-6-max tables: template match + OCR on a grab of the poker window, exposed over a small HTTP API.
+**For poker platforms without APIs, Glance is the way in.** A C++ (CMake,
+OpenCV, cpp-httplib) screen-scraping tool that turns a grab of the
+[ACR Poker](https://www.acrpoker.eu/) table window into clean JSON — template
+match for the fixed elements, OCR for the numbers — exposed over a small HTTP
+API, with a roadmap toward sending controls back to the screen.
+[docs/README.md](glance/docs/README.md) has the vision, roadmap and
+architecture.
 
 ## Prerequisites
 
@@ -16,19 +21,20 @@ fetched by CMake at configure time (FetchContent) — nothing else to install.
 ## Build
 
 ```sh
+cd glance
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j$(nproc)
 ```
 
 Targets:
 
-- `poker-apis-server` — the HTTP API
-- `poker-selftest` — synthesized-scenario end-to-end test (`ctest --test-dir build` runs it)
+- `glance-server` — the HTTP API
+- `glance-selftest` — synthesized-scenario end-to-end test (`ctest --test-dir build` runs it)
 
 ## Run the server
 
 ```sh
-build/poker-apis-server path/to/mapping.json [port]   # default port 8000
+build/glance-server path/to/mapping.json [port]   # default port 8000
 ```
 
 - `GET /health` — liveness
@@ -46,9 +52,9 @@ curl -s -X POST -H 'Content-Type: application/octet-stream' \
 ## Selftest
 
 ```sh
-build/poker-selftest
+build/glance-selftest
 # optional: leave generated mapping + screenshot around for server smoke tests
-build/poker-selftest --fixtures /tmp/acr-fixtures
+build/glance-selftest --fixtures /tmp/acr-fixtures
 ```
 
 The selftest synthesizes its own scenario (anchor, cards, button, dealer, a
@@ -65,16 +71,19 @@ which template PNGs to look for and where each field sits. See
 ## Layout
 
 ```
-poker-apis/
-├── CMakeLists.txt
-├── core/              # generic engine: mapping, template match, OCR, scraper, service
-│   ├── include/
-│   └── src/
-├── acr/               # ACR-specific scraper (wraps the core engine)
-├── server/            # HTTP entry point (cpp-httplib)
-├── tools/selftest.cpp
-├── testdata/          # example mapping
-└── docs/acr.md        # ACR scraping docs + technique
+glance/              # repo root
+├── glance/          # the C++ project
+│   ├── CMakeLists.txt
+│   ├── core/                      # generic engine: mapping, template match,
+│   │   ├── include/               #   OCR, scraper, service (no poker knowledge)
+│   │   └── src/
+│   ├── acr/                       # ACR-specific scraper (wraps the core engine)
+│   ├── server/main.cpp            # HTTP entry point (cpp-httplib)
+│   ├── tools/selftest.cpp
+│   ├── testdata/                  # example table mapping
+│   └── docs/                      # README.md (vision + roadmap),
+│                                  #   architecture.md, acr.md (technique)
+└── research/                      # the original Python prototype + scripts/
 ```
 
 ## Development

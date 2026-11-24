@@ -6,7 +6,7 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
-namespace poker {
+namespace glance {
 
 // A rectangle of pixels, used for both the crop origin and the search areas
 // in a table mapping.
@@ -112,4 +112,4 @@ class TableMapping {
   std::vector<StackArea> stacks_;
 };
 
-}  // namespace poker
+}  // namespace glance

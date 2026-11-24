@@ -6,7 +6,7 @@
 #include <nlohmann/json.hpp>
 #include <opencv2/core.hpp>
 
-namespace poker {
+namespace glance {
 
 class TableScraper;
 
@@ -30,4 +30,4 @@ class ScreenshotService {
   bool has_state_ = false;
 };
 
-}  // namespace poker
+}  // namespace glance

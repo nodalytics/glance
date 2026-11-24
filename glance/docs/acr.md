@@ -11,7 +11,7 @@ All screen-specific scraping lives in `acr/`.
 - New generic scraping code goes in `core/`; ACR-only stuff in `acr/`.
 - Use OpenCV for image processing (`imread`/`imdecode`, `matchTemplate`,
   `cvtColor`, `threshold`). No GUI.
-- OCR is optional: `poker::ocr_available()` gates every numeric read. The
+- OCR is optional: `glance::ocr_available()` gates every numeric read. The
   selftest passes without tesseract.
 
 ## Technique

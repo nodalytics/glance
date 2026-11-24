@@ -14,7 +14,7 @@
 
 namespace fs = std::filesystem;
 
-namespace poker {
+namespace glance {
 
 namespace {
 
@@ -304,4 +304,4 @@ std::optional<TableState> TableScraper::scrape(const cv::Mat& screenshot) {
   return state;
 }
 
-}  // namespace poker
+}  // namespace glance
