@@ -115,6 +115,8 @@ int main(int argc, char** argv) {
   const cv::Mat card_ks = make_pattern(36, 48, 204);
   const cv::Mat card_qh = make_pattern(36, 48, 205);
   const cv::Mat covered = make_pattern(36, 48, 206);
+  const cv::Mat card_ad = make_pattern(36, 48, 207);  // same rank as Ah, other suit
+  const cv::Mat card_empty = make_pattern(36, 48, 208);
   const cv::Mat call_btn = make_pattern(80, 40, 301);
   const cv::Mat dealer_chip = make_pattern(28, 28, 401);
 
@@ -134,6 +136,8 @@ int main(int argc, char** argv) {
   paste(card_qh, 332, 200);  // board3
   paste(covered, 60, 60);    // p2_hand1
   paste(covered, 110, 60);   // p2_hand2
+  paste(card_ad, 400, 60);   // p4_hand1 — suit must not collapse into Ah
+  paste(card_empty, 460, 60);  // p5_hand1 — "empty" sentinel, not a card
   paste(call_btn, 250, 340);  // call button -> my turn
   paste(dealer_chip, 160, 60);  // button on p3
   // Number regions (white text on the dark background for OCR).
@@ -153,6 +157,8 @@ int main(int argc, char** argv) {
   write_img(base / "cards" / "Ks.png", card_ks);
   write_img(base / "cards" / "Qh.png", card_qh);
   write_img(base / "cards" / "covered.png", covered);
+  write_img(base / "cards" / "Ad.png", card_ad);
+  write_img(base / "cards" / "empty.png", card_empty);
 
   nlohmann::json m;
   m["name"] = "selftest";
@@ -167,11 +173,14 @@ int main(int argc, char** argv) {
   cards["board1"] = {240, 200, 276, 248};
   cards["board2"] = {286, 200, 322, 248};
   cards["board3"] = {332, 200, 368, 248};
+  cards["board4"] = {378, 200, 414, 248};  // defined, nothing planted
   cards["p2_hand1"] = {60, 60, 96, 108};
   cards["p2_hand2"] = {110, 60, 146, 108};
+  cards["p4_hand1"] = {400, 60, 436, 108};
+  cards["p5_hand1"] = {460, 60, 496, 108};
   m["cards"] = cards;
-  m["card_templates"] = {"cards/Ah.png", "cards/2c.png", "cards/7d.png", "cards/Ks.png",
-                         "cards/Qh.png", "cards/covered.png"};
+  m["card_templates"] = {"cards/Ad.png", "cards/Ah.png", "cards/2c.png", "cards/7d.png",
+                         "cards/Ks.png", "cards/Qh.png", "cards/covered.png", "cards/empty.png"};
   nlohmann::json buttons = nlohmann::json::object();
   buttons["call"] = {{"template", "templates/call.png"}, {"area", {250, 340, 330, 380}}};
   m["buttons"] = buttons;
@@ -252,6 +261,12 @@ int main(int argc, char** argv) {
               s.seats[my_i].cards[0] == "Ah" && s.seats[my_i].cards[1] == "2c",
           "my hole cards Ah 2c");
     CHECK(s.seats[1].in_hand, "opponent p2 in hand (covered cards)");
+    CHECK(static_cast<int>(s.board.size()) == 3, "unpainted board4 does not invent a 4th card");
+    CHECK(s.seats[3].cards.size() == 1 && s.seats[3].cards[0] == "Ad",
+          "Ad template does not match as Ah");
+    CHECK(s.seats[0].cards[0] == "Ah", "Ah template does not match as Ad");
+    CHECK(!s.seats[4].in_hand && s.seats[4].cards.empty(),
+          "empty card id is not a dealt card");
     if (s.dealer_position)
       CHECK(*s.dealer_position == 2, "button on p3");
     else
@@ -300,7 +315,37 @@ int main(int argc, char** argv) {
     CHECK(service.state_json()["stage"] == "Flop", "service state matches");
     std::vector<unsigned char> junk{1, 2, 3};
     CHECK(!service.update(junk), "service rejects undecodable bytes");
+
+    cv::Mat preflop = make_background(shot_w, shot_h, 8);
+    anchor.copyTo(preflop(cv::Rect(anchor_at.x, anchor_at.y, anchor.cols, anchor.rows)));
+    card_ah.copyTo(preflop(cv::Rect(anchor_at.x + 60, anchor_at.y + 300, card_ah.cols, card_ah.rows)));
+    card_2c.copyTo(preflop(cv::Rect(anchor_at.x + 110, anchor_at.y + 300, card_2c.cols, card_2c.rows)));
+    auto pre = scraper.scrape(preflop);
+    CHECK(pre.has_value() && pre->board.empty(), "preflop board is empty");
+    if (pre && pre->game_stage)
+      CHECK(*pre->game_stage == "PreFlop", "no board cards -> PreFlop");
+    else
+      CHECK(false, "no board cards -> PreFlop");
+    CHECK(pre.has_value() && pre->seats[0].cards.size() == 2 && pre->seats[0].cards[0] == "Ah" &&
+              pre->seats[0].cards[1] == "2c",
+          "preflop hole cards still Ah 2c");
   }
+
+  auto expect_num = [](const char* what, const std::string& text, double expected) {
+    auto v = glance::parse_ocr_number_text(text);
+    bool ok = v && std::fabs(*v - expected) < 1e-9;
+    std::printf("  %s: ocr text %s\n", ok ? "ok" : "FAIL", what);
+    if (!ok) ++failures;
+  };
+  expect_num("243.50", "243.50", 243.5);
+  expect_num("$1,200", "$1,200", 1200.0);
+  expect_num("1,200.50", "1,200.50", 1200.5);
+  expect_num("1.200,50", "1.200,50", 1200.5);
+  expect_num("12,5", "12,5", 12.5);
+  expect_num("1200B", "1200B", 1200.0);
+  CHECK(!glance::parse_ocr_number_text("-5").has_value(), "ocr text rejects a minus");
+  CHECK(!glance::parse_ocr_number_text("abc").has_value(), "ocr text rejects non-numeric");
+  CHECK(!glance::parse_ocr_number_text("1.2.3").has_value(), "ocr text rejects an extra dot");
 
   // --- fixture mode ------------------------------------------------------------
   if (!fixture_dir.empty()) {

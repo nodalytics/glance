@@ -24,11 +24,23 @@ The repository's documented purpose, from `README.md`, is a C++ screen-scraping 
   - Files: `README.md` and `AGENTS.md` (3 insertions and 3 deletions in each; 6 insertions and 6 deletions in the commit)
   - Local only. Not on `origin/main`.
 
-No other commits exist on this branch beyond that baseline.
+- `ae4a5a1b5ae033241214fc7df1f1b900d46ad4fa` — `docs: add independent development log`
+  - Adds this file. Local only. Not pushed.
+
+Working tree after that commit, not committed:
+
+- `research/batch_extract.py` — posts saved PNG/JPEG files to `POST /capture` and appends states to a timestamped JSONL file. Consecutive identical states are skipped.
+- `research/format_history.py` — rewrites a glance state into street, board, pot, stacks, bets, and seat labels derived from the dealer seat.
+- `research/tests/test_offline_pipeline.py` — standard-library `unittest` for dedup, image listing, non-200 filtering, seat labels, and omitted numbers.
+- `README.md` — short usage notes for those scripts and the unit tests.
+- `glance/core/include/ocr.h`, `glance/core/src/ocr.cpp` — number-text parsing, including thousands separators, is a separate function.
+- `glance/tools/selftest.cpp` — extra synthetic checks for a distinct suit, an empty card id, an unpainted board slot, a preflop frame, and the number-text parser.
+
+No live window capture, pointer control, or action endpoint was added.
 
 ## Current milestone
 
-Branch and this tracking document. No feature milestone has been started here.
+Offline saved-screenshot logging and history formatting, with extra synthetic checks. The C++ selftest has not been run for these checks.
 
 ## Pending tasks
 
@@ -38,7 +50,10 @@ None recorded.
 
 - `git show 3decc87` confirms the documentation commit, its parent, and the two files above.
 - `git status` before this document was created: `main`, clean, ahead of `origin/main` by 1 commit.
-- No configure, build, or test command was run for this entry.
+- No configure, build, or test command was run for the initial log entry.
+- A local Python check of `format_state`, JSONL wrapping, and `canonical_state` equality passed. `glance-selftest` was not built or run.
+- `python -m unittest discover -s research/tests -v` reported `Ran 7 tests` and `OK`.
+- This Windows machine has no `cmake`, `g++`, or `wsl`, so the C++ selftest was not compiled here. `.github/workflows/ci.yml` is what runs that selftest on a pull request.
 
 ## Known blockers
 

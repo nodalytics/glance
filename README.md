@@ -64,6 +64,25 @@ The selftest synthesizes its own scenario (anchor, cards, button, dealer, a
 screenshot with text numbers), writes a real mapping file and image to disk, and
 runs the full pipeline. Numeric checks are skipped when tesseract is absent.
 
+## Offline screenshots
+
+`research/batch_extract.py` posts saved PNG and JPEG files to a running
+`glance-server`. It does not capture the screen. Consecutive frames with the
+same parsed state are not written twice. The default endpoint is
+`http://127.0.0.1:8000/capture`.
+
+```sh
+python research/batch_extract.py path/to/frames
+python research/format_history.py session_states_<UTC>.jsonl --output history.jsonl
+```
+
+`research/format_history.py` rewrites each glance state into street, board,
+pot, hero, dealer seat, and seats. Unread stacks, bets, and pot are left out.
+
+```sh
+python -m unittest discover -s research/tests -v
+```
+
 ## Table mapping
 
 The server is driven by a table-mapping JSON (the "table skin" descriptor):
@@ -86,7 +105,7 @@ glance/              # repo root
 │   ├── testdata/                  # example table mapping
 │   └── docs/                      # README.md (vision + roadmap),
 │                                  #   architecture.md, acr.md (technique)
-└── research/                      # Python notebook environment + host setup scripts
+└── research/                      # offline screenshot scripts, unit tests, notebook env
 ```
 
 ## Development
