@@ -5,7 +5,7 @@ OpenCV, cpp-httplib) screen-scraping tool that turns a grab of the
 [ACR Poker](https://www.acrpoker.eu/) table window into clean JSON — template
 match for the fixed elements, OCR for the numbers — exposed over a small HTTP
 API, with a roadmap toward sending controls back to the screen.
-[docs/README.md](glance/docs/README.md) has the vision, roadmap and
+[glance/docs/README.md](glance/docs/README.md) has the vision, roadmap and
 architecture.
 
 ## Prerequisites
@@ -68,7 +68,7 @@ runs the full pipeline. Numeric checks are skipped when tesseract is absent.
 
 The server is driven by a table-mapping JSON (the "table skin" descriptor):
 which template PNGs to look for and where each field sits. See
-[docs/acr.md](docs/acr.md) for the format and the scraping technique, and
+[glance/docs/acr.md](glance/docs/acr.md) for the format and the scraping technique, and
 `testdata/acr.example.json` for a starter.
 
 ## Layout
@@ -86,7 +86,7 @@ glance/              # repo root
 │   ├── testdata/                  # example table mapping
 │   └── docs/                      # README.md (vision + roadmap),
 │                                  #   architecture.md, acr.md (technique)
-└── research/                      # the original Python prototype + scripts/
+└── research/                      # Python notebook environment + host setup scripts
 ```
 
 ## Development

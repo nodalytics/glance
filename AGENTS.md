@@ -5,8 +5,8 @@
 `glance` is a C++ (CMake, C++20) screen-scraping and control tool: OpenCV
 template matching + tesseract OCR on a grab of a window (first target:
 [ACR Poker](https://www.acrpoker.eu/) tables), served over cpp-httplib. The C++
-project lives in `glance/`; the old Python prototype is preserved in
-`research/`.
+project lives in `glance/`. `research/` holds a Python notebook
+environment and the host setup scripts.
 
 ## Commands
 
@@ -49,7 +49,7 @@ glance/              # repo root
 │   ├── tools/selftest.cpp # synthesized-scenario end-to-end test
 │   ├── testdata/          # example table mapping
 │   └── docs/              # README.md (vision + roadmap), acr.md (technique)
-└── research/          # original Python prototype + scripts/ (lab setup)
+└── research/          # notebook environment + host setup scripts
 ```
 
 - New generic scraping/control code goes in `glance/core/`; ACR-only stuff in
