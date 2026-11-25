@@ -1,0 +1,1137 @@
+{
+    "summary": {
+        "total_slots": 35,
+        "occupied_slots": 27,
+        "empty_slots": 8,
+        "correct_ranks": 27,
+        "correct_suits": 16,
+        "correct_cards": 16,
+        "rejected_cards": 11,
+        "incorrect_accepted_cards": 0,
+        "empty_slots_rejected": 8,
+        "empty_slots_false_positive": 0,
+        "rank_accuracy": 1.0,
+        "suit_accuracy": 0.5925925925925926,
+        "card_accuracy": 0.5925925925925926,
+        "empty_rejection_rate": 1.0,
+        "overall_slot_accuracy": 0.6857142857142857,
+        "passed": false,
+        "total_datasets": 5,
+        "passed_datasets": 1,
+        "failed_datasets": 4,
+        "total_time_seconds": 151.985
+    },
+    "summary_by_type": {
+        "calibration": {
+            "total_slots": 7,
+            "occupied_slots": 7,
+            "empty_slots": 0,
+            "correct_ranks": 7,
+            "correct_suits": 7,
+            "correct_cards": 7,
+            "rejected_cards": 0,
+            "incorrect_accepted_cards": 0,
+            "empty_slots_rejected": 0,
+            "empty_slots_false_positive": 0,
+            "rank_accuracy": 1.0,
+            "suit_accuracy": 1.0,
+            "card_accuracy": 1.0,
+            "empty_rejection_rate": null,
+            "overall_slot_accuracy": 1.0,
+            "passed": true
+        },
+        "synthetic": {
+            "total_slots": 28,
+            "occupied_slots": 20,
+            "empty_slots": 8,
+            "correct_ranks": 20,
+            "correct_suits": 9,
+            "correct_cards": 9,
+            "rejected_cards": 11,
+            "incorrect_accepted_cards": 0,
+            "empty_slots_rejected": 8,
+            "empty_slots_false_positive": 0,
+            "rank_accuracy": 1.0,
+            "suit_accuracy": 0.45,
+            "card_accuracy": 0.45,
+            "empty_rejection_rate": 1.0,
+            "overall_slot_accuracy": 0.6071428571428571,
+            "passed": false
+        }
+    },
+    "datasets": [
+        {
+            "dataset_id": "calibration_sample_001",
+            "type": "calibration",
+            "street": "river",
+            "summary": {
+                "total_slots": 7,
+                "occupied_slots": 7,
+                "empty_slots": 0,
+                "correct_ranks": 7,
+                "correct_suits": 7,
+                "correct_cards": 7,
+                "rejected_cards": 0,
+                "incorrect_accepted_cards": 0,
+                "empty_slots_rejected": 0,
+                "empty_slots_false_positive": 0,
+                "rank_accuracy": 1.0,
+                "suit_accuracy": 1.0,
+                "card_accuracy": 1.0,
+                "empty_rejection_rate": null,
+                "overall_slot_accuracy": 1.0,
+                "passed": true,
+                "recognition_time_seconds": 30.257
+            },
+            "slots": [
+                {
+                    "slot_name": "board_1",
+                    "expected": {
+                        "rank": "A",
+                        "suit": "hearts"
+                    },
+                    "actual": {
+                        "rank": "A",
+                        "rank_confidence": 0.9982323050498962,
+                        "rank_source": "primary",
+                        "suit": "hearts",
+                        "suit_confidence": 1.0,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.14576365655346035,
+                        "suit_scores": {
+                            "hearts": 1.0,
+                            "diamonds": 0.8542363434465396,
+                            "spades": 0.6598806324583962,
+                            "clubs": 0.6207184927753133
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_2",
+                    "expected": {
+                        "rank": "8",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "8",
+                        "rank_confidence": 0.9998840093612671,
+                        "rank_source": "primary",
+                        "suit": "spades",
+                        "suit_confidence": 1.0,
+                        "suit_source": "board_region_1",
+                        "suit_margin": 0.16379100729267349,
+                        "suit_scores": {
+                            "spades": 1.0,
+                            "diamonds": 0.8362089927073265,
+                            "hearts": 0.7087192877993869,
+                            "clubs": 0.6645086371756939
+                        },
+                        "suit_color": "black",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_3",
+                    "expected": {
+                        "rank": "J",
+                        "suit": "hearts"
+                    },
+                    "actual": {
+                        "rank": "J",
+                        "rank_confidence": 0.9996040463447571,
+                        "rank_source": "primary",
+                        "suit": "hearts",
+                        "suit_confidence": 0.9847288167693409,
+                        "suit_source": "board_region_1",
+                        "suit_margin": 0.1495739901433627,
+                        "suit_scores": {
+                            "hearts": 0.9847288167693409,
+                            "diamonds": 0.8351548266259782,
+                            "spades": 0.6219224225749834,
+                            "clubs": 0.6029002399320583
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_4",
+                    "expected": {
+                        "rank": "J",
+                        "suit": "diamonds"
+                    },
+                    "actual": {
+                        "rank": "J",
+                        "rank_confidence": 0.979292631149292,
+                        "rank_source": "primary",
+                        "suit": "diamonds",
+                        "suit_confidence": 1.0,
+                        "suit_source": "board_region_2",
+                        "suit_margin": 0.10698885085486198,
+                        "suit_scores": {
+                            "diamonds": 1.0,
+                            "spades": 0.893011149145138,
+                            "hearts": 0.8296909545793557,
+                            "clubs": 0.6631662366617125
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_5",
+                    "expected": {
+                        "rank": "2",
+                        "suit": "hearts"
+                    },
+                    "actual": {
+                        "rank": "2",
+                        "rank_confidence": 0.9946640729904175,
+                        "rank_source": "primary",
+                        "suit": "hearts",
+                        "suit_confidence": 0.9546597127036658,
+                        "suit_source": "board_region_2",
+                        "suit_margin": 0.0929855367443817,
+                        "suit_scores": {
+                            "hearts": 0.9546597127036658,
+                            "diamonds": 0.8616741759592841,
+                            "spades": 0.6368737697495886,
+                            "clubs": 0.6098184156216956
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "hero_card_1",
+                    "expected": {
+                        "rank": "Q",
+                        "suit": "clubs"
+                    },
+                    "actual": {
+                        "rank": "Q",
+                        "rank_confidence": 0.9699069857597351,
+                        "rank_source": "top_left_fallback",
+                        "suit": "clubs",
+                        "suit_confidence": 1.0,
+                        "suit_source": "hero_1_region_0",
+                        "suit_margin": 0.3356328026509977,
+                        "suit_scores": {
+                            "clubs": 1.0,
+                            "diamonds": 0.6643671973490023,
+                            "spades": 0.6608968464158307,
+                            "hearts": 0.6076905520543192
+                        },
+                        "suit_color": "black",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "hero_card_2",
+                    "expected": {
+                        "rank": "10",
+                        "suit": "clubs"
+                    },
+                    "actual": {
+                        "rank": "10",
+                        "rank_confidence": 0.99997878074646,
+                        "rank_source": "top_left_fallback",
+                        "suit": "clubs",
+                        "suit_confidence": 0.8214871277295925,
+                        "suit_source": "hero_2_region_0",
+                        "suit_margin": 0.09221533461073372,
+                        "suit_scores": {
+                            "clubs": 0.8214871277295925,
+                            "diamonds": 0.7292717931188588,
+                            "spades": 0.7069237016819865,
+                            "hearts": 0.6662066845720682
+                        },
+                        "suit_color": "black",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                }
+            ]
+        },
+        {
+            "dataset_id": "preflop_sample_001",
+            "type": "synthetic",
+            "street": "preflop",
+            "summary": {
+                "total_slots": 7,
+                "occupied_slots": 2,
+                "empty_slots": 5,
+                "correct_ranks": 2,
+                "correct_suits": 0,
+                "correct_cards": 0,
+                "rejected_cards": 2,
+                "incorrect_accepted_cards": 0,
+                "empty_slots_rejected": 5,
+                "empty_slots_false_positive": 0,
+                "rank_accuracy": 1.0,
+                "suit_accuracy": 0.0,
+                "card_accuracy": 0.0,
+                "empty_rejection_rate": 1.0,
+                "overall_slot_accuracy": 0.7142857142857143,
+                "passed": false,
+                "recognition_time_seconds": 20.587
+            },
+            "slots": [
+                {
+                    "slot_name": "board_1",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_2",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_3",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_4",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_5",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "hero_card_1",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "4",
+                        "suit": "hearts"
+                    },
+                    "actual": {
+                        "rank": "4",
+                        "rank_confidence": 0.9999885559082031,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "unknown",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                },
+                {
+                    "slot_name": "hero_card_2",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "K",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "K",
+                        "rank_confidence": 0.9999589920043945,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.5394304058956215,
+                        "suit_source": "hero_2_region_1",
+                        "suit_margin": 0.05069190072705232,
+                        "suit_scores": {
+                            "diamonds": 0.5394304058956215,
+                            "hearts": 0.4887385051685692,
+                            "clubs": 0.474097434891148,
+                            "spades": 0.4549828011796124
+                        },
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                }
+            ]
+        },
+        {
+            "dataset_id": "flop_sample_001",
+            "type": "synthetic",
+            "street": "flop",
+            "summary": {
+                "total_slots": 7,
+                "occupied_slots": 5,
+                "empty_slots": 2,
+                "correct_ranks": 5,
+                "correct_suits": 3,
+                "correct_cards": 3,
+                "rejected_cards": 2,
+                "incorrect_accepted_cards": 0,
+                "empty_slots_rejected": 2,
+                "empty_slots_false_positive": 0,
+                "rank_accuracy": 1.0,
+                "suit_accuracy": 0.6,
+                "card_accuracy": 0.6,
+                "empty_rejection_rate": 1.0,
+                "overall_slot_accuracy": 0.7142857142857143,
+                "passed": false,
+                "recognition_time_seconds": 30.178
+            },
+            "slots": [
+                {
+                    "slot_name": "board_1",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "A",
+                        "suit": "diamonds"
+                    },
+                    "actual": {
+                        "rank": "A",
+                        "rank_confidence": 0.9915863275527954,
+                        "rank_source": "top_left_fallback",
+                        "suit": "diamonds",
+                        "suit_confidence": 0.7784555544087783,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.05478675848774239,
+                        "suit_scores": {
+                            "diamonds": 0.7784555544087783,
+                            "hearts": 0.723668795921036,
+                            "spades": 0.6339685068465074,
+                            "clubs": 0.603819509807477
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_2",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "3",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "3",
+                        "rank_confidence": 0.9999972581863403,
+                        "rank_source": "top_left_fallback",
+                        "suit": "spades",
+                        "suit_confidence": 0.957444614960229,
+                        "suit_source": "board_region_1",
+                        "suit_margin": 0.1608292319635235,
+                        "suit_scores": {
+                            "spades": 0.957444614960229,
+                            "diamonds": 0.7966153829967055,
+                            "clubs": 0.7434728813206479,
+                            "hearts": 0.7220136974152711
+                        },
+                        "suit_color": "black",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_3",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "10",
+                        "suit": "diamonds"
+                    },
+                    "actual": {
+                        "rank": "10",
+                        "rank_confidence": 0.9999966621398926,
+                        "rank_source": "top_left_fallback",
+                        "suit": "diamonds",
+                        "suit_confidence": 0.7784555544087783,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.05478675848774239,
+                        "suit_scores": {
+                            "diamonds": 0.7784555544087783,
+                            "hearts": 0.723668795921036,
+                            "spades": 0.6339685068465074,
+                            "clubs": 0.603819509807477
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_4",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_5",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "hero_card_1",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "J",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "J",
+                        "rank_confidence": 0.9998036026954651,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "unknown",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                },
+                {
+                    "slot_name": "hero_card_2",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "J",
+                        "suit": "clubs"
+                    },
+                    "actual": {
+                        "rank": "J",
+                        "rank_confidence": 0.9998906850814819,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.638725511921684,
+                        "suit_source": "hero_2_region_1",
+                        "suit_margin": 0.031184895609131957,
+                        "suit_scores": {
+                            "diamonds": 0.638725511921684,
+                            "hearts": 0.6075406163125521,
+                            "clubs": 0.5476984395531095,
+                            "spades": 0.5184673700928136
+                        },
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                }
+            ]
+        },
+        {
+            "dataset_id": "turn_sample_001",
+            "type": "synthetic",
+            "street": "turn",
+            "summary": {
+                "total_slots": 7,
+                "occupied_slots": 6,
+                "empty_slots": 1,
+                "correct_ranks": 6,
+                "correct_suits": 2,
+                "correct_cards": 2,
+                "rejected_cards": 4,
+                "incorrect_accepted_cards": 0,
+                "empty_slots_rejected": 1,
+                "empty_slots_false_positive": 0,
+                "rank_accuracy": 1.0,
+                "suit_accuracy": 0.3333333333333333,
+                "card_accuracy": 0.3333333333333333,
+                "empty_rejection_rate": 1.0,
+                "overall_slot_accuracy": 0.42857142857142855,
+                "passed": false,
+                "recognition_time_seconds": 33.895
+            },
+            "slots": [
+                {
+                    "slot_name": "board_1",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "Q",
+                        "suit": "hearts"
+                    },
+                    "actual": {
+                        "rank": "Q",
+                        "rank_confidence": 0.999993085861206,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.7676759603488581,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.034924419012454244,
+                        "suit_scores": {
+                            "hearts": 0.7676759603488581,
+                            "diamonds": 0.7327515413364039,
+                            "spades": 0.723220892322985,
+                            "clubs": 0.6851359064891978
+                        },
+                        "suit_color": "red",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                },
+                {
+                    "slot_name": "board_2",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "3",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "3",
+                        "rank_confidence": 0.9999972581863403,
+                        "rank_source": "top_left_fallback",
+                        "suit": "spades",
+                        "suit_confidence": 0.957444614960229,
+                        "suit_source": "board_region_1",
+                        "suit_margin": 0.1608292319635235,
+                        "suit_scores": {
+                            "spades": 0.957444614960229,
+                            "diamonds": 0.7966153829967055,
+                            "clubs": 0.7434728813206479,
+                            "hearts": 0.7220136974152711
+                        },
+                        "suit_color": "black",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_3",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "K",
+                        "suit": "clubs"
+                    },
+                    "actual": {
+                        "rank": "K",
+                        "rank_confidence": 0.9999184608459473,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.8171284691465716,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.04434313595065298,
+                        "suit_scores": {
+                            "diamonds": 0.8171284691465716,
+                            "hearts": 0.7727853331959186,
+                            "spades": 0.7305894075603582,
+                            "clubs": 0.7123730990445032
+                        },
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                },
+                {
+                    "slot_name": "board_4",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "4",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "4",
+                        "rank_confidence": 0.9999923706054688,
+                        "rank_source": "top_left_fallback",
+                        "suit": "spades",
+                        "suit_confidence": 0.957444614960229,
+                        "suit_source": "board_region_1",
+                        "suit_margin": 0.1608292319635235,
+                        "suit_scores": {
+                            "spades": 0.957444614960229,
+                            "diamonds": 0.7966153829967055,
+                            "clubs": 0.7434728813206479,
+                            "hearts": 0.7220136974152711
+                        },
+                        "suit_color": "black",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_5",
+                    "expected": {
+                        "occupied": false,
+                        "rank": null,
+                        "suit": null
+                    },
+                    "actual": {
+                        "rank": null,
+                        "rank_confidence": 0.0,
+                        "rank_source": null,
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": null,
+                    "suit_correct": null,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "hero_card_1",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "2",
+                        "suit": "clubs"
+                    },
+                    "actual": {
+                        "rank": "2",
+                        "rank_confidence": 0.9999985694885254,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "unknown",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                },
+                {
+                    "slot_name": "hero_card_2",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "6",
+                        "suit": "clubs"
+                    },
+                    "actual": {
+                        "rank": "6",
+                        "rank_confidence": 0.9999797344207764,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.638725511921684,
+                        "suit_source": "hero_2_region_1",
+                        "suit_margin": 0.031184895609131957,
+                        "suit_scores": {
+                            "diamonds": 0.638725511921684,
+                            "hearts": 0.6075406163125521,
+                            "clubs": 0.5476984395531095,
+                            "spades": 0.5184673700928136
+                        },
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                }
+            ]
+        },
+        {
+            "dataset_id": "river_sample_001",
+            "type": "synthetic",
+            "street": "river",
+            "summary": {
+                "total_slots": 7,
+                "occupied_slots": 7,
+                "empty_slots": 0,
+                "correct_ranks": 7,
+                "correct_suits": 4,
+                "correct_cards": 4,
+                "rejected_cards": 3,
+                "incorrect_accepted_cards": 0,
+                "empty_slots_rejected": 0,
+                "empty_slots_false_positive": 0,
+                "rank_accuracy": 1.0,
+                "suit_accuracy": 0.5714285714285714,
+                "card_accuracy": 0.5714285714285714,
+                "empty_rejection_rate": null,
+                "overall_slot_accuracy": 0.5714285714285714,
+                "passed": false,
+                "recognition_time_seconds": 36.924
+            },
+            "slots": [
+                {
+                    "slot_name": "board_1",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "K",
+                        "suit": "diamonds"
+                    },
+                    "actual": {
+                        "rank": "K",
+                        "rank_confidence": 0.9977613687515259,
+                        "rank_source": "primary",
+                        "suit": "diamonds",
+                        "suit_confidence": 0.7784555544087783,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.05478675848774239,
+                        "suit_scores": {
+                            "diamonds": 0.7784555544087783,
+                            "hearts": 0.723668795921036,
+                            "spades": 0.6339685068465074,
+                            "clubs": 0.603819509807477
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_2",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "5",
+                        "suit": "diamonds"
+                    },
+                    "actual": {
+                        "rank": "5",
+                        "rank_confidence": 0.9999772310256958,
+                        "rank_source": "top_left_fallback",
+                        "suit": "diamonds",
+                        "suit_confidence": 0.7784555544087783,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.05478675848774239,
+                        "suit_scores": {
+                            "diamonds": 0.7784555544087783,
+                            "hearts": 0.723668795921036,
+                            "spades": 0.6339685068465074,
+                            "clubs": 0.603819509807477
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_3",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "8",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "8",
+                        "rank_confidence": 0.999997615814209,
+                        "rank_source": "top_left_fallback",
+                        "suit": "spades",
+                        "suit_confidence": 0.957444614960229,
+                        "suit_source": "board_region_1",
+                        "suit_margin": 0.1608292319635235,
+                        "suit_scores": {
+                            "spades": 0.957444614960229,
+                            "diamonds": 0.7966153829967055,
+                            "clubs": 0.7434728813206479,
+                            "hearts": 0.7220136974152711
+                        },
+                        "suit_color": "black",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "board_4",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "A",
+                        "suit": "clubs"
+                    },
+                    "actual": {
+                        "rank": "A",
+                        "rank_confidence": 0.9992259740829468,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.8171284691465716,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.04434313595065298,
+                        "suit_scores": {
+                            "diamonds": 0.8171284691465716,
+                            "hearts": 0.7727853331959186,
+                            "spades": 0.7305894075603582,
+                            "clubs": 0.7123730990445032
+                        },
+                        "suit_color": "black",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                },
+                {
+                    "slot_name": "board_5",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "A",
+                        "suit": "diamonds"
+                    },
+                    "actual": {
+                        "rank": "A",
+                        "rank_confidence": 0.9915863275527954,
+                        "rank_source": "top_left_fallback",
+                        "suit": "diamonds",
+                        "suit_confidence": 0.7784555544087783,
+                        "suit_source": "board_region_0",
+                        "suit_margin": 0.05478675848774239,
+                        "suit_scores": {
+                            "diamonds": 0.7784555544087783,
+                            "hearts": 0.723668795921036,
+                            "spades": 0.6339685068465074,
+                            "clubs": 0.603819509807477
+                        },
+                        "suit_color": "red",
+                        "recognized": true
+                    },
+                    "rank_correct": true,
+                    "suit_correct": true,
+                    "passed": true,
+                    "status": "PASS"
+                },
+                {
+                    "slot_name": "hero_card_1",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "2",
+                        "suit": "spades"
+                    },
+                    "actual": {
+                        "rank": "2",
+                        "rank_confidence": 0.9999972581863403,
+                        "rank_source": "top_left_fallback",
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "unknown",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                },
+                {
+                    "slot_name": "hero_card_2",
+                    "expected": {
+                        "occupied": true,
+                        "rank": "J",
+                        "suit": "diamonds"
+                    },
+                    "actual": {
+                        "rank": "J",
+                        "rank_confidence": 0.9998534917831421,
+                        "rank_source": "primary",
+                        "suit": null,
+                        "suit_confidence": 0.0,
+                        "suit_source": null,
+                        "suit_margin": 0.0,
+                        "suit_scores": {},
+                        "suit_color": "red",
+                        "recognized": false
+                    },
+                    "rank_correct": true,
+                    "suit_correct": false,
+                    "passed": false,
+                    "status": "REJECTED"
+                }
+            ]
+        }
+    ]
+}

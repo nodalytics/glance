@@ -1,0 +1,221 @@
+{
+    "summary": {
+        "total_tests": 39,
+        "passed_tests": 39,
+        "failed_tests": 0,
+        "total_time_seconds": 0.0201,
+        "passed": true
+    },
+    "configuration": {
+        "name": "poker-apis",
+        "version": "1.0.0",
+        "description": "Offline poker screenshot analysis API",
+        "mode": "offline",
+        "schema_version": "1.0.0",
+        "supported_image_formats": [
+            ".png",
+            ".jpg",
+            ".jpeg",
+            ".bmp"
+        ],
+        "max_upload_size_bytes": 10485760
+    },
+    "failures": [],
+    "results": [
+        {
+            "test": "Default application name",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Offline mode enforced",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Default local server host",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Default server port",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Default API prefix",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Default upload limit",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Default supported formats",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Debug disabled by default",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Swagger enabled by default",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Single processing operation configured",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Temporary cleanup required",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid server port rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Zero server port rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "External host rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Unsupported operating mode rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Negative upload limit rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Excessive upload limit rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid API prefix rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Trailing slash rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid logging level rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Unsupported image format rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Empty image format list rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Concurrent processing override rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Cleanup disabling rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Environment port loaded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Environment boolean loaded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Logging level normalized",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Environment upload limit loaded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Documentation disabled correctly",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "OS environment takes priority",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Missing environment file uses defaults",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Temporary upload directory created",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Output directory created",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Calibration template path resolved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Simulator template path resolved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Configuration is immutable",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Configuration object cached",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Public information matches API model",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Internal paths excluded from public info",
+            "passed": true,
+            "details": null
+        }
+    ]
+}

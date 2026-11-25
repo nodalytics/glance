@@ -1,0 +1,290 @@
+{
+    "summary": {
+        "total_tests": 48,
+        "passed_tests": 48,
+        "failed_tests": 0,
+        "total_time_seconds": 0.858,
+        "passed": true
+    },
+    "service_statistics": {
+        "pipeline_initialized": true,
+        "busy": false,
+        "statistics": {
+            "total_requests": 6,
+            "successful_requests": 2,
+            "failed_requests": 1,
+            "rejected_requests": 3,
+            "busy_requests": 0
+        }
+    },
+    "failures": [],
+    "results": [
+        {
+            "test": "Health endpoint returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Health status is ok",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Offline mode reported",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline initially uninitialized",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Information endpoint returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Application name correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Configured upload limit reported",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Supported image formats reported",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Internal paths not exposed",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Profiles endpoint returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Three profiles returned",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Calibration is default profile",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Template assets detected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Only screenshot profile exposed for analysis",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Information endpoints do not initialize OCR",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Statistics endpoint returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Initial request count is zero",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service initially not busy",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "PNG analysis returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Response matches poker state model",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Valid state returned",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Seven recognized cards returned",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Original filename preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline initialized",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Temporary file cleaned up",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "JPEG analysis returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline reused",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Empty upload returns 400",
+            "passed": true,
+            "details": {
+                "status": 400,
+                "code": "EMPTY_FILE"
+            }
+        },
+        {
+            "test": "Unsupported extension returns 415",
+            "passed": true,
+            "details": {
+                "status": 415,
+                "code": "UNSUPPORTED_FILE_FORMAT"
+            }
+        },
+        {
+            "test": "Unsafe filename returns 400",
+            "passed": true,
+            "details": {
+                "status": 400,
+                "code": "INVALID_FILENAME"
+            }
+        },
+        {
+            "test": "Oversized upload returns 413",
+            "passed": true,
+            "details": {
+                "status": 413,
+                "code": "FILE_TOO_LARGE"
+            }
+        },
+        {
+            "test": "Corrupted image returns 422",
+            "passed": true,
+            "details": {
+                "status": 422,
+                "code": "INVALID_IMAGE"
+            }
+        },
+        {
+            "test": "Image mismatch returns 415",
+            "passed": true,
+            "details": {
+                "status": 415,
+                "code": "IMAGE_FORMAT_MISMATCH"
+            }
+        },
+        {
+            "test": "Unsupported dimensions return 422",
+            "passed": true,
+            "details": {
+                "status": 422,
+                "code": "UNSUPPORTED_IMAGE_DIMENSIONS"
+            }
+        },
+        {
+            "test": "Missing upload returns 422",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline failure returns 500",
+            "passed": true,
+            "details": {
+                "status": 500,
+                "code": "PROCESSING_FAILED"
+            }
+        },
+        {
+            "test": "Temporary file removed after failure",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Busy service returns 503",
+            "passed": true,
+            "details": {
+                "status": 503,
+                "code": "SERVICE_BUSY"
+            }
+        },
+        {
+            "test": "Retry-After header included",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "OpenAPI schema returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "All five API endpoints documented",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Multipart upload documented",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Poker state response schema documented",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Two successful requests recorded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "One processing failure recorded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Three service-level rejections recorded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service available after tests",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No temporary files remain",
+            "passed": true,
+            "details": null
+        }
+    ]
+}

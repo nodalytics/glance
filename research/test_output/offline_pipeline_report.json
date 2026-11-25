@@ -1,0 +1,160 @@
+{
+    "summary": {
+        "total_datasets": 5,
+        "passed_datasets": 5,
+        "failed_datasets": 0,
+        "total_slots": 35,
+        "total_recognized_cards": 27,
+        "total_ocr_skipped": 8,
+        "total_card_mismatches": 0,
+        "total_time_seconds": 257.2924,
+        "loaded_profiles": [
+            "calibration",
+            "simulator_optimized"
+        ],
+        "passed": true
+    },
+    "datasets": [
+        {
+            "dataset_id": "calibration_sample_001",
+            "dataset_type": "calibration",
+            "street": "river",
+            "checks": {
+                "state_valid": true,
+                "validation_passed": true,
+                "street_correct": true,
+                "card_identities_correct": true,
+                "duplicate_count_zero": true,
+                "seven_slots_preserved": true,
+                "ocr_skips_correct": true,
+                "profile_correct": true,
+                "json_serializable": true
+            },
+            "mismatches": [],
+            "statistics": {
+                "total_slots": 7,
+                "ocr_skipped_slots": 0,
+                "recognition_attempts": 7,
+                "recognized_cards": 7
+            },
+            "processing_time_seconds": 89.866715,
+            "passed": true
+        },
+        {
+            "dataset_id": "preflop_sample_001",
+            "dataset_type": "synthetic",
+            "street": "preflop",
+            "checks": {
+                "state_valid": true,
+                "validation_passed": true,
+                "street_correct": true,
+                "card_identities_correct": true,
+                "duplicate_count_zero": true,
+                "seven_slots_preserved": true,
+                "ocr_skips_correct": true,
+                "profile_correct": true,
+                "json_serializable": true
+            },
+            "mismatches": [],
+            "statistics": {
+                "total_slots": 7,
+                "occupied_slots": 2,
+                "empty_slots": 5,
+                "unknown_slots": 0,
+                "ocr_skipped_slots": 5,
+                "recognition_attempts": 2,
+                "recognized_cards": 2,
+                "ocr_skip_rate": 0.7142857142857143
+            },
+            "processing_time_seconds": 27.513259,
+            "passed": true
+        },
+        {
+            "dataset_id": "flop_sample_001",
+            "dataset_type": "synthetic",
+            "street": "flop",
+            "checks": {
+                "state_valid": true,
+                "validation_passed": true,
+                "street_correct": true,
+                "card_identities_correct": true,
+                "duplicate_count_zero": true,
+                "seven_slots_preserved": true,
+                "ocr_skips_correct": true,
+                "profile_correct": true,
+                "json_serializable": true
+            },
+            "mismatches": [],
+            "statistics": {
+                "total_slots": 7,
+                "occupied_slots": 5,
+                "empty_slots": 2,
+                "unknown_slots": 0,
+                "ocr_skipped_slots": 2,
+                "recognition_attempts": 5,
+                "recognized_cards": 5,
+                "ocr_skip_rate": 0.2857142857142857
+            },
+            "processing_time_seconds": 57.193106,
+            "passed": true
+        },
+        {
+            "dataset_id": "turn_sample_001",
+            "dataset_type": "synthetic",
+            "street": "turn",
+            "checks": {
+                "state_valid": true,
+                "validation_passed": true,
+                "street_correct": true,
+                "card_identities_correct": true,
+                "duplicate_count_zero": true,
+                "seven_slots_preserved": true,
+                "ocr_skips_correct": true,
+                "profile_correct": true,
+                "json_serializable": true
+            },
+            "mismatches": [],
+            "statistics": {
+                "total_slots": 7,
+                "occupied_slots": 6,
+                "empty_slots": 1,
+                "unknown_slots": 0,
+                "ocr_skipped_slots": 1,
+                "recognition_attempts": 6,
+                "recognized_cards": 6,
+                "ocr_skip_rate": 0.14285714285714285
+            },
+            "processing_time_seconds": 49.997939,
+            "passed": true
+        },
+        {
+            "dataset_id": "river_sample_001",
+            "dataset_type": "synthetic",
+            "street": "river",
+            "checks": {
+                "state_valid": true,
+                "validation_passed": true,
+                "street_correct": true,
+                "card_identities_correct": true,
+                "duplicate_count_zero": true,
+                "seven_slots_preserved": true,
+                "ocr_skips_correct": true,
+                "profile_correct": true,
+                "json_serializable": true
+            },
+            "mismatches": [],
+            "statistics": {
+                "total_slots": 7,
+                "occupied_slots": 7,
+                "empty_slots": 0,
+                "unknown_slots": 0,
+                "ocr_skipped_slots": 0,
+                "recognition_attempts": 7,
+                "recognized_cards": 7,
+                "ocr_skip_rate": 0.0
+            },
+            "processing_time_seconds": 32.537003,
+            "passed": true
+        }
+    ]
+}

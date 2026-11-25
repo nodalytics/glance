@@ -1,0 +1,625 @@
+{
+    "summary": {
+        "total_tests": 19,
+        "passed_tests": 19,
+        "failed_tests": 0,
+        "accuracy": 1.0,
+        "passed": true
+    },
+    "results": [
+        {
+            "name": "valid_preflop",
+            "expected_valid": true,
+            "expected_errors": [],
+            "actual": {
+                "valid": true,
+                "street": "preflop",
+                "board_count": 0,
+                "hero_count": 2,
+                "occupied_count": 2,
+                "empty_count": 5,
+                "unknown_count": 0,
+                "recognized_cards": 2,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 0,
+                "warning_count": 0,
+                "errors": [],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "valid_flop",
+            "expected_valid": true,
+            "expected_errors": [],
+            "actual": {
+                "valid": true,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 5,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 0,
+                "warning_count": 0,
+                "errors": [],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "valid_turn",
+            "expected_valid": true,
+            "expected_errors": [],
+            "actual": {
+                "valid": true,
+                "street": "turn",
+                "board_count": 4,
+                "hero_count": 2,
+                "occupied_count": 6,
+                "empty_count": 1,
+                "unknown_count": 0,
+                "recognized_cards": 6,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 0,
+                "warning_count": 0,
+                "errors": [],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "valid_river",
+            "expected_valid": true,
+            "expected_errors": [],
+            "actual": {
+                "valid": true,
+                "street": "river",
+                "board_count": 5,
+                "hero_count": 2,
+                "occupied_count": 7,
+                "empty_count": 0,
+                "unknown_count": 0,
+                "recognized_cards": 7,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 0,
+                "warning_count": 0,
+                "errors": [],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "duplicate_board_card",
+            "expected_valid": false,
+            "expected_errors": [
+                "DUPLICATE_CARD"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "river",
+                "board_count": 5,
+                "hero_count": 2,
+                "occupied_count": 7,
+                "empty_count": 0,
+                "unknown_count": 0,
+                "recognized_cards": 7,
+                "duplicate_count": 1,
+                "duplicates": [
+                    {
+                        "rank": "A",
+                        "suit": "hearts",
+                        "slots": [
+                            "board_1",
+                            "board_2"
+                        ]
+                    }
+                ],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "DUPLICATE_CARD",
+                        "message": "Duplicate card detected: A of hearts",
+                        "slots": [
+                            "board_1",
+                            "board_2"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "duplicate_hero_card",
+            "expected_valid": false,
+            "expected_errors": [
+                "DUPLICATE_CARD"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "preflop",
+                "board_count": 0,
+                "hero_count": 2,
+                "occupied_count": 2,
+                "empty_count": 5,
+                "unknown_count": 0,
+                "recognized_cards": 2,
+                "duplicate_count": 1,
+                "duplicates": [
+                    {
+                        "rank": "Q",
+                        "suit": "clubs",
+                        "slots": [
+                            "hero_card_1",
+                            "hero_card_2"
+                        ]
+                    }
+                ],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "DUPLICATE_CARD",
+                        "message": "Duplicate card detected: Q of clubs",
+                        "slots": [
+                            "hero_card_1",
+                            "hero_card_2"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "duplicate_board_and_hero",
+            "expected_valid": false,
+            "expected_errors": [
+                "DUPLICATE_CARD"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 5,
+                "duplicate_count": 1,
+                "duplicates": [
+                    {
+                        "rank": "A",
+                        "suit": "hearts",
+                        "slots": [
+                            "board_1",
+                            "hero_card_1"
+                        ]
+                    }
+                ],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "DUPLICATE_CARD",
+                        "message": "Duplicate card detected: A of hearts",
+                        "slots": [
+                            "board_1",
+                            "hero_card_1"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "invalid_board_count_one",
+            "expected_valid": false,
+            "expected_errors": [
+                "INVALID_BOARD_COUNT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": null,
+                "board_count": 1,
+                "hero_count": 2,
+                "occupied_count": 3,
+                "empty_count": 4,
+                "unknown_count": 0,
+                "recognized_cards": 3,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "INVALID_BOARD_COUNT",
+                        "message": "Invalid community card count: 1",
+                        "slots": [
+                            "board_1",
+                            "board_2",
+                            "board_3",
+                            "board_4",
+                            "board_5"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "invalid_board_count_two",
+            "expected_valid": false,
+            "expected_errors": [
+                "INVALID_BOARD_COUNT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": null,
+                "board_count": 2,
+                "hero_count": 2,
+                "occupied_count": 4,
+                "empty_count": 3,
+                "unknown_count": 0,
+                "recognized_cards": 4,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "INVALID_BOARD_COUNT",
+                        "message": "Invalid community card count: 2",
+                        "slots": [
+                            "board_1",
+                            "board_2",
+                            "board_3",
+                            "board_4",
+                            "board_5"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "community_card_gap",
+            "expected_valid": false,
+            "expected_errors": [
+                "BOARD_GAP"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 5,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 2,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "BOARD_GAP",
+                        "message": "Occupied board slot after an empty slot: board_3",
+                        "slots": [
+                            "board_3"
+                        ]
+                    },
+                    {
+                        "code": "BOARD_GAP",
+                        "message": "Occupied board slot after an empty slot: board_4",
+                        "slots": [
+                            "board_4"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "missing_hero_card",
+            "expected_valid": false,
+            "expected_errors": [
+                "INVALID_HERO_COUNT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 1,
+                "occupied_count": 4,
+                "empty_count": 3,
+                "unknown_count": 0,
+                "recognized_cards": 4,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "INVALID_HERO_COUNT",
+                        "message": "Expected 2 hero cards, found 1.",
+                        "slots": [
+                            "hero_card_1",
+                            "hero_card_2"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "invalid_rank",
+            "expected_valid": false,
+            "expected_errors": [
+                "INVALID_RANK"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 4,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "INVALID_RANK",
+                        "message": "Invalid rank in board_1: 15",
+                        "slots": [
+                            "board_1"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "invalid_suit",
+            "expected_valid": false,
+            "expected_errors": [
+                "INVALID_SUIT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 4,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "INVALID_SUIT",
+                        "message": "Invalid suit in board_1: stars",
+                        "slots": [
+                            "board_1"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "unrecognized_occupied_card",
+            "expected_valid": false,
+            "expected_errors": [
+                "UNRECOGNIZED_CARD"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 4,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "UNRECOGNIZED_CARD",
+                        "message": "Occupied card could not be recognized: board_1.",
+                        "slots": [
+                            "board_1"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "unknown_occupancy",
+            "expected_valid": false,
+            "expected_errors": [
+                "UNKNOWN_OCCUPANCY"
+            ],
+            "actual": {
+                "valid": false,
+                "street": null,
+                "board_count": 2,
+                "hero_count": 2,
+                "occupied_count": 4,
+                "empty_count": 2,
+                "unknown_count": 1,
+                "recognized_cards": 4,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "UNKNOWN_OCCUPANCY",
+                        "message": "Occupancy is unknown for board_2.",
+                        "slots": [
+                            "board_2"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "missing_required_slot",
+            "expected_valid": false,
+            "expected_errors": [
+                "MISSING_SLOT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": null,
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 1,
+                "unknown_count": 1,
+                "recognized_cards": 5,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "MISSING_SLOT",
+                        "message": "Required slot missing: board_5",
+                        "slots": [
+                            "board_5"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "inconsistent_empty_slot",
+            "expected_valid": false,
+            "expected_errors": [
+                "INCONSISTENT_EMPTY_SLOT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 5,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "INCONSISTENT_EMPTY_SLOT",
+                        "message": "board_4 is empty but contains card data.",
+                        "slots": [
+                            "board_4"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "unexpected_slot",
+            "expected_valid": false,
+            "expected_errors": [
+                "UNEXPECTED_SLOT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": "flop",
+                "board_count": 3,
+                "hero_count": 2,
+                "occupied_count": 5,
+                "empty_count": 2,
+                "unknown_count": 0,
+                "recognized_cards": 5,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "UNEXPECTED_SLOT",
+                        "message": "Unexpected card slot: board_6",
+                        "slots": [
+                            "board_6"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        },
+        {
+            "name": "malformed_slot",
+            "expected_valid": false,
+            "expected_errors": [
+                "INVALID_SLOT"
+            ],
+            "actual": {
+                "valid": false,
+                "street": null,
+                "board_count": 2,
+                "hero_count": 2,
+                "occupied_count": 4,
+                "empty_count": 2,
+                "unknown_count": 1,
+                "recognized_cards": 4,
+                "duplicate_count": 0,
+                "duplicates": [],
+                "error_count": 1,
+                "warning_count": 0,
+                "errors": [
+                    {
+                        "code": "INVALID_SLOT",
+                        "message": "board_1 must contain a dictionary.",
+                        "slots": [
+                            "board_1"
+                        ]
+                    }
+                ],
+                "warnings": []
+            },
+            "passed": true
+        }
+    ]
+}

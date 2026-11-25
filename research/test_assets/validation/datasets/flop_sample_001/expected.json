@@ -1,0 +1,43 @@
+{
+    "sample_name": "flop_sample_001",
+    "type": "synthetic",
+    "street": "flop",
+    "board_count": 3,
+    "cards": {
+        "board_1": {
+            "occupied": true,
+            "rank": "A",
+            "suit": "diamonds"
+        },
+        "board_2": {
+            "occupied": true,
+            "rank": "3",
+            "suit": "spades"
+        },
+        "board_3": {
+            "occupied": true,
+            "rank": "10",
+            "suit": "diamonds"
+        },
+        "board_4": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "board_5": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "hero_card_1": {
+            "occupied": true,
+            "rank": "J",
+            "suit": "spades"
+        },
+        "hero_card_2": {
+            "occupied": true,
+            "rank": "J",
+            "suit": "clubs"
+        }
+    }
+}

@@ -1,0 +1,273 @@
+{
+    "schema_version": "1.0.0",
+    "timestamp_utc": "2026-11-24T17:58:37.258445+00:00",
+    "source": "offline_simulator",
+    "status": "valid",
+    "table": {
+        "small_blind": 2500,
+        "big_blind": 5000,
+        "pot": 47500,
+        "prize_pool_display": "$1.12",
+        "first_place_prize_display": "$1.12",
+        "average_stack": 83333,
+        "tournament_position": "12 of 18"
+    },
+    "game": {
+        "variant": "texas_holdem",
+        "street": "turn",
+        "board_count": 4,
+        "hero_card_count": 2,
+        "occupied_count": 6,
+        "recognized_card_count": 6
+    },
+    "cards": {
+        "community": [
+            {
+                "slot": "board_1",
+                "rank": "Q",
+                "suit": "hearts",
+                "rank_confidence": 0.999993085861206,
+                "suit_confidence": 0.9830502316445797,
+                "suit_margin": 0.34560570968369386,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "board_2",
+                "rank": "3",
+                "suit": "spades",
+                "rank_confidence": 0.9999972581863403,
+                "suit_confidence": 0.9771929060329876,
+                "suit_margin": 0.231356953417593,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "board_3",
+                "rank": "K",
+                "suit": "clubs",
+                "rank_confidence": 0.9999184608459473,
+                "suit_confidence": 0.9798659828741322,
+                "suit_margin": 0.2423751147437635,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "board_4",
+                "rank": "4",
+                "suit": "spades",
+                "rank_confidence": 0.9999923706054688,
+                "suit_confidence": 0.9771929060329876,
+                "suit_margin": 0.231356953417593,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            }
+        ],
+        "hero": [
+            {
+                "slot": "hero_card_1",
+                "rank": "2",
+                "suit": "clubs",
+                "rank_confidence": 0.9999985694885254,
+                "suit_confidence": 0.9798659828741322,
+                "suit_margin": 0.2423751147437635,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "hero_card_2",
+                "rank": "6",
+                "suit": "clubs",
+                "rank_confidence": 0.9999797344207764,
+                "suit_confidence": 0.9798659828741322,
+                "suit_margin": 0.2423751147437635,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            }
+        ],
+        "board_slots": [
+            {
+                "slot": "board_1",
+                "rank": "Q",
+                "suit": "hearts",
+                "rank_confidence": 0.999993085861206,
+                "suit_confidence": 0.9830502316445797,
+                "suit_margin": 0.34560570968369386,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "board_2",
+                "rank": "3",
+                "suit": "spades",
+                "rank_confidence": 0.9999972581863403,
+                "suit_confidence": 0.9771929060329876,
+                "suit_margin": 0.231356953417593,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "board_3",
+                "rank": "K",
+                "suit": "clubs",
+                "rank_confidence": 0.9999184608459473,
+                "suit_confidence": 0.9798659828741322,
+                "suit_margin": 0.2423751147437635,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "board_4",
+                "rank": "4",
+                "suit": "spades",
+                "rank_confidence": 0.9999923706054688,
+                "suit_confidence": 0.9771929060329876,
+                "suit_margin": 0.231356953417593,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "board_5",
+                "rank": null,
+                "suit": null,
+                "rank_confidence": 0.0,
+                "suit_confidence": 0.0,
+                "suit_margin": 0.0,
+                "recognized": false,
+                "occupied": false,
+                "occupancy_state": "empty",
+                "ocr_skipped": true
+            }
+        ],
+        "hero_slots": [
+            {
+                "slot": "hero_card_1",
+                "rank": "2",
+                "suit": "clubs",
+                "rank_confidence": 0.9999985694885254,
+                "suit_confidence": 0.9798659828741322,
+                "suit_margin": 0.2423751147437635,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            },
+            {
+                "slot": "hero_card_2",
+                "rank": "6",
+                "suit": "clubs",
+                "rank_confidence": 0.9999797344207764,
+                "suit_confidence": 0.9798659828741322,
+                "suit_margin": 0.2423751147437635,
+                "recognized": true,
+                "occupied": true,
+                "occupancy_state": "occupied",
+                "ocr_skipped": false
+            }
+        ]
+    },
+    "players": [
+        {
+            "seat": "top",
+            "name": "SimulatorPlayer1",
+            "stack": 92500,
+            "bounty_display": "$0.03"
+        },
+        {
+            "seat": "upper_left",
+            "name": "SimulatorPlayer2",
+            "stack": 85000,
+            "bounty_display": "$0.04"
+        }
+    ],
+    "validation": {
+        "valid": true,
+        "error_count": 0,
+        "warning_count": 0,
+        "errors": [],
+        "warnings": [],
+        "card_validation": {
+            "valid": true,
+            "street": "turn",
+            "board_count": 4,
+            "hero_count": 2,
+            "occupied_count": 6,
+            "empty_count": 1,
+            "unknown_count": 0,
+            "recognized_cards": 6,
+            "duplicate_count": 0,
+            "duplicates": [],
+            "error_count": 0,
+            "warning_count": 0,
+            "errors": [],
+            "warnings": []
+        },
+        "table_validation": {
+            "valid": true,
+            "errors": [],
+            "warnings": []
+        }
+    },
+    "metadata": {
+        "recognition_profile": "simulator_optimized",
+        "processing_time_seconds": 49.997939,
+        "player_count": 2,
+        "dataset_type": "synthetic",
+        "profile_info": {
+            "profile": "simulator_optimized",
+            "recognizer": "OptimizedSimulatorCardRecognizer",
+            "template_count": 8,
+            "occupancy_detection_enabled": true,
+            "rank_confidence_threshold": 0.75,
+            "suit_confidence_threshold": 0.75,
+            "suit_margin_threshold": 0.05
+        },
+        "timings": {
+            "initialization_seconds": 0.000238,
+            "recognition_seconds": 49.966055,
+            "state_building_seconds": 0.000107,
+            "total_seconds": 49.976777,
+            "card_slots": {
+                "board_1": 8.224675,
+                "board_2": 12.20182,
+                "board_3": 10.185471,
+                "board_4": 10.310716,
+                "board_5": 0.000358,
+                "hero_card_1": 4.859431,
+                "hero_card_2": 4.183513
+            },
+            "image_loading_seconds": 0.021071,
+            "directory_total_seconds": 49.997939
+        },
+        "recognition_statistics": {
+            "total_slots": 7,
+            "occupied_slots": 6,
+            "empty_slots": 1,
+            "unknown_slots": 0,
+            "ocr_skipped_slots": 1,
+            "recognition_attempts": 6,
+            "recognized_cards": 6,
+            "ocr_skip_rate": 0.14285714285714285
+        }
+    }
+}

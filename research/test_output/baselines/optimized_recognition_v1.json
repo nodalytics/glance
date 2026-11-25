@@ -1,0 +1,1985 @@
+{
+    "baseline": {
+        "profile": "simulator",
+        "summary": {
+            "total_slots": 28,
+            "occupied_slots": 20,
+            "empty_slots": 8,
+            "correct_cards": 20,
+            "rejected_cards": 0,
+            "incorrect_accepted_cards": 0,
+            "empty_slots_rejected": 8,
+            "empty_false_positives": 0,
+            "ocr_skipped_slots": 0,
+            "false_empty": 0,
+            "card_accuracy": 1.0,
+            "overall_slot_accuracy": 1.0,
+            "total_time_seconds": 117.4799,
+            "average_time_per_slot_seconds": 4.1957,
+            "ocr_skip_rate": 0.0,
+            "passed": true
+        },
+        "results": [
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.8956
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.2868
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.0252
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.1855
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.0308
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "4",
+                    "suit": "hearts"
+                },
+                "actual": {
+                    "rank": "4",
+                    "rank_confidence": 0.9999885559082031,
+                    "rank_source": "top_left_fallback",
+                    "suit": "hearts",
+                    "suit_confidence": 0.9830502316445797,
+                    "suit_source": "simulator_small_suit:hearts_seguisym",
+                    "suit_margin": 0.34560570968369386,
+                    "suit_scores": {
+                        "hearts": 0.9830502316445797,
+                        "diamonds": 0.6374445219608859
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.8593
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "K",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "K",
+                    "rank_confidence": 0.9999589920043945,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 3.9627
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "A",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "A",
+                    "rank_confidence": 0.9915863275527954,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.7722
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "3",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "3",
+                    "rank_confidence": 0.9999972581863403,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 6.1959
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": true,
+                    "rank": "10",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "10",
+                    "rank_confidence": 0.9999966621398926,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.1559
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.1762
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.0074
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "J",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "J",
+                    "rank_confidence": 0.9998036026954651,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.1904
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "J",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "J",
+                    "rank_confidence": 0.9998906850814819,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 5.9892
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "Q",
+                    "suit": "hearts"
+                },
+                "actual": {
+                    "rank": "Q",
+                    "rank_confidence": 0.999993085861206,
+                    "rank_source": "top_left_fallback",
+                    "suit": "hearts",
+                    "suit_confidence": 0.9830502316445797,
+                    "suit_source": "simulator_small_suit:hearts_seguisym",
+                    "suit_margin": 0.34560570968369386,
+                    "suit_scores": {
+                        "hearts": 0.9830502316445797,
+                        "diamonds": 0.6374445219608859
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 3.9596
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "3",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "3",
+                    "rank_confidence": 0.9999972581863403,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 5.7235
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": true,
+                    "rank": "K",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "K",
+                    "rank_confidence": 0.9999184608459473,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.8948
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": true,
+                    "rank": "4",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "4",
+                    "rank_confidence": 0.9999923706054688,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 5.5398
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false
+                },
+                "status": "PASS",
+                "time_seconds": 2.239
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "2",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "2",
+                    "rank_confidence": 0.9999985694885254,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 6.1239
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "6",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "6",
+                    "rank_confidence": 0.9999797344207764,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 5.1445
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "K",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "K",
+                    "rank_confidence": 0.9977613687515259,
+                    "rank_source": "primary",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.9786658394332071,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.14814103453248328,
+                    "suit_scores": {
+                        "diamonds": 0.9786658394332071,
+                        "hearts": 0.8305248049007238
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 3.1628
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "5",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "5",
+                    "rank_confidence": 0.9999772310256958,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.2205
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": true,
+                    "rank": "8",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "8",
+                    "rank_confidence": 0.999997615814209,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 5.9876
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": true,
+                    "rank": "A",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "A",
+                    "rank_confidence": 0.9992259740829468,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 5.7236
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": true,
+                    "rank": "A",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "A",
+                    "rank_confidence": 0.9915863275527954,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.7523
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "2",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "2",
+                    "rank_confidence": 0.9999972581863403,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 5.5301
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "J",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "J",
+                    "rank_confidence": 0.9998534917831421,
+                    "rank_source": "primary",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true
+                },
+                "status": "PASS",
+                "time_seconds": 4.4158
+            }
+        ]
+    },
+    "optimized": {
+        "profile": "simulator_optimized",
+        "summary": {
+            "total_slots": 28,
+            "occupied_slots": 20,
+            "empty_slots": 8,
+            "correct_cards": 20,
+            "rejected_cards": 0,
+            "incorrect_accepted_cards": 0,
+            "empty_slots_rejected": 8,
+            "empty_false_positives": 0,
+            "ocr_skipped_slots": 8,
+            "false_empty": 0,
+            "card_accuracy": 1.0,
+            "overall_slot_accuracy": 1.0,
+            "total_time_seconds": 99.3767,
+            "average_time_per_slot_seconds": 3.5492,
+            "ocr_skip_rate": 0.2857142857142857,
+            "passed": true
+        },
+        "results": [
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0135
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0021
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0006
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0005
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0005
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "4",
+                    "suit": "hearts"
+                },
+                "actual": {
+                    "rank": "4",
+                    "rank_confidence": 0.9999885559082031,
+                    "rank_source": "top_left_fallback",
+                    "suit": "hearts",
+                    "suit_confidence": 0.9830502316445797,
+                    "suit_source": "simulator_small_suit:hearts_seguisym",
+                    "suit_margin": 0.34560570968369386,
+                    "suit_scores": {
+                        "hearts": 0.9830502316445797,
+                        "diamonds": 0.6374445219608859
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9092293633871459,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.027185501066098083,
+                            "mean_brightness": 232.27383490709715,
+                            "brightness_std": 49.21184112446036
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 5.6148
+            },
+            {
+                "dataset": "preflop_sample_001",
+                "street": "preflop",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "K",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "K",
+                    "rank_confidence": 0.9999589920043945,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.8903441973804447,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.035181236673773986,
+                            "mean_brightness": 223.8509747182455,
+                            "brightness_std": 68.55515385088862
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 4.3378
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "A",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "A",
+                    "rank_confidence": 0.9915863275527954,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9183673469387755,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.02832774901005178,
+                            "mean_brightness": 234.15694486749925,
+                            "brightness_std": 46.17341527158814
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 4.7097
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "3",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "3",
+                    "rank_confidence": 0.9999972581863403,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9020712762717027,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.031526043253122145,
+                            "mean_brightness": 226.50921413341456,
+                            "brightness_std": 64.94422258596917
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 6.0843
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": true,
+                    "rank": "10",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "10",
+                    "rank_confidence": 0.9999966621398926,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9163874505025891,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03563813585135547,
+                            "mean_brightness": 233.89940603106913,
+                            "brightness_std": 46.13544511568591
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 4.4413
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0009
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0007
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "J",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "J",
+                    "rank_confidence": 0.9998036026954651,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.907097167225099,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.02726165092902833,
+                            "mean_brightness": 227.64064879683215,
+                            "brightness_std": 63.53035688502858
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 4.592
+            },
+            {
+                "dataset": "flop_sample_001",
+                "street": "flop",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "J",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "J",
+                    "rank_confidence": 0.9998906850814819,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9110569600974718,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.0267286018885166,
+                            "mean_brightness": 228.63988729820286,
+                            "brightness_std": 61.98851874759515
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 6.0066
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "Q",
+                    "suit": "hearts"
+                },
+                "actual": {
+                    "rank": "Q",
+                    "rank_confidence": 0.999993085861206,
+                    "rank_source": "top_left_fallback",
+                    "suit": "hearts",
+                    "suit_confidence": 0.9830502316445797,
+                    "suit_source": "simulator_small_suit:hearts_seguisym",
+                    "suit_margin": 0.34560570968369386,
+                    "suit_scores": {
+                        "hearts": 0.9830502316445797,
+                        "diamonds": 0.6374445219608859
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.8904964971063052,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03540968626256473,
+                            "mean_brightness": 229.48522692659154,
+                            "brightness_std": 52.49388236844437
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 3.9429
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "3",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "3",
+                    "rank_confidence": 0.9999972581863403,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9020712762717027,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.031526043253122145,
+                            "mean_brightness": 226.50921413341456,
+                            "brightness_std": 64.94422258596917
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 6.0165
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": true,
+                    "rank": "K",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "K",
+                    "rank_confidence": 0.9999184608459473,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.8943039902528176,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03464818763326226,
+                            "mean_brightness": 224.8502132196162,
+                            "brightness_std": 67.1852134520298
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 5.1019
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": true,
+                    "rank": "4",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "4",
+                    "rank_confidence": 0.9999923706054688,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9023758757234237,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.02908924763935425,
+                            "mean_brightness": 226.18892780992994,
+                            "brightness_std": 65.76073626575666
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 5.1708
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": false,
+                    "rank": null,
+                    "suit": null
+                },
+                "actual": {
+                    "rank": null,
+                    "rank_confidence": 0.0,
+                    "rank_source": null,
+                    "suit": null,
+                    "suit_confidence": 0.0,
+                    "suit_source": null,
+                    "suit_margin": 0.0,
+                    "suit_scores": {},
+                    "suit_color": "unknown",
+                    "recognized": false,
+                    "occupied": false,
+                    "occupancy_state": "empty",
+                    "occupancy": {
+                        "state": "empty",
+                        "occupied": false,
+                        "skip_ocr": true,
+                        "reason": "Uniform green table background",
+                        "features": {
+                            "white_ratio": 0.0,
+                            "green_ratio": 1.0,
+                            "edge_ratio": 0.0,
+                            "mean_brightness": 66.0,
+                            "brightness_std": 0.0
+                        }
+                    },
+                    "ocr_skipped": true
+                },
+                "status": "PASS",
+                "time_seconds": 0.0005
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "2",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "2",
+                    "rank_confidence": 0.9999985694885254,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9049649710630521,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03160219311605239,
+                            "mean_brightness": 227.09054218702406,
+                            "brightness_std": 64.28170761343644
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 5.9832
+            },
+            {
+                "dataset": "turn_sample_001",
+                "street": "turn",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "6",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "6",
+                    "rank_confidence": 0.9999797344207764,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.8991775814803533,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03236369174535486,
+                            "mean_brightness": 226.09404508071884,
+                            "brightness_std": 65.37776007102225
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 5.0642
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "K",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "K",
+                    "rank_confidence": 0.9977613687515259,
+                    "rank_source": "primary",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.9786658394332071,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.14814103453248328,
+                    "suit_scores": {
+                        "diamonds": 0.9786658394332071,
+                        "hearts": 0.8305248049007238
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9147121535181236,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.0325921413341456,
+                            "mean_brightness": 233.56388973499847,
+                            "brightness_std": 47.0061526654045
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 3.2305
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "5",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "5",
+                    "rank_confidence": 0.9999772310256958,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9224794395370088,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.029393847091075235,
+                            "mean_brightness": 234.90336582394153,
+                            "brightness_std": 44.940389640274496
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 4.2588
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_3",
+                "expected": {
+                    "occupied": true,
+                    "rank": "8",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "8",
+                    "rank_confidence": 0.999997615814209,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.896588486140725,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03411513859275053,
+                            "mean_brightness": 225.46809320743222,
+                            "brightness_std": 66.28324982497602
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 6.0094
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_4",
+                "expected": {
+                    "occupied": true,
+                    "rank": "A",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "A",
+                    "rank_confidence": 0.9992259740829468,
+                    "rank_source": "top_left_fallback",
+                    "suit": "clubs",
+                    "suit_confidence": 0.9798659828741322,
+                    "suit_source": "simulator_small_suit:clubs_seguisym",
+                    "suit_margin": 0.2423751147437635,
+                    "suit_scores": {
+                        "clubs": 0.9798659828741322,
+                        "spades": 0.7374908681303687
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.8976545842217484,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03023149558330795,
+                            "mean_brightness": 225.61993603411514,
+                            "brightness_std": 66.25821295809611
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 5.1354
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "board_5",
+                "expected": {
+                    "occupied": true,
+                    "rank": "A",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "A",
+                    "rank_confidence": 0.9915863275527954,
+                    "rank_source": "top_left_fallback",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9183673469387755,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.02832774901005178,
+                            "mean_brightness": 234.15694486749925,
+                            "brightness_std": 46.17341527158814
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 4.3028
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "hero_card_1",
+                "expected": {
+                    "occupied": true,
+                    "rank": "2",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "2",
+                    "rank_confidence": 0.9999972581863403,
+                    "rank_source": "top_left_fallback",
+                    "suit": "spades",
+                    "suit_confidence": 0.9771929060329876,
+                    "suit_source": "simulator_center_suit:spades_seguisym",
+                    "suit_margin": 0.231356953417593,
+                    "suit_scores": {
+                        "spades": 0.9771929060329876,
+                        "clubs": 0.7458359526153946
+                    },
+                    "suit_color": "black",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9010051781906793,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.03213524215656412,
+                            "mean_brightness": 226.09130368565337,
+                            "brightness_std": 65.746265236464
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 5.1842
+            },
+            {
+                "dataset": "river_sample_001",
+                "street": "river",
+                "slot": "hero_card_2",
+                "expected": {
+                    "occupied": true,
+                    "rank": "J",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "J",
+                    "rank_confidence": 0.9998534917831421,
+                    "rank_source": "primary",
+                    "suit": "diamonds",
+                    "suit_confidence": 0.978630935738454,
+                    "suit_source": "simulator_center_suit:diamonds_seguisym",
+                    "suit_margin": 0.148850632222171,
+                    "suit_scores": {
+                        "diamonds": 0.978630935738454,
+                        "hearts": 0.8297803035162831
+                    },
+                    "suit_color": "red",
+                    "recognized": true,
+                    "occupied": true,
+                    "occupancy_state": "occupied",
+                    "occupancy": {
+                        "state": "occupied",
+                        "occupied": true,
+                        "skip_ocr": false,
+                        "reason": "Bright card background detected",
+                        "features": {
+                            "white_ratio": 0.9317697228144989,
+                            "green_ratio": 0.0,
+                            "edge_ratio": 0.024824855315260432,
+                            "mean_brightness": 236.4863691745355,
+                            "brightness_std": 42.305803805676575
+                        }
+                    },
+                    "ocr_skipped": false
+                },
+                "status": "PASS",
+                "time_seconds": 4.1624
+            }
+        ]
+    },
+    "comparison": {
+        "baseline_time_seconds": 117.4799,
+        "optimized_time_seconds": 99.3767,
+        "time_saved_seconds": 18.1032,
+        "time_reduction_percent": 15.4096,
+        "speedup_factor": 1.1822,
+        "baseline_card_accuracy": 1.0,
+        "optimized_card_accuracy": 1.0,
+        "ocr_skipped_slots": 8,
+        "ocr_skip_rate": 0.2857142857142857,
+        "false_empty": 0,
+        "recognition_mismatches": 0,
+        "passed": true
+    },
+    "recognition_mismatches": [],
+    "recognizer_statistics": {
+        "total_slots": 28,
+        "occupied_slots": 20,
+        "empty_slots": 8,
+        "unknown_slots": 0,
+        "ocr_skipped_slots": 8,
+        "recognition_attempts": 20,
+        "recognized_cards": 20,
+        "ocr_skip_rate": 0.2857142857142857
+    }
+}

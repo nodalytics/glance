@@ -1,0 +1,43 @@
+{
+    "sample_name": "turn_sample_001",
+    "type": "synthetic",
+    "street": "turn",
+    "board_count": 4,
+    "cards": {
+        "board_1": {
+            "occupied": true,
+            "rank": "Q",
+            "suit": "hearts"
+        },
+        "board_2": {
+            "occupied": true,
+            "rank": "3",
+            "suit": "spades"
+        },
+        "board_3": {
+            "occupied": true,
+            "rank": "K",
+            "suit": "clubs"
+        },
+        "board_4": {
+            "occupied": true,
+            "rank": "4",
+            "suit": "spades"
+        },
+        "board_5": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "hero_card_1": {
+            "occupied": true,
+            "rank": "2",
+            "suit": "clubs"
+        },
+        "hero_card_2": {
+            "occupied": true,
+            "rank": "6",
+            "suit": "clubs"
+        }
+    }
+}

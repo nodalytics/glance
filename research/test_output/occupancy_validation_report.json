@@ -1,0 +1,3746 @@
+{
+    "summary": {
+        "total_slots": 196,
+        "occupied_slots": 176,
+        "empty_slots": 20,
+        "correct_occupied": 176,
+        "correct_empty": 20,
+        "false_empty": 0,
+        "false_occupied": 0,
+        "unknown_slots": 0,
+        "ocr_skipped_slots": 20,
+        "occupancy_accuracy": 1.0,
+        "ocr_skip_rate": 0.10204081632653061,
+        "total_time_seconds": 0.8537,
+        "average_time_per_slot_ms": 4.3555,
+        "safe_to_skip": true,
+        "passed": true
+    },
+    "failures": [],
+    "results": [
+        {
+            "dataset": "preflop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\preflop_sample_001\\cards\\board_1.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\preflop_sample_001\\cards\\board_2.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\preflop_sample_001\\cards\\board_3.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\preflop_sample_001\\cards\\board_4.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\preflop_sample_001\\cards\\board_5.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\preflop_sample_001\\cards\\hero_card_1.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9092293633871459,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.027185501066098083,
+                    "mean_brightness": 232.27383490709715,
+                    "brightness_std": 49.21184112446036
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\preflop_sample_001\\cards\\hero_card_2.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8903441973804447,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.035181236673773986,
+                    "mean_brightness": 223.8509747182455,
+                    "brightness_std": 68.55515385088862
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\flop_sample_001\\cards\\board_1.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9183673469387755,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02832774901005178,
+                    "mean_brightness": 234.15694486749925,
+                    "brightness_std": 46.17341527158814
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\flop_sample_001\\cards\\board_2.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9020712762717027,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.031526043253122145,
+                    "mean_brightness": 226.50921413341456,
+                    "brightness_std": 64.94422258596917
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\flop_sample_001\\cards\\board_3.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9163874505025891,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03563813585135547,
+                    "mean_brightness": 233.89940603106913,
+                    "brightness_std": 46.13544511568591
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\flop_sample_001\\cards\\board_4.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\flop_sample_001\\cards\\board_5.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\flop_sample_001\\cards\\hero_card_1.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.907097167225099,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02726165092902833,
+                    "mean_brightness": 227.64064879683215,
+                    "brightness_std": 63.53035688502858
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\flop_sample_001\\cards\\hero_card_2.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9110569600974718,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0267286018885166,
+                    "mean_brightness": 228.63988729820286,
+                    "brightness_std": 61.98851874759515
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\turn_sample_001\\cards\\board_1.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8904964971063052,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03540968626256473,
+                    "mean_brightness": 229.48522692659154,
+                    "brightness_std": 52.49388236844437
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\turn_sample_001\\cards\\board_2.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9020712762717027,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.031526043253122145,
+                    "mean_brightness": 226.50921413341456,
+                    "brightness_std": 64.94422258596917
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\turn_sample_001\\cards\\board_3.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8943039902528176,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03464818763326226,
+                    "mean_brightness": 224.8502132196162,
+                    "brightness_std": 67.1852134520298
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\turn_sample_001\\cards\\board_4.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9023758757234237,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02908924763935425,
+                    "mean_brightness": 226.18892780992994,
+                    "brightness_std": 65.76073626575666
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\turn_sample_001\\cards\\board_5.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 66.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\turn_sample_001\\cards\\hero_card_1.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9049649710630521,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03160219311605239,
+                    "mean_brightness": 227.09054218702406,
+                    "brightness_std": 64.28170761343644
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\turn_sample_001\\cards\\hero_card_2.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8991775814803533,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03236369174535486,
+                    "mean_brightness": 226.09404508071884,
+                    "brightness_std": 65.37776007102225
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\river_sample_001\\cards\\board_1.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9147121535181236,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0325921413341456,
+                    "mean_brightness": 233.56388973499847,
+                    "brightness_std": 47.0061526654045
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\river_sample_001\\cards\\board_2.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9224794395370088,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029393847091075235,
+                    "mean_brightness": 234.90336582394153,
+                    "brightness_std": 44.940389640274496
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\river_sample_001\\cards\\board_3.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.896588486140725,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03411513859275053,
+                    "mean_brightness": 225.46809320743222,
+                    "brightness_std": 66.28324982497602
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\river_sample_001\\cards\\board_4.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8976545842217484,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03023149558330795,
+                    "mean_brightness": 225.61993603411514,
+                    "brightness_std": 66.25821295809611
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\river_sample_001\\cards\\board_5.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9183673469387755,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02832774901005178,
+                    "mean_brightness": 234.15694486749925,
+                    "brightness_std": 46.17341527158814
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\river_sample_001\\cards\\hero_card_1.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9010051781906793,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03213524215656412,
+                    "mean_brightness": 226.09130368565337,
+                    "brightness_std": 65.746265236464
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\datasets\\river_sample_001\\cards\\hero_card_2.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9317697228144989,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.024824855315260432,
+                    "mean_brightness": 236.4863691745355,
+                    "brightness_std": 42.305803805676575
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_6_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8971215351812367,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03320134023758757,
+                    "mean_brightness": 225.9131130063966,
+                    "brightness_std": 65.7372166477999
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_J_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.907097167225099,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02726165092902833,
+                    "mean_brightness": 227.64064879683215,
+                    "brightness_std": 63.53035688502858
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_5_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9046603716113311,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02992689613158696,
+                    "mean_brightness": 231.81160523911058,
+                    "brightness_std": 49.67541301173246
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_4_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9063356685957965,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028556198598842522,
+                    "mean_brightness": 227.18816631130065,
+                    "brightness_std": 64.29499106309125
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_10_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8959792872372829,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03632348461772769,
+                    "mean_brightness": 230.80079195857448,
+                    "brightness_std": 48.89341014151908
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_006.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 76.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_K_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9147121535181236,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0325921413341456,
+                    "mean_brightness": 233.56388973499847,
+                    "brightness_std": 47.0061526654045
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_K_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9128845568077978,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.032668291197075844,
+                    "mean_brightness": 233.561148339933,
+                    "brightness_std": 44.89825189234377
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_7_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9298659762412428,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.024824855315260432,
+                    "mean_brightness": 236.70415778251598,
+                    "brightness_std": 38.96906859825957
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_4_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8994060310691441,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029850746268656716,
+                    "mean_brightness": 226.06937252512947,
+                    "brightness_std": 65.94568845567697
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_A_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8884404508071886,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030840694486749923,
+                    "mean_brightness": 224.61925068534876,
+                    "brightness_std": 64.43746732811194
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_5_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9204995431008224,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02931769722814499,
+                    "mean_brightness": 234.9020712762717,
+                    "brightness_std": 42.95684570269027
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_5_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9013859275053305,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03023149558330795,
+                    "mean_brightness": 231.81229058787693,
+                    "brightness_std": 46.807089386509254
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_2_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9049649710630521,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03160219311605239,
+                    "mean_brightness": 227.09054218702406,
+                    "brightness_std": 64.28170761343644
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_J_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9317697228144989,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.024824855315260432,
+                    "mean_brightness": 236.4863691745355,
+                    "brightness_std": 42.305803805676575
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_9_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8993298812062138,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03236369174535486,
+                    "mean_brightness": 226.08582089552237,
+                    "brightness_std": 65.4356812413499
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_10_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9092293633871459,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03525738653670423,
+                    "mean_brightness": 233.89643618641486,
+                    "brightness_std": 41.70832422389388
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_5_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8973499847700274,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.031830642704843135,
+                    "mean_brightness": 225.58780079195859,
+                    "brightness_std": 66.32805390268685
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_A_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9005482790130978,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028860798050563508,
+                    "mean_brightness": 231.0651842826683,
+                    "brightness_std": 50.74817045887857
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_10_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9163874505025891,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03563813585135547,
+                    "mean_brightness": 233.89940603106913,
+                    "brightness_std": 46.13544511568591
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_9_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9022235759975632,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030840694486749923,
+                    "mean_brightness": 231.42445933597318,
+                    "brightness_std": 50.106943249188895
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_K_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8802924154736521,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03480048735912275,
+                    "mean_brightness": 224.85158391714896,
+                    "brightness_std": 61.155978790139294
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_A_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9158544014620774,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02931769722814499,
+                    "mean_brightness": 234.01690526957051,
+                    "brightness_std": 46.425294494025586
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_6_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8885927505330491,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03213524215656412,
+                    "mean_brightness": 226.09648187633263,
+                    "brightness_std": 60.16605027974075
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_J_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9110569600974718,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0267286018885166,
+                    "mean_brightness": 228.63988729820286,
+                    "brightness_std": 61.98851874759515
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_9_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8936186414864453,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.032668291197075844,
+                    "mean_brightness": 224.93588181541273,
+                    "brightness_std": 67.18255303245947
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_Q_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8824246116356991,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03731343283582089,
+                    "mean_brightness": 222.57531221443801,
+                    "brightness_std": 69.8133398082759
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_J_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9105239110569601,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.027185501066098083,
+                    "mean_brightness": 228.51621992080413,
+                    "brightness_std": 62.25244335047123
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_6_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9013859275053305,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030992994212610418,
+                    "mean_brightness": 231.30627474870545,
+                    "brightness_std": 50.372765320772125
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_8_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9029850746268657,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03251599147121535,
+                    "mean_brightness": 231.60539141029545,
+                    "brightness_std": 49.96261558412771
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_3_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9087724642095644,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029622296679865975,
+                    "mean_brightness": 232.52238805970148,
+                    "brightness_std": 48.55732300034022
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_3_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9020712762717027,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.031526043253122145,
+                    "mean_brightness": 226.50921413341456,
+                    "brightness_std": 64.94422258596917
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_005.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 58.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_10_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8831099604020712,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03769418215047213,
+                    "mean_brightness": 224.2877703320134,
+                    "brightness_std": 63.32748860462957
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_7_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9088486140724946,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.026880901614377093,
+                    "mean_brightness": 228.92857142857142,
+                    "brightness_std": 58.37313083336951
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_5_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9224794395370088,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029393847091075235,
+                    "mean_brightness": 234.90336582394153,
+                    "brightness_std": 44.940389640274496
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_4_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8888212001218397,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028708498324703017,
+                    "mean_brightness": 226.19075540664028,
+                    "brightness_std": 60.76703788667118
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_6_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8872220530003045,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03289674078586659,
+                    "mean_brightness": 225.10105086810844,
+                    "brightness_std": 62.86129257084909
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_9_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8983399329881206,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0325921413341456,
+                    "mean_brightness": 225.9118946085897,
+                    "brightness_std": 65.80341541907204
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_3_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9198903441973805,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028860798050563508,
+                    "mean_brightness": 235.6133109960402,
+                    "brightness_std": 39.54938113382659
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_10_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8914102954614682,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03807493146512336,
+                    "mean_brightness": 224.2854858361255,
+                    "brightness_std": 67.59144521205646
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_3_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9036704233932379,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030840694486749923,
+                    "mean_brightness": 227.51104173012487,
+                    "brightness_std": 61.58738297427194
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_4_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9092293633871459,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.027185501066098083,
+                    "mean_brightness": 232.27383490709715,
+                    "brightness_std": 49.21184112446036
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_8_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8940755406640268,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03540968626256473,
+                    "mean_brightness": 225.29005482790132,
+                    "brightness_std": 66.62428592685642
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_3_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9026804751751447,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029469996954005484,
+                    "mean_brightness": 232.52223575997564,
+                    "brightness_std": 45.250164716614634
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_J_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9131891562595187,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.025434054218702408,
+                    "mean_brightness": 233.29797441364605,
+                    "brightness_std": 47.68067824427681
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_003.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 62.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_6_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8957508376484923,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030992994212610418,
+                    "mean_brightness": 231.42461163569905,
+                    "brightness_std": 46.69562393809474
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_6_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8991775814803533,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03236369174535486,
+                    "mean_brightness": 226.09404508071884,
+                    "brightness_std": 65.37776007102225
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_J_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9000913798355163,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02726165092902833,
+                    "mean_brightness": 227.64971063052087,
+                    "brightness_std": 60.01921630349216
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_008.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 58.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_4_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9056503198294243,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02832774901005178,
+                    "mean_brightness": 232.14719768504418,
+                    "brightness_std": 49.41996830586433
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_A_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8976545842217484,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03023149558330795,
+                    "mean_brightness": 225.61993603411514,
+                    "brightness_std": 66.25821295809611
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_9_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9004721291501675,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03114529393847091,
+                    "mean_brightness": 231.4199664940603,
+                    "brightness_std": 48.290133726153314
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_8_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9215656411818459,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.031678342978982636,
+                    "mean_brightness": 234.8109198903442,
+                    "brightness_std": 44.90908126216497
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_A_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9134937557112397,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028403898872982027,
+                    "mean_brightness": 234.15823941516905,
+                    "brightness_std": 43.104037572110535
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_J_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9099908620164484,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.026576302162656107,
+                    "mean_brightness": 228.6443039902528,
+                    "brightness_std": 60.12723940160617
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_2_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9235455376180323,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029698446542796225,
+                    "mean_brightness": 235.14080109655802,
+                    "brightness_std": 44.72556062912047
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_4_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9035181236673774,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029622296679865975,
+                    "mean_brightness": 227.04127322570818,
+                    "brightness_std": 64.43670235400222
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_4_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.902756625038075,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.027185501066098083,
+                    "mean_brightness": 232.2768809016144,
+                    "brightness_std": 46.064355633869226
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_10_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9145598537922631,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.035942735303076456,
+                    "mean_brightness": 233.74307036247336,
+                    "brightness_std": 46.51678279161824
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_2_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9026043253122145,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03205909229363387,
+                    "mean_brightness": 226.92537313432837,
+                    "brightness_std": 64.51005328037128
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_9_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.920042643923241,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030307645446238197,
+                    "mean_brightness": 234.51621992080413,
+                    "brightness_std": 45.44327947891444
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_J_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9139506548888212,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02535790435577216,
+                    "mean_brightness": 233.39460858970455,
+                    "brightness_std": 47.408623764468736
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_3_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9007767286018885,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03205909229363387,
+                    "mean_brightness": 226.37503807493147,
+                    "brightness_std": 65.25175941009854
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_Q_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8767133719159306,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03769418215047213,
+                    "mean_brightness": 222.57919585744744,
+                    "brightness_std": 66.3292196926602
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_A_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8908010965580262,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.031830642704843135,
+                    "mean_brightness": 224.4365671641791,
+                    "brightness_std": 67.85672211767653
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_3_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9051934206518428,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03122144380140116,
+                    "mean_brightness": 227.37366737739873,
+                    "brightness_std": 63.76854362552792
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_4_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9023758757234237,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02908924763935425,
+                    "mean_brightness": 226.18892780992994,
+                    "brightness_std": 65.76073626575666
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_9_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8928571428571429,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03289674078586659,
+                    "mean_brightness": 225.08848614072494,
+                    "brightness_std": 64.70253237421974
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_9_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9000152299725861,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0312975936643314,
+                    "mean_brightness": 231.26926591532134,
+                    "brightness_std": 50.47016221005483
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_011.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 71.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_010.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 60.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_K_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8911056960097472,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03609503502893695,
+                    "mean_brightness": 224.6649406031069,
+                    "brightness_std": 67.44217282379373
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_J_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9047365214742613,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028175449284191287,
+                    "mean_brightness": 227.5037313432836,
+                    "brightness_std": 63.79061708425434
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_K_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8943039902528176,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03464818763326226,
+                    "mean_brightness": 224.8502132196162,
+                    "brightness_std": 67.1852134520298
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_001.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 60.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_2_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9010051781906793,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03213524215656412,
+                    "mean_brightness": 226.09130368565337,
+                    "brightness_std": 65.746265236464
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_10_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8985683825769114,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03617118489186719,
+                    "mean_brightness": 230.80764544623818,
+                    "brightness_std": 50.69792230709518
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_012.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 59.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_7_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.913874505025891,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.025510204081632654,
+                    "mean_brightness": 233.4913950654889,
+                    "brightness_std": 47.422543760211624
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_2_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9195095948827292,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029469996954005484,
+                    "mean_brightness": 235.2948522692659,
+                    "brightness_std": 40.2883532948454
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_8_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8980353335363996,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03243984160828511,
+                    "mean_brightness": 231.7220530003046,
+                    "brightness_std": 46.63380381274208
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_2_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8955223880597015,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03236369174535486,
+                    "mean_brightness": 226.0931312823637,
+                    "brightness_std": 62.34992527321028
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_009.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 71.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_004.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 69.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_2_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8981876332622601,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03251599147121535,
+                    "mean_brightness": 225.93565336582395,
+                    "brightness_std": 65.98336644340641
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_3_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9084678647578435,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030155345720377702,
+                    "mean_brightness": 232.41174230886384,
+                    "brightness_std": 48.8391442343569
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_Q_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.908315565031983,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.034876637222053,
+                    "mean_brightness": 232.5769875114225,
+                    "brightness_std": 48.186978103940795
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_A_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8936947913493756,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030764544623819678,
+                    "mean_brightness": 224.62069753274443,
+                    "brightness_std": 67.6582978700165
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_Q_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8904964971063052,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03540968626256473,
+                    "mean_brightness": 229.48522692659154,
+                    "brightness_std": 52.49388236844437
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_5_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8952939384709108,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03282059092293634,
+                    "mean_brightness": 225.40115747791654,
+                    "brightness_std": 66.65943599238977
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_7_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9330642704843132,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.024901005178190678,
+                    "mean_brightness": 236.61011270179714,
+                    "brightness_std": 42.30650688969881
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_007.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 64.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_7_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9017666768199817,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.027337800791958574,
+                    "mean_brightness": 227.92765763021626,
+                    "brightness_std": 59.009686548180575
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_K_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8924002436795614,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.033582089552238806,
+                    "mean_brightness": 230.47197685044168,
+                    "brightness_std": 48.64594237941945
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_5_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9216417910447762,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02977459640572647,
+                    "mean_brightness": 234.7769570514773,
+                    "brightness_std": 45.23909786088591
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_A_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8990252817544928,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028860798050563508,
+                    "mean_brightness": 231.06358513554676,
+                    "brightness_std": 49.14518910457012
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_Q_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8813585135546756,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.037846481876332626,
+                    "mean_brightness": 222.4038227231191,
+                    "brightness_std": 70.21401595087904
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_K_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8949131891562595,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.033886689003959795,
+                    "mean_brightness": 230.33445019798964,
+                    "brightness_std": 51.69030258729808
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_8_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9005482790130978,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.033582089552238806,
+                    "mean_brightness": 226.46733170880293,
+                    "brightness_std": 64.84042890299717
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_6_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9195095948827292,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030536095035028937,
+                    "mean_brightness": 234.41608285105087,
+                    "brightness_std": 45.724074880806434
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_7_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9329881206213829,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.024824855315260432,
+                    "mean_brightness": 236.7076606762108,
+                    "brightness_std": 42.05789265829342
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_10_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8975022844958879,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03670423393237892,
+                    "mean_brightness": 230.64483703929332,
+                    "brightness_std": 51.039929839394375
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_3_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9060310691440755,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030992994212610418,
+                    "mean_brightness": 227.50845263478527,
+                    "brightness_std": 63.45457748683471
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_6_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9025281754492842,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030992994212610418,
+                    "mean_brightness": 231.43085592445934,
+                    "brightness_std": 50.06164051283258
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_A_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8948370392933293,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0314498933901919,
+                    "mean_brightness": 225.43801401157478,
+                    "brightness_std": 66.4530450729488
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_5_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9013097776424003,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0312975936643314,
+                    "mean_brightness": 226.58703929332927,
+                    "brightness_std": 64.88438575364226
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_8_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8989491318915626,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.033886689003959795,
+                    "mean_brightness": 226.2852573865367,
+                    "brightness_std": 65.20453504887872
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_2_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9031373743527261,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03045994517209869,
+                    "mean_brightness": 232.20004568991777,
+                    "brightness_std": 45.800223627303836
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_J_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9310843740481267,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02459640572646969,
+                    "mean_brightness": 236.3899634480658,
+                    "brightness_std": 42.63430517616399
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_Q_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8798355162960707,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03685653365823942,
+                    "mean_brightness": 223.5763021626561,
+                    "brightness_std": 64.39932069307086
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_10_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8890496497106305,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0371611331099604,
+                    "mean_brightness": 225.2877703320134,
+                    "brightness_std": 62.529471282382914
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_K_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8879074017666768,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03624733475479744,
+                    "mean_brightness": 223.6669204995431,
+                    "brightness_std": 68.87019861710155
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_3_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8978068839476089,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0314498933901919,
+                    "mean_brightness": 226.51195552848006,
+                    "brightness_std": 62.26020897744049
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_K_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8834907097167225,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03495278708498325,
+                    "mean_brightness": 223.85006091989035,
+                    "brightness_std": 65.04234062878469
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\empty_002.png",
+            "expected_occupied": false,
+            "actual": {
+                "state": "empty",
+                "occupied": false,
+                "skip_ocr": true,
+                "reason": "Uniform green table background",
+                "features": {
+                    "white_ratio": 0.0,
+                    "green_ratio": 1.0,
+                    "edge_ratio": 0.0,
+                    "mean_brightness": 69.0,
+                    "brightness_std": 0.0
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_8_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8887450502589095,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03411513859275053,
+                    "mean_brightness": 225.477078891258,
+                    "brightness_std": 62.496435536947295
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_7_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9151690526957051,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02535790435577216,
+                    "mean_brightness": 233.61590009137984,
+                    "brightness_std": 47.20202609145458
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_5_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.894760889430399,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03114529393847091,
+                    "mean_brightness": 226.58924763935426,
+                    "brightness_std": 60.13638702400946
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_A_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9183673469387755,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02832774901005178,
+                    "mean_brightness": 234.15694486749925,
+                    "brightness_std": 46.17341527158814
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_6_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9203472433749619,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03045994517209869,
+                    "mean_brightness": 234.5226165092903,
+                    "brightness_std": 45.392886947373746
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_7_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.907097167225099,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02764240024367956,
+                    "mean_brightness": 227.77269265915322,
+                    "brightness_std": 63.494170063183404
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_9_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9177581480353335,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030840694486749923,
+                    "mean_brightness": 234.36765153822722,
+                    "brightness_std": 45.86325588981123
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_2_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9077063661285409,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030079195857447456,
+                    "mean_brightness": 232.20042643923242,
+                    "brightness_std": 49.20262493153398
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_3_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.925296984465428,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029622296679865975,
+                    "mean_brightness": 235.48720682302772,
+                    "brightness_std": 44.045596071096234
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_5_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8918671946390496,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.031982942430703626,
+                    "mean_brightness": 225.59069448674992,
+                    "brightness_std": 62.592005373520514
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_2_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9255254340542187,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02954614681693573,
+                    "mean_brightness": 235.29218702406337,
+                    "brightness_std": 44.390156331832564
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_7_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9125799573560768,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.0267286018885166,
+                    "mean_brightness": 228.92362168748096,
+                    "brightness_std": 61.7274688747897
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_J_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.930551325007615,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02459640572646969,
+                    "mean_brightness": 236.48659762412427,
+                    "brightness_std": 40.888108206649655
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_4_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9247639354249162,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.026576302162656107,
+                    "mean_brightness": 235.36209259823332,
+                    "brightness_std": 42.425309518398414
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_10_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8877551020408163,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03837953091684435,
+                    "mean_brightness": 224.0581023454158,
+                    "brightness_std": 67.97460077100821
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_8_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9147121535181236,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03114529393847091,
+                    "mean_brightness": 234.80825464514163,
+                    "brightness_std": 41.09843015745225
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_Q_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8863844045080719,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.036780383795309166,
+                    "mean_brightness": 223.5745507158087,
+                    "brightness_std": 68.48719284974904
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_J_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.908010965580262,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.025053304904051173,
+                    "mean_brightness": 233.3922479439537,
+                    "brightness_std": 44.19655249134332
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_7_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9111331099604021,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.027185501066098083,
+                    "mean_brightness": 228.75616813889735,
+                    "brightness_std": 61.93484365970215
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_K_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8903441973804447,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.035181236673773986,
+                    "mean_brightness": 223.8509747182455,
+                    "brightness_std": 68.55515385088862
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_2_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.896893085592446,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03160219311605239,
+                    "mean_brightness": 227.09503502893693,
+                    "brightness_std": 59.58935357698647
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_8_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9037465732561681,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03221139201949436,
+                    "mean_brightness": 231.71915930551324,
+                    "brightness_std": 49.64133333514316
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_7_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.908620164483704,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02726165092902833,
+                    "mean_brightness": 227.92438318611028,
+                    "brightness_std": 63.28014886011358
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_5_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8996344806579348,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03221139201949436,
+                    "mean_brightness": 226.38767895217788,
+                    "brightness_std": 65.12627517701603
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_A_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9000152299725861,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.029622296679865975,
+                    "mean_brightness": 230.93131282363692,
+                    "brightness_std": 50.97901568209452
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_8_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8960554371002132,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.033582089552238806,
+                    "mean_brightness": 226.46893085592447,
+                    "brightness_std": 61.805875239473494
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_2_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9050411209259823,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030612244897959183,
+                    "mean_brightness": 232.0418062747487,
+                    "brightness_std": 49.49318530915686
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_4_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9270484313128237,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.026652452025586353,
+                    "mean_brightness": 235.3655954919281,
+                    "brightness_std": 44.395259466021606
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_K_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.896893085592446,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.033125190374657325,
+                    "mean_brightness": 230.47212915016752,
+                    "brightness_std": 51.47138764903844
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_7_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9125799573560768,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.025662503807493145,
+                    "mean_brightness": 233.61232104782212,
+                    "brightness_std": 44.625581584030364
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_Q_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.885166006701188,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03586658544014621,
+                    "mean_brightness": 229.48477002741396,
+                    "brightness_std": 49.624532945185805
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_3_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9265915321352421,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02908924763935425,
+                    "mean_brightness": 235.61414864453243,
+                    "brightness_std": 43.65100731340237
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_9_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9166159000913798,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030383795309168442,
+                    "mean_brightness": 234.5158391714895,
+                    "brightness_std": 42.897159449908514
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_6_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8918671946390496,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.033582089552238806,
+                    "mean_brightness": 224.90092902832774,
+                    "brightness_std": 67.1696234067897
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_10_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8927048431312824,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03792263173926287,
+                    "mean_brightness": 225.1019646664636,
+                    "brightness_std": 66.51282827933791
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_10_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.895370088333841,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.037541882424611636,
+                    "mean_brightness": 225.2847243374962,
+                    "brightness_std": 66.19500655225973
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_5_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9041273225708194,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030688394760889432,
+                    "mean_brightness": 231.6780383795309,
+                    "brightness_std": 49.92930788969483
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_8_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9205756929637526,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030992994212610418,
+                    "mean_brightness": 234.67308863844045,
+                    "brightness_std": 45.328949289993005
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_Q_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.884252208346025,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03807493146512336,
+                    "mean_brightness": 223.37846481876332,
+                    "brightness_std": 68.86960480852706
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_9_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8922479439537009,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03205909229363387,
+                    "mean_brightness": 226.0921413341456,
+                    "brightness_std": 61.469704399932276
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_8_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.896588486140725,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03411513859275053,
+                    "mean_brightness": 225.46809320743222,
+                    "brightness_std": 66.28324982497602
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_Q_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9077063661285409,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.035333536399634484,
+                    "mean_brightness": 232.4363387145903,
+                    "brightness_std": 48.610278407523495
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_6_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9141029546146817,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030383795309168442,
+                    "mean_brightness": 234.52017971367653,
+                    "brightness_std": 42.1542426638661
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_Q_hearts.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.889506548888212,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.035942735303076456,
+                    "mean_brightness": 229.32409381663112,
+                    "brightness_std": 52.88652489469154
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_4_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9246877855619859,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.02741395065488882,
+                    "mean_brightness": 235.25639658848615,
+                    "brightness_std": 44.63355358296819
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\rotated_K_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.91356990557417,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03282059092293634,
+                    "mean_brightness": 233.4240024367956,
+                    "brightness_std": 47.363042333089076
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_Q_diamonds.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.9025281754492842,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.034724337496192505,
+                    "mean_brightness": 232.58292720073104,
+                    "brightness_std": 44.814698432255994
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_9_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.895370088333841,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03289674078586659,
+                    "mean_brightness": 225.0865823941517,
+                    "brightness_std": 66.85995756780333
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_4_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8987206823027718,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.028708498324703017,
+                    "mean_brightness": 227.18740481267133,
+                    "brightness_std": 60.34535583217174
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\standard_6_spades.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8952177886079805,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.03289674078586659,
+                    "mean_brightness": 225.09480657934816,
+                    "brightness_std": 66.80339433141137
+                }
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "heldout_v1",
+            "file": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\test_assets\\validation\\heldout_v1\\cards\\blurred_A_clubs.png",
+            "expected_occupied": true,
+            "actual": {
+                "state": "occupied",
+                "occupied": true,
+                "skip_ocr": false,
+                "reason": "Bright card background detected",
+                "features": {
+                    "white_ratio": 0.8875266524520256,
+                    "green_ratio": 0.0,
+                    "edge_ratio": 0.030688394760889432,
+                    "mean_brightness": 225.6258757234237,
+                    "brightness_std": 61.16843498802583
+                }
+            },
+            "status": "PASS"
+        }
+    ]
+}

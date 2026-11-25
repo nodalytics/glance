@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "datasets": [
+        {
+            "id": "calibration_sample_001",
+            "type": "calibration",
+            "street": "river",
+            "cards_directory": "calibration_sample_001/cards",
+            "expected_file": "calibration_sample_001/expected.json",
+            "enabled": true
+        },
+        {
+            "id": "preflop_sample_001",
+            "type": "synthetic",
+            "street": "preflop",
+            "cards_directory": "preflop_sample_001/cards",
+            "expected_file": "preflop_sample_001/expected.json",
+            "enabled": true
+        },
+        {
+            "id": "flop_sample_001",
+            "type": "synthetic",
+            "street": "flop",
+            "cards_directory": "flop_sample_001/cards",
+            "expected_file": "flop_sample_001/expected.json",
+            "enabled": true
+        },
+        {
+            "id": "turn_sample_001",
+            "type": "synthetic",
+            "street": "turn",
+            "cards_directory": "turn_sample_001/cards",
+            "expected_file": "turn_sample_001/expected.json",
+            "enabled": true
+        },
+        {
+            "id": "river_sample_001",
+            "type": "synthetic",
+            "street": "river",
+            "cards_directory": "river_sample_001/cards",
+            "expected_file": "river_sample_001/expected.json",
+            "enabled": true
+        }
+    ]
+}

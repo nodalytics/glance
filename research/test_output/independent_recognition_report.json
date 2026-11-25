@@ -1,0 +1,4532 @@
+{
+    "dataset_id": "independent_v1",
+    "summary": {
+        "total_slots": 116,
+        "occupied_slots": 104,
+        "empty_slots": 12,
+        "correct_ranks": 103,
+        "correct_suits": 104,
+        "correct_cards": 103,
+        "rejected_cards": 0,
+        "incorrect_accepted_cards": 1,
+        "empty_slots_rejected": 12,
+        "empty_slots_false_positive": 0,
+        "fallback_attempts": 6,
+        "fallback_recovered": 6,
+        "rank_accuracy": 0.9903846153846154,
+        "suit_accuracy": 1.0,
+        "card_accuracy": 0.9903846153846154,
+        "empty_rejection_rate": 1.0,
+        "overall_slot_accuracy": 0.9913793103448276,
+        "passed": false,
+        "total_time_seconds": 661.1822,
+        "failed_images": 1
+    },
+    "summary_by_variant": {
+        "combined_distortion": {
+            "total_slots": 52,
+            "occupied_slots": 52,
+            "empty_slots": 0,
+            "correct_ranks": 51,
+            "correct_suits": 52,
+            "correct_cards": 51,
+            "rejected_cards": 0,
+            "incorrect_accepted_cards": 1,
+            "empty_slots_rejected": 0,
+            "empty_slots_false_positive": 0,
+            "fallback_attempts": 5,
+            "fallback_recovered": 5,
+            "rank_accuracy": 0.9807692307692307,
+            "suit_accuracy": 1.0,
+            "card_accuracy": 0.9807692307692307,
+            "empty_rejection_rate": null,
+            "overall_slot_accuracy": 0.9807692307692307,
+            "passed": false
+        },
+        "font_variation": {
+            "total_slots": 52,
+            "occupied_slots": 52,
+            "empty_slots": 0,
+            "correct_ranks": 52,
+            "correct_suits": 52,
+            "correct_cards": 52,
+            "rejected_cards": 0,
+            "incorrect_accepted_cards": 0,
+            "empty_slots_rejected": 0,
+            "empty_slots_false_positive": 0,
+            "fallback_attempts": 1,
+            "fallback_recovered": 1,
+            "rank_accuracy": 1.0,
+            "suit_accuracy": 1.0,
+            "card_accuracy": 1.0,
+            "empty_rejection_rate": null,
+            "overall_slot_accuracy": 1.0,
+            "passed": true
+        },
+        "empty": {
+            "total_slots": 12,
+            "occupied_slots": 0,
+            "empty_slots": 12,
+            "correct_ranks": 0,
+            "correct_suits": 0,
+            "correct_cards": 0,
+            "rejected_cards": 0,
+            "incorrect_accepted_cards": 0,
+            "empty_slots_rejected": 12,
+            "empty_slots_false_positive": 0,
+            "fallback_attempts": 0,
+            "fallback_recovered": 0,
+            "rank_accuracy": null,
+            "suit_accuracy": null,
+            "card_accuracy": null,
+            "empty_rejection_rate": 1.0,
+            "overall_slot_accuracy": 1.0,
+            "passed": true
+        }
+    },
+    "fallback_statistics": {
+        "total_cards": 116,
+        "fallback_attempts": 6,
+        "fallback_recovered": 6,
+        "fallback_rejected": 0
+    },
+    "failures": [
+        {
+            "file": "combined_distortion_Q_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_Q_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 248,
+                    "blur_radius": 1.265,
+                    "rotation_degrees": -2.112
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.8631184101104736,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.909384396200424,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.07310512033445238,
+                "suit_scores": {
+                    "clubs": 0.909384396200424,
+                    "spades": 0.8362792758659716
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "WRONG",
+            "recognition_time_seconds": 3.9231
+        }
+    ],
+    "results": [
+        {
+            "file": "combined_distortion_7_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_7_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "7",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": 2,
+                    "offset_y": -2,
+                    "background_brightness": 255,
+                    "blur_radius": 0.939,
+                    "rotation_degrees": 2.445
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9999054670333862,
+                "rank_source": "dedicated_rank_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9645615426341556,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14515682278628317,
+                "suit_scores": {
+                    "diamonds": 0.9645615426341556,
+                    "hearts": 0.8194047198478724
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": true,
+                "rank_fallback_recovered": true,
+                "rank_fallback_result": {
+                    "rank": "7",
+                    "confidence": 0.9999054670333862,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 8.2265
+        },
+        {
+            "file": "font_variation_4_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_4_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "4",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 30,
+                    "offset_x": -2,
+                    "offset_y": -1,
+                    "background_brightness": 235
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999926090240479,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9826361362608137,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24490327645415322,
+                "suit_scores": {
+                    "clubs": 0.9826361362608137,
+                    "spades": 0.7377328598066605
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 10.5537
+        },
+        {
+            "file": "font_variation_8_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_8_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "8",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 247
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.999995231628418,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9830502316445797,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.34560570968369386,
+                "suit_scores": {
+                    "hearts": 0.9830502316445797,
+                    "diamonds": 0.6374445219608859
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 10.1876
+        },
+        {
+            "file": "font_variation_J_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_J_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "J",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 1,
+                    "offset_y": -1,
+                    "background_brightness": 239
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9998881816864014,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23278035000165143,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.2553
+        },
+        {
+            "file": "font_variation_Q_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_Q_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 29,
+                    "offset_x": 1,
+                    "offset_y": -1,
+                    "background_brightness": 239
+                }
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9999969005584717,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9786658394332071,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14814103453248328,
+                "suit_scores": {
+                    "diamonds": 0.9786658394332071,
+                    "hearts": 0.8305248049007238
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.418
+        },
+        {
+            "file": "font_variation_4_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_4_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "4",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 32,
+                    "offset_x": -2,
+                    "offset_y": 1,
+                    "background_brightness": 242
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999929666519165,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9828707123958567,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.34437294344838976,
+                "suit_scores": {
+                    "hearts": 0.9828707123958567,
+                    "diamonds": 0.6384977689474669
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.4892
+        },
+        {
+            "file": "combined_distortion_2_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_2_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "2",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": 0,
+                    "offset_y": -1,
+                    "background_brightness": 248,
+                    "blur_radius": 0.672,
+                    "rotation_degrees": -2.157
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9813453555107117,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.9683263389859308,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.1385299434925482,
+                "suit_scores": {
+                    "diamonds": 0.9683263389859308,
+                    "hearts": 0.8297963954933826
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.7308
+        },
+        {
+            "file": "empty_005.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_005.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        41,
+                        78,
+                        73
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 3.0692
+        },
+        {
+            "file": "font_variation_9_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_9_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "9",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 32,
+                    "offset_x": 0,
+                    "offset_y": -1,
+                    "background_brightness": 246
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.9999057054519653,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9799779374821195,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.3430318794884134,
+                "suit_scores": {
+                    "hearts": 0.9799779374821195,
+                    "diamonds": 0.6369460579937061
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.9092
+        },
+        {
+            "file": "font_variation_7_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_7_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "7",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 32,
+                    "offset_x": -1,
+                    "offset_y": 0,
+                    "background_brightness": 240
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9999901056289673,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9808299428822178,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.342800971648483,
+                "suit_scores": {
+                    "hearts": 0.9808299428822178,
+                    "diamonds": 0.6380289712337348
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.946
+        },
+        {
+            "file": "font_variation_6_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_6_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "6",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": -2,
+                    "offset_y": 2,
+                    "background_brightness": 245
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999793767929077,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23278035000165143,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.4502
+        },
+        {
+            "file": "combined_distortion_6_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_6_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "6",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 31,
+                    "offset_x": 1,
+                    "offset_y": 0,
+                    "background_brightness": 242,
+                    "blur_radius": 0.753,
+                    "rotation_degrees": 0.232
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999643564224243,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9615718543918303,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.34024690540726865,
+                "suit_scores": {
+                    "hearts": 0.9615718543918303,
+                    "diamonds": 0.6213249489845617
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2169
+        },
+        {
+            "file": "font_variation_2_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_2_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "2",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": 1,
+                    "offset_y": -2,
+                    "background_brightness": 243
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.999996542930603,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9773519044762725,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.2339394214070477,
+                "suit_scores": {
+                    "spades": 0.9773519044762725,
+                    "clubs": 0.7434124830692248
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.9822
+        },
+        {
+            "file": "font_variation_8_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_8_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "8",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 2,
+                    "offset_y": -1,
+                    "background_brightness": 236
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.9999974966049194,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23278035000165143,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 9.9308
+        },
+        {
+            "file": "empty_003.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_003.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        41,
+                        99,
+                        63
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.8879
+        },
+        {
+            "file": "combined_distortion_A_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_A_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "A",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 1,
+                    "offset_y": 1,
+                    "background_brightness": 245,
+                    "blur_radius": 0.766,
+                    "rotation_degrees": 0.989
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9998962879180908,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9418149175611581,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.18429285462905898,
+                "suit_scores": {
+                    "clubs": 0.9418149175611581,
+                    "spades": 0.7575220629320991
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.5186
+        },
+        {
+            "file": "font_variation_6_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_6_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "6",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 28,
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "background_brightness": 253
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.999984622001648,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9801749082423753,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24352407651380592,
+                "suit_scores": {
+                    "clubs": 0.9801749082423753,
+                    "spades": 0.7366508317285694
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.7166
+        },
+        {
+            "file": "empty_012.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_012.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        35,
+                        101,
+                        58
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.2575
+        },
+        {
+            "file": "combined_distortion_4_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_4_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "4",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 1,
+                    "offset_y": 1,
+                    "background_brightness": 253,
+                    "blur_radius": 0.776,
+                    "rotation_degrees": -2.396
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999831914901733,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9727743417984809,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.34517122453772764,
+                "suit_scores": {
+                    "hearts": 0.9727743417984809,
+                    "diamonds": 0.6276031172607532
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.8782
+        },
+        {
+            "file": "font_variation_9_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_9_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "9",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 30,
+                    "offset_x": -2,
+                    "offset_y": 0,
+                    "background_brightness": 239
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.9999961853027344,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.982329256761677,
+                "suit_source": "simulator_small_suit_wide:clubs_seguisym",
+                "suit_margin": 0.24375160082843683,
+                "suit_scores": {
+                    "clubs": 0.982329256761677,
+                    "spades": 0.7385776559332402
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.4897
+        },
+        {
+            "file": "combined_distortion_8_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_8_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "8",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 30,
+                    "offset_x": 2,
+                    "offset_y": 0,
+                    "background_brightness": 243,
+                    "blur_radius": 1.297,
+                    "rotation_degrees": -3.271
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.9999961853027344,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9077793401686345,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.0901488163361539,
+                "suit_scores": {
+                    "clubs": 0.9077793401686345,
+                    "spades": 0.8176305238324806
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2282
+        },
+        {
+            "file": "font_variation_Q_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_Q_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 29,
+                    "offset_x": 2,
+                    "offset_y": -2,
+                    "background_brightness": 237
+                }
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9987514019012451,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9773519044762725,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23293934844493636,
+                "suit_scores": {
+                    "spades": 0.9773519044762725,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.1281
+        },
+        {
+            "file": "font_variation_2_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_2_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "2",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 31,
+                    "offset_x": -1,
+                    "offset_y": 2,
+                    "background_brightness": 245
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9999809265136719,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9790360551059096,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14734059676088007,
+                "suit_scores": {
+                    "diamonds": 0.9790360551059096,
+                    "hearts": 0.8316954583450296
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.885
+        },
+        {
+            "file": "font_variation_10_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_10_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "10",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 24,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 244
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999966621398926,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9801749082423753,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24352407651380592,
+                "suit_scores": {
+                    "clubs": 0.9801749082423753,
+                    "spades": 0.7366508317285694
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.6214
+        },
+        {
+            "file": "font_variation_K_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_K_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "K",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 29,
+                    "offset_x": -2,
+                    "offset_y": -1,
+                    "background_brightness": 241
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9999619722366333,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9764574703275415,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14308681657140876,
+                "suit_scores": {
+                    "diamonds": 0.9764574703275415,
+                    "hearts": 0.8333706537561327
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.5284
+        },
+        {
+            "file": "combined_distortion_J_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_J_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "J",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 28,
+                    "offset_x": 1,
+                    "offset_y": 1,
+                    "background_brightness": 241,
+                    "blur_radius": 0.888,
+                    "rotation_degrees": -3.398
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9965006113052368,
+                "rank_source": "dedicated_rank_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9520795069570235,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.31687822379909536,
+                "suit_scores": {
+                    "hearts": 0.9520795069570235,
+                    "diamonds": 0.6352012831579281
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": true,
+                "rank_fallback_recovered": true,
+                "rank_fallback_result": {
+                    "rank": "J",
+                    "confidence": 0.9965006113052368,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.8937
+        },
+        {
+            "file": "combined_distortion_8_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_8_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "8",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 30,
+                    "offset_x": 2,
+                    "offset_y": 2,
+                    "background_brightness": 247,
+                    "blur_radius": 0.772,
+                    "rotation_degrees": 1.822
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.999995231628418,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9830116120531495,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3503263368099775,
+                "suit_scores": {
+                    "hearts": 0.9830116120531495,
+                    "diamonds": 0.632685275243172
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.3153
+        },
+        {
+            "file": "combined_distortion_4_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_4_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "4",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 32,
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "background_brightness": 251,
+                    "blur_radius": 1.038,
+                    "rotation_degrees": 1.09
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999924898147583,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.9515126801615734,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.15215597726952268,
+                "suit_scores": {
+                    "clubs": 0.9515126801615734,
+                    "spades": 0.7993567028920507
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.4097
+        },
+        {
+            "file": "empty_010.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_010.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        26,
+                        74,
+                        78
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.9676
+        },
+        {
+            "file": "font_variation_8_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_8_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "8",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 29,
+                    "offset_x": -1,
+                    "offset_y": 1,
+                    "background_brightness": 243
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.999995231628418,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9826361362608137,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24490327645415322,
+                "suit_scores": {
+                    "clubs": 0.9826361362608137,
+                    "spades": 0.7377328598066605
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.6903
+        },
+        {
+            "file": "font_variation_K_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_K_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "K",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 33,
+                    "offset_x": 0,
+                    "offset_y": -1,
+                    "background_brightness": 248
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9993640780448914,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 0.985625393750486,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.3486586722892586,
+                "suit_scores": {
+                    "hearts": 0.985625393750486,
+                    "diamonds": 0.6369667214612273
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.3104
+        },
+        {
+            "file": "combined_distortion_4_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_4_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "4",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 32,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 247,
+                    "blur_radius": 1.179,
+                    "rotation_degrees": 1.355
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999839067459106,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.9237882013450778,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.11734434446291209,
+                "suit_scores": {
+                    "diamonds": 0.9237882013450778,
+                    "hearts": 0.8064438568821657
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.7653
+        },
+        {
+            "file": "font_variation_A_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_A_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "A",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 29,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 236
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9997287392616272,
+                "rank_source": "primary",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.2326950838313644,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444978222016232
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.1553
+        },
+        {
+            "file": "combined_distortion_A_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_A_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "A",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 248,
+                    "blur_radius": 0.851,
+                    "rotation_degrees": -1.874
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9978188276290894,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.962470596408225,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.1446308331838957,
+                "suit_scores": {
+                    "diamonds": 0.962470596408225,
+                    "hearts": 0.8178397632243293
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.4905
+        },
+        {
+            "file": "font_variation_7_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_7_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "7",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 28,
+                    "offset_x": -1,
+                    "offset_y": -1,
+                    "background_brightness": 250
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9998953342437744,
+                "rank_source": "dedicated_rank_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9764574703275415,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14308681657140876,
+                "suit_scores": {
+                    "diamonds": 0.9764574703275415,
+                    "hearts": 0.8333706537561327
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": true,
+                "rank_fallback_recovered": true,
+                "rank_fallback_result": {
+                    "rank": "7",
+                    "confidence": 0.9998953342437744,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.0897
+        },
+        {
+            "file": "font_variation_K_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_K_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "K",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 32,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 247
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9999611377716064,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9773519044762725,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23293934844493636,
+                "suit_scores": {
+                    "spades": 0.9773519044762725,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.3281
+        },
+        {
+            "file": "font_variation_K_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_K_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "K",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": 1,
+                    "offset_y": 2,
+                    "background_brightness": 244
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9887214303016663,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.9801749082423753,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24352407651380592,
+                "suit_scores": {
+                    "clubs": 0.9801749082423753,
+                    "spades": 0.7366508317285694
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.1978
+        },
+        {
+            "file": "combined_distortion_6_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_6_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "6",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": -2,
+                    "offset_y": 2,
+                    "background_brightness": 252,
+                    "blur_radius": 1.111,
+                    "rotation_degrees": 0.922
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999896287918091,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9448842915723409,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.1316943859770947,
+                "suit_scores": {
+                    "clubs": 0.9448842915723409,
+                    "spades": 0.8131899055952462
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2771
+        },
+        {
+            "file": "font_variation_10_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_10_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "10",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 25,
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "background_brightness": 250
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999944567680359,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9832511318252737,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.345686697787738,
+                "suit_scores": {
+                    "hearts": 0.9832511318252737,
+                    "diamonds": 0.6375644340375357
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2395
+        },
+        {
+            "file": "empty_001.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_001.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        35,
+                        65,
+                        62
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.7214
+        },
+        {
+            "file": "combined_distortion_Q_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_Q_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 30,
+                    "offset_x": 2,
+                    "offset_y": -2,
+                    "background_brightness": 244,
+                    "blur_radius": 0.805,
+                    "rotation_degrees": -2.885
+                }
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9999703168869019,
+                "rank_source": "dedicated_rank_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9624059818071903,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.19517161431249097,
+                "suit_scores": {
+                    "spades": 0.9624059818071903,
+                    "clubs": 0.7672343674946993
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": true,
+                "rank_fallback_recovered": true,
+                "rank_fallback_result": {
+                    "rank": "Q",
+                    "confidence": 0.9999703168869019,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.9954
+        },
+        {
+            "file": "combined_distortion_8_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_8_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "8",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 28,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 255,
+                    "blur_radius": 1.167,
+                    "rotation_degrees": 3.261
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.9999967813491821,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9465731512125138,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.1871245067642212,
+                "suit_scores": {
+                    "spades": 0.9465731512125138,
+                    "clubs": 0.7594486444482926
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.8073
+        },
+        {
+            "file": "combined_distortion_10_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_10_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "10",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 28,
+                    "offset_x": -2,
+                    "offset_y": -1,
+                    "background_brightness": 237,
+                    "blur_radius": 0.652,
+                    "rotation_degrees": -1.641
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999921917915344,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9681512904900589,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14120488053238056,
+                "suit_scores": {
+                    "diamonds": 0.9681512904900589,
+                    "hearts": 0.8269464099576783
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.6091
+        },
+        {
+            "file": "combined_distortion_2_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_2_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "2",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 29,
+                    "offset_x": -2,
+                    "offset_y": -1,
+                    "background_brightness": 245,
+                    "blur_radius": 0.773,
+                    "rotation_degrees": 0.643
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9999921321868896,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9552904335433133,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.17786279094046498,
+                "suit_scores": {
+                    "clubs": 0.9552904335433133,
+                    "spades": 0.7774276426028484
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2827
+        },
+        {
+            "file": "empty_011.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_011.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        30,
+                        78,
+                        80
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.7548
+        },
+        {
+            "file": "combined_distortion_9_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_9_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "9",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": -1,
+                    "background_brightness": 236,
+                    "blur_radius": 0.839,
+                    "rotation_degrees": -1.136
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.9999866485595703,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9747083115798783,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.239164706067168,
+                "suit_scores": {
+                    "spades": 0.9747083115798783,
+                    "clubs": 0.7355436055127103
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.437
+        },
+        {
+            "file": "combined_distortion_3_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_3_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "3",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 31,
+                    "offset_x": 2,
+                    "offset_y": -1,
+                    "background_brightness": 248,
+                    "blur_radius": 1.052,
+                    "rotation_degrees": 1.016
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999921321868896,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9334155990082368,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3145817646279593,
+                "suit_scores": {
+                    "hearts": 0.9334155990082368,
+                    "diamonds": 0.6188338343802775
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.3362
+        },
+        {
+            "file": "empty_004.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_004.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        30,
+                        72,
+                        67
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.7142
+        },
+        {
+            "file": "combined_distortion_7_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_7_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "7",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 30,
+                    "offset_x": -2,
+                    "offset_y": 0,
+                    "background_brightness": 243,
+                    "blur_radius": 1.073,
+                    "rotation_degrees": -2.902
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9997442364692688,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.9386790643065911,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.133313106317011,
+                "suit_scores": {
+                    "clubs": 0.9386790643065911,
+                    "spades": 0.8053659579895801
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.1929
+        },
+        {
+            "file": "combined_distortion_7_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_7_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "7",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 32,
+                    "offset_x": -1,
+                    "offset_y": 0,
+                    "background_brightness": 236,
+                    "blur_radius": 0.854,
+                    "rotation_degrees": 2.94
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9999771118164062,
+                "rank_source": "dedicated_rank_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9680630614746188,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.21252480205945068,
+                "suit_scores": {
+                    "spades": 0.9680630614746188,
+                    "clubs": 0.7555382594151682
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": true,
+                "rank_fallback_recovered": true,
+                "rank_fallback_result": {
+                    "rank": "7",
+                    "confidence": 0.9999771118164062,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2657
+        },
+        {
+            "file": "font_variation_9_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_9_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "9",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 32,
+                    "offset_x": -1,
+                    "offset_y": -1,
+                    "background_brightness": 254
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.9998915195465088,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9790360551059096,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14734059676088007,
+                "suit_scores": {
+                    "diamonds": 0.9790360551059096,
+                    "hearts": 0.8316954583450296
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.7849
+        },
+        {
+            "file": "font_variation_2_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_2_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "2",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 28,
+                    "offset_x": -2,
+                    "offset_y": 2,
+                    "background_brightness": 254
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9999758005142212,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9791446304991331,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.34137199489058734,
+                "suit_scores": {
+                    "hearts": 0.9791446304991331,
+                    "diamonds": 0.6377726356085458
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.2287
+        },
+        {
+            "file": "font_variation_A_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_A_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "A",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": 2,
+                    "background_brightness": 243
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9903950095176697,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9803056765654825,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.3436109708912951,
+                "suit_scores": {
+                    "hearts": 0.9803056765654825,
+                    "diamonds": 0.6366947056741874
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.6616
+        },
+        {
+            "file": "font_variation_J_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_J_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "J",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 31,
+                    "offset_x": -2,
+                    "offset_y": -1,
+                    "background_brightness": 246
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9998675584793091,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.985306407481404,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.3473529888355673,
+                "suit_scores": {
+                    "hearts": 0.985306407481404,
+                    "diamonds": 0.6379534186458367
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2273
+        },
+        {
+            "file": "combined_distortion_3_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_3_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "3",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 28,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 254,
+                    "blur_radius": 0.77,
+                    "rotation_degrees": 0.15
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999979734420776,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9479169918867385,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.16191022758111562,
+                "suit_scores": {
+                    "clubs": 0.9479169918867385,
+                    "spades": 0.7860067643056229
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 9.0494
+        },
+        {
+            "file": "font_variation_2_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_2_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "2",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 34,
+                    "offset_x": -1,
+                    "offset_y": -1,
+                    "background_brightness": 239
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9999970197677612,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.982329256761677,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24375160082843683,
+                "suit_scores": {
+                    "clubs": 0.982329256761677,
+                    "spades": 0.7385776559332402
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.4008
+        },
+        {
+            "file": "combined_distortion_K_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_K_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "K",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 29,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 235,
+                    "blur_radius": 1.248,
+                    "rotation_degrees": 2.75
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.999884843826294,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9197197759500286,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.09701110420825143,
+                "suit_scores": {
+                    "clubs": 0.9197197759500286,
+                    "spades": 0.8227086717417772
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.9583
+        },
+        {
+            "file": "combined_distortion_2_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_2_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "2",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": -2,
+                    "background_brightness": 244,
+                    "blur_radius": 0.858,
+                    "rotation_degrees": -1.358
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9999915361404419,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9764354986705597,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.21820023088996543,
+                "suit_scores": {
+                    "spades": 0.9764354986705597,
+                    "clubs": 0.7582352677805942
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.3497
+        },
+        {
+            "file": "combined_distortion_9_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_9_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "9",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 30,
+                    "offset_x": 2,
+                    "offset_y": -1,
+                    "background_brightness": 253,
+                    "blur_radius": 0.73,
+                    "rotation_degrees": 3.182
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.9999929666519165,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9345789219185123,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.16263443880312345,
+                "suit_scores": {
+                    "clubs": 0.9345789219185123,
+                    "spades": 0.7719444831153889
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2575
+        },
+        {
+            "file": "font_variation_J_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_J_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "J",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 0,
+                    "offset_y": 2,
+                    "background_brightness": 255
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9998879432678223,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9816310575847462,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24339008347949564,
+                "suit_scores": {
+                    "clubs": 0.9816310575847462,
+                    "spades": 0.7382409741052506
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2709
+        },
+        {
+            "file": "empty_002.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_002.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        32,
+                        98,
+                        45
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.5152
+        },
+        {
+            "file": "combined_distortion_Q_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_Q_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 2,
+                    "offset_y": 0,
+                    "background_brightness": 241,
+                    "blur_radius": 0.973,
+                    "rotation_degrees": 1.877
+                }
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9996378421783447,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.9202988632182201,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.11873750768080393,
+                "suit_scores": {
+                    "diamonds": 0.9202988632182201,
+                    "hearts": 0.8015613555374161
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 3.884
+        },
+        {
+            "file": "font_variation_5_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_5_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "5",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 1,
+                    "offset_y": -1,
+                    "background_brightness": 247
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999922513961792,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9826691699766043,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.3442882822050616,
+                "suit_scores": {
+                    "hearts": 0.9826691699766043,
+                    "diamonds": 0.6383808877715427
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2345
+        },
+        {
+            "file": "empty_009.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_009.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        23,
+                        91,
+                        79
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.9131
+        },
+        {
+            "file": "font_variation_Q_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_Q_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 29,
+                    "offset_x": 1,
+                    "offset_y": 1,
+                    "background_brightness": 238
+                }
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.999346911907196,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9798659828741322,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.2423751147437635,
+                "suit_scores": {
+                    "clubs": 0.9798659828741322,
+                    "spades": 0.7374908681303687
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.6578
+        },
+        {
+            "file": "empty_007.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_007.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        42,
+                        91,
+                        75
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.7922
+        },
+        {
+            "file": "combined_distortion_5_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_5_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "5",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 29,
+                    "offset_x": -2,
+                    "offset_y": 2,
+                    "background_brightness": 241,
+                    "blur_radius": 0.768,
+                    "rotation_degrees": 0.46
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999966621398926,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9418799935994757,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.18836135214842153,
+                "suit_scores": {
+                    "clubs": 0.9418799935994757,
+                    "spades": 0.7535186414510542
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.4711
+        },
+        {
+            "file": "font_variation_9_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_9_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "9",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 29,
+                    "offset_x": 1,
+                    "offset_y": 2,
+                    "background_brightness": 238
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.9999971389770508,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.2326950838313644,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444978222016232
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.4433
+        },
+        {
+            "file": "combined_distortion_7_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_7_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "7",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "background_brightness": 242,
+                    "blur_radius": 1.237,
+                    "rotation_degrees": -0.22
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.8015821576118469,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 0.9327408692598104,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3144083594849839,
+                "suit_scores": {
+                    "hearts": 0.9327408692598104,
+                    "diamonds": 0.6183325097748265
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.2179
+        },
+        {
+            "file": "combined_distortion_2_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_2_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "2",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": -1,
+                    "offset_y": -1,
+                    "background_brightness": 251,
+                    "blur_radius": 0.748,
+                    "rotation_degrees": -2.399
+                }
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9994268417358398,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 0.9779135432605808,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3489032589285832,
+                "suit_scores": {
+                    "hearts": 0.9779135432605808,
+                    "diamonds": 0.6290102843319976
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 3.9366
+        },
+        {
+            "file": "font_variation_7_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_7_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "7",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 247
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.999995231628418,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9773519044762725,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23293934844493636,
+                "suit_scores": {
+                    "spades": 0.9773519044762725,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.1691
+        },
+        {
+            "file": "font_variation_6_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_6_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "6",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 252
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999237060546875,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9832511318252737,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.345686697787738,
+                "suit_scores": {
+                    "hearts": 0.9832511318252737,
+                    "diamonds": 0.6375644340375357
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2731
+        },
+        {
+            "file": "font_variation_A_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_A_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "A",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 30,
+                    "offset_x": 2,
+                    "offset_y": 0,
+                    "background_brightness": 247
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9997497200965881,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.9801749082423753,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24352407651380592,
+                "suit_scores": {
+                    "clubs": 0.9801749082423753,
+                    "spades": 0.7366508317285694
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.2939
+        },
+        {
+            "file": "combined_distortion_5_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_5_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "5",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 244,
+                    "blur_radius": 0.816,
+                    "rotation_degrees": -0.927
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999980926513672,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9764911100795477,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23309776921123393,
+                "suit_scores": {
+                    "spades": 0.9764911100795477,
+                    "clubs": 0.7433933408683138
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.1236
+        },
+        {
+            "file": "combined_distortion_9_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_9_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "9",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 31,
+                    "offset_x": -2,
+                    "offset_y": 0,
+                    "background_brightness": 240,
+                    "blur_radius": 1.127,
+                    "rotation_degrees": 3.091
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.9999752044677734,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9545296634029993,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.32465056961998284,
+                "suit_scores": {
+                    "hearts": 0.9545296634029993,
+                    "diamonds": 0.6298790937830164
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.3306
+        },
+        {
+            "file": "font_variation_J_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_J_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "J",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 31,
+                    "offset_x": -1,
+                    "offset_y": 2,
+                    "background_brightness": 248
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9999350309371948,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.9791296192863843,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14736623450841146,
+                "suit_scores": {
+                    "diamonds": 0.9791296192863843,
+                    "hearts": 0.8317633847779728
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.1743
+        },
+        {
+            "file": "combined_distortion_5_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_5_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "5",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 28,
+                    "offset_x": -1,
+                    "offset_y": 1,
+                    "background_brightness": 239,
+                    "blur_radius": 1.141,
+                    "rotation_degrees": -0.192
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999954700469971,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9538307456831459,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14055995361183227,
+                "suit_scores": {
+                    "diamonds": 0.9538307456831459,
+                    "hearts": 0.8132707920713136
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2846
+        },
+        {
+            "file": "font_variation_3_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_3_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "3",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 30,
+                    "offset_x": 0,
+                    "offset_y": -1,
+                    "background_brightness": 241
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999819993972778,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9786658394332071,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14814103453248328,
+                "suit_scores": {
+                    "diamonds": 0.9786658394332071,
+                    "hearts": 0.8305248049007238
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.3297
+        },
+        {
+            "file": "combined_distortion_J_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_J_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "J",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 34,
+                    "offset_x": -2,
+                    "offset_y": -1,
+                    "background_brightness": 245,
+                    "blur_radius": 0.925,
+                    "rotation_degrees": 0.626
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9950023293495178,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9611096779156098,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.16554777684798505,
+                "suit_scores": {
+                    "clubs": 0.9611096779156098,
+                    "spades": 0.7955619010676247
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.3805
+        },
+        {
+            "file": "combined_distortion_3_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_3_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "3",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 29,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 235,
+                    "blur_radius": 1.212,
+                    "rotation_degrees": 0.812
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999946355819702,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9538567823813279,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.20038076444458708,
+                "suit_scores": {
+                    "spades": 0.9538567823813279,
+                    "clubs": 0.7534760179367408
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.1935
+        },
+        {
+            "file": "font_variation_4_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_4_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "4",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 32,
+                    "offset_x": 2,
+                    "offset_y": 0,
+                    "background_brightness": 255
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999896287918091,
+                "rank_source": "primary",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.2326950838313644,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444978222016232
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.1484
+        },
+        {
+            "file": "font_variation_10_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_10_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "10",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 26,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 254
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.999987006187439,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9791296192863843,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14736623450841146,
+                "suit_scores": {
+                    "diamonds": 0.9791296192863843,
+                    "hearts": 0.8317633847779728
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.0152
+        },
+        {
+            "file": "combined_distortion_10_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_10_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "10",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 24,
+                    "offset_x": 1,
+                    "offset_y": 2,
+                    "background_brightness": 235,
+                    "blur_radius": 1.126,
+                    "rotation_degrees": 0.397
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999809265136719,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9521293906381192,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.32818512889630125,
+                "suit_scores": {
+                    "hearts": 0.9521293906381192,
+                    "diamonds": 0.6239442617418179
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.1118
+        },
+        {
+            "file": "combined_distortion_6_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_6_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "6",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 32,
+                    "offset_x": -2,
+                    "offset_y": 1,
+                    "background_brightness": 247,
+                    "blur_radius": 0.942,
+                    "rotation_degrees": -1.521
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999945163726807,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.934482918431734,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.1257164426676184,
+                "suit_scores": {
+                    "diamonds": 0.934482918431734,
+                    "hearts": 0.8087664757641156
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.1173
+        },
+        {
+            "file": "combined_distortion_J_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_J_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "J",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 2,
+                    "offset_y": -2,
+                    "background_brightness": 251,
+                    "blur_radius": 0.948,
+                    "rotation_degrees": -2.639
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9996755123138428,
+                "rank_source": "dedicated_rank_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9705095128834346,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.2326497349514014,
+                "suit_scores": {
+                    "spades": 0.9705095128834346,
+                    "clubs": 0.7378597779320332
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": true,
+                "rank_fallback_recovered": true,
+                "rank_fallback_result": {
+                    "rank": "J",
+                    "confidence": 0.9996755123138428,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.0095
+        },
+        {
+            "file": "font_variation_10_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_10_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "10",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 29,
+                    "offset_x": 1,
+                    "offset_y": 2,
+                    "background_brightness": 237
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999982118606567,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23278035000165143,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.6422
+        },
+        {
+            "file": "font_variation_5_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_5_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "5",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 31,
+                    "offset_x": -1,
+                    "offset_y": 1,
+                    "background_brightness": 245
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999958276748657,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.982329256761677,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24375160082843683,
+                "suit_scores": {
+                    "clubs": 0.982329256761677,
+                    "spades": 0.7385776559332402
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.5818
+        },
+        {
+            "file": "combined_distortion_A_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_A_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "A",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 30,
+                    "offset_x": 2,
+                    "offset_y": 2,
+                    "background_brightness": 238,
+                    "blur_radius": 1.292,
+                    "rotation_degrees": -0.158
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9984869956970215,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9428958808975019,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3087649786333445,
+                "suit_scores": {
+                    "hearts": 0.9428958808975019,
+                    "diamonds": 0.6341309022641574
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.4501
+        },
+        {
+            "file": "font_variation_4_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_4_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "4",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 242
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999839067459106,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9764574703275415,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14308681657140876,
+                "suit_scores": {
+                    "diamonds": 0.9764574703275415,
+                    "hearts": 0.8333706537561327
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.222
+        },
+        {
+            "file": "font_variation_7_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_7_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "7",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": -2,
+                    "offset_y": 1,
+                    "background_brightness": 247
+                }
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9999947547912598,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.982329256761677,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.24375160082843683,
+                "suit_scores": {
+                    "clubs": 0.982329256761677,
+                    "spades": 0.7385776559332402
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2015
+        },
+        {
+            "file": "combined_distortion_10_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_10_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "10",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 29,
+                    "offset_x": -1,
+                    "offset_y": -1,
+                    "background_brightness": 255,
+                    "blur_radius": 1.26,
+                    "rotation_degrees": 3.455
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999948143959045,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.9226436080949979,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.08660487255119509,
+                "suit_scores": {
+                    "clubs": 0.9226436080949979,
+                    "spades": 0.8360387355438028
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.1939
+        },
+        {
+            "file": "font_variation_6_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_6_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "6",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 29,
+                    "offset_x": 2,
+                    "offset_y": -1,
+                    "background_brightness": 236
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999434947967529,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.977708098008785,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14663601812668314,
+                "suit_scores": {
+                    "diamonds": 0.977708098008785,
+                    "hearts": 0.8310720798821019
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.0808
+        },
+        {
+            "file": "combined_distortion_4_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_4_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "4",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": -2,
+                    "offset_y": 0,
+                    "background_brightness": 239,
+                    "blur_radius": 0.955,
+                    "rotation_degrees": 2.386
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999927282333374,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9596463742431443,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.21676679172276936,
+                "suit_scores": {
+                    "spades": 0.9596463742431443,
+                    "clubs": 0.7428795825203749
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.4544
+        },
+        {
+            "file": "font_variation_A_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_A_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "A",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 29,
+                    "offset_x": 1,
+                    "offset_y": -2,
+                    "background_brightness": 237
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9835489988327026,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9784489279108568,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.1463326137537735,
+                "suit_scores": {
+                    "diamonds": 0.9784489279108568,
+                    "hearts": 0.8321163141570833
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.0961
+        },
+        {
+            "file": "combined_distortion_K_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_K_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "K",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 242,
+                    "blur_radius": 0.641,
+                    "rotation_degrees": 0.719
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9992784857749939,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9631262190688435,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.2133979437433423,
+                "suit_scores": {
+                    "spades": 0.9631262190688435,
+                    "clubs": 0.7497282753255012
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.1682
+        },
+        {
+            "file": "combined_distortion_Q_clubs.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_Q_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 248,
+                    "blur_radius": 1.265,
+                    "rotation_degrees": -2.112
+                }
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.8631184101104736,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.909384396200424,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.07310512033445238,
+                "suit_scores": {
+                    "clubs": 0.909384396200424,
+                    "spades": 0.8362792758659716
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "WRONG",
+            "recognition_time_seconds": 3.9231
+        },
+        {
+            "file": "font_variation_3_clubs.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_3_clubs.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "3",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 33,
+                    "offset_x": -1,
+                    "offset_y": 0,
+                    "background_brightness": 240
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999878406524658,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9779449848665915,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.2423261484973922,
+                "suit_scores": {
+                    "clubs": 0.9779449848665915,
+                    "spades": 0.7356188363691993
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.0523
+        },
+        {
+            "file": "combined_distortion_8_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_8_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "8",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": -2,
+                    "background_brightness": 242,
+                    "blur_radius": 0.901,
+                    "rotation_degrees": -0.187
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.9999943971633911,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9718886469924379,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14639376796938774,
+                "suit_scores": {
+                    "diamonds": 0.9718886469924379,
+                    "hearts": 0.8254948790230502
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2117
+        },
+        {
+            "file": "empty_008.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_008.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        24,
+                        93,
+                        65
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.6089
+        },
+        {
+            "file": "empty_006.png",
+            "variant": "empty",
+            "expected": {
+                "file": "empty_006.png",
+                "variant": "empty",
+                "occupied": false,
+                "rank": null,
+                "suit": null,
+                "transform": {
+                    "background_color": [
+                        33,
+                        98,
+                        68
+                    ]
+                }
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 2.7927
+        },
+        {
+            "file": "combined_distortion_K_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_K_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "K",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 32,
+                    "offset_x": -2,
+                    "offset_y": 0,
+                    "background_brightness": 247,
+                    "blur_radius": 0.707,
+                    "rotation_degrees": 2.679
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9999797344207764,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.969171625932562,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.13604984922198882,
+                "suit_scores": {
+                    "diamonds": 0.969171625932562,
+                    "hearts": 0.8331217767105732
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2826
+        },
+        {
+            "file": "combined_distortion_9_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_9_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "9",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": -1,
+                    "offset_y": -1,
+                    "background_brightness": 244,
+                    "blur_radius": 1.028,
+                    "rotation_degrees": -2.481
+                }
+            },
+            "actual": {
+                "rank": "9",
+                "rank_confidence": 0.999992847442627,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9541780318643949,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.1357968239744518,
+                "suit_scores": {
+                    "diamonds": 0.9541780318643949,
+                    "hearts": 0.8183812078899431
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.1916
+        },
+        {
+            "file": "font_variation_5_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_5_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "5",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 29,
+                    "offset_x": -2,
+                    "offset_y": 0,
+                    "background_brightness": 247
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999815225601196,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9784489279108568,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.1463326137537735,
+                "suit_scores": {
+                    "diamonds": 0.9784489279108568,
+                    "hearts": 0.8321163141570833
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2075
+        },
+        {
+            "file": "combined_distortion_10_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_10_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "10",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 245,
+                    "blur_radius": 0.863,
+                    "rotation_degrees": -0.648
+                }
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999908208847046,
+                "rank_source": "primary",
+                "suit": "spades",
+                "suit_confidence": 0.9649828006926273,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.203164282894705,
+                "suit_scores": {
+                    "spades": 0.9649828006926273,
+                    "clubs": 0.7618185177979223
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.249
+        },
+        {
+            "file": "combined_distortion_6_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_6_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "6",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 28,
+                    "offset_x": -1,
+                    "offset_y": 0,
+                    "background_brightness": 247,
+                    "blur_radius": 0.931,
+                    "rotation_degrees": 0.727
+                }
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999909400939941,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9734963340972635,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.21837891750914262,
+                "suit_scores": {
+                    "spades": 0.9734963340972635,
+                    "clubs": 0.7551174165881209
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.2787
+        },
+        {
+            "file": "font_variation_3_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_3_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "3",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 28,
+                    "offset_x": -2,
+                    "offset_y": 1,
+                    "background_brightness": 240
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999979734420776,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9773519044762725,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.23293934844493636,
+                "suit_scores": {
+                    "spades": 0.9773519044762725,
+                    "clubs": 0.7444125560313362
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.1132
+        },
+        {
+            "file": "font_variation_5_spades.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_5_spades.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "5",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 32,
+                    "offset_x": -2,
+                    "offset_y": 2,
+                    "background_brightness": 240
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999978542327881,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.2326950838313644,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7444978222016232
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2434
+        },
+        {
+            "file": "combined_distortion_J_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_J_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "J",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 31,
+                    "offset_x": -2,
+                    "offset_y": 1,
+                    "background_brightness": 244,
+                    "blur_radius": 1.122,
+                    "rotation_degrees": 3.492
+                }
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9994170665740967,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.9319248280864643,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.12297509768511761,
+                "suit_scores": {
+                    "diamonds": 0.9319248280864643,
+                    "hearts": 0.8089497304013467
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.6359
+        },
+        {
+            "file": "font_variation_8_diamonds.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_8_diamonds.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "8",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": 1,
+                    "background_brightness": 251
+                }
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.9999949932098389,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9756856449101325,
+                "suit_source": "simulator_small_suit:diamonds_seguisym",
+                "suit_margin": 0.14099611486705532,
+                "suit_scores": {
+                    "diamonds": 0.9756856449101325,
+                    "hearts": 0.8346895300430772
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.0
+        },
+        {
+            "file": "font_variation_3_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_3_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "3",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 32,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 241
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999872446060181,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9818229385409696,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.342608007749445,
+                "suit_scores": {
+                    "hearts": 0.9818229385409696,
+                    "diamonds": 0.6392149307915246
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.9846
+        },
+        {
+            "file": "combined_distortion_K_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_K_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "K",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 28,
+                    "offset_x": -1,
+                    "offset_y": 2,
+                    "background_brightness": 236,
+                    "blur_radius": 0.807,
+                    "rotation_degrees": 2.287
+                }
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9999518394470215,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9700546348338491,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3325004196672834,
+                "suit_scores": {
+                    "hearts": 0.9700546348338491,
+                    "diamonds": 0.6375542151665657
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 6.845
+        },
+        {
+            "file": "combined_distortion_3_diamonds.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_3_diamonds.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "3",
+                "suit": "diamonds",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 30,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 239,
+                    "blur_radius": 0.714,
+                    "rotation_degrees": 1.081
+                }
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999821186065674,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.9405093035473366,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.12849308709109297,
+                "suit_scores": {
+                    "diamonds": 0.9405093035473366,
+                    "hearts": 0.8120162164562437
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.4108
+        },
+        {
+            "file": "combined_distortion_A_spades.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_A_spades.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "A",
+                "suit": "spades",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 29,
+                    "offset_x": 2,
+                    "offset_y": -1,
+                    "background_brightness": 242,
+                    "blur_radius": 0.647,
+                    "rotation_degrees": 3.466
+                }
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9999226331710815,
+                "rank_source": "primary",
+                "suit": "spades",
+                "suit_confidence": 0.9698909109251057,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.20771752468331262,
+                "suit_scores": {
+                    "spades": 0.9698909109251057,
+                    "clubs": 0.7621733862417931
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 4.4268
+        },
+        {
+            "file": "combined_distortion_5_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_5_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "5",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "arialbd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 2,
+                    "offset_y": 0,
+                    "background_brightness": 245,
+                    "blur_radius": 0.904,
+                    "rotation_degrees": 2.4
+                }
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999703168869019,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9587506199275436,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.3311411205577771,
+                "suit_scores": {
+                    "hearts": 0.9587506199275436,
+                    "diamonds": 0.6276094993697665
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 5.2162
+        },
+        {
+            "file": "combined_distortion_Q_hearts.png",
+            "variant": "combined_distortion",
+            "expected": {
+                "file": "combined_distortion_Q_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "calibrib.ttf",
+                    "rank_size": 30,
+                    "offset_x": 0,
+                    "offset_y": 1,
+                    "background_brightness": 238,
+                    "blur_radius": 1.244,
+                    "rotation_degrees": 0.918
+                }
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9999839067459106,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 0.9370851353479672,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.31726114614692147,
+                "suit_scores": {
+                    "hearts": 0.9370851353479672,
+                    "diamonds": 0.6198239892010458
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 3.9742
+        },
+        {
+            "file": "font_variation_Q_hearts.png",
+            "variant": "font_variation",
+            "expected": {
+                "file": "font_variation_Q_hearts.png",
+                "variant": "font_variation",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 31,
+                    "offset_x": 0,
+                    "offset_y": -2,
+                    "background_brightness": 235
+                }
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9999402761459351,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9817448438023171,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.34439748808809956,
+                "suit_scores": {
+                    "hearts": 0.9817448438023171,
+                    "diamonds": 0.6373473557142175
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "status": "PASS",
+            "recognition_time_seconds": 7.1761
+        }
+    ]
+}

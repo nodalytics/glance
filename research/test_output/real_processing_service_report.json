@@ -1,0 +1,320 @@
+{
+    "summary": {
+        "total_tests": 44,
+        "passed_tests": 44,
+        "failed_tests": 0,
+        "state_status": "valid",
+        "recognized_cards": 7,
+        "processing_time_seconds": 115.8885,
+        "total_time_seconds": 115.9316,
+        "passed": true
+    },
+    "service_statistics": {
+        "total_requests": 1,
+        "successful_requests": 1,
+        "failed_requests": 0,
+        "rejected_requests": 0,
+        "busy_requests": 0
+    },
+    "failures": [],
+    "results": [
+        {
+            "test": "Pipeline initialization is lazy",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service initially available",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Real screenshot upload accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Calibrated dimensions detected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Upload validation remains lazy",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Real pipeline initialized",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pydantic state returned",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Table field: small_blind",
+            "passed": true,
+            "details": {
+                "expected": 2500,
+                "actual": 2500
+            }
+        },
+        {
+            "test": "Table field: big_blind",
+            "passed": true,
+            "details": {
+                "expected": 5000,
+                "actual": 5000
+            }
+        },
+        {
+            "test": "Table field: pot",
+            "passed": true,
+            "details": {
+                "expected": 47500,
+                "actual": 47500
+            }
+        },
+        {
+            "test": "Table field: average_stack",
+            "passed": true,
+            "details": {
+                "expected": 83333,
+                "actual": 83333
+            }
+        },
+        {
+            "test": "Table field: tournament_position",
+            "passed": true,
+            "details": {
+                "expected": "12 of 18",
+                "actual": "12 of 18"
+            }
+        },
+        {
+            "test": "Card: board_1",
+            "passed": true,
+            "details": {
+                "expected": {
+                    "rank": "A",
+                    "suit": "hearts"
+                },
+                "actual": {
+                    "rank": "A",
+                    "suit": "hearts"
+                }
+            }
+        },
+        {
+            "test": "Card: board_2",
+            "passed": true,
+            "details": {
+                "expected": {
+                    "rank": "8",
+                    "suit": "spades"
+                },
+                "actual": {
+                    "rank": "8",
+                    "suit": "spades"
+                }
+            }
+        },
+        {
+            "test": "Card: board_3",
+            "passed": true,
+            "details": {
+                "expected": {
+                    "rank": "J",
+                    "suit": "hearts"
+                },
+                "actual": {
+                    "rank": "J",
+                    "suit": "hearts"
+                }
+            }
+        },
+        {
+            "test": "Card: board_4",
+            "passed": true,
+            "details": {
+                "expected": {
+                    "rank": "J",
+                    "suit": "diamonds"
+                },
+                "actual": {
+                    "rank": "J",
+                    "suit": "diamonds"
+                }
+            }
+        },
+        {
+            "test": "Card: board_5",
+            "passed": true,
+            "details": {
+                "expected": {
+                    "rank": "2",
+                    "suit": "hearts"
+                },
+                "actual": {
+                    "rank": "2",
+                    "suit": "hearts"
+                }
+            }
+        },
+        {
+            "test": "Card: hero_card_1",
+            "passed": true,
+            "details": {
+                "expected": {
+                    "rank": "Q",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "Q",
+                    "suit": "clubs"
+                }
+            }
+        },
+        {
+            "test": "Card: hero_card_2",
+            "passed": true,
+            "details": {
+                "expected": {
+                    "rank": "10",
+                    "suit": "clubs"
+                },
+                "actual": {
+                    "rank": "10",
+                    "suit": "clubs"
+                }
+            }
+        },
+        {
+            "test": "State status is valid",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Offline screenshot source",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "River street detected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Five community cards detected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Two hero cards detected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Seven recognized cards",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Seven unique card slots preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Overall state validation passed",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No validation errors",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No duplicate cards",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Player information detected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Calibration profile selected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Automatic table extraction used",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "OCR items detected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Original filename preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Upload metadata preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service processing time recorded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "JSON serialization and round trip",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Structured state saved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No new temporary files remain",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Processing lock released",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Exactly one request processed",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Successful request recorded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No failed requests",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No rejected or busy requests",
+            "passed": true,
+            "details": null
+        }
+    ]
+}

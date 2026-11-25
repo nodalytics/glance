@@ -1,0 +1,249 @@
+{
+    "summary": {
+        "total_tests": 46,
+        "passed_tests": 46,
+        "failed_tests": 0,
+        "total_time_seconds": 1.3005,
+        "passed": true
+    },
+    "service_statistics": {
+        "total_requests": 7,
+        "successful_requests": 3,
+        "failed_requests": 2,
+        "rejected_requests": 1,
+        "busy_requests": 1
+    },
+    "failures": [],
+    "results": [
+        {
+            "test": "Runtime directory created",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline initialization is lazy",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service initially available",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "PNG extension accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Uppercase extension normalized",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Missing filename rejected",
+            "passed": true,
+            "details": "INVALID_FILENAME: 400"
+        },
+        {
+            "test": "Parent path rejected",
+            "passed": true,
+            "details": "INVALID_FILENAME: 400"
+        },
+        {
+            "test": "Windows path rejected",
+            "passed": true,
+            "details": "INVALID_FILENAME: 400"
+        },
+        {
+            "test": "Unsupported extension rejected",
+            "passed": true,
+            "details": "UNSUPPORTED_FILE_FORMAT: 415"
+        },
+        {
+            "test": "Empty upload rejected",
+            "passed": true,
+            "details": "EMPTY_FILE: 400"
+        },
+        {
+            "test": "Non-byte content rejected",
+            "passed": true,
+            "details": "INVALID_FILE_CONTENT: 400"
+        },
+        {
+            "test": "Oversized upload rejected",
+            "passed": true,
+            "details": "FILE_TOO_LARGE: 413"
+        },
+        {
+            "test": "Valid PNG accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Valid JPEG accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "1600x900 dimensions accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Corrupted image rejected",
+            "passed": true,
+            "details": "INVALID_IMAGE: 422"
+        },
+        {
+            "test": "Image extension mismatch rejected",
+            "passed": true,
+            "details": "IMAGE_FORMAT_MISMATCH: 415"
+        },
+        {
+            "test": "Unsupported dimensions rejected",
+            "passed": true,
+            "details": "UNSUPPORTED_IMAGE_DIMENSIONS: 422"
+        },
+        {
+            "test": "Upload validation does not initialize OCR",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline initialized on first request",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline received existing temporary file",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Validated response returned",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Original filename preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Upload metadata included",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service timing included",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Temporary file removed after success",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Processing lock released after success",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline reused for second request",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Unique temporary filenames generated",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Pipeline failure converted to service error",
+            "passed": true,
+            "details": "PROCESSING_FAILED: 500"
+        },
+        {
+            "test": "Temporary file removed after failure",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Processing lock released after failure",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid pipeline response rejected",
+            "passed": true,
+            "details": "INVALID_PIPELINE_RESPONSE: 500"
+        },
+        {
+            "test": "Temporary file removed after schema failure",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Worker acquired processing lock",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Concurrent processing rejected",
+            "passed": true,
+            "details": "SERVICE_BUSY: 503"
+        },
+        {
+            "test": "Worker completed successfully",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service available after worker completion",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid request rejected before processing",
+            "passed": true,
+            "details": "UNSUPPORTED_FILE_FORMAT: 415"
+        },
+        {
+            "test": "Structured error matches API model",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Total request count correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Successful request count correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Failed request count correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Rejected request count correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Busy request count correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No temporary upload files remain",
+            "passed": true,
+            "details": null
+        }
+    ]
+}

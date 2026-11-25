@@ -1,0 +1,43 @@
+{
+    "sample_name": "river_sample_001",
+    "type": "synthetic",
+    "street": "river",
+    "board_count": 5,
+    "cards": {
+        "board_1": {
+            "occupied": true,
+            "rank": "K",
+            "suit": "diamonds"
+        },
+        "board_2": {
+            "occupied": true,
+            "rank": "5",
+            "suit": "diamonds"
+        },
+        "board_3": {
+            "occupied": true,
+            "rank": "8",
+            "suit": "spades"
+        },
+        "board_4": {
+            "occupied": true,
+            "rank": "A",
+            "suit": "clubs"
+        },
+        "board_5": {
+            "occupied": true,
+            "rank": "A",
+            "suit": "diamonds"
+        },
+        "hero_card_1": {
+            "occupied": true,
+            "rank": "2",
+            "suit": "spades"
+        },
+        "hero_card_2": {
+            "occupied": true,
+            "rank": "J",
+            "suit": "diamonds"
+        }
+    }
+}

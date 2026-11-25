@@ -1,0 +1,1637 @@
+{
+    "dataset_id": "heldout_v1",
+    "type": "synthetic_heldout",
+    "recognition_profile": "simulator",
+    "random_seed": 2026,
+    "image_width": 108,
+    "image_height": 148,
+    "total_images": 168,
+    "occupied_cards": 156,
+    "empty_slots": 12,
+    "records": [
+        {
+            "file": "rotated_6_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "6",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 1.31
+            }
+        },
+        {
+            "file": "standard_J_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "J",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "standard_5_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "5",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "standard_4_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "4",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "blurred_10_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "10",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.562
+            }
+        },
+        {
+            "file": "empty_006.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    40,
+                    99,
+                    48
+                ]
+            }
+        },
+        {
+            "file": "standard_K_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "K",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "blurred_K_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "K",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.644
+            }
+        },
+        {
+            "file": "blurred_7_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "7",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.911
+            }
+        },
+        {
+            "file": "rotated_4_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "4",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": 1.9
+            }
+        },
+        {
+            "file": "blurred_A_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "A",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.718
+            }
+        },
+        {
+            "file": "blurred_5_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "5",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.626
+            }
+        },
+        {
+            "file": "blurred_5_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "5",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.829
+            }
+        },
+        {
+            "file": "standard_2_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "2",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "standard_J_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "J",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "standard_9_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "9",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "blurred_10_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "10",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.99
+            }
+        },
+        {
+            "file": "standard_5_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "5",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "standard_A_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "A",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "standard_10_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "10",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "standard_9_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "9",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "blurred_K_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "K",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 1.1
+            }
+        },
+        {
+            "file": "rotated_A_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "A",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": -1.066
+            }
+        },
+        {
+            "file": "blurred_6_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "6",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 1.026
+            }
+        },
+        {
+            "file": "standard_J_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "J",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "rotated_9_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "9",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": -1.779
+            }
+        },
+        {
+            "file": "standard_Q_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "rotated_J_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "J",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 2.161
+            }
+        },
+        {
+            "file": "rotated_6_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "6",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 2.12
+            }
+        },
+        {
+            "file": "rotated_8_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "8",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": -2.253
+            }
+        },
+        {
+            "file": "standard_3_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "3",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "standard_3_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "3",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "empty_005.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    26,
+                    76,
+                    47
+                ]
+            }
+        },
+        {
+            "file": "blurred_10_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "10",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.799
+            }
+        },
+        {
+            "file": "blurred_7_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "7",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.774
+            }
+        },
+        {
+            "file": "standard_5_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "5",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "blurred_4_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "4",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 1.05
+            }
+        },
+        {
+            "file": "blurred_6_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "6",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.86
+            }
+        },
+        {
+            "file": "rotated_9_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "9",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": -1.496
+            }
+        },
+        {
+            "file": "blurred_3_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "3",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 1.088
+            }
+        },
+        {
+            "file": "standard_10_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "10",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "blurred_3_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "3",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.515
+            }
+        },
+        {
+            "file": "standard_4_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "4",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "rotated_8_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "8",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": -1.103
+            }
+        },
+        {
+            "file": "blurred_3_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "3",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.961
+            }
+        },
+        {
+            "file": "rotated_J_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "J",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": -2.435
+            }
+        },
+        {
+            "file": "empty_003.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    34,
+                    79,
+                    49
+                ]
+            }
+        },
+        {
+            "file": "blurred_6_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "6",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.97
+            }
+        },
+        {
+            "file": "standard_6_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "6",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "blurred_J_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "J",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.851
+            }
+        },
+        {
+            "file": "empty_008.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    20,
+                    73,
+                    78
+                ]
+            }
+        },
+        {
+            "file": "rotated_4_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "4",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 2.61
+            }
+        },
+        {
+            "file": "standard_A_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "A",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "blurred_9_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "9",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.634
+            }
+        },
+        {
+            "file": "standard_8_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "8",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "blurred_A_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "A",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.852
+            }
+        },
+        {
+            "file": "blurred_J_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "J",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.546
+            }
+        },
+        {
+            "file": "rotated_2_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "2",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 2.807
+            }
+        },
+        {
+            "file": "rotated_4_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "4",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 2.38
+            }
+        },
+        {
+            "file": "blurred_4_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "4",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.938
+            }
+        },
+        {
+            "file": "rotated_10_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "10",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 1.933
+            }
+        },
+        {
+            "file": "rotated_2_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "2",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 2.176
+            }
+        },
+        {
+            "file": "standard_9_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "9",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "standard_J_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "J",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "rotated_3_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "3",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": -1.995
+            }
+        },
+        {
+            "file": "blurred_Q_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.739
+            }
+        },
+        {
+            "file": "rotated_A_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "A",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": 1.169
+            }
+        },
+        {
+            "file": "rotated_3_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "3",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": -2.092
+            }
+        },
+        {
+            "file": "standard_4_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "4",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "blurred_9_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "9",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.57
+            }
+        },
+        {
+            "file": "rotated_9_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "9",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 2.769
+            }
+        },
+        {
+            "file": "empty_011.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    28,
+                    92,
+                    79
+                ]
+            }
+        },
+        {
+            "file": "empty_010.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    25,
+                    76,
+                    69
+                ]
+            }
+        },
+        {
+            "file": "rotated_K_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "K",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 1.293
+            }
+        },
+        {
+            "file": "rotated_J_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "J",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": 2.616
+            }
+        },
+        {
+            "file": "standard_K_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "K",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "empty_001.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    25,
+                    74,
+                    78
+                ]
+            }
+        },
+        {
+            "file": "standard_2_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "2",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "standard_10_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "10",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "empty_012.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    33,
+                    70,
+                    69
+                ]
+            }
+        },
+        {
+            "file": "rotated_7_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "7",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 2.349
+            }
+        },
+        {
+            "file": "blurred_2_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "2",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 1.058
+            }
+        },
+        {
+            "file": "blurred_8_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "8",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.861
+            }
+        },
+        {
+            "file": "blurred_2_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "2",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.752
+            }
+        },
+        {
+            "file": "empty_009.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    26,
+                    98,
+                    53
+                ]
+            }
+        },
+        {
+            "file": "empty_004.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    37,
+                    90,
+                    47
+                ]
+            }
+        },
+        {
+            "file": "rotated_2_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "2",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": 2.143
+            }
+        },
+        {
+            "file": "rotated_3_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "3",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 1.866
+            }
+        },
+        {
+            "file": "standard_Q_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "standard_A_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "A",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "standard_Q_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "rotated_5_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "5",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": 1.656
+            }
+        },
+        {
+            "file": "rotated_7_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "7",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 1.915
+            }
+        },
+        {
+            "file": "empty_007.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    34,
+                    77,
+                    75
+                ]
+            }
+        },
+        {
+            "file": "blurred_7_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "7",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.95
+            }
+        },
+        {
+            "file": "blurred_K_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "K",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.802
+            }
+        },
+        {
+            "file": "rotated_5_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "5",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 1.906
+            }
+        },
+        {
+            "file": "blurred_A_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "A",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.571
+            }
+        },
+        {
+            "file": "rotated_Q_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": 2.015
+            }
+        },
+        {
+            "file": "rotated_K_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "K",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": -2.151
+            }
+        },
+        {
+            "file": "standard_8_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "8",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "rotated_6_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "6",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": -1.877
+            }
+        },
+        {
+            "file": "standard_7_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "7",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "rotated_10_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "10",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 1.94
+            }
+        },
+        {
+            "file": "standard_3_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "3",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "standard_6_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "6",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "rotated_A_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "A",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 1.193
+            }
+        },
+        {
+            "file": "standard_5_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "5",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "rotated_8_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "8",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": -2.504
+            }
+        },
+        {
+            "file": "blurred_2_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "2",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.951
+            }
+        },
+        {
+            "file": "rotated_J_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "J",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": -1.52
+            }
+        },
+        {
+            "file": "blurred_Q_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.808
+            }
+        },
+        {
+            "file": "blurred_10_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "10",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.704
+            }
+        },
+        {
+            "file": "rotated_K_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "K",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": -2.87
+            }
+        },
+        {
+            "file": "blurred_3_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "3",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.655
+            }
+        },
+        {
+            "file": "blurred_K_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "K",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.753
+            }
+        },
+        {
+            "file": "empty_002.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_rgb": [
+                    26,
+                    92,
+                    66
+                ]
+            }
+        },
+        {
+            "file": "blurred_8_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "8",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.804
+            }
+        },
+        {
+            "file": "standard_7_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "7",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "blurred_5_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "5",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.922
+            }
+        },
+        {
+            "file": "standard_A_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "A",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "standard_6_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "6",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "rotated_7_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "7",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": 2.293
+            }
+        },
+        {
+            "file": "rotated_9_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "9",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 2.616
+            }
+        },
+        {
+            "file": "standard_2_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "2",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "rotated_3_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "3",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 2.88
+            }
+        },
+        {
+            "file": "blurred_5_spades.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "5",
+            "suit": "spades",
+            "transform": {
+                "blur_radius": 0.795
+            }
+        },
+        {
+            "file": "standard_2_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "2",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "standard_7_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "7",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "blurred_J_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "J",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.566
+            }
+        },
+        {
+            "file": "blurred_4_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "4",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.651
+            }
+        },
+        {
+            "file": "rotated_10_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "10",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": -1.752
+            }
+        },
+        {
+            "file": "blurred_8_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "8",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.989
+            }
+        },
+        {
+            "file": "standard_Q_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "blurred_J_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "J",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 1.016
+            }
+        },
+        {
+            "file": "rotated_7_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "7",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 2.337
+            }
+        },
+        {
+            "file": "standard_K_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "K",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "blurred_2_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "2",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.927
+            }
+        },
+        {
+            "file": "standard_8_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "8",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "standard_7_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "7",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "rotated_5_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "5",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": 2.329
+            }
+        },
+        {
+            "file": "rotated_A_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "A",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 2.026
+            }
+        },
+        {
+            "file": "blurred_8_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "8",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.675
+            }
+        },
+        {
+            "file": "rotated_2_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "2",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 2.664
+            }
+        },
+        {
+            "file": "standard_4_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "4",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "standard_K_hearts.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "K",
+            "suit": "hearts",
+            "transform": {}
+        },
+        {
+            "file": "blurred_7_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "7",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.834
+            }
+        },
+        {
+            "file": "blurred_Q_hearts.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "hearts",
+            "transform": {
+                "blur_radius": 0.807
+            }
+        },
+        {
+            "file": "standard_3_diamonds.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "3",
+            "suit": "diamonds",
+            "transform": {}
+        },
+        {
+            "file": "blurred_9_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "9",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.77
+            }
+        },
+        {
+            "file": "rotated_6_spades.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "6",
+            "suit": "spades",
+            "transform": {
+                "rotation_degrees": -1.051
+            }
+        },
+        {
+            "file": "rotated_10_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "10",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": -2.22
+            }
+        },
+        {
+            "file": "standard_10_clubs.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "10",
+            "suit": "clubs",
+            "transform": {}
+        },
+        {
+            "file": "rotated_5_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "5",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": 2.096
+            }
+        },
+        {
+            "file": "rotated_8_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "8",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": -2.663
+            }
+        },
+        {
+            "file": "rotated_Q_clubs.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "clubs",
+            "transform": {
+                "rotation_degrees": -1.184
+            }
+        },
+        {
+            "file": "blurred_9_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "9",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.834
+            }
+        },
+        {
+            "file": "standard_8_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "8",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "rotated_Q_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 1.72
+            }
+        },
+        {
+            "file": "blurred_6_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "6",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.908
+            }
+        },
+        {
+            "file": "rotated_Q_hearts.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "hearts",
+            "transform": {
+                "rotation_degrees": -2.636
+            }
+        },
+        {
+            "file": "rotated_4_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "4",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": -2.935
+            }
+        },
+        {
+            "file": "rotated_K_diamonds.png",
+            "variant": "rotated",
+            "occupied": true,
+            "rank": "K",
+            "suit": "diamonds",
+            "transform": {
+                "rotation_degrees": 2.607
+            }
+        },
+        {
+            "file": "blurred_Q_diamonds.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "diamonds",
+            "transform": {
+                "blur_radius": 0.869
+            }
+        },
+        {
+            "file": "standard_9_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "9",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "blurred_4_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "4",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.846
+            }
+        },
+        {
+            "file": "standard_6_spades.png",
+            "variant": "standard",
+            "occupied": true,
+            "rank": "6",
+            "suit": "spades",
+            "transform": {}
+        },
+        {
+            "file": "blurred_A_clubs.png",
+            "variant": "blurred",
+            "occupied": true,
+            "rank": "A",
+            "suit": "clubs",
+            "transform": {
+                "blur_radius": 0.983
+            }
+        }
+    ]
+}

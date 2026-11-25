@@ -1,0 +1,138 @@
+{
+    "enhanced": {
+        "occupied_cards": 156,
+        "threshold_analysis": [
+            {
+                "threshold": 0.75,
+                "occupied_cards": 156,
+                "correct_accepted": 156,
+                "incorrect_accepted": 0,
+                "rejected": 0,
+                "acceptance_rate": 1.0
+            },
+            {
+                "threshold": 0.85,
+                "occupied_cards": 156,
+                "correct_accepted": 155,
+                "incorrect_accepted": 0,
+                "rejected": 1,
+                "acceptance_rate": 0.9935897435897436
+            },
+            {
+                "threshold": 0.9,
+                "occupied_cards": 156,
+                "correct_accepted": 155,
+                "incorrect_accepted": 0,
+                "rejected": 1,
+                "acceptance_rate": 0.9935897435897436
+            },
+            {
+                "threshold": 0.95,
+                "occupied_cards": 156,
+                "correct_accepted": 155,
+                "incorrect_accepted": 0,
+                "rejected": 1,
+                "acceptance_rate": 0.9935897435897436
+            },
+            {
+                "threshold": 0.98,
+                "occupied_cards": 156,
+                "correct_accepted": 154,
+                "incorrect_accepted": 0,
+                "rejected": 2,
+                "acceptance_rate": 0.9871794871794872
+            },
+            {
+                "threshold": 0.99,
+                "occupied_cards": 156,
+                "correct_accepted": 154,
+                "incorrect_accepted": 0,
+                "rejected": 2,
+                "acceptance_rate": 0.9871794871794872
+            }
+        ],
+        "low_confidence_cards": [
+            {
+                "file": "standard_7_diamonds.png",
+                "expected_rank": "7",
+                "actual_rank": "7",
+                "rank_confidence": 0.8364489078521729,
+                "rank_source": "primary",
+                "status": "PASS"
+            }
+        ],
+        "low_confidence_count": 1
+    },
+    "independent": {
+        "occupied_cards": 104,
+        "threshold_analysis": [
+            {
+                "threshold": 0.75,
+                "occupied_cards": 104,
+                "correct_accepted": 103,
+                "incorrect_accepted": 1,
+                "rejected": 0,
+                "acceptance_rate": 1.0
+            },
+            {
+                "threshold": 0.85,
+                "occupied_cards": 104,
+                "correct_accepted": 102,
+                "incorrect_accepted": 1,
+                "rejected": 1,
+                "acceptance_rate": 0.9903846153846154
+            },
+            {
+                "threshold": 0.9,
+                "occupied_cards": 104,
+                "correct_accepted": 102,
+                "incorrect_accepted": 0,
+                "rejected": 2,
+                "acceptance_rate": 0.9807692307692307
+            },
+            {
+                "threshold": 0.95,
+                "occupied_cards": 104,
+                "correct_accepted": 102,
+                "incorrect_accepted": 0,
+                "rejected": 2,
+                "acceptance_rate": 0.9807692307692307
+            },
+            {
+                "threshold": 0.98,
+                "occupied_cards": 104,
+                "correct_accepted": 102,
+                "incorrect_accepted": 0,
+                "rejected": 2,
+                "acceptance_rate": 0.9807692307692307
+            },
+            {
+                "threshold": 0.99,
+                "occupied_cards": 104,
+                "correct_accepted": 99,
+                "incorrect_accepted": 0,
+                "rejected": 5,
+                "acceptance_rate": 0.9519230769230769
+            }
+        ],
+        "low_confidence_cards": [
+            {
+                "file": "combined_distortion_7_hearts.png",
+                "expected_rank": "7",
+                "actual_rank": "7",
+                "rank_confidence": 0.8015821576118469,
+                "rank_source": "primary",
+                "status": "PASS"
+            },
+            {
+                "file": "combined_distortion_Q_clubs.png",
+                "expected_rank": "Q",
+                "actual_rank": "4",
+                "rank_confidence": 0.8631184101104736,
+                "rank_source": "primary",
+                "status": "WRONG"
+            }
+        ],
+        "low_confidence_count": 2
+    }
+}

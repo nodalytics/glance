@@ -1,0 +1,83 @@
+{
+    "small_blind": 2500,
+    "big_blind": 5000,
+    "pot": 47500,
+    "prize_pool_display": "$5",
+    "first_place_prize_display": "$1.12",
+    "average_stack": 83333,
+    "tournament_position": "12 of 18",
+    "players": [
+        {
+            "seat": "top",
+            "name": "gpayingbills",
+            "name_confidence": 0.999952495098114,
+            "stack": 92500,
+            "stack_confidence": 0.9999974370002747,
+            "bounty_display": "$0.03",
+            "bounty_confidence": 0.9999696612358093
+        },
+        {
+            "seat": "upper_left",
+            "name": "Coastline",
+            "name_confidence": 0.9999955296516418,
+            "stack": 147500,
+            "stack_confidence": 0.9999948143959045,
+            "bounty_display": "$0.04",
+            "bounty_confidence": 0.9999666213989258
+        },
+        {
+            "seat": "upper_right",
+            "name": "Oldman2658",
+            "name_confidence": 0.970902144908905,
+            "stack": 317500,
+            "stack_confidence": 0.9999924302101135,
+            "bounty_display": "$0.11",
+            "bounty_confidence": 0.9998835325241089
+        },
+        {
+            "seat": "middle_left",
+            "name": "softzy",
+            "name_confidence": 0.9999935626983643,
+            "stack": 47500,
+            "stack_confidence": 0.9999968409538269,
+            "bounty_display": "$0.03",
+            "bounty_confidence": 0.9999025464057922
+        },
+        {
+            "seat": "middle_right",
+            "name": "Akiradubwise",
+            "name_confidence": 0.9999961853027344,
+            "stack": 75000,
+            "stack_confidence": 0.9999871253967285,
+            "bounty_display": "$0.04",
+            "bounty_confidence": 0.9999435544013977
+        },
+        {
+            "seat": "bottom_left",
+            "name": "Katie1107",
+            "name_confidence": 0.9999794363975525,
+            "stack": 47500,
+            "stack_confidence": 0.9999958872795105,
+            "bounty_display": "$0.03",
+            "bounty_confidence": 0.9999305605888367
+        },
+        {
+            "seat": "bottom_center",
+            "name": "James218",
+            "name_confidence": 0.9999978542327881,
+            "stack": 27500,
+            "stack_confidence": 0.9999971985816956,
+            "bounty_display": "$0.03",
+            "bounty_confidence": 0.9999386072158813
+        }
+    ],
+    "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "players_detected": 7,
+        "players_with_names": 7,
+        "players_with_stacks": 7,
+        "players_with_bounties": 7
+    }
+}

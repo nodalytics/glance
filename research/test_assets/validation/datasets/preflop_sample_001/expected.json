@@ -1,0 +1,43 @@
+{
+    "sample_name": "preflop_sample_001",
+    "type": "synthetic",
+    "street": "preflop",
+    "board_count": 0,
+    "cards": {
+        "board_1": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "board_2": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "board_3": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "board_4": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "board_5": {
+            "occupied": false,
+            "rank": null,
+            "suit": null
+        },
+        "hero_card_1": {
+            "occupied": true,
+            "rank": "4",
+            "suit": "hearts"
+        },
+        "hero_card_2": {
+            "occupied": true,
+            "rank": "K",
+            "suit": "spades"
+        }
+    }
+}

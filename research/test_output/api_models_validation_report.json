@@ -1,0 +1,142 @@
+{
+    "summary": {
+        "total_tests": 26,
+        "passed_tests": 26,
+        "failed_tests": 0,
+        "total_time_seconds": 0.0766,
+        "passed": true
+    },
+    "failures": [],
+    "results": [
+        {
+            "test": "State compatibility: screenshot_table_state.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "State compatibility: sample_table_state.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Five offline pipeline states available",
+            "passed": true,
+            "details": "Found 5 files."
+        },
+        {
+            "test": "State compatibility: calibration_sample_001.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "State compatibility: flop_sample_001.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "State compatibility: preflop_sample_001.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "State compatibility: river_sample_001.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "State compatibility: turn_sample_001.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Valid card accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid rank rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid suit rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Confidence above 1 rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Negative confidence rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "NaN confidence rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Empty card slot accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Valid player accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Negative player stack rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Fractional player stack rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid state status rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Negative pot rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Missing required cards rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Unsupported source rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "JSON schema generated",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Health response model",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Application information model",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Structured error response model",
+            "passed": true,
+            "details": null
+        }
+    ]
+}

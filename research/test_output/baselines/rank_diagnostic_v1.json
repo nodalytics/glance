@@ -1,0 +1,959 @@
+{
+    "summary": {
+        "failed_images_tested": 10,
+        "recoverable_images": 10,
+        "unresolved_images": 0,
+        "recovery_rate": 1.0,
+        "total_time_seconds": 137.8992
+    },
+    "technique_statistics": {
+        "original_rank": {
+            "tested": 10,
+            "correct": 10,
+            "wrong": 0,
+            "rejected": 0
+        },
+        "grayscale": {
+            "tested": 10,
+            "correct": 10,
+            "wrong": 0,
+            "rejected": 0
+        },
+        "sharpened": {
+            "tested": 10,
+            "correct": 10,
+            "wrong": 0,
+            "rejected": 0
+        },
+        "otsu": {
+            "tested": 10,
+            "correct": 10,
+            "wrong": 0,
+            "rejected": 0
+        },
+        "sharpened_otsu": {
+            "tested": 10,
+            "correct": 10,
+            "wrong": 0,
+            "rejected": 0
+        },
+        "adaptive": {
+            "tested": 10,
+            "correct": 10,
+            "wrong": 0,
+            "rejected": 0
+        }
+    },
+    "results": [
+        {
+            "file": "blurred_7_diamonds.png",
+            "expected_rank": "7",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "7",
+                    "confidence": 0.9999829530715942,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "7",
+                            "rank": "7",
+                            "confidence": 0.9999829530715942
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 3.2614
+                },
+                "grayscale": {
+                    "rank": "7",
+                    "confidence": 0.9999929666519165,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "7",
+                            "rank": "7",
+                            "confidence": 0.9999929666519165
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 3.1429
+                },
+                "sharpened": {
+                    "rank": "7",
+                    "confidence": 0.9999943971633911,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "7",
+                            "rank": "7",
+                            "confidence": 0.9999943971633911
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.5986
+                },
+                "otsu": {
+                    "rank": "7",
+                    "confidence": 0.9999837875366211,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "7",
+                            "rank": "7",
+                            "confidence": 0.9999837875366211
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.6897
+                },
+                "sharpened_otsu": {
+                    "rank": "7",
+                    "confidence": 0.9999898672103882,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "7",
+                            "rank": "7",
+                            "confidence": 0.9999898672103882
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.6626
+                },
+                "adaptive": {
+                    "rank": "7",
+                    "confidence": 0.9999884366989136,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "7",
+                            "rank": "7",
+                            "confidence": 0.9999884366989136
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.993
+                }
+            }
+        },
+        {
+            "file": "blurred_J_spades.png",
+            "expected_rank": "J",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "J",
+                    "confidence": 0.9999674558639526,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9999674558639526
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.3351
+                },
+                "grayscale": {
+                    "rank": "J",
+                    "confidence": 0.9999674558639526,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9999674558639526
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2031
+                },
+                "sharpened": {
+                    "rank": "J",
+                    "confidence": 0.9999659061431885,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9999659061431885
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.0279
+                },
+                "otsu": {
+                    "rank": "J",
+                    "confidence": 0.9998759031295776,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9998759031295776
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2021
+                },
+                "sharpened_otsu": {
+                    "rank": "J",
+                    "confidence": 0.9998563528060913,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9998563528060913
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.0562
+                },
+                "adaptive": {
+                    "rank": "J",
+                    "confidence": 0.9998154044151306,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9998154044151306
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2424
+                }
+            }
+        },
+        {
+            "file": "blurred_Q_spades.png",
+            "expected_rank": "Q",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9999862909317017,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999862909317017
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1954
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.9999862909317017,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999862909317017
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.3214
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9999855756759644,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999855756759644
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1757
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999630451202393,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999630451202393
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.5513
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999650716781616,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999650716781616
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.3812
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.9999929666519165,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999929666519165
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2604
+                }
+            }
+        },
+        {
+            "file": "standard_Q_diamonds.png",
+            "expected_rank": "Q",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9999858140945435,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999858140945435
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2323
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.9999877214431763,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999877214431763
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2403
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9999858140945435,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999858140945435
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2662
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999663829803467,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999663829803467
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2921
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999110698699951,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999110698699951
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2884
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.9999896287918091,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999896287918091
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2458
+                }
+            }
+        },
+        {
+            "file": "rotated_Q_spades.png",
+            "expected_rank": "Q",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9999815225601196,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999815225601196
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2499
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.9999815225601196,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999815225601196
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.4122
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9999837875366211,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999837875366211
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.3898
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.999969482421875,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.999969482421875
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.8774
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999547004699707,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999547004699707
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2162
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.9999884366989136,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999884366989136
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1394
+                }
+            }
+        },
+        {
+            "file": "blurred_J_hearts.png",
+            "expected_rank": "J",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "J",
+                    "confidence": 0.999984622001648,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.999984622001648
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2022
+                },
+                "grayscale": {
+                    "rank": "J",
+                    "confidence": 0.9999446868896484,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9999446868896484
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.183
+                },
+                "sharpened": {
+                    "rank": "J",
+                    "confidence": 0.9999256134033203,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9999256134033203
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.0741
+                },
+                "otsu": {
+                    "rank": "J",
+                    "confidence": 0.9999175071716309,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9999175071716309
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1652
+                },
+                "sharpened_otsu": {
+                    "rank": "J",
+                    "confidence": 0.9999276399612427,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9999276399612427
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2284
+                },
+                "adaptive": {
+                    "rank": "J",
+                    "confidence": 0.9998865127563477,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "J",
+                            "rank": "J",
+                            "confidence": 0.9998865127563477
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1316
+                }
+            }
+        },
+        {
+            "file": "blurred_Q_hearts.png",
+            "expected_rank": "Q",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9999879598617554,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999879598617554
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1076
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.9999886751174927,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999886751174927
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1296
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9999884366989136,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999884366989136
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1606
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9998812675476074,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9998812675476074
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2525
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999717473983765,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999717473983765
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1614
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.9999799728393555,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999799728393555
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.0817
+                }
+            }
+        },
+        {
+            "file": "rotated_Q_diamonds.png",
+            "expected_rank": "Q",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9999734163284302,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999734163284302
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1491
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.9999606609344482,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999606609344482
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1798
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9999521970748901,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999521970748901
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1976
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999755620956421,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999755620956421
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1981
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999675750732422,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999675750732422
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2087
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.9999916553497314,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999916553497314
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.3037
+                }
+            }
+        },
+        {
+            "file": "rotated_Q_hearts.png",
+            "expected_rank": "Q",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9999831914901733,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999831914901733
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.0582
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.999969482421875,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.999969482421875
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1851
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9999817609786987,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999817609786987
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1399
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999626874923706,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999626874923706
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2944
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999583959579468,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999583959579468
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.3104
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.999984622001648,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.999984622001648
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1323
+                }
+            }
+        },
+        {
+            "file": "blurred_Q_diamonds.png",
+            "expected_rank": "Q",
+            "recoverable": true,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9999878406524658,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999878406524658
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.324
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.999987006187439,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.999987006187439
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1858
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9999878406524658,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999878406524658
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.188
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9998992681503296,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9998992681503296
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2294
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9998668432235718,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9998668432235718
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.1208
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.9999725818634033,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999725818634033
+                        }
+                    ],
+                    "status": "PASS",
+                    "time_seconds": 2.2284
+                }
+            }
+        }
+    ]
+}

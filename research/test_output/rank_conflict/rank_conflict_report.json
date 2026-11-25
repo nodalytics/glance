@@ -1,0 +1,147 @@
+{
+    "summary": {
+        "failed_images_tested": 1,
+        "correct_variant_predictions": 6,
+        "wrong_variant_predictions": 0,
+        "rejected_variant_predictions": 0,
+        "total_time_seconds": 17.1813
+    },
+    "results": [
+        {
+            "file": "combined_distortion_Q_clubs.png",
+            "expected": {
+                "file": "combined_distortion_Q_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 248,
+                    "blur_radius": 1.265,
+                    "rotation_degrees": -2.112
+                }
+            },
+            "previous_prediction": {
+                "rank": "4",
+                "rank_confidence": 0.8631184101104736,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.909384396200424,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.07310512033445238,
+                "suit_scores": {
+                    "clubs": 0.909384396200424,
+                    "spades": 0.8362792758659716
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "current_prediction": {
+                "rank": "4",
+                "rank_confidence": 0.8631184101104736,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.909384396200424,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.07310512033445238,
+                "suit_scores": {
+                    "clubs": 0.909384396200424,
+                    "spades": 0.8362792758659716
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "correct_variants": 6,
+            "wrong_variants": 0,
+            "rejected_variants": 0,
+            "variants": {
+                "original_rank": {
+                    "rank": "Q",
+                    "confidence": 0.9993168115615845,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9993168115615845
+                        }
+                    ],
+                    "status": "PASS"
+                },
+                "grayscale": {
+                    "rank": "Q",
+                    "confidence": 0.9993168115615845,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9993168115615845
+                        }
+                    ],
+                    "status": "PASS"
+                },
+                "sharpened": {
+                    "rank": "Q",
+                    "confidence": 0.9994863271713257,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9994863271713257
+                        }
+                    ],
+                    "status": "PASS"
+                },
+                "otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999723434448242,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999723434448242
+                        }
+                    ],
+                    "status": "PASS"
+                },
+                "sharpened_otsu": {
+                    "rank": "Q",
+                    "confidence": 0.9999643564224243,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999643564224243
+                        }
+                    ],
+                    "status": "PASS"
+                },
+                "adaptive": {
+                    "rank": "Q",
+                    "confidence": 0.9999010562896729,
+                    "accepted": true,
+                    "detections": [
+                        {
+                            "raw_text": "Q",
+                            "rank": "Q",
+                            "confidence": 0.9999010562896729
+                        }
+                    ],
+                    "status": "PASS"
+                }
+            }
+        }
+    ]
+}

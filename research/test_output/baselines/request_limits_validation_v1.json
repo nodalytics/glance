@@ -1,0 +1,202 @@
+{
+    "summary": {
+        "total_tests": 38,
+        "passed_tests": 38,
+        "failed_tests": 0,
+        "total_time_seconds": 0.3594,
+        "passed": true
+    },
+    "failures": [],
+    "results": [
+        {
+            "test": "Invalid limit rejected: 0",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid limit rejected: -1",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid limit rejected: True",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid limit rejected: 1.5",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Empty request accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Valid Content-Length accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Original body preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Exact request size limit accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Oversized Content-Length rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Oversized body without header rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Oversized multi-chunk body rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "False small Content-Length cannot bypass limit",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid Content-Length rejected: b'-1'",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid Content-Length rejected: b'abc'",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid Content-Length rejected: b''",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid Content-Length rejected: b'1.5'",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Invalid Content-Length rejected: b'+10'",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Duplicate Content-Length rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Content-Length mismatch rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Valid multi-chunk request accepted",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Chunk ordering preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Disconnected request not forwarded",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No response attempted after disconnect",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "FastAPI receives validated request",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "FastAPI receives unchanged body",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "FastAPI oversized request returns 413",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Health endpoint remains available",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Swagger documentation remains available",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "OpenAPI schema remains available",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Oversized multipart request rejected",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Request limit error uses API schema",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Configured request limit reported",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Oversized request never reaches service",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Oversized request does not initialize OCR",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Oversized request creates no service upload files",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Existing file size protection remains active",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Missing upload validation preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Application remains healthy after rejection",
+            "passed": true,
+            "details": null
+        }
+    ]
+}

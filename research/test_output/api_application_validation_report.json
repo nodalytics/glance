@@ -1,0 +1,262 @@
+{
+    "summary": {
+        "total_tests": 47,
+        "passed_tests": 47,
+        "failed_tests": 0,
+        "total_time_seconds": 0.3185,
+        "passed": true
+    },
+    "failures": [],
+    "results": [
+        {
+            "test": "Application factory creates instance",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Application title correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Application version correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Debug disabled",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Factory creates independent instances",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Processing service initialized",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Runtime upload directory created",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Output directory created",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "OCR remains uninitialized at startup",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Root endpoint returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Root application name correct",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Root reports offline mode",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Root includes documentation URL",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Root includes analysis endpoint",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Registered route: /health",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Registered route: /api/v1/info",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Registered route: /api/v1/profiles",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Registered route: /api/v1/statistics",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Swagger UI returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Swagger HTML returned",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "ReDoc returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "OpenAPI schema returns 200",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Five production endpoints documented",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Root excluded from OpenAPI schema",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Unknown endpoint returns structured 404",
+            "passed": true,
+            "details": {
+                "status": 404,
+                "code": "NOT_FOUND"
+            }
+        },
+        {
+            "test": "Unsupported method returns structured 405",
+            "passed": true,
+            "details": {
+                "status": 405,
+                "code": "METHOD_NOT_ALLOWED"
+            }
+        },
+        {
+            "test": "Allow header preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Missing upload returns structured 422",
+            "passed": true,
+            "details": {
+                "status": 422,
+                "code": "REQUEST_VALIDATION_ERROR"
+            }
+        },
+        {
+            "test": "Validation error details included",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Global service exception handler works",
+            "passed": true,
+            "details": {
+                "status": 503,
+                "code": "SERVICE_BUSY"
+            }
+        },
+        {
+            "test": "Service retry header preserved",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Unexpected exception returns structured 500",
+            "passed": true,
+            "details": {
+                "status": 500,
+                "code": "INTERNAL_SERVER_ERROR"
+            }
+        },
+        {
+            "test": "Internal exception details not exposed",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "OCR remains uninitialized",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "No analysis requests processed",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service remains available",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Service reference released on shutdown",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Disabled endpoint: /docs",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Disabled endpoint: /redoc",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Disabled endpoint: /openapi.json",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Health available without documentation",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Custom API prefix works",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Default prefix no longer registered",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Root reflects custom API prefix",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Injected service reused",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Injected service remains lazy",
+            "passed": true,
+            "details": null
+        },
+        {
+            "test": "Mismatched service settings rejected",
+            "passed": true,
+            "details": null
+        }
+    ]
+}

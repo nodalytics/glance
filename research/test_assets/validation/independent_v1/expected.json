@@ -1,0 +1,1740 @@
+{
+    "dataset_id": "independent_v1",
+    "type": "synthetic_independent",
+    "random_seed": 7319,
+    "image_width": 108,
+    "image_height": 148,
+    "total_images": 116,
+    "occupied_cards": 104,
+    "empty_slots": 12,
+    "records": [
+        {
+            "file": "combined_distortion_7_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "7",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": 2,
+                "offset_y": -2,
+                "background_brightness": 255,
+                "blur_radius": 0.939,
+                "rotation_degrees": 2.445
+            }
+        },
+        {
+            "file": "font_variation_4_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "4",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 30,
+                "offset_x": -2,
+                "offset_y": -1,
+                "background_brightness": 235
+            }
+        },
+        {
+            "file": "font_variation_8_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "8",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 247
+            }
+        },
+        {
+            "file": "font_variation_J_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "J",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 28,
+                "offset_x": 1,
+                "offset_y": -1,
+                "background_brightness": 239
+            }
+        },
+        {
+            "file": "font_variation_Q_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 29,
+                "offset_x": 1,
+                "offset_y": -1,
+                "background_brightness": 239
+            }
+        },
+        {
+            "file": "font_variation_4_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "4",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 32,
+                "offset_x": -2,
+                "offset_y": 1,
+                "background_brightness": 242
+            }
+        },
+        {
+            "file": "combined_distortion_2_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "2",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": 0,
+                "offset_y": -1,
+                "background_brightness": 248,
+                "blur_radius": 0.672,
+                "rotation_degrees": -2.157
+            }
+        },
+        {
+            "file": "empty_005.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    41,
+                    78,
+                    73
+                ]
+            }
+        },
+        {
+            "file": "font_variation_9_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "9",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 32,
+                "offset_x": 0,
+                "offset_y": -1,
+                "background_brightness": 246
+            }
+        },
+        {
+            "file": "font_variation_7_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "7",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 32,
+                "offset_x": -1,
+                "offset_y": 0,
+                "background_brightness": 240
+            }
+        },
+        {
+            "file": "font_variation_6_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "6",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": -2,
+                "offset_y": 2,
+                "background_brightness": 245
+            }
+        },
+        {
+            "file": "combined_distortion_6_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "6",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 31,
+                "offset_x": 1,
+                "offset_y": 0,
+                "background_brightness": 242,
+                "blur_radius": 0.753,
+                "rotation_degrees": 0.232
+            }
+        },
+        {
+            "file": "font_variation_2_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "2",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": 1,
+                "offset_y": -2,
+                "background_brightness": 243
+            }
+        },
+        {
+            "file": "font_variation_8_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "8",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 28,
+                "offset_x": 2,
+                "offset_y": -1,
+                "background_brightness": 236
+            }
+        },
+        {
+            "file": "empty_003.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    41,
+                    99,
+                    63
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_A_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "A",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": 1,
+                "offset_y": 1,
+                "background_brightness": 245,
+                "blur_radius": 0.766,
+                "rotation_degrees": 0.989
+            }
+        },
+        {
+            "file": "font_variation_6_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "6",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 28,
+                "offset_x": 0,
+                "offset_y": 0,
+                "background_brightness": 253
+            }
+        },
+        {
+            "file": "empty_012.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    35,
+                    101,
+                    58
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_4_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "4",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": 1,
+                "offset_y": 1,
+                "background_brightness": 253,
+                "blur_radius": 0.776,
+                "rotation_degrees": -2.396
+            }
+        },
+        {
+            "file": "font_variation_9_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "9",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 30,
+                "offset_x": -2,
+                "offset_y": 0,
+                "background_brightness": 239
+            }
+        },
+        {
+            "file": "combined_distortion_8_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "8",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 30,
+                "offset_x": 2,
+                "offset_y": 0,
+                "background_brightness": 243,
+                "blur_radius": 1.297,
+                "rotation_degrees": -3.271
+            }
+        },
+        {
+            "file": "font_variation_Q_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 29,
+                "offset_x": 2,
+                "offset_y": -2,
+                "background_brightness": 237
+            }
+        },
+        {
+            "file": "font_variation_2_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "2",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 31,
+                "offset_x": -1,
+                "offset_y": 2,
+                "background_brightness": 245
+            }
+        },
+        {
+            "file": "font_variation_10_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "10",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 24,
+                "offset_x": -2,
+                "offset_y": -2,
+                "background_brightness": 244
+            }
+        },
+        {
+            "file": "font_variation_K_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "K",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 29,
+                "offset_x": -2,
+                "offset_y": -1,
+                "background_brightness": 241
+            }
+        },
+        {
+            "file": "combined_distortion_J_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "J",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 28,
+                "offset_x": 1,
+                "offset_y": 1,
+                "background_brightness": 241,
+                "blur_radius": 0.888,
+                "rotation_degrees": -3.398
+            }
+        },
+        {
+            "file": "combined_distortion_8_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "8",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 30,
+                "offset_x": 2,
+                "offset_y": 2,
+                "background_brightness": 247,
+                "blur_radius": 0.772,
+                "rotation_degrees": 1.822
+            }
+        },
+        {
+            "file": "combined_distortion_4_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "4",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 32,
+                "offset_x": 0,
+                "offset_y": 0,
+                "background_brightness": 251,
+                "blur_radius": 1.038,
+                "rotation_degrees": 1.09
+            }
+        },
+        {
+            "file": "empty_010.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    26,
+                    74,
+                    78
+                ]
+            }
+        },
+        {
+            "file": "font_variation_8_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "8",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 29,
+                "offset_x": -1,
+                "offset_y": 1,
+                "background_brightness": 243
+            }
+        },
+        {
+            "file": "font_variation_K_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "K",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 33,
+                "offset_x": 0,
+                "offset_y": -1,
+                "background_brightness": 248
+            }
+        },
+        {
+            "file": "combined_distortion_4_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "4",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 32,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 247,
+                "blur_radius": 1.179,
+                "rotation_degrees": 1.355
+            }
+        },
+        {
+            "file": "font_variation_A_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "A",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 29,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 236
+            }
+        },
+        {
+            "file": "combined_distortion_A_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "A",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 28,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 248,
+                "blur_radius": 0.851,
+                "rotation_degrees": -1.874
+            }
+        },
+        {
+            "file": "font_variation_7_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "7",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 28,
+                "offset_x": -1,
+                "offset_y": -1,
+                "background_brightness": 250
+            }
+        },
+        {
+            "file": "font_variation_K_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "K",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 32,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 247
+            }
+        },
+        {
+            "file": "font_variation_K_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "K",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": 1,
+                "offset_y": 2,
+                "background_brightness": 244
+            }
+        },
+        {
+            "file": "combined_distortion_6_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "6",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": -2,
+                "offset_y": 2,
+                "background_brightness": 252,
+                "blur_radius": 1.111,
+                "rotation_degrees": 0.922
+            }
+        },
+        {
+            "file": "font_variation_10_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "10",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 25,
+                "offset_x": 0,
+                "offset_y": 0,
+                "background_brightness": 250
+            }
+        },
+        {
+            "file": "empty_001.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    35,
+                    65,
+                    62
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_Q_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 30,
+                "offset_x": 2,
+                "offset_y": -2,
+                "background_brightness": 244,
+                "blur_radius": 0.805,
+                "rotation_degrees": -2.885
+            }
+        },
+        {
+            "file": "combined_distortion_8_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "8",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 28,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 255,
+                "blur_radius": 1.167,
+                "rotation_degrees": 3.261
+            }
+        },
+        {
+            "file": "combined_distortion_10_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "10",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 28,
+                "offset_x": -2,
+                "offset_y": -1,
+                "background_brightness": 237,
+                "blur_radius": 0.652,
+                "rotation_degrees": -1.641
+            }
+        },
+        {
+            "file": "combined_distortion_2_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "2",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 29,
+                "offset_x": -2,
+                "offset_y": -1,
+                "background_brightness": 245,
+                "blur_radius": 0.773,
+                "rotation_degrees": 0.643
+            }
+        },
+        {
+            "file": "empty_011.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    30,
+                    78,
+                    80
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_9_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "9",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": -1,
+                "background_brightness": 236,
+                "blur_radius": 0.839,
+                "rotation_degrees": -1.136
+            }
+        },
+        {
+            "file": "combined_distortion_3_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "3",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 31,
+                "offset_x": 2,
+                "offset_y": -1,
+                "background_brightness": 248,
+                "blur_radius": 1.052,
+                "rotation_degrees": 1.016
+            }
+        },
+        {
+            "file": "empty_004.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    30,
+                    72,
+                    67
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_7_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "7",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 30,
+                "offset_x": -2,
+                "offset_y": 0,
+                "background_brightness": 243,
+                "blur_radius": 1.073,
+                "rotation_degrees": -2.902
+            }
+        },
+        {
+            "file": "combined_distortion_7_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "7",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 32,
+                "offset_x": -1,
+                "offset_y": 0,
+                "background_brightness": 236,
+                "blur_radius": 0.854,
+                "rotation_degrees": 2.94
+            }
+        },
+        {
+            "file": "font_variation_9_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "9",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 32,
+                "offset_x": -1,
+                "offset_y": -1,
+                "background_brightness": 254
+            }
+        },
+        {
+            "file": "font_variation_2_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "2",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 28,
+                "offset_x": -2,
+                "offset_y": 2,
+                "background_brightness": 254
+            }
+        },
+        {
+            "file": "font_variation_A_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "A",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": 2,
+                "background_brightness": 243
+            }
+        },
+        {
+            "file": "font_variation_J_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "J",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 31,
+                "offset_x": -2,
+                "offset_y": -1,
+                "background_brightness": 246
+            }
+        },
+        {
+            "file": "combined_distortion_3_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "3",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 28,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 254,
+                "blur_radius": 0.77,
+                "rotation_degrees": 0.15
+            }
+        },
+        {
+            "file": "font_variation_2_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "2",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 34,
+                "offset_x": -1,
+                "offset_y": -1,
+                "background_brightness": 239
+            }
+        },
+        {
+            "file": "combined_distortion_K_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "K",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 29,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 235,
+                "blur_radius": 1.248,
+                "rotation_degrees": 2.75
+            }
+        },
+        {
+            "file": "combined_distortion_2_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "2",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": -2,
+                "background_brightness": 244,
+                "blur_radius": 0.858,
+                "rotation_degrees": -1.358
+            }
+        },
+        {
+            "file": "combined_distortion_9_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "9",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 30,
+                "offset_x": 2,
+                "offset_y": -1,
+                "background_brightness": 253,
+                "blur_radius": 0.73,
+                "rotation_degrees": 3.182
+            }
+        },
+        {
+            "file": "font_variation_J_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "J",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": 0,
+                "offset_y": 2,
+                "background_brightness": 255
+            }
+        },
+        {
+            "file": "empty_002.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    32,
+                    98,
+                    45
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_Q_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": 2,
+                "offset_y": 0,
+                "background_brightness": 241,
+                "blur_radius": 0.973,
+                "rotation_degrees": 1.877
+            }
+        },
+        {
+            "file": "font_variation_5_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "5",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": 1,
+                "offset_y": -1,
+                "background_brightness": 247
+            }
+        },
+        {
+            "file": "empty_009.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    23,
+                    91,
+                    79
+                ]
+            }
+        },
+        {
+            "file": "font_variation_Q_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 29,
+                "offset_x": 1,
+                "offset_y": 1,
+                "background_brightness": 238
+            }
+        },
+        {
+            "file": "empty_007.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    42,
+                    91,
+                    75
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_5_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "5",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 29,
+                "offset_x": -2,
+                "offset_y": 2,
+                "background_brightness": 241,
+                "blur_radius": 0.768,
+                "rotation_degrees": 0.46
+            }
+        },
+        {
+            "file": "font_variation_9_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "9",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 29,
+                "offset_x": 1,
+                "offset_y": 2,
+                "background_brightness": 238
+            }
+        },
+        {
+            "file": "combined_distortion_7_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "7",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": 0,
+                "offset_y": 0,
+                "background_brightness": 242,
+                "blur_radius": 1.237,
+                "rotation_degrees": -0.22
+            }
+        },
+        {
+            "file": "combined_distortion_2_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "2",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": -1,
+                "offset_y": -1,
+                "background_brightness": 251,
+                "blur_radius": 0.748,
+                "rotation_degrees": -2.399
+            }
+        },
+        {
+            "file": "font_variation_7_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "7",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 247
+            }
+        },
+        {
+            "file": "font_variation_6_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "6",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 34,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 252
+            }
+        },
+        {
+            "file": "font_variation_A_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "A",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 30,
+                "offset_x": 2,
+                "offset_y": 0,
+                "background_brightness": 247
+            }
+        },
+        {
+            "file": "combined_distortion_5_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "5",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 244,
+                "blur_radius": 0.816,
+                "rotation_degrees": -0.927
+            }
+        },
+        {
+            "file": "combined_distortion_9_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "9",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 31,
+                "offset_x": -2,
+                "offset_y": 0,
+                "background_brightness": 240,
+                "blur_radius": 1.127,
+                "rotation_degrees": 3.091
+            }
+        },
+        {
+            "file": "font_variation_J_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "J",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 31,
+                "offset_x": -1,
+                "offset_y": 2,
+                "background_brightness": 248
+            }
+        },
+        {
+            "file": "combined_distortion_5_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "5",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 28,
+                "offset_x": -1,
+                "offset_y": 1,
+                "background_brightness": 239,
+                "blur_radius": 1.141,
+                "rotation_degrees": -0.192
+            }
+        },
+        {
+            "file": "font_variation_3_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "3",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 30,
+                "offset_x": 0,
+                "offset_y": -1,
+                "background_brightness": 241
+            }
+        },
+        {
+            "file": "combined_distortion_J_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "J",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 34,
+                "offset_x": -2,
+                "offset_y": -1,
+                "background_brightness": 245,
+                "blur_radius": 0.925,
+                "rotation_degrees": 0.626
+            }
+        },
+        {
+            "file": "combined_distortion_3_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "3",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 29,
+                "offset_x": -2,
+                "offset_y": -2,
+                "background_brightness": 235,
+                "blur_radius": 1.212,
+                "rotation_degrees": 0.812
+            }
+        },
+        {
+            "file": "font_variation_4_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "4",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 32,
+                "offset_x": 2,
+                "offset_y": 0,
+                "background_brightness": 255
+            }
+        },
+        {
+            "file": "font_variation_10_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "10",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 26,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 254
+            }
+        },
+        {
+            "file": "combined_distortion_10_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "10",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 24,
+                "offset_x": 1,
+                "offset_y": 2,
+                "background_brightness": 235,
+                "blur_radius": 1.126,
+                "rotation_degrees": 0.397
+            }
+        },
+        {
+            "file": "combined_distortion_6_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "6",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 32,
+                "offset_x": -2,
+                "offset_y": 1,
+                "background_brightness": 247,
+                "blur_radius": 0.942,
+                "rotation_degrees": -1.521
+            }
+        },
+        {
+            "file": "combined_distortion_J_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "J",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 28,
+                "offset_x": 2,
+                "offset_y": -2,
+                "background_brightness": 251,
+                "blur_radius": 0.948,
+                "rotation_degrees": -2.639
+            }
+        },
+        {
+            "file": "font_variation_10_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "10",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 29,
+                "offset_x": 1,
+                "offset_y": 2,
+                "background_brightness": 237
+            }
+        },
+        {
+            "file": "font_variation_5_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "5",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 31,
+                "offset_x": -1,
+                "offset_y": 1,
+                "background_brightness": 245
+            }
+        },
+        {
+            "file": "combined_distortion_A_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "A",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 30,
+                "offset_x": 2,
+                "offset_y": 2,
+                "background_brightness": 238,
+                "blur_radius": 1.292,
+                "rotation_degrees": -0.158
+            }
+        },
+        {
+            "file": "font_variation_4_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "4",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 242
+            }
+        },
+        {
+            "file": "font_variation_7_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "7",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": -2,
+                "offset_y": 1,
+                "background_brightness": 247
+            }
+        },
+        {
+            "file": "combined_distortion_10_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "10",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 29,
+                "offset_x": -1,
+                "offset_y": -1,
+                "background_brightness": 255,
+                "blur_radius": 1.26,
+                "rotation_degrees": 3.455
+            }
+        },
+        {
+            "file": "font_variation_6_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "6",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 29,
+                "offset_x": 2,
+                "offset_y": -1,
+                "background_brightness": 236
+            }
+        },
+        {
+            "file": "combined_distortion_4_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "4",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": -2,
+                "offset_y": 0,
+                "background_brightness": 239,
+                "blur_radius": 0.955,
+                "rotation_degrees": 2.386
+            }
+        },
+        {
+            "file": "font_variation_A_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "A",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 29,
+                "offset_x": 1,
+                "offset_y": -2,
+                "background_brightness": 237
+            }
+        },
+        {
+            "file": "combined_distortion_K_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "K",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 242,
+                "blur_radius": 0.641,
+                "rotation_degrees": 0.719
+            }
+        },
+        {
+            "file": "combined_distortion_Q_clubs.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": -2,
+                "offset_y": -2,
+                "background_brightness": 248,
+                "blur_radius": 1.265,
+                "rotation_degrees": -2.112
+            }
+        },
+        {
+            "file": "font_variation_3_clubs.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "3",
+            "suit": "clubs",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 33,
+                "offset_x": -1,
+                "offset_y": 0,
+                "background_brightness": 240
+            }
+        },
+        {
+            "file": "combined_distortion_8_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "8",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": -2,
+                "background_brightness": 242,
+                "blur_radius": 0.901,
+                "rotation_degrees": -0.187
+            }
+        },
+        {
+            "file": "empty_008.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    24,
+                    93,
+                    65
+                ]
+            }
+        },
+        {
+            "file": "empty_006.png",
+            "variant": "empty",
+            "occupied": false,
+            "rank": null,
+            "suit": null,
+            "transform": {
+                "background_color": [
+                    33,
+                    98,
+                    68
+                ]
+            }
+        },
+        {
+            "file": "combined_distortion_K_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "K",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 32,
+                "offset_x": -2,
+                "offset_y": 0,
+                "background_brightness": 247,
+                "blur_radius": 0.707,
+                "rotation_degrees": 2.679
+            }
+        },
+        {
+            "file": "combined_distortion_9_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "9",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": -1,
+                "offset_y": -1,
+                "background_brightness": 244,
+                "blur_radius": 1.028,
+                "rotation_degrees": -2.481
+            }
+        },
+        {
+            "file": "font_variation_5_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "5",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 29,
+                "offset_x": -2,
+                "offset_y": 0,
+                "background_brightness": 247
+            }
+        },
+        {
+            "file": "combined_distortion_10_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "10",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 245,
+                "blur_radius": 0.863,
+                "rotation_degrees": -0.648
+            }
+        },
+        {
+            "file": "combined_distortion_6_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "6",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 28,
+                "offset_x": -1,
+                "offset_y": 0,
+                "background_brightness": 247,
+                "blur_radius": 0.931,
+                "rotation_degrees": 0.727
+            }
+        },
+        {
+            "file": "font_variation_3_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "3",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 28,
+                "offset_x": -2,
+                "offset_y": 1,
+                "background_brightness": 240
+            }
+        },
+        {
+            "file": "font_variation_5_spades.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "5",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 32,
+                "offset_x": -2,
+                "offset_y": 2,
+                "background_brightness": 240
+            }
+        },
+        {
+            "file": "combined_distortion_J_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "J",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 31,
+                "offset_x": -2,
+                "offset_y": 1,
+                "background_brightness": 244,
+                "blur_radius": 1.122,
+                "rotation_degrees": 3.492
+            }
+        },
+        {
+            "file": "font_variation_8_diamonds.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "8",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": 1,
+                "background_brightness": 251
+            }
+        },
+        {
+            "file": "font_variation_3_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "3",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 32,
+                "offset_x": -2,
+                "offset_y": -2,
+                "background_brightness": 241
+            }
+        },
+        {
+            "file": "combined_distortion_K_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "K",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 28,
+                "offset_x": -1,
+                "offset_y": 2,
+                "background_brightness": 236,
+                "blur_radius": 0.807,
+                "rotation_degrees": 2.287
+            }
+        },
+        {
+            "file": "combined_distortion_3_diamonds.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "3",
+            "suit": "diamonds",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 30,
+                "offset_x": -2,
+                "offset_y": -2,
+                "background_brightness": 239,
+                "blur_radius": 0.714,
+                "rotation_degrees": 1.081
+            }
+        },
+        {
+            "file": "combined_distortion_A_spades.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "A",
+            "suit": "spades",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 29,
+                "offset_x": 2,
+                "offset_y": -1,
+                "background_brightness": 242,
+                "blur_radius": 0.647,
+                "rotation_degrees": 3.466
+            }
+        },
+        {
+            "file": "combined_distortion_5_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "5",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "arialbd.ttf",
+                "rank_size": 34,
+                "offset_x": 2,
+                "offset_y": 0,
+                "background_brightness": 245,
+                "blur_radius": 0.904,
+                "rotation_degrees": 2.4
+            }
+        },
+        {
+            "file": "combined_distortion_Q_hearts.png",
+            "variant": "combined_distortion",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "calibrib.ttf",
+                "rank_size": 30,
+                "offset_x": 0,
+                "offset_y": 1,
+                "background_brightness": 238,
+                "blur_radius": 1.244,
+                "rotation_degrees": 0.918
+            }
+        },
+        {
+            "file": "font_variation_Q_hearts.png",
+            "variant": "font_variation",
+            "occupied": true,
+            "rank": "Q",
+            "suit": "hearts",
+            "transform": {
+                "rank_font": "tahomabd.ttf",
+                "rank_size": 31,
+                "offset_x": 0,
+                "offset_y": -2,
+                "background_brightness": 235
+            }
+        }
+    ]
+}

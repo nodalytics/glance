@@ -1,0 +1,209 @@
+{
+    "summary": {
+        "total_candidates": 3,
+        "passed_candidates": 3,
+        "failed_candidates": 0,
+        "incorrect_accepted_cards": 0,
+        "total_time_seconds": 17.6356,
+        "passed": true
+    },
+    "verification_statistics": {
+        "total_cards": 3,
+        "verification_attempts": 3,
+        "confirmed_ranks": 2,
+        "changed_ranks": 1,
+        "rejected_ranks": 0
+    },
+    "results": [
+        {
+            "dataset": "enhanced",
+            "file": "standard_7_diamonds.png",
+            "expected": {
+                "file": "standard_7_diamonds.png",
+                "variant": "standard",
+                "occupied": true,
+                "rank": "7",
+                "suit": "diamonds",
+                "transform": {}
+            },
+            "previous": {
+                "rank": "7",
+                "rank_confidence": 0.8364489078521729,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.9786658394332071,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14814103453248328,
+                "suit_scores": {
+                    "diamonds": 0.9786658394332071,
+                    "hearts": 0.8305248049007238
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9999414682388306,
+                "rank_source": "dedicated_rank_verification",
+                "suit": "diamonds",
+                "suit_confidence": 0.9786658394332071,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14814103453248328,
+                "suit_scores": {
+                    "diamonds": 0.9786658394332071,
+                    "hearts": 0.8305248049007238
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false,
+                "rank_verification_used": true,
+                "rank_verification_status": "confirmed",
+                "original_rank": "7",
+                "original_rank_confidence": 0.8364489078521729,
+                "rank_verification_result": {
+                    "rank": "7",
+                    "confidence": 0.9999414682388306,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "time_seconds": 6.3944
+        },
+        {
+            "dataset": "independent",
+            "file": "combined_distortion_7_hearts.png",
+            "expected": {
+                "file": "combined_distortion_7_hearts.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "7",
+                "suit": "hearts",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "background_brightness": 242,
+                    "blur_radius": 1.237,
+                    "rotation_degrees": -0.22
+                }
+            },
+            "previous": {
+                "rank": "7",
+                "rank_confidence": 0.8015821576118469,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 0.9327408692598104,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3144083594849839,
+                "suit_scores": {
+                    "hearts": 0.9327408692598104,
+                    "diamonds": 0.6183325097748265
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "actual": {
+                "rank": "7",
+                "rank_confidence": 0.9998505115509033,
+                "rank_source": "dedicated_rank_verification",
+                "suit": "hearts",
+                "suit_confidence": 0.9327408692598104,
+                "suit_source": "simulator_center_suit:hearts_seguisym",
+                "suit_margin": 0.3144083594849839,
+                "suit_scores": {
+                    "hearts": 0.9327408692598104,
+                    "diamonds": 0.6183325097748265
+                },
+                "suit_color": "red",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false,
+                "rank_verification_used": true,
+                "rank_verification_status": "confirmed",
+                "original_rank": "7",
+                "original_rank_confidence": 0.8015821576118469,
+                "rank_verification_result": {
+                    "rank": "7",
+                    "confidence": 0.9998505115509033,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "time_seconds": 5.4022
+        },
+        {
+            "dataset": "independent",
+            "file": "combined_distortion_Q_clubs.png",
+            "expected": {
+                "file": "combined_distortion_Q_clubs.png",
+                "variant": "combined_distortion",
+                "occupied": true,
+                "rank": "Q",
+                "suit": "clubs",
+                "transform": {
+                    "rank_font": "tahomabd.ttf",
+                    "rank_size": 34,
+                    "offset_x": -2,
+                    "offset_y": -2,
+                    "background_brightness": 248,
+                    "blur_radius": 1.265,
+                    "rotation_degrees": -2.112
+                }
+            },
+            "previous": {
+                "rank": "4",
+                "rank_confidence": 0.8631184101104736,
+                "rank_source": "primary",
+                "suit": "clubs",
+                "suit_confidence": 0.909384396200424,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.07310512033445238,
+                "suit_scores": {
+                    "clubs": 0.909384396200424,
+                    "spades": 0.8362792758659716
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9993168115615845,
+                "rank_source": "dedicated_rank_verification",
+                "suit": "clubs",
+                "suit_confidence": 0.909384396200424,
+                "suit_source": "simulator_center_suit:clubs_seguisym",
+                "suit_margin": 0.07310512033445238,
+                "suit_scores": {
+                    "clubs": 0.909384396200424,
+                    "spades": 0.8362792758659716
+                },
+                "suit_color": "black",
+                "recognized": true,
+                "rank_fallback_used": false,
+                "rank_fallback_recovered": false,
+                "rank_verification_used": true,
+                "rank_verification_status": "changed",
+                "original_rank": "4",
+                "original_rank_confidence": 0.8631184101104736,
+                "rank_verification_result": {
+                    "rank": "Q",
+                    "confidence": 0.9993168115615845,
+                    "source": "dedicated_rank_fallback",
+                    "accepted": true
+                }
+            },
+            "status": "PASS",
+            "time_seconds": 5.7188
+        }
+    ]
+}

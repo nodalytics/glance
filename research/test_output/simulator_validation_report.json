@@ -1,0 +1,698 @@
+{
+    "profile": "offline_simulator",
+    "template_count": 8,
+    "summary": {
+        "occupied_cards": 20,
+        "correct_ranks": 20,
+        "correct_suits": 20,
+        "correct_cards": 20,
+        "rejected_cards": 0,
+        "incorrect_accepted_cards": 0,
+        "empty_slots": 8,
+        "empty_slots_rejected": 8,
+        "empty_false_positives": 0,
+        "rank_accuracy": 1.0,
+        "suit_accuracy": 1.0,
+        "card_accuracy": 1.0,
+        "recognition_time_seconds": 184.525,
+        "passed": true
+    },
+    "results": [
+        {
+            "dataset": "preflop_sample_001",
+            "slot": "board_1",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "slot": "board_2",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "slot": "board_3",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "slot": "board_4",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "slot": "board_5",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "slot": "hero_card_1",
+            "expected": {
+                "occupied": true,
+                "rank": "4",
+                "suit": "hearts"
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999885559082031,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9830502316445797,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.34560570968369386,
+                "suit_scores": {
+                    "hearts": 0.9830502316445797,
+                    "diamonds": 0.6374445219608859
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "preflop_sample_001",
+            "slot": "hero_card_2",
+            "expected": {
+                "occupied": true,
+                "rank": "K",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9999589920043945,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.231356953417593,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7458359526153946
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "slot": "board_1",
+            "expected": {
+                "occupied": true,
+                "rank": "A",
+                "suit": "diamonds"
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9915863275527954,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.978630935738454,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.148850632222171,
+                "suit_scores": {
+                    "diamonds": 0.978630935738454,
+                    "hearts": 0.8297803035162831
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "slot": "board_2",
+            "expected": {
+                "occupied": true,
+                "rank": "3",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999972581863403,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.231356953417593,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7458359526153946
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "slot": "board_3",
+            "expected": {
+                "occupied": true,
+                "rank": "10",
+                "suit": "diamonds"
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.9999966621398926,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.978630935738454,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.148850632222171,
+                "suit_scores": {
+                    "diamonds": 0.978630935738454,
+                    "hearts": 0.8297803035162831
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "slot": "board_4",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "slot": "board_5",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "slot": "hero_card_1",
+            "expected": {
+                "occupied": true,
+                "rank": "J",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9998036026954651,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.231356953417593,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7458359526153946
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "flop_sample_001",
+            "slot": "hero_card_2",
+            "expected": {
+                "occupied": true,
+                "rank": "J",
+                "suit": "clubs"
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9998906850814819,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9798659828741322,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.2423751147437635,
+                "suit_scores": {
+                    "clubs": 0.9798659828741322,
+                    "spades": 0.7374908681303687
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "slot": "board_1",
+            "expected": {
+                "occupied": true,
+                "rank": "Q",
+                "suit": "hearts"
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.999993085861206,
+                "rank_source": "top_left_fallback",
+                "suit": "hearts",
+                "suit_confidence": 0.9830502316445797,
+                "suit_source": "simulator_small_suit:hearts_seguisym",
+                "suit_margin": 0.34560570968369386,
+                "suit_scores": {
+                    "hearts": 0.9830502316445797,
+                    "diamonds": 0.6374445219608859
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "slot": "board_2",
+            "expected": {
+                "occupied": true,
+                "rank": "3",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "3",
+                "rank_confidence": 0.9999972581863403,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.231356953417593,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7458359526153946
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "slot": "board_3",
+            "expected": {
+                "occupied": true,
+                "rank": "K",
+                "suit": "clubs"
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9999184608459473,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9798659828741322,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.2423751147437635,
+                "suit_scores": {
+                    "clubs": 0.9798659828741322,
+                    "spades": 0.7374908681303687
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "slot": "board_4",
+            "expected": {
+                "occupied": true,
+                "rank": "4",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "4",
+                "rank_confidence": 0.9999923706054688,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.231356953417593,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7458359526153946
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "slot": "board_5",
+            "expected": {
+                "occupied": false,
+                "rank": null,
+                "suit": null
+            },
+            "actual": {
+                "rank": null,
+                "rank_confidence": 0.0,
+                "rank_source": null,
+                "suit": null,
+                "suit_confidence": 0.0,
+                "suit_source": null,
+                "suit_margin": 0.0,
+                "suit_scores": {},
+                "suit_color": "unknown",
+                "recognized": false
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "slot": "hero_card_1",
+            "expected": {
+                "occupied": true,
+                "rank": "2",
+                "suit": "clubs"
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9999985694885254,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9798659828741322,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.2423751147437635,
+                "suit_scores": {
+                    "clubs": 0.9798659828741322,
+                    "spades": 0.7374908681303687
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "turn_sample_001",
+            "slot": "hero_card_2",
+            "expected": {
+                "occupied": true,
+                "rank": "6",
+                "suit": "clubs"
+            },
+            "actual": {
+                "rank": "6",
+                "rank_confidence": 0.9999797344207764,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9798659828741322,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.2423751147437635,
+                "suit_scores": {
+                    "clubs": 0.9798659828741322,
+                    "spades": 0.7374908681303687
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "slot": "board_1",
+            "expected": {
+                "occupied": true,
+                "rank": "K",
+                "suit": "diamonds"
+            },
+            "actual": {
+                "rank": "K",
+                "rank_confidence": 0.9977613687515259,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.9786658394332071,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.14814103453248328,
+                "suit_scores": {
+                    "diamonds": 0.9786658394332071,
+                    "hearts": 0.8305248049007238
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "slot": "board_2",
+            "expected": {
+                "occupied": true,
+                "rank": "5",
+                "suit": "diamonds"
+            },
+            "actual": {
+                "rank": "5",
+                "rank_confidence": 0.9999772310256958,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.978630935738454,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.148850632222171,
+                "suit_scores": {
+                    "diamonds": 0.978630935738454,
+                    "hearts": 0.8297803035162831
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "slot": "board_3",
+            "expected": {
+                "occupied": true,
+                "rank": "8",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.999997615814209,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.231356953417593,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7458359526153946
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "slot": "board_4",
+            "expected": {
+                "occupied": true,
+                "rank": "A",
+                "suit": "clubs"
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9992259740829468,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.9798659828741322,
+                "suit_source": "simulator_small_suit:clubs_seguisym",
+                "suit_margin": 0.2423751147437635,
+                "suit_scores": {
+                    "clubs": 0.9798659828741322,
+                    "spades": 0.7374908681303687
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "slot": "board_5",
+            "expected": {
+                "occupied": true,
+                "rank": "A",
+                "suit": "diamonds"
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9915863275527954,
+                "rank_source": "top_left_fallback",
+                "suit": "diamonds",
+                "suit_confidence": 0.978630935738454,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.148850632222171,
+                "suit_scores": {
+                    "diamonds": 0.978630935738454,
+                    "hearts": 0.8297803035162831
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "slot": "hero_card_1",
+            "expected": {
+                "occupied": true,
+                "rank": "2",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9999972581863403,
+                "rank_source": "top_left_fallback",
+                "suit": "spades",
+                "suit_confidence": 0.9771929060329876,
+                "suit_source": "simulator_center_suit:spades_seguisym",
+                "suit_margin": 0.231356953417593,
+                "suit_scores": {
+                    "spades": 0.9771929060329876,
+                    "clubs": 0.7458359526153946
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "status": "PASS"
+        },
+        {
+            "dataset": "river_sample_001",
+            "slot": "hero_card_2",
+            "expected": {
+                "occupied": true,
+                "rank": "J",
+                "suit": "diamonds"
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9998534917831421,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 0.978630935738454,
+                "suit_source": "simulator_center_suit:diamonds_seguisym",
+                "suit_margin": 0.148850632222171,
+                "suit_scores": {
+                    "diamonds": 0.978630935738454,
+                    "hearts": 0.8297803035162831
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "status": "PASS"
+        }
+    ]
+}

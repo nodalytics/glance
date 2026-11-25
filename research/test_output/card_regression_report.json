@@ -1,0 +1,215 @@
+{
+    "sample_name": "calibration_sample_001",
+    "summary": {
+        "total_cards": 7,
+        "correct_ranks": 7,
+        "correct_suits": 7,
+        "correct_cards": 7,
+        "rejected_cards": 0,
+        "incorrect_accepted_cards": 0,
+        "rank_accuracy": 1.0,
+        "suit_accuracy": 1.0,
+        "card_accuracy": 1.0,
+        "passed": true,
+        "recognition_time_seconds": 28.202,
+        "average_time_per_card_seconds": 4.029
+    },
+    "cards": [
+        {
+            "card_name": "board_1",
+            "expected": {
+                "rank": "A",
+                "suit": "hearts"
+            },
+            "actual": {
+                "rank": "A",
+                "rank_confidence": 0.9982323050498962,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 1.0,
+                "suit_source": "board_region_0",
+                "suit_margin": 0.14576365655346035,
+                "suit_scores": {
+                    "hearts": 1.0,
+                    "diamonds": 0.8542363434465396,
+                    "spades": 0.6598806324583962,
+                    "clubs": 0.6207184927753133
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "rank_correct": true,
+            "suit_correct": true,
+            "card_correct": true,
+            "status": "PASS"
+        },
+        {
+            "card_name": "board_2",
+            "expected": {
+                "rank": "8",
+                "suit": "spades"
+            },
+            "actual": {
+                "rank": "8",
+                "rank_confidence": 0.9998840093612671,
+                "rank_source": "primary",
+                "suit": "spades",
+                "suit_confidence": 1.0,
+                "suit_source": "board_region_1",
+                "suit_margin": 0.16379100729267349,
+                "suit_scores": {
+                    "spades": 1.0,
+                    "diamonds": 0.8362089927073265,
+                    "hearts": 0.7087192877993869,
+                    "clubs": 0.6645086371756939
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "rank_correct": true,
+            "suit_correct": true,
+            "card_correct": true,
+            "status": "PASS"
+        },
+        {
+            "card_name": "board_3",
+            "expected": {
+                "rank": "J",
+                "suit": "hearts"
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.9996040463447571,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 0.9847288167693409,
+                "suit_source": "board_region_1",
+                "suit_margin": 0.1495739901433627,
+                "suit_scores": {
+                    "hearts": 0.9847288167693409,
+                    "diamonds": 0.8351548266259782,
+                    "spades": 0.6219224225749834,
+                    "clubs": 0.6029002399320583
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "rank_correct": true,
+            "suit_correct": true,
+            "card_correct": true,
+            "status": "PASS"
+        },
+        {
+            "card_name": "board_4",
+            "expected": {
+                "rank": "J",
+                "suit": "diamonds"
+            },
+            "actual": {
+                "rank": "J",
+                "rank_confidence": 0.979292631149292,
+                "rank_source": "primary",
+                "suit": "diamonds",
+                "suit_confidence": 1.0,
+                "suit_source": "board_region_2",
+                "suit_margin": 0.10698885085486198,
+                "suit_scores": {
+                    "diamonds": 1.0,
+                    "spades": 0.893011149145138,
+                    "hearts": 0.8296909545793557,
+                    "clubs": 0.6631662366617125
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "rank_correct": true,
+            "suit_correct": true,
+            "card_correct": true,
+            "status": "PASS"
+        },
+        {
+            "card_name": "board_5",
+            "expected": {
+                "rank": "2",
+                "suit": "hearts"
+            },
+            "actual": {
+                "rank": "2",
+                "rank_confidence": 0.9946640729904175,
+                "rank_source": "primary",
+                "suit": "hearts",
+                "suit_confidence": 0.9546597127036658,
+                "suit_source": "board_region_2",
+                "suit_margin": 0.0929855367443817,
+                "suit_scores": {
+                    "hearts": 0.9546597127036658,
+                    "diamonds": 0.8616741759592841,
+                    "spades": 0.6368737697495886,
+                    "clubs": 0.6098184156216956
+                },
+                "suit_color": "red",
+                "recognized": true
+            },
+            "rank_correct": true,
+            "suit_correct": true,
+            "card_correct": true,
+            "status": "PASS"
+        },
+        {
+            "card_name": "hero_card_1",
+            "expected": {
+                "rank": "Q",
+                "suit": "clubs"
+            },
+            "actual": {
+                "rank": "Q",
+                "rank_confidence": 0.9699069857597351,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 1.0,
+                "suit_source": "hero_1_region_0",
+                "suit_margin": 0.3356328026509977,
+                "suit_scores": {
+                    "clubs": 1.0,
+                    "diamonds": 0.6643671973490023,
+                    "spades": 0.6608968464158307,
+                    "hearts": 0.6076905520543192
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "rank_correct": true,
+            "suit_correct": true,
+            "card_correct": true,
+            "status": "PASS"
+        },
+        {
+            "card_name": "hero_card_2",
+            "expected": {
+                "rank": "10",
+                "suit": "clubs"
+            },
+            "actual": {
+                "rank": "10",
+                "rank_confidence": 0.99997878074646,
+                "rank_source": "top_left_fallback",
+                "suit": "clubs",
+                "suit_confidence": 0.8214871277295925,
+                "suit_source": "hero_2_region_0",
+                "suit_margin": 0.09221533461073372,
+                "suit_scores": {
+                    "clubs": 0.8214871277295925,
+                    "diamonds": 0.7292717931188588,
+                    "spades": 0.7069237016819865,
+                    "hearts": 0.6662066845720682
+                },
+                "suit_color": "black",
+                "recognized": true
+            },
+            "rank_correct": true,
+            "suit_correct": true,
+            "card_correct": true,
+            "status": "PASS"
+        }
+    ]
+}

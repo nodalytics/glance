@@ -1,0 +1,239 @@
+{
+    "summary": {
+        "total_tests": 12,
+        "passed_tests": 12,
+        "failed_tests": 0,
+        "accuracy": 1.0,
+        "passed": true
+    },
+    "results": [
+        {
+            "name": "valid_preflop",
+            "expected_status": "valid",
+            "actual_status": "valid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [],
+            "passed": true
+        },
+        {
+            "name": "valid_flop",
+            "expected_status": "valid",
+            "actual_status": "valid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [],
+            "passed": true
+        },
+        {
+            "name": "valid_turn",
+            "expected_status": "valid",
+            "actual_status": "valid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [],
+            "passed": true
+        },
+        {
+            "name": "valid_river",
+            "expected_status": "valid",
+            "actual_status": "valid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [],
+            "passed": true
+        },
+        {
+            "name": "duplicate_card",
+            "expected_status": "invalid",
+            "actual_status": "invalid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [
+                "DUPLICATE_CARD"
+            ],
+            "passed": true
+        },
+        {
+            "name": "missing_pot",
+            "expected_status": "partial",
+            "actual_status": "partial",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [],
+            "passed": true
+        },
+        {
+            "name": "negative_pot",
+            "expected_status": "invalid",
+            "actual_status": "invalid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [
+                "INVALID_TABLE_VALUE"
+            ],
+            "passed": true
+        },
+        {
+            "name": "invalid_blind_order",
+            "expected_status": "invalid",
+            "actual_status": "invalid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [
+                "INVALID_BLIND_ORDER"
+            ],
+            "passed": true
+        },
+        {
+            "name": "zero_blind",
+            "expected_status": "invalid",
+            "actual_status": "invalid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [
+                "INVALID_BLIND"
+            ],
+            "passed": true
+        },
+        {
+            "name": "missing_hero_card",
+            "expected_status": "invalid",
+            "actual_status": "invalid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [
+                "INVALID_HERO_COUNT"
+            ],
+            "passed": true
+        },
+        {
+            "name": "unknown_occupancy",
+            "expected_status": "invalid",
+            "actual_status": "invalid",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [
+                "UNKNOWN_OCCUPANCY"
+            ],
+            "passed": true
+        },
+        {
+            "name": "missing_table_information",
+            "expected_status": "partial",
+            "actual_status": "partial",
+            "checks": {
+                "status_correct": true,
+                "schema_version_correct": true,
+                "street_correct": true,
+                "board_count_correct": true,
+                "error_correct": true,
+                "board_slots_preserved": true,
+                "hero_slots_preserved": true,
+                "input_not_modified": true,
+                "json_serializable": true
+            },
+            "errors": [],
+            "passed": true
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "summary": {
+        "total_checks": 23,
+        "passed_checks": 23,
+        "failed_checks": 0,
+        "state_status": "valid",
+        "street": "river",
+        "recognized_cards": 7,
+        "player_slots": 7,
+        "ocr_items": 48,
+        "table_mismatches": 0,
+        "card_mismatches": 0,
+        "validation_errors": 0,
+        "validation_warnings": 0,
+        "processing_time_seconds": 112.682802,
+        "passed": true
+    },
+    "checks": {
+        "table_small_blind": true,
+        "table_big_blind": true,
+        "table_pot": true,
+        "table_average_stack": true,
+        "table_tournament_position": true,
+        "card_board_1": true,
+        "card_board_2": true,
+        "card_board_3": true,
+        "card_board_4": true,
+        "card_board_5": true,
+        "card_hero_card_1": true,
+        "card_hero_card_2": true,
+        "street_correct": true,
+        "board_count_correct": true,
+        "hero_count_correct": true,
+        "seven_cards_recognized": true,
+        "seven_slots_preserved": true,
+        "validation_passed": true,
+        "parser_validation_passed": true,
+        "automatic_table_extraction": true,
+        "ocr_items_detected": true,
+        "players_detected": true,
+        "json_serializable": true
+    },
+    "table_mismatches": [],
+    "card_mismatches": [],
+    "validation": {
+        "valid": true,
+        "error_count": 0,
+        "warning_count": 0,
+        "errors": [],
+        "warnings": [],
+        "card_validation": {
+            "valid": true,
+            "street": "river",
+            "board_count": 5,
+            "hero_count": 2,
+            "occupied_count": 7,
+            "empty_count": 0,
+            "unknown_count": 0,
+            "recognized_cards": 7,
+            "duplicate_count": 0,
+            "duplicates": [],
+            "error_count": 0,
+            "warning_count": 0,
+            "errors": [],
+            "warnings": []
+        },
+        "table_validation": {
+            "valid": true,
+            "errors": [],
+            "warnings": []
+        },
+        "table_parser_validation": {
+            "valid": true,
+            "errors": [],
+            "warnings": [],
+            "players_detected": 7,
+            "players_with_names": 7,
+            "players_with_stacks": 7,
+            "players_with_bounties": 7
+        }
+    }
+}
