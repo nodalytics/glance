@@ -32,9 +32,12 @@
 
 #include <httplib.h>
 
+#include "control.h"
+#include "control_service.h"
 #include "ocr.h"
 #include "scraper.h"
 #include "server.h"
+#include "server_control.h"
 #include "state_validation.h"
 
 namespace fs = std::filesystem;
@@ -78,6 +81,47 @@ cv::Mat make_background(int w, int h, unsigned seed) {
     }
   return m;
 }
+
+// Fake platform for the control checks: a Screen that returns a fixed region
+// (the composed screenshot) and an Input that records every call. The selftest
+// never touches a real display; the server's real backend is X11 or null.
+class FakeScreen : public glance::control::Screen {
+ public:
+  cv::Mat region;  // what grab() returns for any (x,y,w,h)
+  bool grab(int x, int y, int w, int h, cv::Mat& out) override {
+    (void)x;
+    (void)y;
+    (void)w;
+    (void)h;
+    out = region;
+    return !region.empty();
+  }
+  bool grab_all(cv::Mat& out) override { return grab(0, 0, region.cols, region.rows, out); }
+  bool locate_window(const std::string&, int& x, int& y, int& w, int& h) override {
+    x = 500;
+    y = 100;
+    w = region.cols;
+    h = region.rows;
+    return true;
+  }
+  std::string backend_name() const override { return "fake"; }
+};
+class FakeInput : public glance::control::Input {
+ public:
+  std::vector<std::tuple<int, int, int>> clicks;
+  std::vector<std::string> keys;
+  std::string typed;
+  void move_to(int, int) override {}
+  void click(int x, int y, Button b) override { clicks.emplace_back(x, y, static_cast<int>(b)); }
+  bool press_key(const std::string& k) override {
+    keys.push_back(k);
+    return true;
+  }
+  bool type_text(const std::string& t) override {
+    typed += t;
+    return true;
+  }
+};
 
 static void write_img(const fs::path& p, const cv::Mat& m) {
   fs::create_directories(p.parent_path());
@@ -199,6 +243,13 @@ int main(int argc, char** argv) {
   dealer["areas"]["p2"] = {100, 60, 128, 88};
   dealer["areas"]["p3"] = {160, 60, 188, 88};
   m["dealer"] = dealer;
+  nlohmann::json actions = nlohmann::json::object();
+  actions["call"] = "button:call";      // maps to a real button -> resolvable
+  actions["fold"] = "button:fold";      // target name has no button entry
+  actions["pot_label"] = "stack:pot";   // maps to a real stack area
+  actions["bogus"] = "weird:whatever";  // malformed target scheme
+  m["actions"] = actions;
+  m["window_title"] = "selftest-table";
   {
     std::ofstream out(base / "mapping.json");
     out << m.dump(2) << "\n";
@@ -405,6 +456,137 @@ int main(int argc, char** argv) {
     }
   }
 
+  // --- HTTP round-trip: the control surface ------------------------------------
+  // The SAME ControlRoutes the server registers, installed on an ephemeral
+  // in-process server and driven with a fake platform backend: /capture must
+  // record the frame as the input-space reference (the externally_parsed seam),
+  // /click /key /sequence must work through HTTP, and /health must carry the
+  // control info. A server without the X11 backend still serves every one of
+  // these (the null backend records nothing, returns nothing).
+  {
+    std::printf("selftest: control http round-trip\n");
+    std::vector<unsigned char> http_buf;
+    cv::imencode(".png", shot, http_buf);
+    glance::TableScraper ctrl_scraper;
+    if (!ctrl_scraper.load_mapping((base / "mapping.json").string())) {
+      std::printf("  FAIL: control http: mapping loads for the test server\n");
+      ++failures;
+    } else {
+      glance::ScreenshotService ctrl_service(&ctrl_scraper);
+      auto fake_screen = std::make_shared<FakeScreen>();
+      fake_screen->region = shot;
+      auto fake_input = std::make_shared<FakeInput>();
+      auto backend = std::make_shared<glance::control::Backend>();
+      backend->name = "fake";
+      backend->screen = fake_screen;
+      backend->input = fake_input;
+      glance::ControlService ctrl(&ctrl_scraper, backend);
+      glance::ControlRoutes routes(&ctrl_service, &ctrl_scraper, &ctrl);
+
+      httplib::Server srv;
+      srv.set_payload_max_length(16u * 1024 * 1024);
+      routes.install(srv);
+      srv.Get("/state", [&ctrl_service](const httplib::Request&, httplib::Response& res) {
+        if (!ctrl_service.has_state()) {
+          nlohmann::json j;
+          j["error"] = "no state yet, POST a screenshot to /capture first";
+          res.status = 404;
+          res.set_content(j.dump(), "application/json");
+          return;
+        }
+        res.set_content(ctrl_service.state_json().dump(), "application/json");
+      });
+      int port = srv.bind_to_any_port("127.0.0.1");
+      CHECK(port > 0, "control test server binds an ephemeral port");
+      if (port > 0) {
+        std::thread serve([&srv]() { srv.listen_after_bind(); });
+        srv.wait_until_ready();
+        httplib::Client cli("127.0.0.1", port);
+        // /health carries the control surface's state up front.
+        auto hres = cli.Get("/health");
+        CHECK(hres && hres->status == 200 && nlohmann::json::parse(hres->body)["status"] == "ok",
+              "GET /health is ok");
+        if (hres && hres->status == 200) {
+          auto hj = nlohmann::json::parse(hres->body);
+          CHECK(hj.contains("control") && hj["control"]["backend"] == "fake",
+                "/health reports the control backend name");
+        }
+        // /capture: the parsed frame becomes the input-space reference.
+        std::string body(http_buf.begin(), http_buf.end());
+        auto cres = cli.Post("/capture", body, "application/x-www-form-urlencoded");
+        CHECK(cres && cres->status == 200, "POST /capture returns the parsed state");
+        auto gres = cli.Post("/grab", "{}", "application/json");
+        CHECK(gres && gres->status == 200 &&
+                  nlohmann::json::parse(gres->body)["table_found"] == true,
+              "POST /grab (default: the mapping's window_title) finds the table");
+        // A grab that mis-locates the window still parses the frame it gets but
+        // the anchor is offset — the table is found in frame space only; the
+        // re-base for raw clicks tracks the window's new origin.
+        auto gres2 = cli.Post("/grab",
+                              R"({"region": {"x": 40, "y": 40, "w": )" + std::to_string(shot_w) +
+                              R"(, "h": )" + std::to_string(shot_h) + R"(}})", "application/json");
+        CHECK(gres2 && gres2->status == 200, "POST /grab with an explicit region is 200");
+        // /click: a named action from the mapping's "actions" section. The
+        // resolved point is in the last FRAME's space (the region grab at
+        // (40,40)), so the re-base applies to it exactly like raw coords.
+        nlohmann::json click_req;
+        click_req["action"] = "call";
+        auto c1 = cli.Post("/click", click_req.dump(), "application/json");
+        CHECK(c1 && c1->status == 200, "POST /click with a named action is 200");
+        if (c1 && c1->status == 200) {
+          auto dj = nlohmann::json::parse(c1->body);
+          CHECK(dj["kind"] == "button" && dj["x"] == anchor_at.x + 290 + 40 &&
+                    dj["y"] == anchor_at.y + 360 + 40,
+                "/click resolves the named action, re-based by the frame origin");
+        }
+        // /click: raw coordinates in the last frame's space.
+        nlohmann::json raw;
+        raw["click"] = {{"x", 10}, {"y", 20}};
+        auto c2 = cli.Post("/click", raw.dump(), "application/json");
+        CHECK(c2 && c2->status == 200, "POST /click with raw coordinates is 200");
+        if (c2 && c2->status == 200) {
+          auto dj = nlohmann::json::parse(c2->body);
+          CHECK(dj["kind"] == "raw", "/click reports the click kind");
+        }
+        // /click: an unknown action is a 422, not a crash.
+        nlohmann::json bad;
+        bad["action"] = "no_such_action";
+        auto c3 = cli.Post("/click", bad.dump(), "application/json");
+        CHECK(c3 && c3->status == 422, "POST /click with an unknown action is 422");
+        // /key: a key press and a typed string both land.
+        nlohmann::json k1;
+        k1["key"] = "Return";
+        auto kr1 = cli.Post("/key", k1.dump(), "application/json");
+        CHECK(kr1 && kr1->status == 200, "POST /key (one keysym) is 200");
+        nlohmann::json k2;
+        k2["type"] = "200";
+        auto kr2 = cli.Post("/key", k2.dump(), "application/json");
+        CHECK(kr2 && kr2->status == 200, "POST /key (typed text) is 200");
+        // /sequence: mixed steps, each reported.
+        nlohmann::json seq = nlohmann::json::array();
+        seq.push_back({{"action", std::string("call")}});
+        seq.push_back({{"key", std::string("Return")}});
+        seq.push_back({{"action", std::string("bogus")}});
+        auto s1 = cli.Post("/sequence", seq.dump(), "application/json");
+        CHECK(s1 && s1->status == 200, "POST /sequence is 200");
+        if (s1 && s1->status == 200) {
+          auto sj = nlohmann::json::parse(s1->body);
+          CHECK(sj["steps"].size() == 3, "/sequence reports every step");
+          CHECK(sj["steps"][0]["ok"] && sj["steps"][1]["ok"] && !sj["steps"][2]["ok"],
+                "each /sequence step is reported on its own merits");
+        }
+        // /sequence: a non-array body is rejected.
+        auto s2 = cli.Post("/sequence", "42", "application/json");
+        CHECK(s2 && s2->status == 400, "POST /sequence rejects a non-array body");
+        // A bad /click body is a 400.
+        auto c4 = cli.Post("/click", "not json", "application/json");
+        CHECK(c4 && c4->status == 400, "POST /click rejects a malformed body");
+        srv.stop();
+        serve.join();
+      }
+    }
+  }
+
   // --- validate_table_state: unit checks on hand-built states ------------------
   // Impossible states must be caught; a legal pocket pair must NOT be.
   {
@@ -488,6 +670,156 @@ int main(int argc, char** argv) {
   CHECK(!glance::parse_ocr_number_text("-5").has_value(), "ocr text rejects a minus");
   CHECK(!glance::parse_ocr_number_text("abc").has_value(), "ocr text rejects non-numeric");
   CHECK(!glance::parse_ocr_number_text("1.2.3").has_value(), "ocr text rejects an extra dot");
+
+  // --- control: named-action resolution ----------------------------------------
+  // The mapping's "actions" section maps names to "button:"/"stack:" targets;
+  // resolve_action turns one into the target rectangle's centre in screen
+  // space, given the anchored table origin. Unknown actions, unknown target
+  // names and malformed target schemes all resolve to nullopt; an unanchored
+  // table cannot resolve to ANY point (no click may land on a guess).
+  {
+    std::printf("selftest: named-action resolution\n");
+    const cv::Point origin(anchor_at);
+    auto res = [&](const char* name) { return glance::control::resolve_action(scraper.mapping(), origin, true, name); };
+    auto p = res("call");
+    CHECK(p && p->kind == "button" && p->x == origin.x + 290 && p->y == origin.y + 360,
+          "action 'call' resolves to the call button's centre");
+    p = res("pot_label");
+    CHECK(p && p->kind == "stack" && p->x == origin.x + 480 && p->y == origin.y + 40,
+          "action 'pot_label' resolves to the pot stack's centre");
+    p = res("fold");
+    CHECK(!p, "action with an unknown target name ('fold' -> button:fold) resolves to nullopt");
+    p = res("bogus");
+    CHECK(!p, "malformed target scheme ('bogus' -> weird:whatever) resolves to nullopt");
+    p = res("no_such_action");
+    CHECK(!p, "unknown action name resolves to nullopt");
+    p = glance::control::resolve_action(scraper.mapping(), origin, false, "call");
+    CHECK(!p, "an unanchored table resolves no action (a click must not land on a guess)");
+  }
+
+  // --- control: service semantics on a fake platform ----------------------------
+  // The SAME ControlService the server runs, driven with a fake Screen/Input:
+  // input-space conversion (frame-relative -> screen-absolute), the input
+  // source bookkeeping, and the null-safe failure paths.
+  {
+    std::printf("selftest: control service on a fake platform\n");
+    auto fake_screen = std::make_shared<FakeScreen>();
+    fake_screen->region = shot;  // the composed screenshot (the anchor IS in it)
+    auto fake_input = std::make_shared<FakeInput>();
+    auto backend = std::make_shared<glance::control::Backend>();
+    backend->name = "fake";
+    backend->screen = fake_screen;
+    backend->input = fake_input;
+    glance::TableScraper cscraper;
+    CHECK(cscraper.load_mapping((base / "mapping.json").string()), "control scraper loads the mapping");
+    glance::ControlService ctrl(&cscraper, backend);
+    CHECK(ctrl.backend_name() == "fake", "backend name is reported");
+
+    // Region grab: the frame is the whole desktop content at (120,80); the
+    // grab's own origin is what client coordinates are measured in, so a raw
+    // click at (0,0) of that frame lands on the frame's screen origin.
+    bool found = false;
+    std::string err;
+    CHECK(ctrl.grab_region(120, 80, shot_w, shot_h, found, &err), "region grab parses the frame");
+    CHECK(ctrl.table_found() && found, "the table anchor is found in the grabbed frame");
+    {
+      nlohmann::json detail;
+      glance::ControlService::ClickRequest cr;
+      cr.use_coords = true;
+      cr.x = 0;
+      cr.y = 0;
+      CHECK(ctrl.click(cr, detail, &err), "a raw click resolves against the last frame");
+      CHECK(detail["x"] == 120 && detail["y"] == 80,
+            "frame coordinates (0,0) arrive screen-absolute (120,80)");
+    }
+    // Region offset is frame-relative, NOT window-relative: a second grab
+    // from a different position re-bases the click space.
+    CHECK(ctrl.grab_region(40, 40, shot_w, shot_h, found, &err), "second region grab re-bases the input space");
+    {
+      nlohmann::json detail;
+      glance::ControlService::ClickRequest cr;
+      cr.use_coords = true;
+      cr.x = 10;
+      cr.y = 20;
+      CHECK(ctrl.click(cr, detail, &err), "a raw click resolves after re-grab");
+      CHECK(detail["x"] == 50 && detail["y"] == 60,
+            "click coordinates are offset by the NEW grab's origin");
+    }
+    // Named action: resolve_action returns a point in the LAST FRAME's space
+    // (its anchor is the frame-relative table origin), so it is re-based with
+    // the frame origin like any raw coordinate — that is what lands the click
+    // on the physical button. The last grab was at (40,40).
+    {
+      nlohmann::json detail;
+      glance::ControlService::ClickRequest cr;
+      cr.target = "call";
+      CHECK(ctrl.click(cr, detail, &err), "a named action click resolves");
+      CHECK(detail["kind"] == "button" && detail["x"] == anchor_at.x + 290 + 40 &&
+                detail["y"] == anchor_at.y + 360 + 40,
+            "the named action clicks the button centre, re-based by the frame origin");
+      CHECK(detail.value("action", std::string()) == "call", "the action name is reported for audit");
+    }
+    // A frame with no table: raw clicks still work (client knows the frame),
+    // named actions do not.
+    {
+      glance::TableScraper nscraper;
+      CHECK(nscraper.load_mapping((base / "mapping.json").string()), "control scraper #2 loads");
+      auto b2 = std::make_shared<glance::control::Backend>();
+      b2->name = "fake";
+      b2->screen = fake_screen;
+      b2->input = fake_input;
+      glance::ControlService nctrl(&nscraper, b2);
+      nctrl.externally_parsed(false, cv::Point(0, 0));
+      CHECK(!nctrl.table_found(), "a frame without the anchor reports the table as not found");
+      nlohmann::json d2;
+      glance::ControlService::ClickRequest c2;
+      c2.target = "call";
+      CHECK(!nctrl.click(c2, d2, &err), "a named action refuses when the table is not anchored");
+      CHECK(err.find("not anchored") != std::string::npos, "the refusal names the missing anchor");
+    }
+    // Keys and text go straight to the platform input.
+    {
+      glance::ControlService::KeyRequest kr;
+      kr.keysym = "Return";
+      CHECK(ctrl.key(kr, &err), "a key press reaches the platform input");
+      kr.keysym = "";
+      kr.text = "200";
+      CHECK(ctrl.key(kr, &err), "typed text reaches the platform input");
+      CHECK(fake_input->keys.back() == "Return" && fake_input->typed == "200",
+            "the fake input recorded the key and the typed text");
+    }
+    // A /sequence mixes steps; every step is reported even when one fails.
+    {
+      nlohmann::json steps = nlohmann::json::array();
+      steps.push_back({{"action", std::string("call")}});
+      steps.push_back({{"key", std::string("Return")}});
+      steps.push_back({{"action", std::string("bogus")}});  // malformed -> reported, not fatal
+      auto results = ctrl.sequence(steps);
+      CHECK(results.size() == 3, "a sequence reports every step");
+      CHECK(results[0].ok && results[1].ok && !results[2].ok,
+            "each sequence step succeeds or fails independently");
+    }
+    // The /capture seam: a client-POSTed frame is the input-space reference,
+    // used as given (no frame-origin offset applied).
+    {
+      glance::TableScraper escraper;
+      CHECK(escraper.load_mapping((base / "mapping.json").string()), "control scraper #3 loads");
+      auto b3 = std::make_shared<glance::control::Backend>();
+      b3->name = "fake";
+      b3->screen = std::make_shared<FakeScreen>();
+      b3->input = std::make_shared<FakeInput>();
+      glance::ControlService ectrl(&escraper, b3);
+      ectrl.externally_parsed(true, cv::Point(anchor_at));
+      nlohmann::json d4;
+      glance::ControlService::ClickRequest c4;
+      c4.use_coords = true;
+      c4.x = 5;
+      c4.y = 6;
+      CHECK(ectrl.click(c4, d4, &err), "a raw click resolves after an externally-parsed frame");
+      CHECK(d4["x"] == 5 && d4["y"] == 6,
+            "externally-POSTed frames are used as given (no re-base)");
+    }
+  }
 
   // --- fixture mode ------------------------------------------------------------
   if (!fixture_dir.empty()) {

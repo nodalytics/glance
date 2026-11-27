@@ -114,6 +114,7 @@ bool TableScraper::load_mapping(const std::string& mapping_path) {
     error_ = m.error();
     return false;
   }
+  mapping_ = m;
   base_dir_ = m.base_dir();
   anchor_threshold_ = m.anchor_threshold();
   template_threshold_ = m.template_threshold();

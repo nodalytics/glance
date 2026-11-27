@@ -8,14 +8,16 @@
 #include "acr_scraper.h"
 #include "scraper.h"
 #include "server.h"
+#include "server_control.h"
+#include "control_service.h"
 
 namespace {
 
 void usage() {
   std::fprintf(stderr,
-               "usage: glance-server <table-mapping.json> [port]\n"
-               "  <table-mapping.json>  path to the ACR table mapping JSON\n"
-               "  [port]                HTTP port (default 8000)\n");
+                "usage: glance-server <table-mapping.json> [port]\n"
+                "  <table-mapping.json>  path to the ACR table mapping JSON\n"
+                "  [port]                HTTP port (default 8000)\n");
 }
 
 }  // namespace
@@ -34,7 +36,13 @@ int main(int argc, char** argv) {
     std::fprintf(stderr, "failed to load mapping: %s\n", acr.error().c_str());
     return 1;
   }
+
+  // The services live as long as this stack frame: every route handler only
+  // runs while listen() below is active, i.e. before main returns.
   glance::ScreenshotService service(acr.core_scraper());
+  glance::ControlService control(acr.core_scraper());
+  glance::ControlRoutes routes(&service, acr.core_scraper(), &control);
+  std::fprintf(stderr, "glance control backend: %s\n", control.backend_name().c_str());
 
   httplib::Server srv;
   // Bound the request body: 16 MB covers realistic window screenshots
@@ -45,28 +53,12 @@ int main(int argc, char** argv) {
   // image bytes.
   srv.set_payload_max_length(16u * 1024 * 1024);
 
-  srv.Get("/health", [](const httplib::Request&, httplib::Response& res) {
-    nlohmann::json j;
-    j["status"] = "ok";
-    res.set_content(j.dump(), "application/json");
-  });
+  // The control surface registers its own routes: /health (extended with the
+  // control backend info), POST /capture (parse + record the frame as the
+  // control's input-space reference), POST /grab, /click, /key, /sequence.
+  routes.install(srv);
 
-  // POST /capture  body: raw PNG/JPEG bytes of the poker window.
-  // Returns the parsed table state as JSON, or a 422 when the table is not
-  // found in the image.
-  srv.Post("/capture", [&service](const httplib::Request& req, httplib::Response& res) {
-    nlohmann::json j;
-    const std::vector<unsigned char> img(req.body.begin(), req.body.end());
-    if (!service.update(img)) {
-      j["error"] = "could not decode image or table not found";
-      res.status = 422;
-      res.set_content(j.dump(), "application/json");
-      return;
-    }
-    res.set_content(service.state_json().dump(), "application/json");
-  });
-
-  // GET /state  the last successfully parsed state.
+  // GET /state — the last successfully parsed table state.
   srv.Get("/state", [&service](const httplib::Request&, httplib::Response& res) {
     if (!service.has_state()) {
       nlohmann::json j;

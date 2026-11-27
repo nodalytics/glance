@@ -211,8 +211,39 @@ bool TableMapping::load(const std::string& path) {
     }
   }
 
+  if (j.contains("window_title")) {
+    if (!j["window_title"].is_string()) {
+      error_ = "window_title must be a string";
+      return false;
+    }
+    window_title_ = j["window_title"].get<std::string>();
+  }
+
+  if (j.contains("actions")) {
+    if (!j["actions"].is_object()) {
+      error_ = "actions must be an object of name -> \"button:<name>\"|\"stack:<key>\"";
+      return false;
+    }
+    for (auto it = j["actions"].begin(); it != j["actions"].end(); ++it) {
+      if (!it.value().is_string()) {
+        error_ = "actions." + it.key() + " must be a string target";
+        return false;
+      }
+      actions_.emplace_back(it.key(), it.value().get<std::string>());
+    }
+  }
+
   loaded_ = true;
   return true;
+}
+
+bool TableMapping::action_target(const std::string& name, std::string& out_target) const {
+  for (const auto& [n, target] : actions_)
+    if (n == name) {
+      out_target = target;
+      return true;
+    }
+  return false;
 }
 
 bool TableMapping::has_button(const std::string& name) const {

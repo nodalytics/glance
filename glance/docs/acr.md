@@ -110,7 +110,9 @@ Paths are relative to the mapping file's directory. Full contract is in
     "call": [x1, y1, x2, y2],
     "raise": [x1, y1, x2, y2]
   },
-  "max_players": 6
+  "max_players": 6,
+  "actions": { "call": "button:call", "raise_bar": "stack:raise" },
+  "window_title": "ACR Poker"
 }
 ```
 
@@ -129,6 +131,39 @@ All indices are 1-based. `n`/`m` are parsed as integers and must be >= 1.
 - `pot`, `call`, `raise` — table-level numbers.
 - `p<n>` — seat `n`'s stack.
 - `p<n>_bet` — seat `n`'s current bet.
+
+### Action targets (`actions`)
+
+`actions` (optional; control, milestone M1) maps names a client can POST to
+`POST /click` to **existing** geometry:
+
+- `"button:<name>"` — references a `buttons` entry by name;
+- `"stack:<key>"` — references a `stacks` entry by key.
+
+At request time the name is resolved, using the anchor position found in the
+last capture, to the **screen-absolute centre** of the referenced rectangle —
+a `button:` target's rectangle and a `stack:` target's rectangle already live
+in the mapping, so `actions` never carries geometry of its own. Example:
+
+```json
+"actions": {
+  "call": "button:call",
+  "fold": "button:fold",
+  "raise_amount": "stack:call",
+  "raise_bar": "stack:raise"
+}
+```
+
+Unknown names, unknown target names, or malformed targets are rejected (a
+clean 422, never a click on a guess); a grab whose anchor was not found
+resolves no action at all.
+
+### Window title (`window_title`)
+
+`window_title` (optional; control) is the title substring of the platform
+window the *server itself* grabs with `POST /grab` (window search via the
+X11 backend) when no client capture stream feeds it; it also names the
+window for the `ControlService`'s input-space bookkeeping.
 
 ### Seats
 

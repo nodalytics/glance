@@ -5,9 +5,14 @@ box below stops matching the source, the doc is stale.
 
 ## 1. The one-line picture
 
-A screenshot goes in as image bytes; parsed table state comes out as JSON.
-**glance is the screen's replacement API** — for platforms that expose no
-programming interface at all, it manufactures one from pixels.
+A screenshot goes in as image bytes; parsed table state comes out as JSON —
+and, since milestone M1, the same HTTP surface drives the platform back:
+`POST /click`, `/key`, `/sequence` turn client coordinates and named actions
+(defined in the mapping JSON) into screen-absolute input injected by the X11
+backend (synthetic mouse/keys via XTest), or by a null backend on machines
+without a display. **glance is the screen's replacement API** — for platforms
+that expose no programming interface at all, it manufactures one from pixels,
+in both directions.
 
 ```
                  +-----------------------------------------------------------+
@@ -20,6 +25,7 @@ programming interface at all, it manufactures one from pixels.
    |  glance-server  (server/main.cpp, cpp-httplib)                     |
    |  - owns the HTTP surface                                            |
    |  - wires the platform scraper into the ScreenshotService           |
+   |  - wires the same scraper into the ControlService (control layer)  |
    +---------------------------------+-----------------------------------+
                                      | .update(img_bytes)
                                      v
@@ -30,6 +36,22 @@ programming interface at all, it manufactures one from pixels.
    +---------------------------------+-----------------------------------+
                                      | .scrape(cv::Mat)
                                      v
+    +---------------------------------------------------------------------+
+    |  ControlRoutes / ControlService  (core/server_control.cpp,         |
+    |                                   control_service.cpp)  -- M1      |
+    |  HTTP control routes; records every capture as the INPUT-SPACE     |
+    |  reference; resolves mapping "actions" to screen-absolute centres; |
+    |  converts client coordinates to screen-absolute. No platform       |
+    |  knowledge — the platform is the Backend behind it.                |
+    +---------------------------------+-----------------------------------+
+                                      | Screen::grab / Input::click / key
+                                      v
+    +---------------------------------------------------------------------+
+    |  control backend  (core/src/screen_x11.cpp or the null backend)    |
+    |  Screen (pixel grab) + Input (synthetic mouse/keys) + name;        |
+    |  make_default() picks X11 when the headers were found at configure |
+    |  time, else null (same optional pattern as tesseract).             |
+    +---------------------------------------------------------------------+
    +---------------------------------------------------------------------+
    |  AcrScraper  (acr/acr_scraper.cpp)  -- the platform "skin"         |
    |  owns the ACR mapping; delegates everything to the core engine.    |
@@ -150,6 +172,10 @@ report from step 8 as a `validation` key.
 |----------------------|------------------------------|--------------------------------|
 | `server/main.cpp`    | HTTP verbs, exit codes       | card faces, seat numbers       |
 | `ScreenshotService`  | "last frame + last state"    | what a table *is*              |
+| `ControlService`     | "last frame's input space",  | pixels, the platform, what an  |
+|                      | action->coordinate           |   action *means*               |
+| `control backend`    | the platform's pixels &      | tables, mappings, card faces   |
+|                      | input device (X11/null)      |                                |
 | `acr/` (skin)        | ACR's skin layout & mapping  | HTTP, OpenCV details           |
 | `TableScraper`       | anchors, slots, thresholds   | ACR specifically (any skin)    |
 | `template_match.cpp` | pixel similarity             | games, tables, cards           |
@@ -163,11 +189,18 @@ Two rules make this hold:
   scraper does comes from `name/crop/topleft/cards/buttons/dealer/stacks`
   (contract in `core/include/mapping.h` and `docs/acr.md`). A new platform is
   data plus, at most, a ~40-line wrapper like `AcrScraper`.
-- **Control (roadmap) attaches to the same seam.** Input injection
-  (`POST /click`, `/key`) will be another `core/` primitive driven by
-  `ScreenshotService`, with per-skin *action targets* living in the same
-  mapping JSON — so the "who knows what" table gains a row but no new
-  direction of arrows.
+- **Control attaches to the same seam (milestone M1, landed).** The
+  `ControlService` (core/control_service.cpp, routes in
+  core/server_control.cpp) is another `core/` service driven by the *same*
+  `TableScraper`: it records every capture — a server-side grab, a located
+  window, or a frame POSTed to /capture — as the **input-space reference**
+  (client coordinates are re-based to screen-absolute with that frame's
+  origin), and resolves the mapping's `actions` names to the centre of the
+  existing `buttons`/`stacks` rectangles. The platform itself is a
+  `Screen`+`Input` *backend* behind it (X11 via XGetImage/XTest when the
+  headers were found at configure time, null otherwise — the same
+  configure-time-optional pattern as tesseract), so the arrow direction is
+  unchanged: the service is platform-ignorant, the backend is game-ignorant.
 
 ## 4. Design invariants
 
@@ -179,10 +212,13 @@ Two rules make this hold:
    template-matched; varying digits are OCR'd — and only that second class is
    optional, so the failure mode of "no tesseract" is "no numbers", never
    "no server".
-4. **Configuration-time, not link-time, optionals.** `GLANCE_OCR` is decided
+4. **Configure-time, not link-time, optionals.** `GLANCE_OCR` is decided
    by `find_program(tesseract)` at configure time and burned in as a compiled
-   default; `ocr_available()` still re-checks the binary at runtime. Same
-   pattern for any future optional dependency.
+   default; `ocr_available()` still re-checks the binary at runtime. The same
+   pattern exists for `GLANCE_X11`: the X development packages decide whether
+   the X11 screen/input backend is compiled in, and `backend_name()` reports
+   `null` at runtime on machines without one — the build never breaks and a
+   headless machine degrades to "no display", never to "no server".
 5. **Synth-proof correctness.** `glance-selftest` generates its own
    anchor/cards/screenshots and runs this whole path; a change that breaks
    the pipeline is caught by `ctest` without a browser window open.
@@ -200,12 +236,13 @@ Two rules make this hold:
   |  +----------------+          |   + tesseract (spawned   |   |
   |                              |     per number read)     |   |
   |  +----------------+   HTTP   +--------------------------+   |
-  |  | bot / research | --------> (future: POST /click,       |   |
-  |  | client         |        /key -- control primitives,    |   |
-  |  +----------------+        milestone M1/M2)               |   |
+  |  | bot / research | --------> (JSON)  + ControlService  |   |
+  |  | client         | <----  POST (state)   + control     |   |
+  |  +----------------+              /click /key   backend  |   |
+  |                                    /sequence  (X11)     |   |
   +-----------------------------------------------------------+
 ```
 
-Nothing here is a daemon: `glance-server` holds state only "last frame" —
-the capture cadence lives in whatever posts to it, which is what keeps the
-server boring.
+Nothing here is a daemon: `glance-server` holds state only "last frame" and
+"last input-space reference" — the capture cadence lives in whatever posts to
+it, which is what keeps the server boring.
