@@ -23,11 +23,14 @@
 #include <optional>
 #include <random>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
+
+#include <httplib.h>
 
 #include "ocr.h"
 #include "scraper.h"
@@ -311,6 +314,65 @@ int main(int argc, char** argv) {
           "state JSON carries a clean validation block");
     CHECK(j["validation"].contains("errors") && j["validation"].contains("warnings"),
           "validation block has errors+warnings arrays");
+  }
+
+  // --- HTTP round-trip (the 413 regression) -----------------------------------
+  // A multi-MB screenshot must survive POST /capture. httplib enforces a
+  // SEPARATE, tiny (8 KB default) budget for bodies labeled
+  // application/x-www-form-urlencoded — the content type curl --data-binary
+  // sends by default — so a naive client once got a silent 413 on a 1.3 MB
+  // screenshot even though the generic payload limit wasn't near it. The
+  // #define in CMakeLists raises that limit to match the 16 MB runtime cap set
+  // in server/main.cpp; POST with the same curl-style content type so a
+  // removed define fails this check.
+  {
+    std::printf("selftest: http round-trip\n");
+    std::vector<unsigned char> http_buf;
+    cv::imencode(".png", shot, http_buf);
+    glance::TableScraper http_scraper;
+    if (!http_scraper.load_mapping((base / "mapping.json").string())) {
+      std::printf("  FAIL: http round-trip: mapping loads for the test server\n");
+      ++failures;
+    } else {
+      glance::ScreenshotService http_service(&http_scraper);
+      httplib::Server srv;
+      srv.Post("/capture", [&http_service](const httplib::Request& req, httplib::Response& res) {
+        std::vector<unsigned char> img(req.body.begin(), req.body.end());
+        if (!http_service.update(img)) {
+          nlohmann::json j;
+          j["error"] = "could not decode image or table not found";
+          res.status = 422;
+          res.set_content(j.dump(), "application/json");
+          return;
+        }
+        res.set_content(http_service.state_json().dump(), "application/json");
+      });
+      int port = srv.bind_to_any_port("127.0.0.1");
+      CHECK(port > 0, "test server binds an ephemeral port");
+      if (port > 0) {
+        // listen_after_bind() runs the accept loop on its thread; serve on a
+        // dedicated one so the test thread can drive the client.
+        std::thread serve([&srv]() { srv.listen_after_bind(); });
+        srv.wait_until_ready();
+        httplib::Client cli("127.0.0.1", port);
+        httplib::Headers headers;
+        headers.emplace("Content-Type", "application/x-www-form-urlencoded");
+        headers.emplace("Expect", "100-continue");
+        std::string req_body(http_buf.begin(), http_buf.end());
+        auto res = cli.Post("/capture", headers, req_body, "application/x-www-form-urlencoded");
+        CHECK(res && res->status == 200,
+              "screenshot >8 KB is accepted as application/x-www-form-urlencoded (413 regression)");
+        if (res && res->status == 200) {
+          nlohmann::json rj = nlohmann::json::parse(res->body);
+          CHECK(rj.contains("stage") && rj["stage"] == "Flop",
+                "POST /capture returns the parsed state over HTTP");
+          CHECK(rj.contains("validation") && rj["validation"]["valid"] == true,
+                "HTTP state carries a clean validation block");
+        }
+        srv.stop();
+        serve.join();
+      }
+    }
   }
 
   // --- validate_table_state: unit checks on hand-built states ------------------

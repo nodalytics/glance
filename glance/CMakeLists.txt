@@ -64,6 +64,14 @@ endif()
 
 FetchContent_MakeAvailable(httplib)
 target_link_libraries(glance_core PUBLIC httplib::httplib)
+# POST /capture takes raw PNG/JPEG bytes. cpp-httplib reserves a tiny (8 KB
+# by default) compile-time budget for bodies arriving labeled
+# application/x-www-form-urlencoded, so a naive client (curl --data-binary
+# sends exactly that content type) gets a silent 413 on a multi-MB
+# screenshot. Every glance binary's only POST route takes raw image bytes,
+# so the limit is lifted to match the 16 MB runtime payload cap set in
+# server/main.cpp.
+target_compile_definitions(glance_core PUBLIC CPPHTTPLIB_FORM_URL_ENCODED_PAYLOAD_MAX_LENGTH=16777216)
 
 add_library(glance_acr acr/src/acr_scraper.cpp)
 target_include_directories(glance_acr PUBLIC acr/include)

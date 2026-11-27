@@ -37,6 +37,13 @@ int main(int argc, char** argv) {
   glance::ScreenshotService service(acr.core_scraper());
 
   httplib::Server srv;
+  // Bound the request body: 16 MB covers realistic window screenshots
+  // (a 1920x1080 capture is ~1-2 MB) while still protecting memory. The
+  // form-urlencoded path (httplib's default content type for curl
+  // --data-binary) carries its own 8 KB default limit; CMakeLists raised it
+  // to match, since POST /capture is the only POST route and takes raw
+  // image bytes.
+  srv.set_payload_max_length(16u * 1024 * 1024);
 
   srv.Get("/health", [](const httplib::Request&, httplib::Response& res) {
     nlohmann::json j;
