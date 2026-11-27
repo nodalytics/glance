@@ -57,6 +57,12 @@ The first three work or nearly work today (1–2 are a client script away;
   match for static elements, optional OCR for numbers (build passes without
   tesseract; numeric fields are just omitted), end-to-end selftest
   (`glance-selftest`).
+- **State validation** — done. Every parsed state is sanity-checked
+  (`core/include/state_validation.h`, port of the Python research
+  prototype's card/table validators): duplicate card faces, board gaps,
+  stage/board mismatches and negative amounts surface in the state JSON as a
+  `validation` block (`{valid, errors[], warnings[]}`) so clients can
+  distrust a broken read. Pure logic; no OCR required.
 - **Generic engine** — done. `core/` (mapping, template_match, ocr, scraper,
   ScreenshotService) is platform-free and ready to be reused elsewhere.
 - **Control (sending actions back to the screen)** — on the roadmap.

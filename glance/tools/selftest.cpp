@@ -32,6 +32,7 @@
 #include "ocr.h"
 #include "scraper.h"
 #include "server.h"
+#include "state_validation.h"
 
 namespace fs = std::filesystem;
 
@@ -300,6 +301,81 @@ int main(int argc, char** argv) {
     CHECK(service.state_json()["stage"] == "Flop", "service state matches");
     std::vector<unsigned char> junk{1, 2, 3};
     CHECK(!service.update(junk), "service rejects undecodable bytes");
+
+    // --- state validation (port of the Python researcher's validators) --------
+    // The live parsed state is a valid river-of-3 hand: it must report clean.
+    auto vrep = glance::validate_table_state(s);
+    CHECK(vrep.valid, "parsed state passes state validation");
+    CHECK(vrep.error_count == 0, "parsed state has zero validation errors");
+    CHECK(j.contains("validation") && j["validation"]["valid"] == true,
+          "state JSON carries a clean validation block");
+    CHECK(j["validation"].contains("errors") && j["validation"].contains("warnings"),
+          "validation block has errors+warnings arrays");
+  }
+
+  // --- validate_table_state: unit checks on hand-built states ------------------
+  // Impossible states must be caught; a legal pocket pair must NOT be.
+  {
+    std::printf("selftest: state validation unit checks\n");
+    auto code_of = [](const glance::ValidationReport& r, const std::string& want) {
+      for (const auto& i : r.issues)
+        if (i.code == want) return true;
+      return false;
+    };
+
+    glance::TableState dup;
+    dup.seats.resize(2);
+    dup.seats[0].cards = {"Ah", "Ah"};               // identical face twice
+    dup.seats[0].index = 0;
+    auto vd = glance::validate_table_state(dup);
+    CHECK(!vd.valid && code_of(vd, "DUPLICATE_CARD"),
+          "duplicate identical card is an error");
+
+    glance::TableState pair;
+    pair.seats.resize(1);
+    pair.seats[0].index = 0;
+    pair.seats[0].cards = {"Ah", "As"};             // pocket pair: distinct faces
+    auto vp = glance::validate_table_state(pair);
+    CHECK(vp.valid && !code_of(vp, "DUPLICATE_CARD"),
+          "a pocket pair (different suits) is legal");
+
+    glance::TableState gap;
+    gap.seats.resize(1);
+    gap.seats[0].index = 0;
+    gap.seats[0].cards = {"Ah", "Ks"};
+    gap.board = {"7d", "", "Qh", "2c", "Js"};      // hole in the middle
+    gap.game_stage = "River";
+    auto vg = glance::validate_table_state(gap);
+    CHECK(!vg.valid && code_of(vg, "BOARD_GAP"), "a board gap is an error");
+
+    glance::TableState mismatch;
+    mismatch.seats.resize(1);
+    mismatch.seats[0].index = 0;
+    mismatch.seats[0].cards = {"Ah", "Ks"};
+    mismatch.board = {"7d", "Ks", "Qh"};           // 3 cards ...
+    mismatch.game_stage = "Turn";                  // ... but says 4
+    auto vm = glance::validate_table_state(mismatch);
+    CHECK(!vm.valid && code_of(vm, "STAGE_BOARD_MISMATCH"),
+          "stage/board-count mismatch is an error");
+
+    glance::TableState neg;
+    neg.seats.resize(1);
+    neg.seats[0].index = 0;
+    neg.seats[0].stack = -50.0;                    // not the -1 "unread" sentinel
+    neg.total_pot = -1.0;
+    auto vn = glance::validate_table_state(neg);
+    CHECK(!vn.valid && code_of(vn, "NEGATIVE_AMOUNT") && code_of(vn, "NEGATIVE_STACK"),
+          "negative amounts are errors");
+
+    glance::TableState clean;
+    clean.seats.resize(1);
+    clean.seats[0].index = 0;
+    clean.seats[0].cards = {"Ah", "Ks"};
+    clean.board = {"7d", "Qh", "2c"};
+    clean.game_stage = "Flop";
+    clean.total_pot = 0.0;
+    auto vc = glance::validate_table_state(clean);
+    CHECK(vc.valid && vc.error_count == 0, "a consistent state is valid");
   }
 
   // --- fixture mode ------------------------------------------------------------

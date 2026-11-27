@@ -101,8 +101,12 @@ programming interface at all, it manufactures one from pixels.
     |                                  |                        |      per seat
     |                                  |   TableState           | 7. DERIVE
     |                                  |                       |    stage from
-    |                                  |<----------------------|    board count
-    |                                  |   to_json(state)      |
+    |                                  |                       |    board count
+    |                                  |                       | 8. VALIDATE
+    |                                  |                       |    validate_table_
+    |                                  |<----------------------|    state(); "validation"
+    |                                  |   to_json(state +     |    block in the JSON
+    |                                  |   validation)         |
     |   200 {table state JSON}         |                        |
     |<---------------------------------|                        |
 ```
@@ -125,10 +129,20 @@ Step-by-step in the code (`TableScraper::scrape`, `core/src/scraper.cpp`):
    simply absent from the JSON — the rest of the state still works.
 6. **Dealer button** — which seat area the dealer template sits in.
 7. **Derived state** — game stage from board-card count (0/3/4/5 →
-   PreFlop/Flop/Turn/River).
-
-`to_json` then serializes with empty fields omitted; seat 0 in the engine
-(the bot) becomes seat 1 in the JSON.
+    PreFlop/Flop/Turn/River).
+8. **Validation** — `validate_table_state` (core/include/state_validation.h)
+   sanity-checks the parsed state for internal consistency: a card face
+   appearing in more than one slot (DUPLICATE_CARD — a pocket pair like A♠+A♥
+   is *legal*; only identical rank+suit is flagged), board gaps, board
+   overflow, stage/board-count mismatch, and negative amounts. It never
+   mutates the state and never blocks the response; it produces a
+   `validation` block (`{valid, errors[], warnings[]}`) added to the JSON so
+   clients can distrust a broken state. No OCR, no pixels — pure logic, so it
+   runs on every build. Ported from the Python research prototype
+   (research/poker_apis/validation/card_state_validator.py).
+Then `to_json` serializes the state with empty fields omitted (seat 0 in the
+engine, the bot, becomes seat 1 in the JSON) and appends the validation
+report from step 8 as a `validation` key.
 
 ## 3. Who knows what (the layering contract)
 
@@ -140,6 +154,8 @@ Step-by-step in the code (`TableScraper::scrape`, `core/src/scraper.cpp`):
 | `TableScraper`       | anchors, slots, thresholds   | ACR specifically (any skin)    |
 | `template_match.cpp` | pixel similarity             | games, tables, cards           |
 | `ocr.cpp`            | digits in a region           | poker, money, seats            |
+| `state_validation`   | internal consistency of a    | pixels, OCR, the HTTP layer    |
+|                      | parsed state                 |                                |
 
 Two rules make this hold:
 

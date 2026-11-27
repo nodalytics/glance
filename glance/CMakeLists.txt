@@ -47,7 +47,8 @@ add_library(glance_core
   core/src/template_match.cpp
   core/src/ocr.cpp
   core/src/scraper.cpp
-  core/src/server.cpp)
+  core/src/server.cpp
+  core/src/state_validation.cpp)
 target_include_directories(glance_core PUBLIC core/include)
 # find_package(OpenCV) exposes the per-module imported targets that carry the
 # public header include paths. The namespaced aliases (OpenCV::core) only
