@@ -1,0 +1,69 @@
+===========================================================================
+APPLICATION CONFIGURATION VALIDATION
+===========================================================================
+
+DEFAULT CONFIGURATION TESTS
+[PASS] Default application name
+[PASS] Offline mode enforced
+[PASS] Default local server host
+[PASS] Default server port
+[PASS] Default API prefix
+[PASS] Default upload limit
+[PASS] Default supported formats
+[PASS] Debug disabled by default
+[PASS] Swagger enabled by default
+[PASS] Single processing operation configured
+[PASS] Temporary cleanup required
+
+INVALID CONFIGURATION TESTS
+[PASS] Invalid server port rejected
+[PASS] Zero server port rejected
+[PASS] External host rejected
+[PASS] Unsupported operating mode rejected
+[PASS] Negative upload limit rejected
+[PASS] Excessive upload limit rejected
+[PASS] Invalid API prefix rejected
+[PASS] Trailing slash rejected
+[PASS] Invalid logging level rejected
+[PASS] Unsupported image format rejected
+[PASS] Empty image format list rejected
+[PASS] Concurrent processing override rejected
+[PASS] Cleanup disabling rejected
+
+ENVIRONMENT CONFIGURATION TESTS
+[PASS] Environment port loaded
+[PASS] Environment boolean loaded
+[PASS] Logging level normalized
+[PASS] Environment upload limit loaded
+[PASS] Documentation disabled correctly
+[PASS] OS environment takes priority
+[PASS] Missing environment file uses defaults
+
+DIRECTORY MANAGEMENT TESTS
+[PASS] Temporary upload directory created
+[PASS] Output directory created
+[PASS] Calibration template path resolved
+[PASS] Simulator template path resolved
+
+IMMUTABILITY AND CACHING TESTS
+[PASS] Configuration is immutable
+[PASS] Configuration object cached
+
+PUBLIC INFORMATION TESTS
+[PASS] Public information matches API model
+[PASS] Internal paths excluded from public info
+
+===========================================================================
+CONFIGURATION VALIDATION SUMMARY
+===========================================================================
+{
+    "total_tests": 39,
+    "passed_tests": 39,
+    "failed_tests": 0,
+    "total_time_seconds": 0.0201,
+    "passed": true
+}
+
+Report saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\api_config_validation_report.json
+
+FINAL RESULT: ALL TESTS PASSED

@@ -1,0 +1,375 @@
+{
+    "benchmark_version": "1.0.0",
+    "timestamp_utc": "2026-11-26T18:21:24.095617+00:00",
+    "input_type": "synthetic_text_document",
+    "runs_per_configuration": 3,
+    "configurations": [
+        {
+            "configuration": "default",
+            "success": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "type": "cold",
+                    "inference_ms": 27132.625,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 757.633,
+                        "process_threads": 44,
+                        "available_memory_mib": 620.594
+                    }
+                },
+                {
+                    "run": 2,
+                    "type": "warm",
+                    "inference_ms": 26107.255,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 663.055,
+                        "process_threads": 41,
+                        "available_memory_mib": 978.734
+                    }
+                },
+                {
+                    "run": 3,
+                    "type": "warm",
+                    "inference_ms": 26413.222,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 663.211,
+                        "process_threads": 41,
+                        "available_memory_mib": 1008.172
+                    }
+                }
+            ],
+            "import_ms": 4323.444,
+            "options": {
+                "use_doc_orientation_classify": false,
+                "use_doc_unwarping": false,
+                "use_textline_orientation": false,
+                "engine": "paddle"
+            },
+            "resources_before": {
+                "rss_mib": 136.004,
+                "process_threads": 17,
+                "available_memory_mib": 889.48
+            },
+            "initialization_ms": 4247.269,
+            "summary": {
+                "cold_inference_ms": 27132.625,
+                "warm_mean_ms": 26260.238,
+                "warm_median_ms": 26260.238,
+                "warm_minimum_ms": 26107.255,
+                "warm_maximum_ms": 26413.222,
+                "all_lines_matched": true,
+                "maximum_sampled_rss_mib": 757.633,
+                "minimum_sampled_available_memory_mib": 620.594
+            },
+            "return_code": 0,
+            "total_worker_ms": 89375.011
+        },
+        {
+            "configuration": "onednn_enabled",
+            "success": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "type": "cold",
+                    "inference_ms": 25374.043,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 760.617,
+                        "process_threads": 44,
+                        "available_memory_mib": 938.562
+                    }
+                },
+                {
+                    "run": 2,
+                    "type": "warm",
+                    "inference_ms": 25706.753,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 763.965,
+                        "process_threads": 41,
+                        "available_memory_mib": 951.719
+                    }
+                },
+                {
+                    "run": 3,
+                    "type": "warm",
+                    "inference_ms": 25790.407,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 764.012,
+                        "process_threads": 41,
+                        "available_memory_mib": 979.012
+                    }
+                }
+            ],
+            "import_ms": 4440.773,
+            "options": {
+                "use_doc_orientation_classify": false,
+                "use_doc_unwarping": false,
+                "use_textline_orientation": false,
+                "engine": "paddle",
+                "enable_mkldnn": true
+            },
+            "resources_before": {
+                "rss_mib": 136.371,
+                "process_threads": 17,
+                "available_memory_mib": 1565.074
+            },
+            "initialization_ms": 4633.892,
+            "summary": {
+                "cold_inference_ms": 25374.043,
+                "warm_mean_ms": 25748.58,
+                "warm_median_ms": 25748.58,
+                "warm_minimum_ms": 25706.753,
+                "warm_maximum_ms": 25790.407,
+                "all_lines_matched": true,
+                "maximum_sampled_rss_mib": 764.012,
+                "minimum_sampled_available_memory_mib": 938.562
+            },
+            "return_code": 0,
+            "total_worker_ms": 86889.08
+        },
+        {
+            "configuration": "onednn_disabled",
+            "success": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "type": "cold",
+                    "inference_ms": 37205.6,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 503.867,
+                        "process_threads": 42,
+                        "available_memory_mib": 1407.441
+                    }
+                },
+                {
+                    "run": 2,
+                    "type": "warm",
+                    "inference_ms": 35917.898,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 499.504,
+                        "process_threads": 39,
+                        "available_memory_mib": 1569.398
+                    }
+                },
+                {
+                    "run": 3,
+                    "type": "warm",
+                    "inference_ms": 49624.635,
+                    "accuracy": {
+                        "expected_lines": 8,
+                        "recognized_lines": 8,
+                        "matched_lines": 8,
+                        "line_match_percent": 100.0,
+                        "recognized_text": [
+                            "DOCUMENT RECOGNITION TEST",
+                            "Reference Number: 123456",
+                            "Invoice Total: 47500",
+                            "Quantity: 2500",
+                            "Average Value: 83333",
+                            "Department: Research",
+                            "Status: Complete",
+                            "Date: 2026-11-26"
+                        ],
+                        "missing_lines": []
+                    },
+                    "resources": {
+                        "rss_mib": 498.414,
+                        "process_threads": 39,
+                        "available_memory_mib": 1847.785
+                    }
+                }
+            ],
+            "import_ms": 3804.308,
+            "options": {
+                "use_doc_orientation_classify": false,
+                "use_doc_unwarping": false,
+                "use_textline_orientation": false,
+                "engine": "paddle",
+                "enable_mkldnn": false
+            },
+            "resources_before": {
+                "rss_mib": 136.355,
+                "process_threads": 17,
+                "available_memory_mib": 1496.172
+            },
+            "initialization_ms": 4608.371,
+            "summary": {
+                "cold_inference_ms": 37205.6,
+                "warm_mean_ms": 42771.266,
+                "warm_median_ms": 42771.266,
+                "warm_minimum_ms": 35917.898,
+                "warm_maximum_ms": 49624.635,
+                "all_lines_matched": true,
+                "maximum_sampled_rss_mib": 503.867,
+                "minimum_sampled_available_memory_mib": 1407.441
+            },
+            "return_code": 0,
+            "total_worker_ms": 132338.361
+        }
+    ],
+    "ranking": [
+        {
+            "configuration": "onednn_enabled",
+            "warm_mean_ms": 25748.58,
+            "initialization_ms": 4633.892,
+            "maximum_sampled_rss_mib": 764.012,
+            "speedup": 1.02,
+            "reduction_percent": 1.948
+        },
+        {
+            "configuration": "default",
+            "warm_mean_ms": 26260.238,
+            "initialization_ms": 4247.269,
+            "maximum_sampled_rss_mib": 757.633,
+            "speedup": 1.0,
+            "reduction_percent": 0.0
+        },
+        {
+            "configuration": "onednn_disabled",
+            "warm_mean_ms": 42771.266,
+            "initialization_ms": 4608.371,
+            "maximum_sampled_rss_mib": 503.867,
+            "speedup": 0.614,
+            "reduction_percent": -62.875
+        }
+    ],
+    "failed_configurations": [],
+    "accuracy_failed_configurations": [],
+    "total_benchmark_ms": 308615.108
+}

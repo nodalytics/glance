@@ -1,0 +1,145 @@
+===========================================================================
+REAL OFFLINE PROCESSING SERVICE INTEGRATION
+===========================================================================
+
+Screenshot: ss.jpeg
+File size: 232,478 bytes
+
+SERVICE INITIALIZATION
+[PASS] Pipeline initialization is lazy
+[PASS] Service initially available
+
+REAL UPLOAD VALIDATION
+[PASS] Real screenshot upload accepted
+[PASS] Calibrated dimensions detected
+[PASS] Upload validation remains lazy
+{
+    "filename": "ss.jpeg",
+    "extension": ".jpeg",
+    "format": "JPEG",
+    "width": 1600,
+    "height": 899,
+    "file_size_bytes": 232478
+}
+
+REAL SCREENSHOT PROCESSING
+Initializing the real OCR pipeline...
+Processing may take several minutes.
+Initializing table OCR...
+INFO: Could not find files for the given pattern(s).
+C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('PP-OCRv6_medium_det', None, 'paddle')[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\PMLS\.paddlex\official_models\PP-OCRv6_medium_det`.[0m
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1125 13:31:27.617138  4884 onednn_context.cc:81] oneDNN v3.6.2
+[32mCreating model: ('PP-OCRv6_medium_rec', None, 'paddle')[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\PMLS\.paddlex\official_models\PP-OCRv6_medium_rec`.[0m
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+
+Initializing recognition profile: calibration
+[32mCreating model: ('PP-OCRv6_medium_det', None, 'paddle')[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\PMLS\.paddlex\official_models\PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, 'paddle')[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\PMLS\.paddlex\official_models\PP-OCRv6_medium_rec`.[0m
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+[PASS] Real pipeline initialized
+[PASS] Pydantic state returned
+
+TABLE FIELD VALIDATION
+[PASS] Table field: small_blind
+[PASS] Table field: big_blind
+[PASS] Table field: pot
+[PASS] Table field: average_stack
+[PASS] Table field: tournament_position
+
+CARD IDENTITY VALIDATION
+[PASS] Card: board_1
+[PASS] Card: board_2
+[PASS] Card: board_3
+[PASS] Card: board_4
+[PASS] Card: board_5
+[PASS] Card: hero_card_1
+[PASS] Card: hero_card_2
+
+STATE VALIDATION
+[PASS] State status is valid
+[PASS] Offline screenshot source
+[PASS] River street detected
+[PASS] Five community cards detected
+[PASS] Two hero cards detected
+[PASS] Seven recognized cards
+[PASS] Seven unique card slots preserved
+[PASS] Overall state validation passed
+[PASS] No validation errors
+[PASS] No duplicate cards
+[PASS] Player information detected
+
+SERVICE METADATA VALIDATION
+[PASS] Calibration profile selected
+[PASS] Automatic table extraction used
+[PASS] OCR items detected
+[PASS] Original filename preserved
+[PASS] Upload metadata preserved
+[PASS] Service processing time recorded
+
+JSON SERIALIZATION
+[PASS] JSON serialization and round trip
+[PASS] Structured state saved
+
+CLEANUP AND STATISTICS
+[PASS] No new temporary files remain
+[PASS] Processing lock released
+[PASS] Exactly one request processed
+[PASS] Successful request recorded
+[PASS] No failed requests
+[PASS] No rejected or busy requests
+
+===========================================================================
+REAL SERVICE INTEGRATION SUMMARY
+===========================================================================
+{
+    "total_tests": 44,
+    "passed_tests": 44,
+    "failed_tests": 0,
+    "state_status": "valid",
+    "recognized_cards": 7,
+    "processing_time_seconds": 115.8885,
+    "total_time_seconds": 115.9316,
+    "passed": true
+}
+
+SERVICE STATISTICS
+{
+    "total_requests": 1,
+    "successful_requests": 1,
+    "failed_requests": 0,
+    "rejected_requests": 0,
+    "busy_requests": 0
+}
+
+State saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\real_processing_service_state.json
+
+Report saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\real_processing_service_report.json
+
+FINAL RESULT: ALL TESTS PASSED

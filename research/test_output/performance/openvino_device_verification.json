@@ -1,0 +1,107 @@
+{
+    "timestamp_utc": "2026-11-26T19:32:01.579521+00:00",
+    "python_executable": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv-ocr-research\\Scripts\\python.exe",
+    "openvino_version": "2026.4.1-22982-e213a147257-releases/2026/4",
+    "model": "runtime_smoke_test.onnx",
+    "available_devices": [
+        "CPU",
+        "GPU"
+    ],
+    "results": [
+        {
+            "device": "CPU",
+            "success": true,
+            "device_name": "12th Gen Intel(R) Core(TM) i5-1235U",
+            "compilation_ms": 39.1601,
+            "execution_devices": [
+                "CPU"
+            ],
+            "first_inference_ms": 1.0379,
+            "expected_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "actual_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "numerically_correct": true,
+            "benchmark": {
+                "warmup_runs": 10,
+                "benchmark_runs": 100,
+                "mean_ms": 0.051254,
+                "median_ms": 0.044,
+                "minimum_ms": 0.0409,
+                "maximum_ms": 0.3807,
+                "p95_ms": 0.05652,
+                "p99_ms": 0.271503,
+                "standard_deviation_ms": 0.041199
+            }
+        },
+        {
+            "device": "GPU",
+            "success": true,
+            "device_name": "Intel(R) UHD Graphics (iGPU)",
+            "compilation_ms": 2253.751,
+            "execution_devices": [
+                "GPU.0"
+            ],
+            "first_inference_ms": 5.1469,
+            "expected_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "actual_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "numerically_correct": true,
+            "benchmark": {
+                "warmup_runs": 10,
+                "benchmark_runs": 100,
+                "mean_ms": 0.243425,
+                "median_ms": 0.2241,
+                "minimum_ms": 0.216,
+                "maximum_ms": 0.6375,
+                "p95_ms": 0.29986,
+                "p99_ms": 0.620373,
+                "standard_deviation_ms": 0.070811
+            }
+        }
+    ],
+    "success": true,
+    "model_loading_ms": 7.6375,
+    "summary": {
+        "devices_tested": 2,
+        "devices_passed": 2,
+        "devices_failed": 0,
+        "ranking": [
+            {
+                "device": "CPU",
+                "mean_ms": 0.051254,
+                "p95_ms": 0.05652
+            },
+            {
+                "device": "GPU",
+                "mean_ms": 0.243425,
+                "p95_ms": 0.29986
+            }
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+===========================================================================
+PYDANTIC API MODEL VALIDATION
+===========================================================================
+
+EXISTING STATE COMPATIBILITY
+[PASS] State compatibility: screenshot_table_state.json
+[PASS] State compatibility: sample_table_state.json
+[PASS] Five offline pipeline states available
+[PASS] State compatibility: calibration_sample_001.json
+[PASS] State compatibility: flop_sample_001.json
+[PASS] State compatibility: preflop_sample_001.json
+[PASS] State compatibility: river_sample_001.json
+[PASS] State compatibility: turn_sample_001.json
+
+CARD MODEL TESTS
+[PASS] Valid card accepted
+[PASS] Invalid rank rejected
+[PASS] Invalid suit rejected
+[PASS] Confidence above 1 rejected
+[PASS] Negative confidence rejected
+[PASS] NaN confidence rejected
+[PASS] Empty card slot accepted
+
+PLAYER MODEL TESTS
+[PASS] Valid player accepted
+[PASS] Negative player stack rejected
+[PASS] Fractional player stack rejected
+
+COMPLETE STATE TESTS
+[PASS] Invalid state status rejected
+[PASS] Negative pot rejected
+[PASS] Missing required cards rejected
+[PASS] Unsupported source rejected
+[PASS] JSON schema generated
+
+API RESPONSE MODEL TESTS
+[PASS] Health response model
+[PASS] Application information model
+[PASS] Structured error response model
+
+===========================================================================
+API MODEL VALIDATION SUMMARY
+===========================================================================
+{
+    "total_tests": 26,
+    "passed_tests": 26,
+    "failed_tests": 0,
+    "total_time_seconds": 0.1305,
+    "passed": true
+}
+
+Report saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\api_models_validation_report.json
+
+FINAL RESULT: ALL TESTS PASSED

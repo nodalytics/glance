@@ -1,0 +1,604 @@
+{
+    "source": "lightweight_ocr_validation.json",
+    "models": [
+        {
+            "model": "tiny",
+            "summary": {
+                "expected_lines": 56,
+                "original_matches": 34,
+                "formatting_only_matches": 22,
+                "adjusted_matches": 56,
+                "remaining_unmatched_lines": 0,
+                "original_recall_percent": 60.714,
+                "adjusted_recall_percent": 100.0
+            },
+            "documents": [
+                {
+                    "document": "standard",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 5,
+                    "formatting_only_matches": 3,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity:3482",
+                                "edit_distance": 1,
+                                "similarity_percent": 92.857
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "small_text",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 4,
+                    "formatting_only_matches": 4,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "reference: ab123789",
+                            "closest_candidate": {
+                                "recognized": "reference:ab123789",
+                                "edit_distance": 1,
+                                "similarity_percent": 94.737
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        },
+                        {
+                            "expected": "location: building 12",
+                            "closest_candidate": {
+                                "recognized": "location:building 12",
+                                "edit_distance": 1,
+                                "similarity_percent": 95.238
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "low_contrast",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 4,
+                    "formatting_only_matches": 4,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity:3482",
+                                "edit_distance": 1,
+                                "similarity_percent": 92.857
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        },
+                        {
+                            "expected": "location: building 12",
+                            "closest_candidate": {
+                                "recognized": "location:building 12",
+                                "edit_distance": 1,
+                                "similarity_percent": 95.238
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "noisy",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 6,
+                    "formatting_only_matches": 2,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity:3482",
+                                "edit_distance": 1,
+                                "similarity_percent": 92.857
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "dark",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 3,
+                    "formatting_only_matches": 5,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "reference: ab123789",
+                            "closest_candidate": {
+                                "recognized": "reference:ab123789",
+                                "edit_distance": 1,
+                                "similarity_percent": 94.737
+                            }
+                        },
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity:3482",
+                                "edit_distance": 1,
+                                "similarity_percent": 92.857
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        },
+                        {
+                            "expected": "location: building 12",
+                            "closest_candidate": {
+                                "recognized": "location:building 12",
+                                "edit_distance": 1,
+                                "similarity_percent": 95.238
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "dense",
+                    "expected_lines": 16,
+                    "recognized_lines": 16,
+                    "original_matches": 12,
+                    "formatting_only_matches": 4,
+                    "adjusted_matches": 16,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "reference: ab123789",
+                            "closest_candidate": {
+                                "recognized": "reference:ab123789",
+                                "edit_distance": 1,
+                                "similarity_percent": 94.737
+                            }
+                        },
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity:3482",
+                                "edit_distance": 1,
+                                "similarity_percent": 92.857
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "model": "small",
+            "summary": {
+                "expected_lines": 56,
+                "original_matches": 38,
+                "formatting_only_matches": 10,
+                "adjusted_matches": 48,
+                "remaining_unmatched_lines": 8,
+                "original_recall_percent": 67.857,
+                "adjusted_recall_percent": 85.714
+            },
+            "documents": [
+                {
+                    "document": "standard",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 7,
+                    "formatting_only_matches": 1,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "small_text",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 7,
+                    "formatting_only_matches": 1,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "reference: ab123789",
+                            "closest_candidate": {
+                                "recognized": "reference:ab123789",
+                                "edit_distance": 1,
+                                "similarity_percent": 94.737
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "low_contrast",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 5,
+                    "formatting_only_matches": 2,
+                    "adjusted_matches": 7,
+                    "remaining_unmatched_lines": 1,
+                    "adjusted_recall_percent": 87.5,
+                    "possible_errors": [
+                        {
+                            "expected": "reference: ab123789",
+                            "closest_candidate": {
+                                "recognized": "reference:ab123789",
+                                "edit_distance": 1,
+                                "similarity_percent": 94.737
+                            }
+                        },
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity：3482",
+                                "edit_distance": 2,
+                                "similarity_percent": 85.714
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "noisy",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 1,
+                    "formatting_only_matches": 1,
+                    "adjusted_matches": 2,
+                    "remaining_unmatched_lines": 6,
+                    "adjusted_recall_percent": 25.0,
+                    "possible_errors": [
+                        {
+                            "expected": "reference: ab123789",
+                            "closest_candidate": {
+                                "recognized": "reference：ab123789",
+                                "edit_distance": 2,
+                                "similarity_percent": 89.474
+                            }
+                        },
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity：3482",
+                                "edit_distance": 2,
+                                "similarity_percent": 85.714
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total：67219",
+                                "edit_distance": 2,
+                                "similarity_percent": 83.333
+                            }
+                        },
+                        {
+                            "expected": "department: operations",
+                            "closest_candidate": {
+                                "recognized": "department:operations",
+                                "edit_distance": 1,
+                                "similarity_percent": 95.455
+                            }
+                        },
+                        {
+                            "expected": "status: approved",
+                            "closest_candidate": {
+                                "recognized": "status：approved",
+                                "edit_distance": 2,
+                                "similarity_percent": 87.5
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date：2026-11-26",
+                                "edit_distance": 2,
+                                "similarity_percent": 87.5
+                            }
+                        },
+                        {
+                            "expected": "location: building 12",
+                            "closest_candidate": {
+                                "recognized": "location：building 12",
+                                "edit_distance": 2,
+                                "similarity_percent": 90.476
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "dark",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 5,
+                    "formatting_only_matches": 2,
+                    "adjusted_matches": 7,
+                    "remaining_unmatched_lines": 1,
+                    "adjusted_recall_percent": 87.5,
+                    "possible_errors": [
+                        {
+                            "expected": "quantity: 3482",
+                            "closest_candidate": {
+                                "recognized": "quantity：3482",
+                                "edit_distance": 2,
+                                "similarity_percent": 85.714
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "dense",
+                    "expected_lines": 16,
+                    "recognized_lines": 16,
+                    "original_matches": 13,
+                    "formatting_only_matches": 3,
+                    "adjusted_matches": 16,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "reference: ab123789",
+                            "closest_candidate": {
+                                "recognized": "reference:ab123789",
+                                "edit_distance": 1,
+                                "similarity_percent": 94.737
+                            }
+                        },
+                        {
+                            "expected": "total: 67219",
+                            "closest_candidate": {
+                                "recognized": "total:67219",
+                                "edit_distance": 1,
+                                "similarity_percent": 91.667
+                            }
+                        },
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "model": "medium",
+            "summary": {
+                "expected_lines": 56,
+                "original_matches": 53,
+                "formatting_only_matches": 3,
+                "adjusted_matches": 56,
+                "remaining_unmatched_lines": 0,
+                "original_recall_percent": 94.643,
+                "adjusted_recall_percent": 100.0
+            },
+            "documents": [
+                {
+                    "document": "standard",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 7,
+                    "formatting_only_matches": 1,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "small_text",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 7,
+                    "formatting_only_matches": 1,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "low_contrast",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 8,
+                    "formatting_only_matches": 0,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": []
+                },
+                {
+                    "document": "noisy",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 8,
+                    "formatting_only_matches": 0,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": []
+                },
+                {
+                    "document": "dark",
+                    "expected_lines": 8,
+                    "recognized_lines": 8,
+                    "original_matches": 8,
+                    "formatting_only_matches": 0,
+                    "adjusted_matches": 8,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": []
+                },
+                {
+                    "document": "dense",
+                    "expected_lines": 16,
+                    "recognized_lines": 16,
+                    "original_matches": 15,
+                    "formatting_only_matches": 1,
+                    "adjusted_matches": 16,
+                    "remaining_unmatched_lines": 0,
+                    "adjusted_recall_percent": 100.0,
+                    "possible_errors": [
+                        {
+                            "expected": "date: 2026-11-26",
+                            "closest_candidate": {
+                                "recognized": "date:2026-11-26",
+                                "edit_distance": 1,
+                                "similarity_percent": 93.75
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

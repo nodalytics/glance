@@ -1,0 +1,223 @@
+{
+    "benchmark_version": "1.0.0",
+    "timestamp_utc": "2026-11-26T14:43:34.650950+00:00",
+    "screenshot": "ss.jpeg",
+    "screenshot_sha256": "27b7092c224eee82d62f10c8c02e9852598806695be6c0e8809bd0365e8e7152",
+    "requested_runs": 4,
+    "profiling_enabled": false,
+    "initial_resources": {
+        "process_rss_mib": 19.824,
+        "system_available_memory_mib": 1567.754,
+        "system_memory_percent": 80.2,
+        "process_threads": 4
+    },
+    "runs": [
+        {
+            "run": 1,
+            "type": "cold",
+            "processing_ms": 95891.689,
+            "backend_timings": {
+                "initialization_seconds": 1.323268,
+                "recognition_seconds": 25.913618,
+                "state_building_seconds": 0.000307,
+                "total_seconds": 27.237224,
+                "card_slots": {
+                    "board_1": 4.306308,
+                    "board_2": 3.991679,
+                    "board_3": 3.790333,
+                    "board_4": 3.766146,
+                    "board_5": 3.679441,
+                    "hero_card_1": 2.639955,
+                    "hero_card_2": 3.739673
+                },
+                "screenshot_loading_seconds": 0.019152,
+                "table_extraction_seconds": 68.634646,
+                "card_cropping_seconds": 4.5e-05,
+                "screenshot_total_seconds": 95.891192
+            },
+            "recognized_cards": 7,
+            "player_count": 7,
+            "status": "valid",
+            "validation_valid": true,
+            "reference_comparison": {
+                "matches_reference": true,
+                "difference_count": 0,
+                "differences": []
+            },
+            "resources_before": {
+                "process_rss_mib": 132.637,
+                "system_available_memory_mib": 1438.199,
+                "system_memory_percent": 81.8,
+                "process_threads": 17
+            },
+            "resources_after": {
+                "process_rss_mib": 1595.086,
+                "system_available_memory_mib": 428.98,
+                "system_memory_percent": 94.6,
+                "process_threads": 44
+            }
+        },
+        {
+            "run": 2,
+            "type": "warm",
+            "processing_ms": 92736.898,
+            "backend_timings": {
+                "initialization_seconds": 1.2e-05,
+                "recognition_seconds": 25.637369,
+                "state_building_seconds": 0.000231,
+                "total_seconds": 25.637631,
+                "card_slots": {
+                    "board_1": 3.883104,
+                    "board_2": 4.009872,
+                    "board_3": 3.897566,
+                    "board_4": 3.858987,
+                    "board_5": 3.814422,
+                    "hero_card_1": 2.526011,
+                    "hero_card_2": 3.647338
+                },
+                "screenshot_loading_seconds": 0.037752,
+                "table_extraction_seconds": 67.060653,
+                "card_cropping_seconds": 4.3e-05,
+                "screenshot_total_seconds": 92.736152
+            },
+            "recognized_cards": 7,
+            "player_count": 7,
+            "status": "valid",
+            "validation_valid": true,
+            "reference_comparison": {
+                "matches_reference": true,
+                "difference_count": 0,
+                "differences": []
+            },
+            "resources_before": {
+                "process_rss_mib": 1595.086,
+                "system_available_memory_mib": 428.914,
+                "system_memory_percent": 94.6,
+                "process_threads": 44
+            },
+            "resources_after": {
+                "process_rss_mib": 1153.555,
+                "system_available_memory_mib": 1158.324,
+                "system_memory_percent": 85.4,
+                "process_threads": 42
+            }
+        },
+        {
+            "run": 3,
+            "type": "warm",
+            "processing_ms": 97142.233,
+            "backend_timings": {
+                "initialization_seconds": 3.8e-05,
+                "recognition_seconds": 31.066438,
+                "state_building_seconds": 0.000368,
+                "total_seconds": 31.066867,
+                "card_slots": {
+                    "board_1": 3.850642,
+                    "board_2": 3.942791,
+                    "board_3": 3.839805,
+                    "board_4": 4.488629,
+                    "board_5": 5.662097,
+                    "hero_card_1": 3.729855,
+                    "hero_card_2": 5.552529
+                },
+                "screenshot_loading_seconds": 0.026628,
+                "table_extraction_seconds": 66.047883,
+                "card_cropping_seconds": 4.3e-05,
+                "screenshot_total_seconds": 97.14155
+            },
+            "recognized_cards": 7,
+            "player_count": 7,
+            "status": "valid",
+            "validation_valid": true,
+            "reference_comparison": {
+                "matches_reference": true,
+                "difference_count": 0,
+                "differences": []
+            },
+            "resources_before": {
+                "process_rss_mib": 1153.57,
+                "system_available_memory_mib": 1150.047,
+                "system_memory_percent": 85.5,
+                "process_threads": 42
+            },
+            "resources_after": {
+                "process_rss_mib": 1153.844,
+                "system_available_memory_mib": 948.992,
+                "system_memory_percent": 88.0,
+                "process_threads": 42
+            }
+        },
+        {
+            "run": 4,
+            "type": "warm",
+            "processing_ms": 139564.966,
+            "backend_timings": {
+                "initialization_seconds": 2.3e-05,
+                "recognition_seconds": 31.38366,
+                "state_building_seconds": 0.000182,
+                "total_seconds": 31.383892,
+                "card_slots": {
+                    "board_1": 5.779012,
+                    "board_2": 6.082535,
+                    "board_3": 6.010779,
+                    "board_4": 4.247907,
+                    "board_5": 3.605381,
+                    "hero_card_1": 2.281831,
+                    "hero_card_2": 3.376136
+                },
+                "screenshot_loading_seconds": 0.039712,
+                "table_extraction_seconds": 108.140825,
+                "card_cropping_seconds": 7.6e-05,
+                "screenshot_total_seconds": 139.564584
+            },
+            "recognized_cards": 7,
+            "player_count": 7,
+            "status": "valid",
+            "validation_valid": true,
+            "reference_comparison": {
+                "matches_reference": true,
+                "difference_count": 0,
+                "differences": []
+            },
+            "resources_before": {
+                "process_rss_mib": 1153.871,
+                "system_available_memory_mib": 948.582,
+                "system_memory_percent": 88.0,
+                "process_threads": 42
+            },
+            "resources_after": {
+                "process_rss_mib": 1154.395,
+                "system_available_memory_mib": 1401.824,
+                "system_memory_percent": 82.3,
+                "process_threads": 42
+            }
+        }
+    ],
+    "success": true,
+    "import_ms": 4188.449,
+    "constructor_ms": 0.702,
+    "summary": {
+        "cold_processing_ms": 95891.689,
+        "cold_total_ms": 100080.84,
+        "warm_statistics": {
+            "count": 3,
+            "minimum_ms": 92736.898,
+            "maximum_ms": 139564.966,
+            "mean_ms": 109814.699,
+            "median_ms": 97142.233,
+            "standard_deviation_ms": 21113.353
+        },
+        "cold_to_warm_speedup": 0.873,
+        "cold_to_warm_reduction_percent": -14.52,
+        "all_runs_match_reference": true,
+        "all_runs_valid": true,
+        "completed_runs": 4
+    },
+    "total_benchmark_ms": 429599.403,
+    "final_resources": {
+        "process_rss_mib": 1154.586,
+        "system_available_memory_mib": 1398.973,
+        "system_memory_percent": 82.3,
+        "process_threads": 42
+    }
+}

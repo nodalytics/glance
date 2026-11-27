@@ -1,0 +1,563 @@
+{
+    "timestamp_utc": "2026-11-26T18:28:53.159235+00:00",
+    "versions": {
+        "paddlepaddle": "3.2.0",
+        "paddleocr": "3.7.0",
+        "paddlex": "3.7.2"
+    },
+    "cached_models": [
+        {
+            "name": "PP-OCRv6_medium_det",
+            "size_mib": 59.414
+        },
+        {
+            "name": "PP-OCRv6_medium_rec",
+            "size_mib": 73.303
+        }
+    ],
+    "discovered_model_count": 28,
+    "lightweight_candidate_count": 21,
+    "lightweight_candidates": [
+        {
+            "name": "PP-OCRv4_mobile_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv4_mobile_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\predictor.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv4_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv4_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\utils\\official_models.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv4_mobile_seal_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\seal_text_detection\\PP-OCRv4_mobile_seal_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\runners\\paddle_static\\config\\trt_config.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv5_mobile_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 12,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv5_mobile_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_small_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 12,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv6_small_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_small_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv6_small_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_tiny_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv6_tiny_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_tiny_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv6_tiny_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "arabic_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\arabic_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "cyrillic_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\cyrillic_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "devanagari_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\devanagari_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "el_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\el_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "en_PP-OCRv4_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 5,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\en_PP-OCRv4_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\utils\\official_models.py"
+            ]
+        },
+        {
+            "name": "en_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\en_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "eslav_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\eslav_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "korean_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\korean_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "latin_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\latin_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "ta_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\ta_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "te_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\te_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "th_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\th_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        }
+    ],
+    "all_discovered_models": [
+        {
+            "name": "PP-OCRv4_mobile_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv4_mobile_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\predictor.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv4_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv4_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\utils\\official_models.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv4_mobile_seal_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\seal_text_detection\\PP-OCRv4_mobile_seal_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\runners\\paddle_static\\config\\trt_config.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv4_server_det",
+            "type": "detection",
+            "lightweight_candidate": false,
+            "source_count": 13,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv4_server_det.yaml",
+                "configs\\pipelines\\PP-ChatOCRv3-doc.yaml",
+                "configs\\pipelines\\PP-ChatOCRv4-doc.yaml"
+            ]
+        },
+        {
+            "name": "PP-OCRv4_server_rec",
+            "type": "recognition",
+            "lightweight_candidate": false,
+            "source_count": 10,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv4_server_rec.yaml",
+                "configs\\pipelines\\PP-ChatOCRv3-doc.yaml",
+                "configs\\pipelines\\layout_parsing.yaml"
+            ]
+        },
+        {
+            "name": "PP-OCRv4_server_seal_det",
+            "type": "detection",
+            "lightweight_candidate": false,
+            "source_count": 13,
+            "example_sources": [
+                "configs\\modules\\seal_text_detection\\PP-OCRv4_server_seal_det.yaml",
+                "configs\\pipelines\\PP-ChatOCRv3-doc.yaml",
+                "configs\\pipelines\\PP-ChatOCRv4-doc.yaml"
+            ]
+        },
+        {
+            "name": "PP-OCRv5_mobile_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 12,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv5_mobile_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv5_server_det",
+            "type": "detection",
+            "lightweight_candidate": false,
+            "source_count": 14,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv5_server_det.yaml",
+                "configs\\pipelines\\PP-DocTranslation.yaml",
+                "configs\\pipelines\\PP-StructureV3.yaml"
+            ]
+        },
+        {
+            "name": "PP-OCRv5_server_rec",
+            "type": "recognition",
+            "lightweight_candidate": false,
+            "source_count": 13,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv5_server_rec.yaml",
+                "configs\\pipelines\\PP-DocTranslation.yaml",
+                "configs\\pipelines\\PP-StructureV3.yaml"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_medium_det",
+            "type": "detection",
+            "lightweight_candidate": false,
+            "source_count": 13,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv6_medium_det.yaml",
+                "configs\\pipelines\\OCR.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_medium_rec",
+            "type": "recognition",
+            "lightweight_candidate": false,
+            "source_count": 12,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv6_medium_rec.yaml",
+                "configs\\pipelines\\OCR.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_small_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 12,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv6_small_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_small_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv6_small_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_tiny_det",
+            "type": "detection",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_detection\\PP-OCRv6_tiny_det.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_detection\\__init__.py"
+            ]
+        },
+        {
+            "name": "PP-OCRv6_tiny_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 11,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\PP-OCRv6_tiny_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "arabic_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\arabic_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "cyrillic_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\cyrillic_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "devanagari_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\devanagari_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "el_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\el_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "en_PP-OCRv4_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 5,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\en_PP-OCRv4_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\utils\\official_models.py"
+            ]
+        },
+        {
+            "name": "en_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\en_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "eslav_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\eslav_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "korean_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\korean_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "latin_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\latin_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "ta_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\ta_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "te_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\te_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        },
+        {
+            "name": "th_PP-OCRv5_mobile_rec",
+            "type": "recognition",
+            "lightweight_candidate": true,
+            "source_count": 7,
+            "example_sources": [
+                "configs\\modules\\text_recognition\\th_PP-OCRv5_mobile_rec.yaml",
+                "inference\\models\\runners\\hpi\\hpi_model_info_collection.json",
+                "inference\\models\\text_recognition\\__init__.py"
+            ]
+        }
+    ]
+}

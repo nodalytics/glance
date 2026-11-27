@@ -1,0 +1,213 @@
+
+TOP FUNCTIONS BY CUMULATIVE TIME
+================================================================================
+         7166084 function calls (7099062 primitive calls) in 101.054 seconds
+
+   Ordered by: cumulative time
+   List reduced from 6273 to 60 due to restriction <60>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001  101.055  101.055 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\pipeline\screenshot_pipeline.py:167(process_file)
+       15    0.001    0.000   88.971    5.931 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\vision\ocr.py:50(extract)
+       15    0.000    0.000   88.958    5.931 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddleocr\_pipelines\ocr.py:208(predict)
+       30    0.001    0.000   88.958    2.965 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\pipelines\_parallel.py:148(predict)
+       30    0.002    0.000   88.957    2.965 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py:292(predict)
+      105    0.000    0.000   88.914    0.847 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\predictors\base_predictor.py:61(__call__)
+      105    0.025    0.000   88.914    0.847 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\predictors\base_predictor.py:119(apply)
+       36    0.022    0.001   88.533    2.459 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\runners\paddle_static\runner.py:289(__call__)
+       36    0.001    0.000   88.510    2.459 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\runners\paddle_static\runner.py:261(__call__)
+       36   88.394    2.455   88.394    2.455 {built-in method paddle.base.libpaddle.run}
+        1    0.000    0.000   71.845   71.845 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\pipeline\screenshot_pipeline.py:137(extract_table_data)
+       21    0.024    0.001   60.067    2.860 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\text_recognition\predictor.py:156(process)
+        1    0.000    0.000   29.165   29.165 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\pipeline\offline_pipeline.py:161(process)
+       15    0.004    0.000   28.810    1.921 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\text_detection\predictor.py:121(process)
+        7    0.000    0.000   26.059    3.723 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\vision\card_recognition.py:859(recognize_card)
+        7    0.000    0.000   26.024    3.718 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\vision\card_recognition.py:308(recognize_rank)
+        2    0.000    0.000    9.558    4.779 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\vision\ocr.py:42(__init__)
+        2    0.000    0.000    9.558    4.779 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddleocr\_pipelines\ocr.py:67(__init__)
+        2    0.000    0.000    9.557    4.779 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddleocr\_pipelines\base.py:55(__init__)
+        2    0.000    0.000    9.528    4.764 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddleocr\_pipelines\base.py:102(_create_paddlex_pipeline)
+        2    0.000    0.000    6.654    3.327 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\pipelines\__init__.py:105(create_pipeline)
+        2    0.000    0.000    6.654    3.327 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\utils\deps.py:205(_wrapper)
+        2    0.000    0.000    6.647    3.324 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\pipelines\_parallel.py:78(__init__)
+        2    0.000    0.000    6.647    3.323 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\pipelines\_parallel.py:189(_create_internal_pipeline)
+        2    0.000    0.000    6.647    3.323 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py:42(__init__)
+        4    0.000    0.000    6.646    1.662 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\pipelines\base.py:106(create_model)
+        4    0.000    0.000    6.644    1.661 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\__init__.py:356(create_predictor)
+        1    0.000    0.000    6.458    6.458 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\pipeline\screenshot_pipeline.py:56(get_table_ocr)
+        6    0.004    0.001    4.972    0.829 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\__init__.py:74(load)
+        4    0.000    0.000    4.949    1.237 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\__init__.py:280(_load_local_model_config)
+        4    0.000    0.000    4.949    1.237 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\predictors\base_predictor.py:190(load_config)
+        4    0.000    0.000    4.949    1.237 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\utils\model_config.py:29(load_model_config)
+        4    0.000    0.000    4.949    1.237 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\utils\io\readers.py:225(read)
+        4    0.000    0.000    4.948    1.237 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\utils\io\readers.py:619(read_file)
+        6    0.000    0.000    4.939    0.823 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\constructor.py:47(get_single_data)
+        6    0.000    0.000    4.809    0.802 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:29(get_single_node)
+        6    0.000    0.000    4.808    0.801 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:50(compose_document)
+  37910/6    0.120    0.000    4.808    0.801 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:63(compose_node)
+     90/6    0.001    0.000    4.807    0.801 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:117(compose_mapping_node)
+    32/10    0.061    0.002    4.764    0.476 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:99(compose_sequence_node)
+   113880    0.111    0.000    4.383    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:94(check_event)
+    37504    0.096    0.000    4.193    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:402(parse_indentless_sequence_entry)
+   228428    0.344    0.000    3.570    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:113(check_token)
+        2    0.000    0.000    3.106    1.553 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\vision\recognition_profiles.py:129(get_recognizer)
+        1    0.000    0.000    3.105    3.105 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\vision\recognition_profiles.py:48(_create_calibration_recognizer)
+        1    0.000    0.000    3.105    3.105 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\vision\card_recognition.py:54(__init__)
+        2    0.000    0.000    2.873    1.437 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddleocr\_common_args.py:102(prepare_common_init_args)
+        2    0.000    0.000    2.873    1.437 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\utils\device.py:55(get_default_device)
+       18    0.000    0.000    2.873    0.160 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\utils\import_guard.py:26(import_paddle_module)
+       10    0.000    0.000    2.872    0.287 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\utils\import_guard.py:21(import_paddle)
+    26/18    0.000    0.000    2.872    0.160 C:\Program Files\Python311\Lib\importlib\__init__.py:108(import_module)
+    27/18    0.000    0.000    2.872    0.160 <frozen importlib._bootstrap>:1194(_gcd_import)
+  1251/18    0.015    0.000    2.872    0.160 <frozen importlib._bootstrap>:1167(_find_and_load)
+   1233/1    0.011    0.000    2.872    2.872 <frozen importlib._bootstrap>:1122(_find_and_load_unlocked)
+   1186/1    0.008    0.000    2.871    2.871 <frozen importlib._bootstrap>:666(_load_unlocked)
+   1165/1    0.007    0.000    2.871    2.871 <frozen importlib._bootstrap_external>:934(exec_module)
+   2732/3    0.003    0.000    2.869    0.956 <frozen importlib._bootstrap>:233(_call_with_frames_removed)
+   1223/1    0.019    0.000    2.869    2.869 {built-in method builtins.exec}
+        1    0.000    0.000    2.869    2.869 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddle\__init__.py:1(<module>)
+   382/30    0.002    0.000    2.740    0.091 {built-in method builtins.__import__}
+
+
+
+TOP FUNCTIONS BY INTERNAL TIME
+================================================================================
+         7166084 function calls (7099062 primitive calls) in 101.054 seconds
+
+   Ordered by: internal time
+   List reduced from 6273 to 60 due to restriction <60>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       36   88.394    2.455   88.394    2.455 {built-in method paddle.base.libpaddle.run}
+        1    2.402    2.402    2.402    2.402 {fastNlMeansDenoisingColored}
+        4    1.656    0.414    1.656    0.414 {built-in method paddle.base.libpaddle.create_predictor}
+     1165    0.893    0.001    0.893    0.001 {built-in method io.open_code}
+   417912    0.367    0.000    0.642    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:145(need_more_tokens)
+   228428    0.344    0.000    3.570    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:113(check_token)
+   264862    0.312    0.000    0.346    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:99(forward)
+     5178    0.288    0.000    0.288    0.000 {built-in method nt.stat}
+   188832    0.274    0.000    0.349    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:114(get_mark)
+    37722    0.271    0.000    1.340    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:1270(scan_plain)
+    75516    0.270    0.000    2.716    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:156(fetch_more_tokens)
+     1165    0.253    0.000    0.253    0.000 {built-in method marshal.loads}
+    37722    0.248    0.000    0.688    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:1311(scan_plain_spaces)
+   872048    0.246    0.000    0.255    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:87(peek)
+   418064    0.214    0.000    0.214    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:279(stale_possible_simple_keys)
+     1167    0.213    0.000    0.213    0.000 {method 'read' of '_io.BufferedReader' objects}
+    37910    0.203    0.000    0.853    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:273(parse_node)
+    75516    0.163    0.000    0.342    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:752(scan_to_next_token)
+        2    0.139    0.069    0.141    0.070 {built-in method _imp.create_dynamic}
+    37532    0.135    0.000    0.334    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:484(fetch_block_entry)
+   150750    0.123    0.000    0.153    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:94(prefix)
+  37910/6    0.120    0.000    4.808    0.801 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:63(compose_node)
+   113880    0.111    0.000    4.383    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:94(check_event)
+      627    0.104    0.000    0.104    0.000 {built-in method numpy.array}
+   113212    0.102    0.000    0.220    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:1416(scan_line_break)
+    37792    0.099    0.000    0.184    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:295(save_possible_simple_key)
+       36    0.097    0.003    0.097    0.003 {built-in method paddle.base.libpaddle.copy_to_cpu}
+    37504    0.096    0.000    4.193    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:402(parse_indentless_sequence_entry)
+   342548    0.096    0.000    0.096    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:264(next_possible_simple_key)
+   646764    0.094    0.000    0.101    0.000 {built-in method builtins.isinstance}
+    75912    0.087    0.000    0.234    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:135(get_token)
+    37784    0.084    0.000    0.207    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:88(compose_scalar_node)
+   188832    0.075    0.000    0.075    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\error.py:6(__init__)
+    37906    0.071    0.000    0.088    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\resolver.py:143(resolve)
+498264/497127    0.069    0.000    0.070    0.000 {built-in method builtins.len}
+     7100    0.067    0.000    0.098    0.000 <frozen importlib._bootstrap_external>:96(_path_join)
+    37722    0.065    0.000    1.600    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:668(fetch_plain)
+    32/10    0.061    0.002    4.764    0.476 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:99(compose_sequence_node)
+      423    0.058    0.000    0.088    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddle\base\wrapped_decorator.py:44(__impl__)
+   259024    0.053    0.000    0.053    0.000 {method 'append' of 'list' objects}
+    37910    0.051    0.000    0.114    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\constructor.py:67(construct_object)
+        5    0.046    0.009    0.046    0.009 {imread}
+       69    0.041    0.001    0.042    0.001 {method 'read' of '_io.TextIOWrapper' objects}
+2447/2378    0.041    0.000    0.211    0.000 {built-in method builtins.__build_class__}
+       21    0.040    0.002    0.040    0.002 {method 'argmax' of 'numpy.ndarray' objects}
+      475    0.035    0.000    0.035    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+    37538    0.031    0.000    0.870    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:264(parse_block_node)
+   115390    0.030    0.000    0.030    0.000 {method 'pop' of 'list' objects}
+      353    0.029    0.000    0.029    0.000 {built-in method nt.listdir}
+    38056    0.025    0.000    0.084    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:125(peek_token)
+    75522    0.025    0.000    0.026    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:325(unwind_indent)
+    37784    0.025    0.000    0.046    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\constructor.py:173(construct_scalar)
+      105    0.025    0.000   88.914    0.847 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\predictors\base_predictor.py:119(apply)
+       21    0.024    0.001   60.067    2.860 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\text_recognition\predictor.py:156(process)
+       61    0.024    0.000    0.024    0.000 {warpPerspective}
+     1165    0.024    0.000    1.384    0.001 <frozen importlib._bootstrap_external>:1007(get_code)
+    37722    0.023    0.000    0.034    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:731(check_plain)
+       36    0.022    0.001    0.022    0.001 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\numpy\_core\shape_base.py:380(stack)
+       36    0.022    0.001   88.533    2.459 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\paddlex\inference\models\runners\paddle_static\runner.py:289(__call__)
+     1381    0.021    0.000    0.326    0.000 <frozen importlib._bootstrap_external>:1604(find_spec)
+
+
+
+TOP FUNCTIONS BY CALL COUNT
+================================================================================
+         7166084 function calls (7099062 primitive calls) in 101.054 seconds
+
+   Ordered by: call count
+   List reduced from 6273 to 60 due to restriction <60>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   872048    0.246    0.000    0.255    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:87(peek)
+   646764    0.094    0.000    0.101    0.000 {built-in method builtins.isinstance}
+498264/497127    0.069    0.000    0.070    0.000 {built-in method builtins.len}
+   418064    0.214    0.000    0.214    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:279(stale_possible_simple_keys)
+   417912    0.367    0.000    0.642    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:145(need_more_tokens)
+   342548    0.096    0.000    0.096    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:264(next_possible_simple_key)
+   264862    0.312    0.000    0.346    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:99(forward)
+   259024    0.053    0.000    0.053    0.000 {method 'append' of 'list' objects}
+   228428    0.344    0.000    3.570    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:113(check_token)
+   188832    0.075    0.000    0.075    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\error.py:6(__init__)
+   188832    0.274    0.000    0.349    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:114(get_mark)
+   150750    0.123    0.000    0.153    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\reader.py:94(prefix)
+   115390    0.030    0.000    0.030    0.000 {method 'pop' of 'list' objects}
+   113880    0.111    0.000    4.383    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:94(check_event)
+   113212    0.102    0.000    0.220    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:1416(scan_line_break)
+    88623    0.019    0.000    0.019    0.000 {method 'get' of 'dict' objects}
+    76288    0.014    0.000    0.015    0.000 {method 'extend' of 'list' objects}
+    75912    0.087    0.000    0.234    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:135(get_token)
+    75522    0.025    0.000    0.026    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:325(unwind_indent)
+    75516    0.163    0.000    0.342    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:752(scan_to_next_token)
+    75516    0.270    0.000    2.716    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:156(fetch_more_tokens)
+    75224    0.021    0.000    0.021    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:312(remove_possible_simple_key)
+48554/48500    0.012    0.000    0.015    0.000 {method 'join' of 'str' objects}
+    38114    0.011    0.000    0.011    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\tokens.py:3(__init__)
+    38056    0.014    0.000    0.015    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:114(get_event)
+    38056    0.025    0.000    0.084    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:125(peek_token)
+  37910/6    0.120    0.000    4.808    0.801 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:63(compose_node)
+    37910    0.203    0.000    0.853    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:273(parse_node)
+    37910    0.051    0.000    0.114    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\constructor.py:67(construct_object)
+    37906    0.010    0.000    0.010    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\resolver.py:91(descend_resolver)
+    37906    0.071    0.000    0.088    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\resolver.py:143(resolve)
+    37906    0.011    0.000    0.011    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:107(peek_event)
+    37906    0.010    0.000    0.010    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\resolver.py:114(ascend_resolver)
+    37792    0.099    0.000    0.184    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:295(save_possible_simple_key)
+    37784    0.084    0.000    0.207    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\composer.py:88(compose_scalar_node)
+    37784    0.013    0.000    0.017    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\constructor.py:117(construct_scalar)
+    37784    0.020    0.000    0.020    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\events.py:65(__init__)
+    37784    0.021    0.000    0.021    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\tokens.py:98(__init__)
+    37784    0.021    0.000    0.021    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\nodes.py:27(__init__)
+    37784    0.025    0.000    0.046    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\constructor.py:173(construct_scalar)
+    37722    0.271    0.000    1.340    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:1270(scan_plain)
+    37722    0.248    0.000    0.688    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:1311(scan_plain_spaces)
+    37722    0.065    0.000    1.600    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:668(fetch_plain)
+    37722    0.023    0.000    0.034    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:731(check_plain)
+    37718    0.010    0.000    0.010    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:349(add_indent)
+    37686    0.017    0.000    0.017    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:38(__init__)
+    37666    0.013    0.000    0.059    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\constructor.py:402(construct_yaml_str)
+    37538    0.031    0.000    0.870    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:264(parse_block_node)
+    37532    0.135    0.000    0.334    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:484(fetch_block_entry)
+    37532    0.010    0.000    0.010    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:690(check_document_start)
+    37532    0.021    0.000    0.038    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\scanner.py:706(check_block_entry)
+    37504    0.096    0.000    4.193    0.000 C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\yaml\parser.py:402(parse_indentless_sequence_entry)
+    32913    0.008    0.000    0.008    0.000 {method 'endswith' of 'str' objects}
+    28596    0.005    0.000    0.005    0.000 {method 'rstrip' of 'str' objects}
+    25819    0.013    0.000    0.015    0.000 {built-in method builtins.getattr}
+    24403    0.008    0.000    0.008    0.000 {method 'startswith' of 'str' objects}
+    13161    0.005    0.000    0.005    0.000 C:\Program Files\Python311\Lib\re\_parser.py:231(__next)
+    11673    0.004    0.000    0.008    0.000 C:\Program Files\Python311\Lib\re\_parser.py:252(get)
+    11094    0.006    0.000    0.007    0.000 {built-in method builtins.hasattr}
+    10280    0.002    0.000    0.002    0.000 {method 'group' of 're.Match' objects}
+
+

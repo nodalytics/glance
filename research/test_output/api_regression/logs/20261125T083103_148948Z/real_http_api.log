@@ -1,0 +1,121 @@
+===========================================================================
+REAL HTTP API INTEGRATION VALIDATION
+===========================================================================
+
+SERVER CONNECTIVITY
+[PASS] Health endpoint returns 200
+[PASS] Application health is ok
+[PASS] Offline mode confirmed
+[PASS] Service available before request
+
+APPLICATION INFORMATION
+[PASS] Application name correct
+[PASS] JPEG format supported
+[PASS] Screenshot within upload limit
+
+INITIAL SERVICE STATISTICS
+{
+    "pipeline_initialized": true,
+    "busy": false,
+    "statistics": {
+        "total_requests": 2,
+        "successful_requests": 2,
+        "failed_requests": 0,
+        "rejected_requests": 0,
+        "busy_requests": 0
+    }
+}
+
+REAL SCREENSHOT HTTP UPLOAD
+Screenshot: ss.jpeg
+File size: 232,478 bytes
+Submitting screenshot to API...
+Processing may take several minutes.
+[PASS] Screenshot analysis returns 200
+[PASS] JSON content type returned
+[PASS] Response matches Pydantic model
+
+TABLE FIELD VALIDATION
+[PASS] Table field: small_blind
+[PASS] Table field: big_blind
+[PASS] Table field: pot
+[PASS] Table field: average_stack
+[PASS] Table field: tournament_position
+[PASS] Table field: prize_pool_display
+[PASS] Table field: first_place_prize_display
+
+CARD IDENTITY VALIDATION
+[PASS] Card identity: board_1
+[PASS] Card identity: board_2
+[PASS] Card identity: board_3
+[PASS] Card identity: board_4
+[PASS] Card identity: board_5
+[PASS] Card identity: hero_card_1
+[PASS] Card identity: hero_card_2
+
+STRUCTURED STATE VALIDATION
+[PASS] State status is valid
+[PASS] Offline screenshot source
+[PASS] River street detected
+[PASS] Five community cards
+[PASS] Two hero cards
+[PASS] Seven recognized cards
+[PASS] Seven unique slots preserved
+[PASS] State validation passed
+[PASS] No validation errors
+[PASS] No duplicate cards
+[PASS] Player information detected
+
+RESPONSE METADATA VALIDATION
+[PASS] Calibration profile selected
+[PASS] Automatic table extraction used
+[PASS] OCR items detected
+[PASS] Original filename preserved
+[PASS] Screenshot dimensions preserved
+[PASS] Processing time recorded
+
+JSON SERIALIZATION
+[PASS] JSON round trip successful
+[PASS] HTTP response state saved
+
+FINAL SERVICE STATISTICS
+[PASS] Pipeline initialized
+[PASS] Processing lock released
+[PASS] Exactly one additional request
+[PASS] Successful request incremented
+[PASS] No additional processing failures
+[PASS] No additional rejected requests
+[PASS] No additional busy requests
+
+===========================================================================
+REAL HTTP API INTEGRATION SUMMARY
+===========================================================================
+{
+    "total_tests": 50,
+    "passed_tests": 50,
+    "failed_tests": 0,
+    "state_status": "valid",
+    "recognized_cards": 7,
+    "http_request_time_seconds": 97.4146,
+    "total_time_seconds": 97.5871,
+    "passed": true
+}
+
+SERVICE STATISTICS
+{
+    "pipeline_initialized": true,
+    "busy": false,
+    "statistics": {
+        "total_requests": 3,
+        "successful_requests": 3,
+        "failed_requests": 0,
+        "rejected_requests": 0,
+        "busy_requests": 0
+    }
+}
+
+State saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\real_http_api_state.json
+
+Report saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\real_http_api_report.json
+
+FINAL RESULT: ALL TESTS PASSED

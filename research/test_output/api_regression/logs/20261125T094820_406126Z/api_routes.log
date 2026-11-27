@@ -1,0 +1,97 @@
+===========================================================================
+FASTAPI ROUTE VALIDATION
+===========================================================================
+
+HEALTH ENDPOINT TESTS
+[PASS] Health endpoint returns 200
+[PASS] Health status is ok
+[PASS] Offline mode reported
+[PASS] Pipeline initially uninitialized
+
+INFORMATION ENDPOINT TESTS
+[PASS] Information endpoint returns 200
+[PASS] Application name correct
+[PASS] Configured upload limit reported
+[PASS] Supported image formats reported
+[PASS] Internal paths not exposed
+
+PROFILE ENDPOINT TESTS
+[PASS] Profiles endpoint returns 200
+[PASS] Three profiles returned
+[PASS] Calibration is default profile
+[PASS] Template assets detected
+[PASS] Only screenshot profile exposed for analysis
+[PASS] Information endpoints do not initialize OCR
+
+STATISTICS ENDPOINT TESTS
+[PASS] Statistics endpoint returns 200
+[PASS] Initial request count is zero
+[PASS] Service initially not busy
+
+SCREENSHOT ANALYSIS TESTS
+[PASS] PNG analysis returns 200
+[PASS] Response matches poker state model
+[PASS] Valid state returned
+[PASS] Seven recognized cards returned
+[PASS] Original filename preserved
+[PASS] Pipeline initialized
+[PASS] Temporary file cleaned up
+[PASS] JPEG analysis returns 200
+[PASS] Pipeline reused
+
+INVALID UPLOAD TESTS
+[PASS] Empty upload returns 400
+[PASS] Unsupported extension returns 415
+[PASS] Unsafe filename returns 400
+[PASS] Oversized upload returns 413
+[PASS] Corrupted image returns 422
+[PASS] Image mismatch returns 415
+[PASS] Unsupported dimensions return 422
+[PASS] Missing upload returns 422
+
+ERROR HANDLING TESTS
+[PASS] Pipeline failure returns 500
+[PASS] Temporary file removed after failure
+[PASS] Busy service returns 503
+[PASS] Retry-After header included
+
+OPENAPI DOCUMENTATION TESTS
+[PASS] OpenAPI schema returns 200
+[PASS] All five API endpoints documented
+[PASS] Multipart upload documented
+[PASS] Poker state response schema documented
+
+FINAL SERVICE STATE TESTS
+[PASS] Two successful requests recorded
+[PASS] One processing failure recorded
+[PASS] Three service-level rejections recorded
+[PASS] Service available after tests
+[PASS] No temporary files remain
+
+===========================================================================
+FASTAPI ROUTE VALIDATION SUMMARY
+===========================================================================
+{
+    "total_tests": 48,
+    "passed_tests": 48,
+    "failed_tests": 0,
+    "total_time_seconds": 0.6824,
+    "passed": true
+}
+
+SERVICE STATISTICS
+{
+    "pipeline_initialized": true,
+    "busy": false,
+    "statistics": {
+        "total_requests": 6,
+        "successful_requests": 2,
+        "failed_requests": 1,
+        "rejected_requests": 3,
+        "busy_requests": 0
+    }
+}
+
+Report saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\api_routes_validation_report.json
+
+FINAL RESULT: ALL TESTS PASSED

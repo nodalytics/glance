@@ -9,6 +9,10 @@ from poker_apis.middleware.request_limits import (
     MULTIPART_OVERHEAD_BYTES
 )
 
+from poker_apis.api.performance_routes import (
+    performance_router
+)
+
 from fastapi.exceptions import (
     RequestValidationError
 )
@@ -423,14 +427,16 @@ def create_app(
     # ----------------------------------------------
 
     application.include_router(
-        health_router
-    )
-
+    health_router
+)
     application.include_router(
-        api_router,
-        prefix=settings.api_prefix
-    )
-
+    api_router,
+    prefix=settings.api_prefix
+)
+    application.include_router(
+    performance_router,
+    prefix=settings.api_prefix
+)
     return application
 
 

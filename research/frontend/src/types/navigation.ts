@@ -5,6 +5,7 @@ export type Page =
   | 'players'
   | 'recognition'
   | 'json'
+  | 'performance'
   | 'settings'
 
 export type ConnectionStatus =

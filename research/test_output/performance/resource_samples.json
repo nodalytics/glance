@@ -1,0 +1,3287 @@
+[
+  {
+    "elapsed_ms": 1.131,
+    "process_cpu_percent": 0.0,
+    "process_rss_mib": 21.43,
+    "system_cpu_percent": 0.0,
+    "system_available_memory_mib": 1533.418,
+    "system_memory_percent": 80.6,
+    "process_thread_count": 5
+  },
+  {
+    "elapsed_ms": 260.416,
+    "process_cpu_percent": 75.0,
+    "process_rss_mib": 39.934,
+    "system_cpu_percent": 22.6,
+    "system_available_memory_mib": 1525.777,
+    "system_memory_percent": 80.7,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 516.23,
+    "process_cpu_percent": 52.9,
+    "process_rss_mib": 46.062,
+    "system_cpu_percent": 26.5,
+    "system_available_memory_mib": 1516.301,
+    "system_memory_percent": 80.8,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 778.325,
+    "process_cpu_percent": 64.9,
+    "process_rss_mib": 52.902,
+    "system_cpu_percent": 27.6,
+    "system_available_memory_mib": 1582.973,
+    "system_memory_percent": 80.0,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 1048.176,
+    "process_cpu_percent": 41.1,
+    "process_rss_mib": 56.883,
+    "system_cpu_percent": 33.9,
+    "system_available_memory_mib": 1553.43,
+    "system_memory_percent": 80.4,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 1316.581,
+    "process_cpu_percent": 52.9,
+    "process_rss_mib": 59.551,
+    "system_cpu_percent": 64.1,
+    "system_available_memory_mib": 1534.336,
+    "system_memory_percent": 80.6,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 1579.9,
+    "process_cpu_percent": 59.0,
+    "process_rss_mib": 63.41,
+    "system_cpu_percent": 52.5,
+    "system_available_memory_mib": 1519.023,
+    "system_memory_percent": 80.8,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 1849.012,
+    "process_cpu_percent": 76.4,
+    "process_rss_mib": 70.074,
+    "system_cpu_percent": 20.8,
+    "system_available_memory_mib": 1509.453,
+    "system_memory_percent": 80.9,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 2118.626,
+    "process_cpu_percent": 64.6,
+    "process_rss_mib": 82.383,
+    "system_cpu_percent": 9.9,
+    "system_available_memory_mib": 1501.469,
+    "system_memory_percent": 81.0,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 2387.803,
+    "process_cpu_percent": 44.5,
+    "process_rss_mib": 94.582,
+    "system_cpu_percent": 24.1,
+    "system_available_memory_mib": 1478.039,
+    "system_memory_percent": 81.3,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 2658.186,
+    "process_cpu_percent": 64.9,
+    "process_rss_mib": 103.391,
+    "system_cpu_percent": 11.5,
+    "system_available_memory_mib": 1461.043,
+    "system_memory_percent": 81.5,
+    "process_thread_count": 16
+  },
+  {
+    "elapsed_ms": 2922.481,
+    "process_cpu_percent": 29.4,
+    "process_rss_mib": 109.074,
+    "system_cpu_percent": 14.8,
+    "system_available_memory_mib": 1482.039,
+    "system_memory_percent": 81.3,
+    "process_thread_count": 17
+  },
+  {
+    "elapsed_ms": 3191.972,
+    "process_cpu_percent": 64.6,
+    "process_rss_mib": 110.945,
+    "system_cpu_percent": 11.0,
+    "system_available_memory_mib": 1485.559,
+    "system_memory_percent": 81.2,
+    "process_thread_count": 17
+  },
+  {
+    "elapsed_ms": 3460.963,
+    "process_cpu_percent": 82.5,
+    "process_rss_mib": 115.754,
+    "system_cpu_percent": 15.5,
+    "system_available_memory_mib": 1490.66,
+    "system_memory_percent": 81.2,
+    "process_thread_count": 17
+  },
+  {
+    "elapsed_ms": 3731.492,
+    "process_cpu_percent": 58.7,
+    "process_rss_mib": 120.289,
+    "system_cpu_percent": 9.5,
+    "system_available_memory_mib": 1489.305,
+    "system_memory_percent": 81.2,
+    "process_thread_count": 17
+  },
+  {
+    "elapsed_ms": 3999.284,
+    "process_cpu_percent": 55.6,
+    "process_rss_mib": 124.02,
+    "system_cpu_percent": 14.7,
+    "system_available_memory_mib": 1484.07,
+    "system_memory_percent": 81.3,
+    "process_thread_count": 17
+  },
+  {
+    "elapsed_ms": 4268.902,
+    "process_cpu_percent": 58.7,
+    "process_rss_mib": 133.012,
+    "system_cpu_percent": 8.8,
+    "system_available_memory_mib": 1495.152,
+    "system_memory_percent": 81.1,
+    "process_thread_count": 18
+  },
+  {
+    "elapsed_ms": 4534.723,
+    "process_cpu_percent": 259.4,
+    "process_rss_mib": 184.438,
+    "system_cpu_percent": 31.2,
+    "system_available_memory_mib": 1437.906,
+    "system_memory_percent": 81.8,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 4844.86,
+    "process_cpu_percent": 1063.3,
+    "process_rss_mib": 188.098,
+    "system_cpu_percent": 97.7,
+    "system_available_memory_mib": 1441.52,
+    "system_memory_percent": 81.8,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 5198.869,
+    "process_cpu_percent": 990.2,
+    "process_rss_mib": 189.617,
+    "system_cpu_percent": 88.5,
+    "system_available_memory_mib": 1499.852,
+    "system_memory_percent": 81.1,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 5466.839,
+    "process_cpu_percent": 1034.3,
+    "process_rss_mib": 190.059,
+    "system_cpu_percent": 92.7,
+    "system_available_memory_mib": 1504.293,
+    "system_memory_percent": 81.0,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 5735.63,
+    "process_cpu_percent": 1110.2,
+    "process_rss_mib": 190.059,
+    "system_cpu_percent": 95.4,
+    "system_available_memory_mib": 1504.203,
+    "system_memory_percent": 81.0,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 5992.633,
+    "process_cpu_percent": 1112.5,
+    "process_rss_mib": 190.059,
+    "system_cpu_percent": 91.7,
+    "system_available_memory_mib": 1501.777,
+    "system_memory_percent": 81.0,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 6257.611,
+    "process_cpu_percent": 1102.6,
+    "process_rss_mib": 190.059,
+    "system_cpu_percent": 91.7,
+    "system_available_memory_mib": 1504.984,
+    "system_memory_percent": 81.0,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 6526.366,
+    "process_cpu_percent": 1033.8,
+    "process_rss_mib": 184.672,
+    "system_cpu_percent": 86.8,
+    "system_available_memory_mib": 1509.926,
+    "system_memory_percent": 80.9,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 6795.924,
+    "process_cpu_percent": 305.8,
+    "process_rss_mib": 160.73,
+    "system_cpu_percent": 40.2,
+    "system_available_memory_mib": 1543.125,
+    "system_memory_percent": 80.5,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 7078.304,
+    "process_cpu_percent": 105.6,
+    "process_rss_mib": 233.34,
+    "system_cpu_percent": 13.4,
+    "system_available_memory_mib": 1484.082,
+    "system_memory_percent": 81.3,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 7345.157,
+    "process_cpu_percent": 76.4,
+    "process_rss_mib": 240.371,
+    "system_cpu_percent": 10.1,
+    "system_available_memory_mib": 1473.711,
+    "system_memory_percent": 81.4,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 7600.696,
+    "process_cpu_percent": 93.8,
+    "process_rss_mib": 248.191,
+    "system_cpu_percent": 8.5,
+    "system_available_memory_mib": 1466.852,
+    "system_memory_percent": 81.5,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 7865.379,
+    "process_cpu_percent": 29.4,
+    "process_rss_mib": 249.5,
+    "system_cpu_percent": 21.4,
+    "system_available_memory_mib": 1462.426,
+    "system_memory_percent": 81.5,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 8125.938,
+    "process_cpu_percent": 53.1,
+    "process_rss_mib": 260.52,
+    "system_cpu_percent": 22.2,
+    "system_available_memory_mib": 1444.043,
+    "system_memory_percent": 81.8,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 8397.173,
+    "process_cpu_percent": 70.5,
+    "process_rss_mib": 271.211,
+    "system_cpu_percent": 8.5,
+    "system_available_memory_mib": 1423.25,
+    "system_memory_percent": 82.0,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 8663.495,
+    "process_cpu_percent": 70.8,
+    "process_rss_mib": 276.145,
+    "system_cpu_percent": 12.6,
+    "system_available_memory_mib": 1417.977,
+    "system_memory_percent": 82.1,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 8932.624,
+    "process_cpu_percent": 52.9,
+    "process_rss_mib": 281.402,
+    "system_cpu_percent": 14.2,
+    "system_available_memory_mib": 1416.891,
+    "system_memory_percent": 82.1,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 9200.617,
+    "process_cpu_percent": 89.0,
+    "process_rss_mib": 289.34,
+    "system_cpu_percent": 20.1,
+    "system_available_memory_mib": 1410.938,
+    "system_memory_percent": 82.2,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 9461.344,
+    "process_cpu_percent": 81.2,
+    "process_rss_mib": 296.152,
+    "system_cpu_percent": 10.0,
+    "system_available_memory_mib": 1406.82,
+    "system_memory_percent": 82.2,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 9717.287,
+    "process_cpu_percent": 64.6,
+    "process_rss_mib": 313.422,
+    "system_cpu_percent": 14.4,
+    "system_available_memory_mib": 1390.734,
+    "system_memory_percent": 82.4,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 9976.219,
+    "process_cpu_percent": 106.3,
+    "process_rss_mib": 386.898,
+    "system_cpu_percent": 16.8,
+    "system_available_memory_mib": 1319.25,
+    "system_memory_percent": 83.3,
+    "process_thread_count": 30
+  },
+  {
+    "elapsed_ms": 10257.284,
+    "process_cpu_percent": 784.0,
+    "process_rss_mib": 388.949,
+    "system_cpu_percent": 82.3,
+    "system_available_memory_mib": 1328.117,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 10549.356,
+    "process_cpu_percent": 100.0,
+    "process_rss_mib": 390.359,
+    "system_cpu_percent": 10.4,
+    "system_available_memory_mib": 1328.176,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 10818.194,
+    "process_cpu_percent": 94.0,
+    "process_rss_mib": 391.598,
+    "system_cpu_percent": 11.3,
+    "system_available_memory_mib": 1328.176,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 11086.143,
+    "process_cpu_percent": 100.2,
+    "process_rss_mib": 392.855,
+    "system_cpu_percent": 10.7,
+    "system_available_memory_mib": 1329.16,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 11361.031,
+    "process_cpu_percent": 94.2,
+    "process_rss_mib": 393.562,
+    "system_cpu_percent": 16.7,
+    "system_available_memory_mib": 1329.102,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 11631.305,
+    "process_cpu_percent": 100.2,
+    "process_rss_mib": 394.828,
+    "system_cpu_percent": 10.3,
+    "system_available_memory_mib": 1329.102,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 11897.108,
+    "process_cpu_percent": 99.9,
+    "process_rss_mib": 396.023,
+    "system_cpu_percent": 10.2,
+    "system_available_memory_mib": 1329.102,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 12182.839,
+    "process_cpu_percent": 94.5,
+    "process_rss_mib": 397.289,
+    "system_cpu_percent": 10.6,
+    "system_available_memory_mib": 1329.172,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 12459.981,
+    "process_cpu_percent": 100.1,
+    "process_rss_mib": 398.906,
+    "system_cpu_percent": 17.2,
+    "system_available_memory_mib": 1329.191,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 12729.743,
+    "process_cpu_percent": 99.9,
+    "process_rss_mib": 400.371,
+    "system_cpu_percent": 9.8,
+    "system_available_memory_mib": 1329.188,
+    "system_memory_percent": 83.2,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 12991.797,
+    "process_cpu_percent": 99.9,
+    "process_rss_mib": 483.59,
+    "system_cpu_percent": 17.6,
+    "system_available_memory_mib": 1245.852,
+    "system_memory_percent": 84.3,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 13258.793,
+    "process_cpu_percent": 495.3,
+    "process_rss_mib": 518.262,
+    "system_cpu_percent": 74.4,
+    "system_available_memory_mib": 1178.824,
+    "system_memory_percent": 85.1,
+    "process_thread_count": 41
+  },
+  {
+    "elapsed_ms": 13529.719,
+    "process_cpu_percent": 706.2,
+    "process_rss_mib": 591.371,
+    "system_cpu_percent": 85.9,
+    "system_available_memory_mib": 1086.988,
+    "system_memory_percent": 86.3,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 13865.22,
+    "process_cpu_percent": 992.6,
+    "process_rss_mib": 624.406,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1035.879,
+    "system_memory_percent": 86.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 14168.507,
+    "process_cpu_percent": 675.7,
+    "process_rss_mib": 640.875,
+    "system_cpu_percent": 97.8,
+    "system_available_memory_mib": 1014.301,
+    "system_memory_percent": 87.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 14432.812,
+    "process_cpu_percent": 699.0,
+    "process_rss_mib": 654.117,
+    "system_cpu_percent": 92.2,
+    "system_available_memory_mib": 1046.508,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 14692.985,
+    "process_cpu_percent": 657.9,
+    "process_rss_mib": 695.266,
+    "system_cpu_percent": 91.0,
+    "system_available_memory_mib": 973.598,
+    "system_memory_percent": 87.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 14979.476,
+    "process_cpu_percent": 800.7,
+    "process_rss_mib": 751.602,
+    "system_cpu_percent": 98.9,
+    "system_available_memory_mib": 915.969,
+    "system_memory_percent": 88.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 15378.272,
+    "process_cpu_percent": 642.7,
+    "process_rss_mib": 762.895,
+    "system_cpu_percent": 98.9,
+    "system_available_memory_mib": 884.453,
+    "system_memory_percent": 88.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 15650.73,
+    "process_cpu_percent": 693.1,
+    "process_rss_mib": 613.809,
+    "system_cpu_percent": 91.1,
+    "system_available_memory_mib": 1047.012,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 16043.951,
+    "process_cpu_percent": 742.8,
+    "process_rss_mib": 645.367,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1028.809,
+    "system_memory_percent": 87.0,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 16329.131,
+    "process_cpu_percent": 1034.3,
+    "process_rss_mib": 681.914,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1054.316,
+    "system_memory_percent": 86.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 16588.556,
+    "process_cpu_percent": 1106.2,
+    "process_rss_mib": 656.375,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1077.957,
+    "system_memory_percent": 86.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 16862.645,
+    "process_cpu_percent": 1052.7,
+    "process_rss_mib": 694.152,
+    "system_cpu_percent": 99.1,
+    "system_available_memory_mib": 1045.227,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 17145.707,
+    "process_cpu_percent": 934.2,
+    "process_rss_mib": 698.695,
+    "system_cpu_percent": 95.7,
+    "system_available_memory_mib": 1039.473,
+    "system_memory_percent": 86.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 17481.047,
+    "process_cpu_percent": 990.9,
+    "process_rss_mib": 694.648,
+    "system_cpu_percent": 94.4,
+    "system_available_memory_mib": 1040.719,
+    "system_memory_percent": 86.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 17758.212,
+    "process_cpu_percent": 1095.4,
+    "process_rss_mib": 684.453,
+    "system_cpu_percent": 98.3,
+    "system_available_memory_mib": 1057.043,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 18118.428,
+    "process_cpu_percent": 920.1,
+    "process_rss_mib": 686.516,
+    "system_cpu_percent": 93.5,
+    "system_available_memory_mib": 1045.832,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 18385.875,
+    "process_cpu_percent": 866.7,
+    "process_rss_mib": 686.918,
+    "system_cpu_percent": 85.7,
+    "system_available_memory_mib": 1052.613,
+    "system_memory_percent": 86.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 18649.375,
+    "process_cpu_percent": 869.4,
+    "process_rss_mib": 705.016,
+    "system_cpu_percent": 84.8,
+    "system_available_memory_mib": 1024.445,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 18943.648,
+    "process_cpu_percent": 1152.1,
+    "process_rss_mib": 716.645,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1017.035,
+    "system_memory_percent": 87.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 19302.487,
+    "process_cpu_percent": 1109.9,
+    "process_rss_mib": 716.645,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1020.809,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 19662.552,
+    "process_cpu_percent": 1183.8,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1024.195,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 20041.532,
+    "process_cpu_percent": 1137.5,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1026.297,
+    "system_memory_percent": 87.0,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 20311.377,
+    "process_cpu_percent": 864.4,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 88.7,
+    "system_available_memory_mib": 1053.398,
+    "system_memory_percent": 86.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 20580.099,
+    "process_cpu_percent": 955.2,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 77.0,
+    "system_available_memory_mib": 1068.77,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 20849.576,
+    "process_cpu_percent": 892.9,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 75.1,
+    "system_available_memory_mib": 1068.668,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 21116.937,
+    "process_cpu_percent": 822.4,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 71.6,
+    "system_available_memory_mib": 1059.234,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 21384.303,
+    "process_cpu_percent": 784.2,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 72.1,
+    "system_available_memory_mib": 1059.789,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 21652.671,
+    "process_cpu_percent": 693.1,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 62.5,
+    "system_available_memory_mib": 1059.902,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 21922.536,
+    "process_cpu_percent": 683.9,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 57.9,
+    "system_available_memory_mib": 1064.539,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 22191.848,
+    "process_cpu_percent": 528.7,
+    "process_rss_mib": 717.082,
+    "system_cpu_percent": 53.5,
+    "system_available_memory_mib": 1061.59,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 22463.379,
+    "process_cpu_percent": 554.2,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 61.7,
+    "system_available_memory_mib": 1060.812,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 22830.094,
+    "process_cpu_percent": 1175.0,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1062.543,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 23198.985,
+    "process_cpu_percent": 1176.2,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1064.223,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 23570.557,
+    "process_cpu_percent": 1154.2,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1065.664,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 23929.798,
+    "process_cpu_percent": 1083.7,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 91.4,
+    "system_available_memory_mib": 1061.02,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 24198.954,
+    "process_cpu_percent": 798.9,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 66.3,
+    "system_available_memory_mib": 1062.492,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 24467.879,
+    "process_cpu_percent": 761.8,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 67.6,
+    "system_available_memory_mib": 1064.84,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 24736.577,
+    "process_cpu_percent": 840.0,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 71.1,
+    "system_available_memory_mib": 1065.125,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 25005.225,
+    "process_cpu_percent": 801.9,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 67.3,
+    "system_available_memory_mib": 1062.781,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 25273.999,
+    "process_cpu_percent": 798.9,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 66.5,
+    "system_available_memory_mib": 1063.168,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 25544.458,
+    "process_cpu_percent": 756.2,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 70.4,
+    "system_available_memory_mib": 1128.629,
+    "system_memory_percent": 85.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 25812.794,
+    "process_cpu_percent": 851.7,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 73.3,
+    "system_available_memory_mib": 1129.93,
+    "system_memory_percent": 85.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 26080.151,
+    "process_cpu_percent": 542.5,
+    "process_rss_mib": 729.492,
+    "system_cpu_percent": 50.3,
+    "system_available_memory_mib": 1130.988,
+    "system_memory_percent": 85.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 26355.571,
+    "process_cpu_percent": 904.6,
+    "process_rss_mib": 758.594,
+    "system_cpu_percent": 75.0,
+    "system_available_memory_mib": 1121.281,
+    "system_memory_percent": 85.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 26617.679,
+    "process_cpu_percent": 981.0,
+    "process_rss_mib": 755.582,
+    "system_cpu_percent": 96.1,
+    "system_available_memory_mib": 1124.371,
+    "system_memory_percent": 85.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 26891.049,
+    "process_cpu_percent": 978.6,
+    "process_rss_mib": 760.23,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1111.211,
+    "system_memory_percent": 86.0,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 27155.24,
+    "process_cpu_percent": 931.6,
+    "process_rss_mib": 803.859,
+    "system_cpu_percent": 99.5,
+    "system_available_memory_mib": 1064.438,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 27426.911,
+    "process_cpu_percent": 892.9,
+    "process_rss_mib": 671.805,
+    "system_cpu_percent": 84.8,
+    "system_available_memory_mib": 1168.938,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 27692.157,
+    "process_cpu_percent": 1004.5,
+    "process_rss_mib": 677.918,
+    "system_cpu_percent": 98.1,
+    "system_available_memory_mib": 1162.164,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 27960.81,
+    "process_cpu_percent": 1084.9,
+    "process_rss_mib": 677.02,
+    "system_cpu_percent": 95.6,
+    "system_available_memory_mib": 1163.984,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 28226.779,
+    "process_cpu_percent": 1063.2,
+    "process_rss_mib": 678.812,
+    "system_cpu_percent": 98.1,
+    "system_available_memory_mib": 1158.684,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 28496.804,
+    "process_cpu_percent": 1151.3,
+    "process_rss_mib": 719.738,
+    "system_cpu_percent": 97.6,
+    "system_available_memory_mib": 1119.672,
+    "system_memory_percent": 85.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 28778.315,
+    "process_cpu_percent": 1139.9,
+    "process_rss_mib": 770.637,
+    "system_cpu_percent": 99.6,
+    "system_available_memory_mib": 1090.621,
+    "system_memory_percent": 86.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 29065.545,
+    "process_cpu_percent": 1104.8,
+    "process_rss_mib": 639.215,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1199.211,
+    "system_memory_percent": 84.9,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 29349.14,
+    "process_cpu_percent": 1000.9,
+    "process_rss_mib": 641.078,
+    "system_cpu_percent": 86.2,
+    "system_available_memory_mib": 1190.469,
+    "system_memory_percent": 85.0,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 29616.788,
+    "process_cpu_percent": 1116.1,
+    "process_rss_mib": 637.016,
+    "system_cpu_percent": 94.6,
+    "system_available_memory_mib": 1198.727,
+    "system_memory_percent": 84.9,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 29900.924,
+    "process_cpu_percent": 1067.6,
+    "process_rss_mib": 642.508,
+    "system_cpu_percent": 92.0,
+    "system_available_memory_mib": 1189.918,
+    "system_memory_percent": 85.0,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 30203.051,
+    "process_cpu_percent": 1041.7,
+    "process_rss_mib": 646.934,
+    "system_cpu_percent": 96.6,
+    "system_available_memory_mib": 1186.09,
+    "system_memory_percent": 85.0,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 30463.518,
+    "process_cpu_percent": 1100.0,
+    "process_rss_mib": 664.055,
+    "system_cpu_percent": 92.0,
+    "system_available_memory_mib": 1169.441,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 30826.077,
+    "process_cpu_percent": 1008.3,
+    "process_rss_mib": 664.488,
+    "system_cpu_percent": 86.7,
+    "system_available_memory_mib": 1166.008,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 31095.784,
+    "process_cpu_percent": 945.7,
+    "process_rss_mib": 660.891,
+    "system_cpu_percent": 78.5,
+    "system_available_memory_mib": 1174.566,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 31419.39,
+    "process_cpu_percent": 1056.7,
+    "process_rss_mib": 673.254,
+    "system_cpu_percent": 97.2,
+    "system_available_memory_mib": 1160.352,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 31765.372,
+    "process_cpu_percent": 1011.3,
+    "process_rss_mib": 673.691,
+    "system_cpu_percent": 90.8,
+    "system_available_memory_mib": 1150.91,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 32035.528,
+    "process_cpu_percent": 796.0,
+    "process_rss_mib": 673.691,
+    "system_cpu_percent": 71.2,
+    "system_available_memory_mib": 1151.98,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 32298.464,
+    "process_cpu_percent": 710.8,
+    "process_rss_mib": 676.555,
+    "system_cpu_percent": 78.7,
+    "system_available_memory_mib": 1149.359,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 32558.654,
+    "process_cpu_percent": 1012.5,
+    "process_rss_mib": 682.945,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1203.922,
+    "system_memory_percent": 84.8,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 32919.889,
+    "process_cpu_percent": 879.2,
+    "process_rss_mib": 682.996,
+    "system_cpu_percent": 75.4,
+    "system_available_memory_mib": 1193.125,
+    "system_memory_percent": 84.9,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 33189.768,
+    "process_cpu_percent": 1063.2,
+    "process_rss_mib": 675.402,
+    "system_cpu_percent": 88.9,
+    "system_available_memory_mib": 1206.785,
+    "system_memory_percent": 84.8,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 33456.781,
+    "process_cpu_percent": 1008.3,
+    "process_rss_mib": 707.871,
+    "system_cpu_percent": 85.9,
+    "system_available_memory_mib": 1180.41,
+    "system_memory_percent": 85.1,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 33729.177,
+    "process_cpu_percent": 887.0,
+    "process_rss_mib": 735.094,
+    "system_cpu_percent": 88.0,
+    "system_available_memory_mib": 1148.48,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 34075.358,
+    "process_cpu_percent": 1044.7,
+    "process_rss_mib": 734.711,
+    "system_cpu_percent": 88.3,
+    "system_available_memory_mib": 1151.367,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 34354.859,
+    "process_cpu_percent": 1162.1,
+    "process_rss_mib": 745.961,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1132.641,
+    "system_memory_percent": 85.7,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 34635.682,
+    "process_cpu_percent": 995.3,
+    "process_rss_mib": 731.895,
+    "system_cpu_percent": 85.8,
+    "system_available_memory_mib": 1147.605,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 34904.29,
+    "process_cpu_percent": 917.5,
+    "process_rss_mib": 729.082,
+    "system_cpu_percent": 88.8,
+    "system_available_memory_mib": 1152.152,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 35178.164,
+    "process_cpu_percent": 1215.9,
+    "process_rss_mib": 745.965,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1135.062,
+    "system_memory_percent": 85.7,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 35505.404,
+    "process_cpu_percent": 890.8,
+    "process_rss_mib": 745.965,
+    "system_cpu_percent": 73.2,
+    "system_available_memory_mib": 1137.762,
+    "system_memory_percent": 85.6,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 35784.226,
+    "process_cpu_percent": 989.8,
+    "process_rss_mib": 729.082,
+    "system_cpu_percent": 86.5,
+    "system_available_memory_mib": 1154.395,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 36050.405,
+    "process_cpu_percent": 1133.7,
+    "process_rss_mib": 745.965,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1143.43,
+    "system_memory_percent": 85.6,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 36391.099,
+    "process_cpu_percent": 935.7,
+    "process_rss_mib": 745.965,
+    "system_cpu_percent": 83.2,
+    "system_available_memory_mib": 1137.648,
+    "system_memory_percent": 85.6,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 36659.748,
+    "process_cpu_percent": 772.4,
+    "process_rss_mib": 745.965,
+    "system_cpu_percent": 64.4,
+    "system_available_memory_mib": 1138.035,
+    "system_memory_percent": 85.6,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 36931.194,
+    "process_cpu_percent": 1086.7,
+    "process_rss_mib": 745.969,
+    "system_cpu_percent": 90.5,
+    "system_available_memory_mib": 1145.316,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 37306.782,
+    "process_cpu_percent": 933.3,
+    "process_rss_mib": 745.969,
+    "system_cpu_percent": 77.7,
+    "system_available_memory_mib": 1135.535,
+    "system_memory_percent": 85.7,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 37568.946,
+    "process_cpu_percent": 781.2,
+    "process_rss_mib": 731.898,
+    "system_cpu_percent": 68.0,
+    "system_available_memory_mib": 1158.262,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 37917.572,
+    "process_cpu_percent": 1075.1,
+    "process_rss_mib": 742.227,
+    "system_cpu_percent": 90.8,
+    "system_available_memory_mib": 1142.453,
+    "system_memory_percent": 85.6,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 38191.309,
+    "process_cpu_percent": 1102.6,
+    "process_rss_mib": 737.301,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1162.418,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 38459.314,
+    "process_cpu_percent": 949.3,
+    "process_rss_mib": 736.355,
+    "system_cpu_percent": 81.0,
+    "system_available_memory_mib": 1158.938,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 38761.217,
+    "process_cpu_percent": 1199.5,
+    "process_rss_mib": 747.609,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1146.215,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 39041.349,
+    "process_cpu_percent": 1006.5,
+    "process_rss_mib": 735.824,
+    "system_cpu_percent": 86.7,
+    "system_available_memory_mib": 1160.824,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 39390.698,
+    "process_cpu_percent": 1028.6,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 95.4,
+    "system_available_memory_mib": 1155.953,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 39752.529,
+    "process_cpu_percent": 1092.4,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 88.4,
+    "system_available_memory_mib": 1149.055,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 40032.182,
+    "process_cpu_percent": 878.6,
+    "process_rss_mib": 741.98,
+    "system_cpu_percent": 76.2,
+    "system_available_memory_mib": 1158.219,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 40374.501,
+    "process_cpu_percent": 1067.4,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 97.0,
+    "system_available_memory_mib": 1152.066,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 40716.759,
+    "process_cpu_percent": 1022.0,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 85.3,
+    "system_available_memory_mib": 1150.832,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 40985.183,
+    "process_cpu_percent": 816.5,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 66.1,
+    "system_available_memory_mib": 1150.609,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 41263.865,
+    "process_cpu_percent": 989.8,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 87.8,
+    "system_available_memory_mib": 1159.238,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 41649.641,
+    "process_cpu_percent": 983.3,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 82.4,
+    "system_available_memory_mib": 1151.316,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 41915.912,
+    "process_cpu_percent": 855.0,
+    "process_rss_mib": 733.539,
+    "system_cpu_percent": 73.4,
+    "system_available_memory_mib": 1169.719,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 42172.964,
+    "process_cpu_percent": 1004.5,
+    "process_rss_mib": 741.98,
+    "system_cpu_percent": 86.3,
+    "system_available_memory_mib": 1161.672,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 42439.529,
+    "process_cpu_percent": 1180.7,
+    "process_rss_mib": 737.113,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1165.227,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 42787.628,
+    "process_cpu_percent": 988.5,
+    "process_rss_mib": 736.355,
+    "system_cpu_percent": 85.4,
+    "system_available_memory_mib": 1173.867,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 43054.82,
+    "process_cpu_percent": 1186.6,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1162.234,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 43325.117,
+    "process_cpu_percent": 945.3,
+    "process_rss_mib": 736.352,
+    "system_cpu_percent": 87.4,
+    "system_available_memory_mib": 1166.539,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 43673.636,
+    "process_cpu_percent": 1121.9,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 94.2,
+    "system_available_memory_mib": 1161.977,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 44018.822,
+    "process_cpu_percent": 1026.5,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 86.2,
+    "system_available_memory_mib": 1162.176,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 44289.552,
+    "process_cpu_percent": 902.1,
+    "process_rss_mib": 741.977,
+    "system_cpu_percent": 76.5,
+    "system_available_memory_mib": 1173.949,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 44605.254,
+    "process_cpu_percent": 1158.1,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 96.7,
+    "system_available_memory_mib": 1163.535,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 45013.596,
+    "process_cpu_percent": 914.5,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 83.8,
+    "system_available_memory_mib": 1159.574,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 45298.293,
+    "process_cpu_percent": 728.4,
+    "process_rss_mib": 741.977,
+    "system_cpu_percent": 61.0,
+    "system_available_memory_mib": 1168.938,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 45581.252,
+    "process_cpu_percent": 1206.6,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1159.023,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 45866.609,
+    "process_cpu_percent": 941.9,
+    "process_rss_mib": 747.605,
+    "system_cpu_percent": 84.5,
+    "system_available_memory_mib": 1155.824,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 46156.766,
+    "process_cpu_percent": 849.9,
+    "process_rss_mib": 733.539,
+    "system_cpu_percent": 74.7,
+    "system_available_memory_mib": 1178.734,
+    "system_memory_percent": 85.1,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 46483.504,
+    "process_cpu_percent": 1030.6,
+    "process_rss_mib": 759.25,
+    "system_cpu_percent": 89.0,
+    "system_available_memory_mib": 1155.746,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 46749.787,
+    "process_cpu_percent": 1202.8,
+    "process_rss_mib": 737.938,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1163.727,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 47018.56,
+    "process_cpu_percent": 892.9,
+    "process_rss_mib": 736.988,
+    "system_cpu_percent": 75.6,
+    "system_available_memory_mib": 1171.629,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 47280.437,
+    "process_cpu_percent": 1108.5,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1163.562,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 47632.777,
+    "process_cpu_percent": 1112.8,
+    "process_rss_mib": 736.984,
+    "system_cpu_percent": 88.3,
+    "system_available_memory_mib": 1166.145,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 47977.196,
+    "process_cpu_percent": 1076.5,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 96.0,
+    "system_available_memory_mib": 1158.598,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 48375.311,
+    "process_cpu_percent": 923.6,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 83.8,
+    "system_available_memory_mib": 1156.098,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 48643.296,
+    "process_cpu_percent": 845.9,
+    "process_rss_mib": 742.609,
+    "system_cpu_percent": 69.6,
+    "system_available_memory_mib": 1164.215,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 48921.479,
+    "process_cpu_percent": 1095.4,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 96.5,
+    "system_available_memory_mib": 1158.242,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 49274.206,
+    "process_cpu_percent": 1085.6,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 91.6,
+    "system_available_memory_mib": 1156.172,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 49541.616,
+    "process_cpu_percent": 801.9,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 66.3,
+    "system_available_memory_mib": 1156.258,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 49815.379,
+    "process_cpu_percent": 886.5,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 77.4,
+    "system_available_memory_mib": 1152.824,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 50174.819,
+    "process_cpu_percent": 1044.6,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 88.3,
+    "system_available_memory_mib": 1154.426,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 50445.197,
+    "process_cpu_percent": 763.6,
+    "process_rss_mib": 748.238,
+    "system_cpu_percent": 70.8,
+    "system_available_memory_mib": 1158.82,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 50727.529,
+    "process_cpu_percent": 1050.9,
+    "process_rss_mib": 734.172,
+    "system_cpu_percent": 87.7,
+    "system_available_memory_mib": 1165.102,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 51015.475,
+    "process_cpu_percent": 1141.6,
+    "process_rss_mib": 737.461,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1171.945,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 51346.922,
+    "process_cpu_percent": 986.1,
+    "process_rss_mib": 736.996,
+    "system_cpu_percent": 85.6,
+    "system_available_memory_mib": 1169.391,
+    "system_memory_percent": 85.2,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 51690.289,
+    "process_cpu_percent": 1162.8,
+    "process_rss_mib": 748.246,
+    "system_cpu_percent": 98.4,
+    "system_available_memory_mib": 1152.219,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 51959.081,
+    "process_cpu_percent": 1049.5,
+    "process_rss_mib": 736.992,
+    "system_cpu_percent": 88.3,
+    "system_available_memory_mib": 1161.957,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 52293.562,
+    "process_cpu_percent": 1105.2,
+    "process_rss_mib": 748.246,
+    "system_cpu_percent": 93.0,
+    "system_available_memory_mib": 1156.055,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 52669.016,
+    "process_cpu_percent": 979.1,
+    "process_rss_mib": 748.246,
+    "system_cpu_percent": 88.7,
+    "system_available_memory_mib": 1152.809,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 52948.591,
+    "process_cpu_percent": 857.6,
+    "process_rss_mib": 742.617,
+    "system_cpu_percent": 72.4,
+    "system_available_memory_mib": 1162.453,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 53255.339,
+    "process_cpu_percent": 1116.8,
+    "process_rss_mib": 748.25,
+    "system_cpu_percent": 96.6,
+    "system_available_memory_mib": 1155.008,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 53617.788,
+    "process_cpu_percent": 1059.0,
+    "process_rss_mib": 748.25,
+    "system_cpu_percent": 92.7,
+    "system_available_memory_mib": 1152.484,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 53886.114,
+    "process_cpu_percent": 796.0,
+    "process_rss_mib": 748.25,
+    "system_cpu_percent": 66.8,
+    "system_available_memory_mib": 1153.207,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 54155.072,
+    "process_cpu_percent": 656.1,
+    "process_rss_mib": 748.246,
+    "system_cpu_percent": 63.2,
+    "system_available_memory_mib": 1155.059,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 54517.558,
+    "process_cpu_percent": 1163.2,
+    "process_rss_mib": 748.246,
+    "system_cpu_percent": 94.4,
+    "system_available_memory_mib": 1151.098,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 54786.227,
+    "process_cpu_percent": 772.4,
+    "process_rss_mib": 748.246,
+    "system_cpu_percent": 71.4,
+    "system_available_memory_mib": 1151.539,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 55070.641,
+    "process_cpu_percent": 980.7,
+    "process_rss_mib": 734.18,
+    "system_cpu_percent": 81.4,
+    "system_available_memory_mib": 1163.293,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 55340.047,
+    "process_cpu_percent": 1061.3,
+    "process_rss_mib": 728.078,
+    "system_cpu_percent": 89.8,
+    "system_available_memory_mib": 1176.336,
+    "system_memory_percent": 85.1,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 55638.297,
+    "process_cpu_percent": 1058.3,
+    "process_rss_mib": 738.297,
+    "system_cpu_percent": 94.7,
+    "system_available_memory_mib": 1158.465,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 55907.904,
+    "process_cpu_percent": 955.2,
+    "process_rss_mib": 736.367,
+    "system_cpu_percent": 90.5,
+    "system_available_memory_mib": 1162.59,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 56175.754,
+    "process_cpu_percent": 1157.2,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 98.0,
+    "system_available_memory_mib": 1145.5,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 56444.203,
+    "process_cpu_percent": 1010.3,
+    "process_rss_mib": 736.398,
+    "system_cpu_percent": 85.5,
+    "system_available_memory_mib": 1161.711,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 56804.821,
+    "process_cpu_percent": 1105.5,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 93.0,
+    "system_available_memory_mib": 1150.109,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 57235.822,
+    "process_cpu_percent": 934.6,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 88.5,
+    "system_available_memory_mib": 1147.422,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 57512.724,
+    "process_cpu_percent": 917.5,
+    "process_rss_mib": 742.676,
+    "system_cpu_percent": 83.8,
+    "system_available_memory_mib": 1149.277,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 57774.383,
+    "process_cpu_percent": 1206.2,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 94.9,
+    "system_available_memory_mib": 1153.266,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 58122.061,
+    "process_cpu_percent": 1005.4,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 93.7,
+    "system_available_memory_mib": 1148.715,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 58390.809,
+    "process_cpu_percent": 775.4,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 73.1,
+    "system_available_memory_mib": 1148.871,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 58654.505,
+    "process_cpu_percent": 725.2,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 66.5,
+    "system_available_memory_mib": 1150.336,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 59024.355,
+    "process_cpu_percent": 1137.2,
+    "process_rss_mib": 748.305,
+    "system_cpu_percent": 91.0,
+    "system_available_memory_mib": 1149.441,
+    "system_memory_percent": 85.5,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 59296.155,
+    "process_cpu_percent": 683.9,
+    "process_rss_mib": 742.676,
+    "system_cpu_percent": 69.6,
+    "system_available_memory_mib": 1159.105,
+    "system_memory_percent": 85.4,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 59561.801,
+    "process_cpu_percent": 1104.3,
+    "process_rss_mib": 734.238,
+    "system_cpu_percent": 94.8,
+    "system_available_memory_mib": 1160.141,
+    "system_memory_percent": 85.3,
+    "process_thread_count": 45
+  },
+  {
+    "elapsed_ms": 59834.893,
+    "process_cpu_percent": 1161.6,
+    "process_rss_mib": 755.559,
+    "system_cpu_percent": 94.9,
+    "system_available_memory_mib": 1140.59,
+    "system_memory_percent": 85.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 60151.09,
+    "process_cpu_percent": 1098.2,
+    "process_rss_mib": 791.488,
+    "system_cpu_percent": 93.2,
+    "system_available_memory_mib": 1115.258,
+    "system_memory_percent": 85.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 60559.137,
+    "process_cpu_percent": 1035.3,
+    "process_rss_mib": 794.672,
+    "system_cpu_percent": 90.7,
+    "system_available_memory_mib": 1097.086,
+    "system_memory_percent": 86.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 60827.441,
+    "process_cpu_percent": 756.2,
+    "process_rss_mib": 796.508,
+    "system_cpu_percent": 66.3,
+    "system_available_memory_mib": 1095.605,
+    "system_memory_percent": 86.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 61096.095,
+    "process_cpu_percent": 1039.7,
+    "process_rss_mib": 778.168,
+    "system_cpu_percent": 84.4,
+    "system_available_memory_mib": 1114.086,
+    "system_memory_percent": 85.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 61365.216,
+    "process_cpu_percent": 1033.8,
+    "process_rss_mib": 791.078,
+    "system_cpu_percent": 92.2,
+    "system_available_memory_mib": 1103.68,
+    "system_memory_percent": 86.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 61633.258,
+    "process_cpu_percent": 943.4,
+    "process_rss_mib": 803.062,
+    "system_cpu_percent": 89.0,
+    "system_available_memory_mib": 1085.305,
+    "system_memory_percent": 86.3,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 61923.836,
+    "process_cpu_percent": 1115.3,
+    "process_rss_mib": 843.973,
+    "system_cpu_percent": 98.5,
+    "system_available_memory_mib": 1042.781,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 62314.461,
+    "process_cpu_percent": 1015.0,
+    "process_rss_mib": 844.41,
+    "system_cpu_percent": 95.7,
+    "system_available_memory_mib": 1038.008,
+    "system_memory_percent": 86.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 62583.44,
+    "process_cpu_percent": 731.1,
+    "process_rss_mib": 844.41,
+    "system_cpu_percent": 78.0,
+    "system_available_memory_mib": 1033.234,
+    "system_memory_percent": 86.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 62854.431,
+    "process_cpu_percent": 1121.9,
+    "process_rss_mib": 771.055,
+    "system_cpu_percent": 94.0,
+    "system_available_memory_mib": 1106.422,
+    "system_memory_percent": 86.0,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 63151.448,
+    "process_cpu_percent": 820.7,
+    "process_rss_mib": 783.102,
+    "system_cpu_percent": 70.1,
+    "system_available_memory_mib": 1089.918,
+    "system_memory_percent": 86.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 63429.295,
+    "process_cpu_percent": 1045.4,
+    "process_rss_mib": 784.004,
+    "system_cpu_percent": 87.9,
+    "system_available_memory_mib": 1095.301,
+    "system_memory_percent": 86.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 63735.57,
+    "process_cpu_percent": 883.6,
+    "process_rss_mib": 794.465,
+    "system_cpu_percent": 82.5,
+    "system_available_memory_mib": 1081.082,
+    "system_memory_percent": 86.3,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 63993.918,
+    "process_cpu_percent": 750.0,
+    "process_rss_mib": 789.551,
+    "system_cpu_percent": 62.7,
+    "system_available_memory_mib": 1088.121,
+    "system_memory_percent": 86.3,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 64261.673,
+    "process_cpu_percent": 1132.1,
+    "process_rss_mib": 851.656,
+    "system_cpu_percent": 94.1,
+    "system_available_memory_mib": 1025.559,
+    "system_memory_percent": 87.0,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 64613.196,
+    "process_cpu_percent": 1180.6,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1046.891,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 65049.089,
+    "process_cpu_percent": 1133.4,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1044.012,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 65410.107,
+    "process_cpu_percent": 1122.9,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 94.8,
+    "system_available_memory_mib": 1039.922,
+    "system_memory_percent": 86.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 65678.473,
+    "process_cpu_percent": 798.9,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 66.7,
+    "system_available_memory_mib": 1041.492,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 65946.857,
+    "process_cpu_percent": 798.9,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 72.7,
+    "system_available_memory_mib": 1041.387,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 66216.029,
+    "process_cpu_percent": 750.7,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 67.3,
+    "system_available_memory_mib": 1040.543,
+    "system_memory_percent": 86.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 66484.473,
+    "process_cpu_percent": 834.1,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 68.7,
+    "system_available_memory_mib": 1041.84,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 66752.706,
+    "process_cpu_percent": 625.0,
+    "process_rss_mib": 852.164,
+    "system_cpu_percent": 50.7,
+    "system_available_memory_mib": 1041.887,
+    "system_memory_percent": 86.8,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 67021.422,
+    "process_cpu_percent": 975.1,
+    "process_rss_mib": 806.531,
+    "system_cpu_percent": 97.6,
+    "system_available_memory_mib": 1090.02,
+    "system_memory_percent": 86.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 67291.346,
+    "process_cpu_percent": 866.7,
+    "process_rss_mib": 828.391,
+    "system_cpu_percent": 81.1,
+    "system_available_memory_mib": 1059.906,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 67572.36,
+    "process_cpu_percent": 991.8,
+    "process_rss_mib": 815.277,
+    "system_cpu_percent": 93.5,
+    "system_available_memory_mib": 1061.566,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 67888.256,
+    "process_cpu_percent": 1141.8,
+    "process_rss_mib": 861.34,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1024.043,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 68269.219,
+    "process_cpu_percent": 1130.9,
+    "process_rss_mib": 861.391,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1022.906,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 68621.418,
+    "process_cpu_percent": 1162.8,
+    "process_rss_mib": 861.391,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1024.211,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 68999.988,
+    "process_cpu_percent": 1105.8,
+    "process_rss_mib": 861.391,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1016.219,
+    "system_memory_percent": 87.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 69267.826,
+    "process_cpu_percent": 840.0,
+    "process_rss_mib": 861.391,
+    "system_cpu_percent": 91.8,
+    "system_available_memory_mib": 1010.152,
+    "system_memory_percent": 87.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 69537.091,
+    "process_cpu_percent": 807.8,
+    "process_rss_mib": 861.398,
+    "system_cpu_percent": 75.1,
+    "system_available_memory_mib": 1000.996,
+    "system_memory_percent": 87.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 69805.404,
+    "process_cpu_percent": 798.9,
+    "process_rss_mib": 861.398,
+    "system_cpu_percent": 76.6,
+    "system_available_memory_mib": 998.688,
+    "system_memory_percent": 87.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 70060.656,
+    "process_cpu_percent": 751.9,
+    "process_rss_mib": 861.398,
+    "system_cpu_percent": 78.9,
+    "system_available_memory_mib": 993.234,
+    "system_memory_percent": 87.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 70328.333,
+    "process_cpu_percent": 796.0,
+    "process_rss_mib": 861.398,
+    "system_cpu_percent": 87.7,
+    "system_available_memory_mib": 997.555,
+    "system_memory_percent": 87.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 70596.879,
+    "process_cpu_percent": 816.5,
+    "process_rss_mib": 861.398,
+    "system_cpu_percent": 79.7,
+    "system_available_memory_mib": 983.25,
+    "system_memory_percent": 87.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 70864.857,
+    "process_cpu_percent": 746.0,
+    "process_rss_mib": 861.398,
+    "system_cpu_percent": 72.5,
+    "system_available_memory_mib": 976.934,
+    "system_memory_percent": 87.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 71125.786,
+    "process_cpu_percent": 595.5,
+    "process_rss_mib": 811.496,
+    "system_cpu_percent": 58.3,
+    "system_available_memory_mib": 1024.461,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 71387.289,
+    "process_cpu_percent": 1063.2,
+    "process_rss_mib": 815.051,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1019.645,
+    "system_memory_percent": 87.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 71657.305,
+    "process_cpu_percent": 1173.3,
+    "process_rss_mib": 870.316,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 974.77,
+    "system_memory_percent": 87.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 72042.486,
+    "process_cpu_percent": 1170.8,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 974.328,
+    "system_memory_percent": 87.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 72421.187,
+    "process_cpu_percent": 1102.9,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 970.09,
+    "system_memory_percent": 87.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 72856.172,
+    "process_cpu_percent": 829.4,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 94.6,
+    "system_available_memory_mib": 971.938,
+    "system_memory_percent": 87.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 73124.955,
+    "process_cpu_percent": 772.9,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 84.3,
+    "system_available_memory_mib": 954.293,
+    "system_memory_percent": 87.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 73394.154,
+    "process_cpu_percent": 828.2,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 68.6,
+    "system_available_memory_mib": 956.34,
+    "system_memory_percent": 87.9,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 73664.031,
+    "process_cpu_percent": 801.9,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 77.9,
+    "system_available_memory_mib": 1000.02,
+    "system_memory_percent": 87.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 73933.066,
+    "process_cpu_percent": 751.9,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 71.3,
+    "system_available_memory_mib": 1001.477,
+    "system_memory_percent": 87.3,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 74200.68,
+    "process_cpu_percent": 600.5,
+    "process_rss_mib": 870.367,
+    "system_cpu_percent": 54.7,
+    "system_available_memory_mib": 990.207,
+    "system_memory_percent": 87.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 74482.319,
+    "process_cpu_percent": 1047.2,
+    "process_rss_mib": 793.41,
+    "system_cpu_percent": 93.0,
+    "system_available_memory_mib": 1076.195,
+    "system_memory_percent": 86.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 74849.599,
+    "process_cpu_percent": 1162.1,
+    "process_rss_mib": 806.16,
+    "system_cpu_percent": 99.3,
+    "system_available_memory_mib": 1062.688,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 75118.184,
+    "process_cpu_percent": 798.9,
+    "process_rss_mib": 812.895,
+    "system_cpu_percent": 67.5,
+    "system_available_memory_mib": 1055.082,
+    "system_memory_percent": 86.7,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 75395.446,
+    "process_cpu_percent": 645.0,
+    "process_rss_mib": 816.34,
+    "system_cpu_percent": 70.5,
+    "system_available_memory_mib": 1057.797,
+    "system_memory_percent": 86.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 75658.122,
+    "process_cpu_percent": 1084.9,
+    "process_rss_mib": 866.113,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 1099.867,
+    "system_memory_percent": 86.1,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 75973.249,
+    "process_cpu_percent": 1038.3,
+    "process_rss_mib": 888.078,
+    "system_cpu_percent": 97.5,
+    "system_available_memory_mib": 1095.832,
+    "system_memory_percent": 86.2,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 76242.219,
+    "process_cpu_percent": 628.5,
+    "process_rss_mib": 856.719,
+    "system_cpu_percent": 72.5,
+    "system_available_memory_mib": 1138.797,
+    "system_memory_percent": 85.6,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 76506.053,
+    "process_cpu_percent": 283.0,
+    "process_rss_mib": 922.734,
+    "system_cpu_percent": 27.5,
+    "system_available_memory_mib": 1080.887,
+    "system_memory_percent": 86.3,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 76792.828,
+    "process_cpu_percent": 639.5,
+    "process_rss_mib": 922.734,
+    "system_cpu_percent": 61.1,
+    "system_available_memory_mib": 1076.195,
+    "system_memory_percent": 86.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 77078.109,
+    "process_cpu_percent": 89.4,
+    "process_rss_mib": 922.738,
+    "system_cpu_percent": 27.2,
+    "system_available_memory_mib": 1074.582,
+    "system_memory_percent": 86.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 77355.835,
+    "process_cpu_percent": 99.9,
+    "process_rss_mib": 922.738,
+    "system_cpu_percent": 13.9,
+    "system_available_memory_mib": 1065.926,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 77632.425,
+    "process_cpu_percent": 100.1,
+    "process_rss_mib": 922.738,
+    "system_cpu_percent": 14.1,
+    "system_available_memory_mib": 1065.625,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 77917.314,
+    "process_cpu_percent": 100.1,
+    "process_rss_mib": 922.738,
+    "system_cpu_percent": 8.2,
+    "system_available_memory_mib": 1066.793,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 78202.557,
+    "process_cpu_percent": 84.2,
+    "process_rss_mib": 922.742,
+    "system_cpu_percent": 18.3,
+    "system_available_memory_mib": 1065.875,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 78486.815,
+    "process_cpu_percent": 99.7,
+    "process_rss_mib": 923.203,
+    "system_cpu_percent": 10.1,
+    "system_available_memory_mib": 1068.934,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 78771.422,
+    "process_cpu_percent": 100.1,
+    "process_rss_mib": 924.605,
+    "system_cpu_percent": 8.1,
+    "system_available_memory_mib": 1068.43,
+    "system_memory_percent": 86.5,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 79038.906,
+    "process_cpu_percent": 100.2,
+    "process_rss_mib": 990.348,
+    "system_cpu_percent": 9.1,
+    "system_available_memory_mib": 997.68,
+    "system_memory_percent": 87.4,
+    "process_thread_count": 42
+  },
+  {
+    "elapsed_ms": 79308.499,
+    "process_cpu_percent": 487.5,
+    "process_rss_mib": 1000.07,
+    "system_cpu_percent": 57.2,
+    "system_available_memory_mib": 992.293,
+    "system_memory_percent": 87.5,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 79606.368,
+    "process_cpu_percent": 894.4,
+    "process_rss_mib": 1025.926,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 962.477,
+    "system_memory_percent": 87.8,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 79864.964,
+    "process_cpu_percent": 998.6,
+    "process_rss_mib": 1061.41,
+    "system_cpu_percent": 97.6,
+    "system_available_memory_mib": 937.68,
+    "system_memory_percent": 88.2,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 80134.679,
+    "process_cpu_percent": 955.2,
+    "process_rss_mib": 1067.539,
+    "system_cpu_percent": 99.1,
+    "system_available_memory_mib": 924.512,
+    "system_memory_percent": 88.3,
+    "process_thread_count": 43
+  },
+  {
+    "elapsed_ms": 80401.68,
+    "process_cpu_percent": 892.9,
+    "process_rss_mib": 1088.617,
+    "system_cpu_percent": 99.5,
+    "system_available_memory_mib": 914.859,
+    "system_memory_percent": 88.4,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 80658.288,
+    "process_cpu_percent": 919.8,
+    "process_rss_mib": 1095.965,
+    "system_cpu_percent": 99.5,
+    "system_available_memory_mib": 903.707,
+    "system_memory_percent": 88.6,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 80916.091,
+    "process_cpu_percent": 943.8,
+    "process_rss_mib": 1113.219,
+    "system_cpu_percent": 99.0,
+    "system_available_memory_mib": 884.336,
+    "system_memory_percent": 88.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 81221.922,
+    "process_cpu_percent": 838.7,
+    "process_rss_mib": 1123.398,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 976.441,
+    "system_memory_percent": 87.7,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 81542.059,
+    "process_cpu_percent": 1006.6,
+    "process_rss_mib": 1170.09,
+    "system_cpu_percent": 97.7,
+    "system_available_memory_mib": 962.574,
+    "system_memory_percent": 87.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 81814.72,
+    "process_cpu_percent": 1036.1,
+    "process_rss_mib": 1175.723,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 958.551,
+    "system_memory_percent": 87.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 82092.499,
+    "process_cpu_percent": 1012.0,
+    "process_rss_mib": 1217.625,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 913.004,
+    "system_memory_percent": 88.5,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 82428.569,
+    "process_cpu_percent": 1062.3,
+    "process_rss_mib": 1230.328,
+    "system_cpu_percent": 91.8,
+    "system_available_memory_mib": 902.711,
+    "system_memory_percent": 88.6,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 82697.213,
+    "process_cpu_percent": 916.4,
+    "process_rss_mib": 1241.262,
+    "system_cpu_percent": 92.4,
+    "system_available_memory_mib": 890.785,
+    "system_memory_percent": 88.7,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 82967.179,
+    "process_cpu_percent": 984.2,
+    "process_rss_mib": 1255.926,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 881.039,
+    "system_memory_percent": 88.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 83251.941,
+    "process_cpu_percent": 1112.1,
+    "process_rss_mib": 1255.926,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 871.711,
+    "system_memory_percent": 89.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 83525.451,
+    "process_cpu_percent": 1033.8,
+    "process_rss_mib": 1255.926,
+    "system_cpu_percent": 91.1,
+    "system_available_memory_mib": 885.887,
+    "system_memory_percent": 88.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 83833.83,
+    "process_cpu_percent": 1046.7,
+    "process_rss_mib": 1257.273,
+    "system_cpu_percent": 98.2,
+    "system_available_memory_mib": 889.062,
+    "system_memory_percent": 88.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 84119.046,
+    "process_cpu_percent": 1002.9,
+    "process_rss_mib": 1255.398,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 888.559,
+    "system_memory_percent": 88.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 84388.036,
+    "process_cpu_percent": 1056.5,
+    "process_rss_mib": 1255.398,
+    "system_cpu_percent": 93.6,
+    "system_available_memory_mib": 876.395,
+    "system_memory_percent": 88.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 84657.749,
+    "process_cpu_percent": 1055.4,
+    "process_rss_mib": 1256.492,
+    "system_cpu_percent": 99.6,
+    "system_available_memory_mib": 884.855,
+    "system_memory_percent": 88.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 84948.699,
+    "process_cpu_percent": 1069.4,
+    "process_rss_mib": 1256.492,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 879.832,
+    "system_memory_percent": 88.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 85230.34,
+    "process_cpu_percent": 1056.5,
+    "process_rss_mib": 1256.496,
+    "system_cpu_percent": 94.2,
+    "system_available_memory_mib": 880.5,
+    "system_memory_percent": 88.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 85540.506,
+    "process_cpu_percent": 1146.8,
+    "process_rss_mib": 1260.098,
+    "system_cpu_percent": 98.4,
+    "system_available_memory_mib": 887.066,
+    "system_memory_percent": 88.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 85855.056,
+    "process_cpu_percent": 1148.2,
+    "process_rss_mib": 1288.508,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 874.977,
+    "system_memory_percent": 88.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 86123.344,
+    "process_cpu_percent": 1012.0,
+    "process_rss_mib": 1310.047,
+    "system_cpu_percent": 99.5,
+    "system_available_memory_mib": 840.441,
+    "system_memory_percent": 89.4,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 86391.157,
+    "process_cpu_percent": 1033.8,
+    "process_rss_mib": 1322.883,
+    "system_cpu_percent": 89.5,
+    "system_available_memory_mib": 833.715,
+    "system_memory_percent": 89.5,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 86647.514,
+    "process_cpu_percent": 968.7,
+    "process_rss_mib": 1330.25,
+    "system_cpu_percent": 81.9,
+    "system_available_memory_mib": 824.086,
+    "system_memory_percent": 89.6,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 86911.756,
+    "process_cpu_percent": 1191.0,
+    "process_rss_mib": 1349.273,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 804.219,
+    "system_memory_percent": 89.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 87212.214,
+    "process_cpu_percent": 968.0,
+    "process_rss_mib": 1349.273,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 789.512,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 87499.256,
+    "process_cpu_percent": 973.3,
+    "process_rss_mib": 1349.273,
+    "system_cpu_percent": 95.5,
+    "system_available_memory_mib": 794.859,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 87811.121,
+    "process_cpu_percent": 1083.3,
+    "process_rss_mib": 1350.836,
+    "system_cpu_percent": 97.7,
+    "system_available_memory_mib": 796.723,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 88079.559,
+    "process_cpu_percent": 1191.0,
+    "process_rss_mib": 1348.664,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 792.688,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 88348.261,
+    "process_cpu_percent": 998.6,
+    "process_rss_mib": 1348.664,
+    "system_cpu_percent": 96.0,
+    "system_available_memory_mib": 789.047,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 88651.338,
+    "process_cpu_percent": 1099.5,
+    "process_rss_mib": 1349.418,
+    "system_cpu_percent": 97.7,
+    "system_available_memory_mib": 795.312,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 88934.563,
+    "process_cpu_percent": 1078.7,
+    "process_rss_mib": 1349.414,
+    "system_cpu_percent": 95.7,
+    "system_available_memory_mib": 795.32,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 89235.738,
+    "process_cpu_percent": 1093.3,
+    "process_rss_mib": 1349.414,
+    "system_cpu_percent": 95.0,
+    "system_available_memory_mib": 790.598,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 89550.14,
+    "process_cpu_percent": 1081.7,
+    "process_rss_mib": 1352.387,
+    "system_cpu_percent": 97.4,
+    "system_available_memory_mib": 794.875,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 89832.139,
+    "process_cpu_percent": 1162.1,
+    "process_rss_mib": 1349.227,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 795.008,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 90088.454,
+    "process_cpu_percent": 1106.2,
+    "process_rss_mib": 1349.418,
+    "system_cpu_percent": 98.4,
+    "system_available_memory_mib": 793.898,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 90365.045,
+    "process_cpu_percent": 820.0,
+    "process_rss_mib": 1349.418,
+    "system_cpu_percent": 87.6,
+    "system_available_memory_mib": 794.785,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 90636.761,
+    "process_cpu_percent": 984.7,
+    "process_rss_mib": 1351.449,
+    "system_cpu_percent": 91.4,
+    "system_available_memory_mib": 799.316,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 90921.311,
+    "process_cpu_percent": 1131.1,
+    "process_rss_mib": 1351.449,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 799.387,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 91190.462,
+    "process_cpu_percent": 1233.6,
+    "process_rss_mib": 1351.449,
+    "system_cpu_percent": 98.5,
+    "system_available_memory_mib": 789.766,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 91456.722,
+    "process_cpu_percent": 990.6,
+    "process_rss_mib": 1351.449,
+    "system_cpu_percent": 93.7,
+    "system_available_memory_mib": 794.555,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 91726.909,
+    "process_cpu_percent": 1063.2,
+    "process_rss_mib": 1350.703,
+    "system_cpu_percent": 99.1,
+    "system_available_memory_mib": 797.148,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 91993.317,
+    "process_cpu_percent": 1168.9,
+    "process_rss_mib": 1350.711,
+    "system_cpu_percent": 97.5,
+    "system_available_memory_mib": 797.34,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 92248.908,
+    "process_cpu_percent": 990.6,
+    "process_rss_mib": 1358.719,
+    "system_cpu_percent": 95.4,
+    "system_available_memory_mib": 794.512,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 92516.605,
+    "process_cpu_percent": 1174.8,
+    "process_rss_mib": 1357.137,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 795.91,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 92848.301,
+    "process_cpu_percent": 1105.2,
+    "process_rss_mib": 1357.137,
+    "system_cpu_percent": 96.3,
+    "system_available_memory_mib": 795.996,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 93117.485,
+    "process_cpu_percent": 998.6,
+    "process_rss_mib": 1357.137,
+    "system_cpu_percent": 87.3,
+    "system_available_memory_mib": 790.273,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 93407.267,
+    "process_cpu_percent": 1061.0,
+    "process_rss_mib": 1362.012,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 792.176,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 93668.895,
+    "process_cpu_percent": 1028.0,
+    "process_rss_mib": 1356.949,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 794.719,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 93936.925,
+    "process_cpu_percent": 957.5,
+    "process_rss_mib": 1356.949,
+    "system_cpu_percent": 92.1,
+    "system_available_memory_mib": 794.727,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 94221.584,
+    "process_cpu_percent": 1112.1,
+    "process_rss_mib": 1362.352,
+    "system_cpu_percent": 87.9,
+    "system_available_memory_mib": 792.586,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 94488.889,
+    "process_cpu_percent": 1098.4,
+    "process_rss_mib": 1355.715,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 794.887,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 94786.375,
+    "process_cpu_percent": 1113.8,
+    "process_rss_mib": 1357.594,
+    "system_cpu_percent": 99.2,
+    "system_available_memory_mib": 795.465,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 95085.957,
+    "process_cpu_percent": 989.1,
+    "process_rss_mib": 1357.594,
+    "system_cpu_percent": 91.1,
+    "system_available_memory_mib": 790.664,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 95368.379,
+    "process_cpu_percent": 1141.4,
+    "process_rss_mib": 1360.219,
+    "system_cpu_percent": 96.3,
+    "system_available_memory_mib": 794.102,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 95647.149,
+    "process_cpu_percent": 1156.6,
+    "process_rss_mib": 1356.844,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 794.43,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 95971.311,
+    "process_cpu_percent": 1014.7,
+    "process_rss_mib": 1355.715,
+    "system_cpu_percent": 94.1,
+    "system_available_memory_mib": 794.797,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 96239.308,
+    "process_cpu_percent": 1192.4,
+    "process_rss_mib": 1355.715,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 793.145,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 96509.254,
+    "process_cpu_percent": 1108.5,
+    "process_rss_mib": 1357.594,
+    "system_cpu_percent": 97.2,
+    "system_available_memory_mib": 794.352,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 96810.521,
+    "process_cpu_percent": 1120.6,
+    "process_rss_mib": 1357.594,
+    "system_cpu_percent": 95.0,
+    "system_available_memory_mib": 795.258,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 97080.408,
+    "process_cpu_percent": 1056.5,
+    "process_rss_mib": 1360.73,
+    "system_cpu_percent": 96.8,
+    "system_available_memory_mib": 796.738,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 97345.528,
+    "process_cpu_percent": 1180.7,
+    "process_rss_mib": 1357.406,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 795.027,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 97613.992,
+    "process_cpu_percent": 986.8,
+    "process_rss_mib": 1357.406,
+    "system_cpu_percent": 90.9,
+    "system_available_memory_mib": 795.09,
+    "system_memory_percent": 90.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 97912.857,
+    "process_cpu_percent": 1029.3,
+    "process_rss_mib": 1355.715,
+    "system_cpu_percent": 90.4,
+    "system_available_memory_mib": 795.613,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 98183.866,
+    "process_cpu_percent": 992.7,
+    "process_rss_mib": 1355.715,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 798.703,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 98450.749,
+    "process_cpu_percent": 1056.5,
+    "process_rss_mib": 1357.594,
+    "system_cpu_percent": 99.5,
+    "system_available_memory_mib": 799.344,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 98749.043,
+    "process_cpu_percent": 1104.8,
+    "process_rss_mib": 1357.594,
+    "system_cpu_percent": 94.5,
+    "system_available_memory_mib": 801.082,
+    "system_memory_percent": 89.9,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 99016.42,
+    "process_cpu_percent": 1063.2,
+    "process_rss_mib": 1361.32,
+    "system_cpu_percent": 97.3,
+    "system_available_memory_mib": 807.496,
+    "system_memory_percent": 89.8,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 99284.779,
+    "process_cpu_percent": 1102.6,
+    "process_rss_mib": 1412.258,
+    "system_cpu_percent": 98.7,
+    "system_available_memory_mib": 757.484,
+    "system_memory_percent": 90.4,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 99632.127,
+    "process_cpu_percent": 1112.8,
+    "process_rss_mib": 1440.449,
+    "system_cpu_percent": 98.5,
+    "system_available_memory_mib": 736.32,
+    "system_memory_percent": 90.7,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 99918.379,
+    "process_cpu_percent": 1167.7,
+    "process_rss_mib": 1458.641,
+    "system_cpu_percent": 99.5,
+    "system_available_memory_mib": 714.125,
+    "system_memory_percent": 91.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 100186.958,
+    "process_cpu_percent": 1014.0,
+    "process_rss_mib": 1488.074,
+    "system_cpu_percent": 95.8,
+    "system_available_memory_mib": 684.059,
+    "system_memory_percent": 91.4,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 100455.63,
+    "process_cpu_percent": 943.4,
+    "process_rss_mib": 1508.941,
+    "system_cpu_percent": 86.5,
+    "system_available_memory_mib": 662.957,
+    "system_memory_percent": 91.6,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 100744.453,
+    "process_cpu_percent": 1191.3,
+    "process_rss_mib": 1529.734,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 631.191,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 101025.955,
+    "process_cpu_percent": 1173.3,
+    "process_rss_mib": 1529.734,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 633.207,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 101308.066,
+    "process_cpu_percent": 1095.4,
+    "process_rss_mib": 1529.734,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 629.426,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 101562.852,
+    "process_cpu_percent": 998.6,
+    "process_rss_mib": 1527.855,
+    "system_cpu_percent": 93.2,
+    "system_available_memory_mib": 631.312,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 101830.236,
+    "process_cpu_percent": 1185.1,
+    "process_rss_mib": 1527.879,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 633.531,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 102129.433,
+    "process_cpu_percent": 1078.5,
+    "process_rss_mib": 1527.891,
+    "system_cpu_percent": 98.6,
+    "system_available_memory_mib": 629.672,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 102413.276,
+    "process_cpu_percent": 1201.1,
+    "process_rss_mib": 1529.77,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 633.801,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 102712.891,
+    "process_cpu_percent": 1052.2,
+    "process_rss_mib": 1529.77,
+    "system_cpu_percent": 95.4,
+    "system_available_memory_mib": 634.172,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 102982.503,
+    "process_cpu_percent": 969.6,
+    "process_rss_mib": 1529.77,
+    "system_cpu_percent": 90.3,
+    "system_available_memory_mib": 634.18,
+    "system_memory_percent": 92.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 103250.055,
+    "process_cpu_percent": 1090.8,
+    "process_rss_mib": 1532.57,
+    "system_cpu_percent": 99.1,
+    "system_available_memory_mib": 629.332,
+    "system_memory_percent": 92.1,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 103517.756,
+    "process_cpu_percent": 1174.8,
+    "process_rss_mib": 1548.887,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 611.121,
+    "system_memory_percent": 92.3,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 103785.368,
+    "process_cpu_percent": 1020.0,
+    "process_rss_mib": 1578.781,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 581.73,
+    "system_memory_percent": 92.7,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 104053.622,
+    "process_cpu_percent": 1033.8,
+    "process_rss_mib": 1591.5,
+    "system_cpu_percent": 87.7,
+    "system_available_memory_mib": 579.738,
+    "system_memory_percent": 92.7,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 104321.868,
+    "process_cpu_percent": 1004.5,
+    "process_rss_mib": 1610.984,
+    "system_cpu_percent": 91.8,
+    "system_available_memory_mib": 553.812,
+    "system_memory_percent": 93.0,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 104592.031,
+    "process_cpu_percent": 1106.5,
+    "process_rss_mib": 1620.637,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 546.27,
+    "system_memory_percent": 93.1,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 104892.165,
+    "process_cpu_percent": 1078.5,
+    "process_rss_mib": 1622.516,
+    "system_cpu_percent": 100.0,
+    "system_available_memory_mib": 546.234,
+    "system_memory_percent": 93.1,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 105222.394,
+    "process_cpu_percent": 1076.6,
+    "process_rss_mib": 1622.516,
+    "system_cpu_percent": 91.8,
+    "system_available_memory_mib": 539.301,
+    "system_memory_percent": 93.2,
+    "process_thread_count": 44
+  },
+  {
+    "elapsed_ms": 105324.27,
+    "process_cpu_percent": 1196.8,
+    "process_rss_mib": 1616.52,
+    "system_cpu_percent": 80.5,
+    "system_available_memory_mib": 544.609,
+    "system_memory_percent": 93.1,
+    "process_thread_count": 43
+  }
+]

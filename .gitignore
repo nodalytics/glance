@@ -20,3 +20,22 @@ dist/
 # Environment / lab credentials
 .env
 .secrets/
+
+# Python virtual environments
+.venv/
+.venv-ocr-research/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Frontend dependencies
+node_modules/
+dist/
+
+# Local environment secrets
+.env
+.env.local

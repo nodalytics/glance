@@ -1,0 +1,147 @@
+{
+    "timestamp_utc": "2026-11-26T14:29:36.949780+00:00",
+    "system": {
+        "operating_system": "Windows",
+        "os_release": "10",
+        "os_version": "10.0.26200",
+        "architecture": "AMD64",
+        "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+        "logical_cpu_count": 12,
+        "python_version": "3.11.0",
+        "python_bits": 64,
+        "virtual_environment_active": true
+    },
+    "cpu": {
+        "Name": "12th Gen Intel(R) Core(TM) i5-1235U",
+        "Manufacturer": "GenuineIntel",
+        "NumberOfCores": 10,
+        "NumberOfLogicalProcessors": 12,
+        "MaxClockSpeed": 1300,
+        "L2CacheSize": 6656,
+        "L3CacheSize": 12288
+    },
+    "memory": {
+        "TotalPhysicalMemory": 8301043712
+    },
+    "gpu": {
+        "Name": "Intel(R) UHD Graphics",
+        "AdapterRAM": 2147479552,
+        "DriverVersion": "32.0.101.6129",
+        "VideoProcessor": "Intel(R) UHD Graphics Family"
+    },
+    "nvidia": {
+        "available": false,
+        "message": "nvidia-smi not found in PATH"
+    },
+    "packages": {
+        "paddlepaddle": {
+            "installed": true,
+            "version": "3.2.0"
+        },
+        "paddlepaddle-gpu": {
+            "installed": false,
+            "version": null
+        },
+        "paddleocr": {
+            "installed": true,
+            "version": "3.7.0"
+        },
+        "opencv-python": {
+            "installed": false,
+            "version": null
+        },
+        "opencv-contrib-python": {
+            "installed": true,
+            "version": "4.10.0.84"
+        },
+        "opencv-python-headless": {
+            "installed": true,
+            "version": "5.1.0.95"
+        },
+        "numpy": {
+            "installed": true,
+            "version": "2.3.5"
+        },
+        "Pillow": {
+            "installed": true,
+            "version": "13.0.0"
+        },
+        "onnx": {
+            "installed": false,
+            "version": null
+        },
+        "onnxruntime": {
+            "installed": false,
+            "version": null
+        },
+        "onnxruntime-gpu": {
+            "installed": false,
+            "version": null
+        },
+        "openvino": {
+            "installed": false,
+            "version": null
+        },
+        "torch": {
+            "installed": false,
+            "version": null
+        },
+        "torchvision": {
+            "installed": false,
+            "version": null
+        },
+        "numba": {
+            "installed": false,
+            "version": null
+        },
+        "psutil": {
+            "installed": true,
+            "version": "7.2.2"
+        },
+        "fastapi": {
+            "installed": true,
+            "version": "0.165.0"
+        },
+        "uvicorn": {
+            "installed": true,
+            "version": "0.54.0"
+        }
+    },
+    "paddle": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "{\"version\": \"3.2.0\", \"compiled_with_cuda\": false, \"current_device\": \"cpu\", \"cuda_device_count\": 0}",
+        "stderr": "INFO: Could not find files for the given pattern(s).\nC:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddle\\utils\\cpp_extension\\extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md\n  warnings.warn(warning_message)",
+        "available": true,
+        "probe_duration_ms": 4369.351
+    },
+    "opencv": {
+        "success": true,
+        "return_code": 0,
+        "stdout": "{\"version\": \"4.10.0\", \"thread_count\": 12, \"cpu_count\": 12, \"optimized\": true, \"opencl_available\": true, \"opencl_enabled\": true, \"cuda_device_count\": 0}",
+        "stderr": "",
+        "available": true,
+        "probe_duration_ms": 803.163
+    },
+    "onnxruntime": {
+        "available": false
+    },
+    "torch": {
+        "available": false
+    },
+    "environment": {
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "NUMEXPR_NUM_THREADS": null,
+        "CUDA_VISIBLE_DEVICES": null,
+        "FLAGS_use_mkldnn": null,
+        "FLAGS_enable_pir_api": null
+    },
+    "disk": {
+        "total_gib": 237.38,
+        "used_gib": 200.43,
+        "free_gib": 36.95
+    },
+    "diagnostic_duration_seconds": 8.182
+}

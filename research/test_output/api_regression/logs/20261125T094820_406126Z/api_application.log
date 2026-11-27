@@ -1,0 +1,192 @@
+===========================================================================
+FASTAPI APPLICATION VALIDATION
+===========================================================================
+
+APPLICATION FACTORY TESTS
+[PASS] Application factory creates instance
+[PASS] Application title correct
+[PASS] Application version correct
+[PASS] Debug disabled
+[PASS] Factory creates independent instances
+2026-11-25 14:48:26,015 | INFO | poker_apis.main | Starting poker-apis version 1.0.0
+2026-11-25 14:48:26,016 | INFO | poker_apis.main | Operating mode: offline
+2026-11-25 14:48:26,018 | INFO | poker_apis.main | Offline processing service ready.
+2026-11-25 14:48:26,024 | INFO | poker_apis.main | OCR pipeline initialization is lazy.
+
+APPLICATION LIFECYCLE TESTS
+[PASS] Processing service initialized
+[PASS] Runtime upload directory created
+[PASS] Output directory created
+[PASS] OCR remains uninitialized at startup
+
+ROOT ENDPOINT TESTS
+2026-11-25 14:48:26,030 | INFO | httpx2 | HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+[PASS] Root endpoint returns 200
+[PASS] Root application name correct
+[PASS] Root reports offline mode
+[PASS] Root includes documentation URL
+[PASS] Root includes analysis endpoint
+
+ROUTER REGISTRATION TESTS
+2026-11-25 14:48:26,037 | INFO | httpx2 | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+[PASS] Registered route: /health
+2026-11-25 14:48:26,043 | INFO | httpx2 | HTTP Request: GET http://testserver/api/v1/info "HTTP/1.1 200 OK"
+[PASS] Registered route: /api/v1/info
+2026-11-25 14:48:26,043 | INFO | httpx2 | HTTP Request: GET http://testserver/api/v1/profiles "HTTP/1.1 200 OK"
+[PASS] Registered route: /api/v1/profiles
+2026-11-25 14:48:26,060 | INFO | httpx2 | HTTP Request: GET http://testserver/api/v1/statistics "HTTP/1.1 200 OK"
+[PASS] Registered route: /api/v1/statistics
+
+DOCUMENTATION TESTS
+2026-11-25 14:48:26,063 | INFO | httpx2 | HTTP Request: GET http://testserver/docs "HTTP/1.1 200 OK"
+[PASS] Swagger UI returns 200
+[PASS] Swagger HTML returned
+2026-11-25 14:48:26,066 | INFO | httpx2 | HTTP Request: GET http://testserver/redoc "HTTP/1.1 200 OK"
+[PASS] ReDoc returns 200
+2026-11-25 14:48:26,160 | INFO | httpx2 | HTTP Request: GET http://testserver/openapi.json "HTTP/1.1 200 OK"
+[PASS] OpenAPI schema returns 200
+[PASS] Five production endpoints documented
+[PASS] Root excluded from OpenAPI schema
+
+ERROR HANDLING TESTS
+2026-11-25 14:48:26,164 | INFO | httpx2 | HTTP Request: GET http://testserver/unknown-endpoint "HTTP/1.1 404 Not Found"
+[PASS] Unknown endpoint returns structured 404
+2026-11-25 14:48:26,166 | INFO | httpx2 | HTTP Request: POST http://testserver/health "HTTP/1.1 405 Method Not Allowed"
+[PASS] Unsupported method returns structured 405
+[PASS] Allow header preserved
+2026-11-25 14:48:26,170 | INFO | httpx2 | HTTP Request: POST http://testserver/api/v1/analyze/screenshot "HTTP/1.1 422 Unprocessable Content"
+[PASS] Missing upload returns structured 422
+[PASS] Validation error details included
+2026-11-25 14:48:26,174 | INFO | httpx2 | HTTP Request: GET http://testserver/test/service-error "HTTP/1.1 503 Service Unavailable"
+[PASS] Global service exception handler works
+[PASS] Service retry header preserved
+2026-11-25 14:48:26,176 | ERROR | poker_apis.main | Unhandled application exception.
+Traceback (most recent call last):
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\_body_limit.py", line 80, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\poker_apis\middleware\request_limits.py", line 296, in __call__
+    await self.app(
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\routing.py", line 683, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\routing.py", line 2929, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\routing.py", line 1375, in handle
+    await super().handle(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\routing.py", line 289, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\routing.py", line 175, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\routing.py", line 161, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\routing.py", line 762, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\routing.py", line 383, in run_endpoint_function
+    return await run_in_threadpool(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2779, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1124, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\.venv\Lib\site-packages\fastapi\telemetry\_api.py", line 244, in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\tests\test_api_application.py", line 164, in simulated_unexpected_error
+    raise RuntimeError(
+RuntimeError: Simulated internal private error.
+2026-11-25 14:48:26,217 | INFO | httpx2 | HTTP Request: GET http://testserver/test/unexpected-error "HTTP/1.1 500 Internal Server Error"
+[PASS] Unexpected exception returns structured 500
+[PASS] Internal exception details not exposed
+
+FINAL SERVICE STATE TESTS
+[PASS] OCR remains uninitialized
+[PASS] No analysis requests processed
+[PASS] Service remains available
+2026-11-25 14:48:26,220 | INFO | poker_apis.main | Application shutdown started.
+2026-11-25 14:48:26,220 | INFO | poker_apis.main | Final service statistics: {'total_requests': 0, 'successful_requests': 0, 'failed_requests': 0, 'rejected_requests': 0, 'busy_requests': 0}
+2026-11-25 14:48:26,220 | INFO | poker_apis.main | Application shutdown completed.
+[PASS] Service reference released on shutdown
+
+DISABLED DOCUMENTATION TESTS
+2026-11-25 14:48:26,225 | INFO | poker_apis.main | Starting poker-apis version 1.0.0
+2026-11-25 14:48:26,225 | INFO | poker_apis.main | Operating mode: offline
+2026-11-25 14:48:26,226 | INFO | poker_apis.main | Offline processing service ready.
+2026-11-25 14:48:26,226 | INFO | poker_apis.main | OCR pipeline initialization is lazy.
+2026-11-25 14:48:26,234 | INFO | httpx2 | HTTP Request: GET http://testserver/docs "HTTP/1.1 404 Not Found"
+[PASS] Disabled endpoint: /docs
+2026-11-25 14:48:26,236 | INFO | httpx2 | HTTP Request: GET http://testserver/redoc "HTTP/1.1 404 Not Found"
+[PASS] Disabled endpoint: /redoc
+2026-11-25 14:48:26,239 | INFO | httpx2 | HTTP Request: GET http://testserver/openapi.json "HTTP/1.1 404 Not Found"
+[PASS] Disabled endpoint: /openapi.json
+2026-11-25 14:48:26,244 | INFO | httpx2 | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+[PASS] Health available without documentation
+2026-11-25 14:48:26,245 | INFO | poker_apis.main | Application shutdown started.
+2026-11-25 14:48:26,245 | INFO | poker_apis.main | Final service statistics: {'total_requests': 0, 'successful_requests': 0, 'failed_requests': 0, 'rejected_requests': 0, 'busy_requests': 0}
+2026-11-25 14:48:26,245 | INFO | poker_apis.main | Application shutdown completed.
+
+CUSTOM API PREFIX TESTS
+2026-11-25 14:48:26,249 | INFO | poker_apis.main | Starting poker-apis version 1.0.0
+2026-11-25 14:48:26,250 | INFO | poker_apis.main | Operating mode: offline
+2026-11-25 14:48:26,251 | INFO | poker_apis.main | Offline processing service ready.
+2026-11-25 14:48:26,251 | INFO | poker_apis.main | OCR pipeline initialization is lazy.
+2026-11-25 14:48:26,261 | INFO | httpx2 | HTTP Request: GET http://testserver/custom/v2/info "HTTP/1.1 200 OK"
+[PASS] Custom API prefix works
+2026-11-25 14:48:26,264 | INFO | httpx2 | HTTP Request: GET http://testserver/api/v1/info "HTTP/1.1 404 Not Found"
+[PASS] Default prefix no longer registered
+2026-11-25 14:48:26,268 | INFO | httpx2 | HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+[PASS] Root reflects custom API prefix
+2026-11-25 14:48:26,270 | INFO | poker_apis.main | Application shutdown started.
+2026-11-25 14:48:26,270 | INFO | poker_apis.main | Final service statistics: {'total_requests': 0, 'successful_requests': 0, 'failed_requests': 0, 'rejected_requests': 0, 'busy_requests': 0}
+2026-11-25 14:48:26,270 | INFO | poker_apis.main | Application shutdown completed.
+
+DEPENDENCY INJECTION TESTS
+2026-11-25 14:48:26,274 | INFO | poker_apis.main | Starting poker-apis version 1.0.0
+2026-11-25 14:48:26,274 | INFO | poker_apis.main | Operating mode: offline
+2026-11-25 14:48:26,275 | INFO | poker_apis.main | Offline processing service ready.
+2026-11-25 14:48:26,276 | INFO | poker_apis.main | OCR pipeline initialization is lazy.
+[PASS] Injected service reused
+[PASS] Injected service remains lazy
+2026-11-25 14:48:26,276 | INFO | poker_apis.main | Application shutdown started.
+2026-11-25 14:48:26,276 | INFO | poker_apis.main | Final service statistics: {'total_requests': 0, 'successful_requests': 0, 'failed_requests': 0, 'rejected_requests': 0, 'busy_requests': 0}
+2026-11-25 14:48:26,276 | INFO | poker_apis.main | Application shutdown completed.
+[PASS] Mismatched service settings rejected
+
+===========================================================================
+FASTAPI APPLICATION VALIDATION SUMMARY
+===========================================================================
+{
+    "total_tests": 47,
+    "passed_tests": 47,
+    "failed_tests": 0,
+    "total_time_seconds": 0.3185,
+    "passed": true
+}
+
+Report saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\api_application_validation_report.json
+
+FINAL RESULT: ALL TESTS PASSED

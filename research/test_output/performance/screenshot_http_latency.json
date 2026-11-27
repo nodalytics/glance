@@ -1,0 +1,20 @@
+{
+    "http_total_ms": 139158.016,
+    "service_processing_ms": 138923.721,
+    "outside_service_timer_ms": 234.295,
+    "pipeline_processing_ms": 138836.063,
+    "pipeline_timings_ms": {
+        "initialization_ms": 2694.754,
+        "recognition_ms": 35723.674,
+        "state_building_ms": 0.363,
+        "total_ms": 38418.861,
+        "screenshot_loading_ms": 63.483,
+        "table_extraction_ms": 100353.357,
+        "card_cropping_ms": 0.221,
+        "screenshot_total_ms": 138836.063
+    },
+    "response_size_bytes": 6932,
+    "state_status": "valid",
+    "validation_errors": 0,
+    "validation_warnings": 0
+}

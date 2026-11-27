@@ -1,0 +1,359 @@
+{
+    "timestamp_utc": "2026-11-26T19:34:22.569176+00:00",
+    "python_executable": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv-ocr-research\\Scripts\\python.exe",
+    "versions": {
+        "onnx": "1.17.0",
+        "onnxruntime": "1.32.0",
+        "openvino": "2026.4.1-22982-e213a147257-releases/2026/4",
+        "numpy": "2.4.6"
+    },
+    "input_sizes": [
+        64,
+        128,
+        256
+    ],
+    "workloads": [
+        {
+            "input_size": 64,
+            "model": "synthetic_cnn_64.onnx",
+            "model_size_bytes": 20765,
+            "results": [
+                {
+                    "runtime": "onnxruntime_cpu",
+                    "execution_devices": [
+                        "CPUExecutionProvider"
+                    ],
+                    "initialization_ms": 145.8401,
+                    "benchmark": {
+                        "first_inference_ms": 28.3818,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 0.267953,
+                        "median_ms": 0.1833,
+                        "minimum_ms": 0.1566,
+                        "maximum_ms": 1.3377,
+                        "p95_ms": 0.62255,
+                        "p99_ms": 1.156537,
+                        "standard_deviation_ms": 0.234976
+                    },
+                    "success": true,
+                    "validation": {
+                        "reference_runtime": true,
+                        "finite_output": true
+                    }
+                },
+                {
+                    "runtime": "openvino_cpu",
+                    "execution_devices": [
+                        "CPU"
+                    ],
+                    "model_loading_ms": 29.0875,
+                    "compilation_ms": 100.1731,
+                    "benchmark": {
+                        "first_inference_ms": 3.396,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 1.8152,
+                        "median_ms": 1.71735,
+                        "minimum_ms": 0.8554,
+                        "maximum_ms": 3.3952,
+                        "p95_ms": 2.885165,
+                        "p99_ms": 3.260901,
+                        "standard_deviation_ms": 0.637818
+                    },
+                    "success": true,
+                    "validation": {
+                        "numerically_correct": true,
+                        "maximum_absolute_error": 7.450580596923828e-08,
+                        "mean_absolute_error": 1.3776798368780874e-08,
+                        "output_shape": [
+                            1,
+                            32,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                {
+                    "runtime": "openvino_gpu",
+                    "execution_devices": [
+                        "GPU.0"
+                    ],
+                    "model_loading_ms": 7.1745,
+                    "compilation_ms": 3087.8737,
+                    "benchmark": {
+                        "first_inference_ms": 5.0529,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 2.216093,
+                        "median_ms": 1.1822,
+                        "minimum_ms": 0.5967,
+                        "maximum_ms": 11.3229,
+                        "p95_ms": 8.99519,
+                        "p99_ms": 11.066743,
+                        "standard_deviation_ms": 2.667192
+                    },
+                    "success": true,
+                    "validation": {
+                        "numerically_correct": true,
+                        "maximum_absolute_error": 7.450580596923828e-09,
+                        "mean_absolute_error": 1.7728325474308804e-09,
+                        "output_shape": [
+                            1,
+                            32,
+                            1,
+                            1
+                        ]
+                    }
+                }
+            ],
+            "ranking": [
+                {
+                    "runtime": "onnxruntime_cpu",
+                    "mean_ms": 0.267953,
+                    "p95_ms": 0.62255
+                },
+                {
+                    "runtime": "openvino_cpu",
+                    "mean_ms": 1.8152,
+                    "p95_ms": 2.885165
+                },
+                {
+                    "runtime": "openvino_gpu",
+                    "mean_ms": 2.216093,
+                    "p95_ms": 8.99519
+                }
+            ]
+        },
+        {
+            "input_size": 128,
+            "model": "synthetic_cnn_128.onnx",
+            "model_size_bytes": 20768,
+            "results": [
+                {
+                    "runtime": "onnxruntime_cpu",
+                    "execution_devices": [
+                        "CPUExecutionProvider"
+                    ],
+                    "initialization_ms": 33.6741,
+                    "benchmark": {
+                        "first_inference_ms": 1.3296,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 0.624473,
+                        "median_ms": 0.51835,
+                        "minimum_ms": 0.4988,
+                        "maximum_ms": 1.7412,
+                        "p95_ms": 1.28783,
+                        "p99_ms": 1.705066,
+                        "standard_deviation_ms": 0.29224
+                    },
+                    "success": true,
+                    "validation": {
+                        "reference_runtime": true,
+                        "finite_output": true
+                    }
+                },
+                {
+                    "runtime": "openvino_cpu",
+                    "execution_devices": [
+                        "CPU"
+                    ],
+                    "model_loading_ms": 3.9755,
+                    "compilation_ms": 43.4786,
+                    "benchmark": {
+                        "first_inference_ms": 1.7834,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 2.703403,
+                        "median_ms": 2.4609,
+                        "minimum_ms": 1.3093,
+                        "maximum_ms": 5.5985,
+                        "p95_ms": 4.88095,
+                        "p99_ms": 5.509035,
+                        "standard_deviation_ms": 1.130442
+                    },
+                    "success": true,
+                    "validation": {
+                        "numerically_correct": true,
+                        "maximum_absolute_error": 1.7508864402770996e-07,
+                        "mean_absolute_error": 2.2453718884207774e-08,
+                        "output_shape": [
+                            1,
+                            32,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                {
+                    "runtime": "openvino_gpu",
+                    "execution_devices": [
+                        "GPU.0"
+                    ],
+                    "model_loading_ms": 13.6254,
+                    "compilation_ms": 2113.6942,
+                    "benchmark": {
+                        "first_inference_ms": 1.884,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 1.13751,
+                        "median_ms": 1.11095,
+                        "minimum_ms": 0.9668,
+                        "maximum_ms": 1.6535,
+                        "p95_ms": 1.410775,
+                        "p99_ms": 1.598835,
+                        "standard_deviation_ms": 0.152618
+                    },
+                    "success": true,
+                    "validation": {
+                        "numerically_correct": true,
+                        "maximum_absolute_error": 1.1175870895385742e-08,
+                        "mean_absolute_error": 1.6641479305690154e-09,
+                        "output_shape": [
+                            1,
+                            32,
+                            1,
+                            1
+                        ]
+                    }
+                }
+            ],
+            "ranking": [
+                {
+                    "runtime": "onnxruntime_cpu",
+                    "mean_ms": 0.624473,
+                    "p95_ms": 1.28783
+                },
+                {
+                    "runtime": "openvino_gpu",
+                    "mean_ms": 1.13751,
+                    "p95_ms": 1.410775
+                },
+                {
+                    "runtime": "openvino_cpu",
+                    "mean_ms": 2.703403,
+                    "p95_ms": 4.88095
+                }
+            ]
+        },
+        {
+            "input_size": 256,
+            "model": "synthetic_cnn_256.onnx",
+            "model_size_bytes": 20768,
+            "results": [
+                {
+                    "runtime": "onnxruntime_cpu",
+                    "execution_devices": [
+                        "CPUExecutionProvider"
+                    ],
+                    "initialization_ms": 30.8966,
+                    "benchmark": {
+                        "first_inference_ms": 7.784,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 6.680027,
+                        "median_ms": 5.9456,
+                        "minimum_ms": 3.2715,
+                        "maximum_ms": 23.6144,
+                        "p95_ms": 14.55594,
+                        "p99_ms": 22.283677,
+                        "standard_deviation_ms": 4.329743
+                    },
+                    "success": true,
+                    "validation": {
+                        "reference_runtime": true,
+                        "finite_output": true
+                    }
+                },
+                {
+                    "runtime": "openvino_cpu",
+                    "execution_devices": [
+                        "CPU"
+                    ],
+                    "model_loading_ms": 8.4654,
+                    "compilation_ms": 42.3135,
+                    "benchmark": {
+                        "first_inference_ms": 9.5528,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 10.156733,
+                        "median_ms": 10.39605,
+                        "minimum_ms": 4.1699,
+                        "maximum_ms": 20.3767,
+                        "p95_ms": 17.9594,
+                        "p99_ms": 19.797309,
+                        "standard_deviation_ms": 4.605282
+                    },
+                    "success": true,
+                    "validation": {
+                        "numerically_correct": true,
+                        "maximum_absolute_error": 2.2724270820617676e-07,
+                        "mean_absolute_error": 3.204399945389014e-08,
+                        "output_shape": [
+                            1,
+                            32,
+                            1,
+                            1
+                        ]
+                    }
+                },
+                {
+                    "runtime": "openvino_gpu",
+                    "execution_devices": [
+                        "GPU.0"
+                    ],
+                    "model_loading_ms": 4.2565,
+                    "compilation_ms": 1791.1896,
+                    "benchmark": {
+                        "first_inference_ms": 11.023,
+                        "warmup_runs": 10,
+                        "benchmark_runs": 30,
+                        "mean_ms": 11.063837,
+                        "median_ms": 11.0124,
+                        "minimum_ms": 9.2266,
+                        "maximum_ms": 12.7056,
+                        "p95_ms": 12.54858,
+                        "p99_ms": 12.70125,
+                        "standard_deviation_ms": 1.009918
+                    },
+                    "success": true,
+                    "validation": {
+                        "numerically_correct": true,
+                        "maximum_absolute_error": 3.725290298461914e-09,
+                        "mean_absolute_error": 9.032419256982394e-10,
+                        "output_shape": [
+                            1,
+                            32,
+                            1,
+                            1
+                        ]
+                    }
+                }
+            ],
+            "ranking": [
+                {
+                    "runtime": "onnxruntime_cpu",
+                    "mean_ms": 6.680027,
+                    "p95_ms": 14.55594
+                },
+                {
+                    "runtime": "openvino_cpu",
+                    "mean_ms": 10.156733,
+                    "p95_ms": 17.9594
+                },
+                {
+                    "runtime": "openvino_gpu",
+                    "mean_ms": 11.063837,
+                    "p95_ms": 12.54858
+                }
+            ]
+        }
+    ],
+    "success": true,
+    "summary": {
+        "total_tests": 9,
+        "passed_tests": 9,
+        "failed_tests": 0
+    }
+}

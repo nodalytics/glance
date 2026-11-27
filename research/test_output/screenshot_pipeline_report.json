@@ -12,7 +12,7 @@
         "card_mismatches": 0,
         "validation_errors": 0,
         "validation_warnings": 0,
-        "processing_time_seconds": 112.682802,
+        "processing_time_seconds": 110.381204,
         "passed": true
     },
     "checks": {

@@ -1,0 +1,568 @@
+{
+    "timestamp_utc": "2026-11-26T18:55:17.227017+00:00",
+    "environment": {
+        "python_version": "3.11.0",
+        "python_executable": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Scripts\\python.exe",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "architecture": "AMD64",
+        "virtual_environment": true
+    },
+    "packages": {
+        "paddlepaddle": "3.2.0",
+        "paddleocr": "3.7.0",
+        "paddlex": "3.7.2",
+        "onnx": null,
+        "onnxruntime": null,
+        "onnxruntime-directml": null,
+        "openvino": null,
+        "paddle2onnx": null,
+        "numpy": "2.3.5",
+        "protobuf": "6.33.4",
+        "opencv-python": null,
+        "opencv-contrib-python": "4.10.0.84",
+        "opencv-python-headless": "5.1.0.95"
+    },
+    "runtime_modules": {
+        "paddle": true,
+        "onnx": false,
+        "onnxruntime": false,
+        "openvino": false,
+        "paddle2onnx": false
+    },
+    "cached_models": [
+        {
+            "model": "PP-OCRv6_tiny_det",
+            "exists": true,
+            "files": [
+                {
+                    "name": ".cache\\huggingface\\.gitignore",
+                    "extension": "",
+                    "size_mib": 0.0
+                },
+                {
+                    "name": ".cache\\huggingface\\CACHEDIR.TAG",
+                    "extension": ".tag",
+                    "size_mib": 0.0002
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\.gitattributes.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.json.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.pdiparams.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.yml.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\README.md.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\trees\\d3177d4e5551463292a61e27cfca2b53e7c3fe9d.json",
+                    "extension": ".json",
+                    "size_mib": 0.0007
+                },
+                {
+                    "name": ".gitattributes",
+                    "extension": "",
+                    "size_mib": 0.0015
+                },
+                {
+                    "name": "inference.json",
+                    "extension": ".json",
+                    "size_mib": 0.2186
+                },
+                {
+                    "name": "inference.pdiparams",
+                    "extension": ".pdiparams",
+                    "size_mib": 1.6385
+                },
+                {
+                    "name": "inference.yml",
+                    "extension": ".yml",
+                    "size_mib": 0.0008
+                },
+                {
+                    "name": "README.md",
+                    "extension": ".md",
+                    "size_mib": 0.0221
+                }
+            ],
+            "formats": {
+                "paddle_parameters": true,
+                "paddle_legacy_graph": false,
+                "json_files": true,
+                "onnx_graph": false,
+                "openvino_xml": false,
+                "binary_files": false
+            },
+            "total_size_mib": 1.883
+        },
+        {
+            "model": "PP-OCRv6_tiny_rec",
+            "exists": true,
+            "files": [
+                {
+                    "name": ".cache\\huggingface\\.gitignore",
+                    "extension": "",
+                    "size_mib": 0.0
+                },
+                {
+                    "name": ".cache\\huggingface\\CACHEDIR.TAG",
+                    "extension": ".tag",
+                    "size_mib": 0.0002
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\.gitattributes.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.json.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.pdiparams.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.yml.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\README.md.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\trees\\0736086f72f666350ebcdc0c3a504eeac89cdfad.json",
+                    "extension": ".json",
+                    "size_mib": 0.0007
+                },
+                {
+                    "name": ".gitattributes",
+                    "extension": "",
+                    "size_mib": 0.0015
+                },
+                {
+                    "name": "inference.json",
+                    "extension": ".json",
+                    "size_mib": 0.1039
+                },
+                {
+                    "name": "inference.pdiparams",
+                    "extension": ".pdiparams",
+                    "size_mib": 4.2156
+                },
+                {
+                    "name": "inference.yml",
+                    "extension": ".yml",
+                    "size_mib": 0.053
+                },
+                {
+                    "name": "README.md",
+                    "extension": ".md",
+                    "size_mib": 0.0224
+                }
+            ],
+            "formats": {
+                "paddle_parameters": true,
+                "paddle_legacy_graph": false,
+                "json_files": true,
+                "onnx_graph": false,
+                "openvino_xml": false,
+                "binary_files": false
+            },
+            "total_size_mib": 4.398
+        },
+        {
+            "model": "PP-OCRv6_small_det",
+            "exists": true,
+            "files": [
+                {
+                    "name": ".cache\\huggingface\\.gitignore",
+                    "extension": "",
+                    "size_mib": 0.0
+                },
+                {
+                    "name": ".cache\\huggingface\\CACHEDIR.TAG",
+                    "extension": ".tag",
+                    "size_mib": 0.0002
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\.gitattributes.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.json.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.pdiparams.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.yml.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\README.md.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\trees\\106c97591b235f607453300d9fc8c1cad1b25488.json",
+                    "extension": ".json",
+                    "size_mib": 0.0007
+                },
+                {
+                    "name": ".gitattributes",
+                    "extension": "",
+                    "size_mib": 0.0015
+                },
+                {
+                    "name": "inference.json",
+                    "extension": ".json",
+                    "size_mib": 0.2187
+                },
+                {
+                    "name": "inference.pdiparams",
+                    "extension": ".pdiparams",
+                    "size_mib": 9.3631
+                },
+                {
+                    "name": "inference.yml",
+                    "extension": ".yml",
+                    "size_mib": 0.0008
+                },
+                {
+                    "name": "README.md",
+                    "extension": ".md",
+                    "size_mib": 0.0222
+                }
+            ],
+            "formats": {
+                "paddle_parameters": true,
+                "paddle_legacy_graph": false,
+                "json_files": true,
+                "onnx_graph": false,
+                "openvino_xml": false,
+                "binary_files": false
+            },
+            "total_size_mib": 9.608
+        },
+        {
+            "model": "PP-OCRv6_small_rec",
+            "exists": true,
+            "files": [
+                {
+                    "name": ".cache\\huggingface\\.gitignore",
+                    "extension": "",
+                    "size_mib": 0.0
+                },
+                {
+                    "name": ".cache\\huggingface\\CACHEDIR.TAG",
+                    "extension": ".tag",
+                    "size_mib": 0.0002
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\.gitattributes.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.json.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.pdiparams.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.yml.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\README.md.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\trees\\bd619643acac4b9650c040234da8d944476ee3f1.json",
+                    "extension": ".json",
+                    "size_mib": 0.0007
+                },
+                {
+                    "name": ".gitattributes",
+                    "extension": "",
+                    "size_mib": 0.0015
+                },
+                {
+                    "name": "inference.json",
+                    "extension": ".json",
+                    "size_mib": 0.1984
+                },
+                {
+                    "name": "inference.pdiparams",
+                    "extension": ".pdiparams",
+                    "size_mib": 20.0983
+                },
+                {
+                    "name": "inference.yml",
+                    "extension": ".yml",
+                    "size_mib": 0.1436
+                },
+                {
+                    "name": "README.md",
+                    "extension": ".md",
+                    "size_mib": 0.0224
+                }
+            ],
+            "formats": {
+                "paddle_parameters": true,
+                "paddle_legacy_graph": false,
+                "json_files": true,
+                "onnx_graph": false,
+                "openvino_xml": false,
+                "binary_files": false
+            },
+            "total_size_mib": 20.466
+        },
+        {
+            "model": "PP-OCRv6_medium_det",
+            "exists": true,
+            "files": [
+                {
+                    "name": ".cache\\huggingface\\.gitignore",
+                    "extension": "",
+                    "size_mib": 0.0
+                },
+                {
+                    "name": ".cache\\huggingface\\CACHEDIR.TAG",
+                    "extension": ".tag",
+                    "size_mib": 0.0002
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\.gitattributes.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.json.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.pdiparams.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.yml.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\README.md.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\trees\\8e0f56fb2ef86b461d99cfc7ac5c137738985f61.json",
+                    "extension": ".json",
+                    "size_mib": 0.0007
+                },
+                {
+                    "name": ".gitattributes",
+                    "extension": "",
+                    "size_mib": 0.0015
+                },
+                {
+                    "name": "inference.json",
+                    "extension": ".json",
+                    "size_mib": 0.2977
+                },
+                {
+                    "name": "inference.pdiparams",
+                    "extension": ".pdiparams",
+                    "size_mib": 59.0901
+                },
+                {
+                    "name": "inference.yml",
+                    "extension": ".yml",
+                    "size_mib": 0.0008
+                },
+                {
+                    "name": "README.md",
+                    "extension": ".md",
+                    "size_mib": 0.0222
+                }
+            ],
+            "formats": {
+                "paddle_parameters": true,
+                "paddle_legacy_graph": false,
+                "json_files": true,
+                "onnx_graph": false,
+                "openvino_xml": false,
+                "binary_files": false
+            },
+            "total_size_mib": 59.414
+        },
+        {
+            "model": "PP-OCRv6_medium_rec",
+            "exists": true,
+            "files": [
+                {
+                    "name": ".cache\\huggingface\\.gitignore",
+                    "extension": "",
+                    "size_mib": 0.0
+                },
+                {
+                    "name": ".cache\\huggingface\\CACHEDIR.TAG",
+                    "extension": ".tag",
+                    "size_mib": 0.0002
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\.gitattributes.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.json.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.pdiparams.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\inference.yml.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\download\\README.md.metadata",
+                    "extension": ".metadata",
+                    "size_mib": 0.0001
+                },
+                {
+                    "name": ".cache\\huggingface\\trees\\e5a92bcbc5cc1b494628e458d267778f0704fd7c.json",
+                    "extension": ".json",
+                    "size_mib": 0.0007
+                },
+                {
+                    "name": ".gitattributes",
+                    "extension": "",
+                    "size_mib": 0.0015
+                },
+                {
+                    "name": "inference.json",
+                    "extension": ".json",
+                    "size_mib": 0.2115
+                },
+                {
+                    "name": "inference.pdiparams",
+                    "extension": ".pdiparams",
+                    "size_mib": 72.9228
+                },
+                {
+                    "name": "inference.yml",
+                    "extension": ".yml",
+                    "size_mib": 0.1436
+                },
+                {
+                    "name": "README.md",
+                    "extension": ".md",
+                    "size_mib": 0.0224
+                }
+            ],
+            "formats": {
+                "paddle_parameters": true,
+                "paddle_legacy_graph": false,
+                "json_files": true,
+                "onnx_graph": false,
+                "openvino_xml": false,
+                "binary_files": false
+            },
+            "total_size_mib": 73.303
+        }
+    ],
+    "paddlex_runtime_support": {
+        "package_found": true,
+        "runtime_references": {
+            "onnxruntime": {
+                "source_count": 20,
+                "example_sources": [
+                    "inference\\models\\__init__.py",
+                    "inference\\models\\engines\\__init__.py",
+                    "inference\\models\\engines\\onnxruntime.py",
+                    "inference\\models\\formula_recognition\\__init__.py",
+                    "inference\\models\\image_classification\\__init__.py",
+                    "inference\\models\\image_unwarping\\__init__.py",
+                    "inference\\models\\layout_analysis\\__init__.py",
+                    "inference\\models\\object_detection\\__init__.py"
+                ]
+            },
+            "openvino": {
+                "source_count": 4,
+                "example_sources": [
+                    "inference\\models\\runners\\hpi\\__init__.py",
+                    "inference\\models\\runners\\hpi\\backend.py",
+                    "inference\\models\\runners\\hpi\\config.py",
+                    "inference\\models\\runners\\hpi\\runner.py"
+                ]
+            },
+            "paddle2onnx": {
+                "source_count": 5,
+                "example_sources": [
+                    "inference\\models\\runners\\hpi\\backend.py",
+                    "inference\\models\\runners\\hpi\\config.py",
+                    "inference\\models\\runners\\hpi\\runner.py",
+                    "paddlex_cli.py",
+                    "utils\\deps.py"
+                ]
+            },
+            "paddle_static": {
+                "source_count": 33,
+                "example_sources": [
+                    "inference\\models\\__init__.py",
+                    "inference\\models\\anomaly_detection\\__init__.py",
+                    "inference\\models\\engines\\_base.py",
+                    "inference\\models\\engines\\paddle.py",
+                    "inference\\models\\face_feature\\__init__.py",
+                    "inference\\models\\formula_recognition\\__init__.py",
+                    "inference\\models\\image_classification\\__init__.py",
+                    "inference\\models\\image_feature\\__init__.py"
+                ]
+            },
+            "enable_hpi": {
+                "source_count": 0,
+                "example_sources": []
+            }
+        }
+    }
+}

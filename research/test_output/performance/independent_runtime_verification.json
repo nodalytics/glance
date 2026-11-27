@@ -1,0 +1,121 @@
+{
+    "timestamp_utc": "2026-11-26T19:30:26.982935+00:00",
+    "environment": {
+        "python_version": "3.11.0",
+        "python_executable": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv-ocr-research\\Scripts\\python.exe",
+        "platform": "Windows-10-10.0.26200-SP0"
+    },
+    "imports": {
+        "numpy": {
+            "success": true,
+            "version": "2.4.6",
+            "import_ms": 189.4025
+        },
+        "onnx": {
+            "success": true,
+            "version": "1.17.0",
+            "import_ms": 121.6737
+        },
+        "onnxruntime": {
+            "success": true,
+            "version": "1.32.0",
+            "import_ms": 159.3891
+        },
+        "openvino": {
+            "success": true,
+            "version": "2026.4.1",
+            "import_ms": 291.3427
+        }
+    },
+    "model": {
+        "success": true,
+        "filename": "runtime_smoke_test.onnx",
+        "opset": 13,
+        "ir_version": 8,
+        "file_size_bytes": 213
+    },
+    "runtimes": {
+        "onnxruntime": {
+            "success": true,
+            "available_providers": [
+                "AzureExecutionProvider",
+                "CPUExecutionProvider"
+            ],
+            "initialization_ms": 88.3375,
+            "active_providers": [
+                "CPUExecutionProvider"
+            ],
+            "expected_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "actual_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "numerically_correct": true,
+            "benchmark": {
+                "warmup_runs": 5,
+                "benchmark_runs": 30,
+                "mean_ms": 0.024313,
+                "median_ms": 0.0198,
+                "minimum_ms": 0.0162,
+                "maximum_ms": 0.0708
+            }
+        },
+        "openvino": {
+            "success": true,
+            "available_devices": [
+                "CPU",
+                "GPU"
+            ],
+            "device_information": {
+                "CPU": "12th Gen Intel(R) Core(TM) i5-1235U",
+                "GPU": "Intel(R) UHD Graphics (iGPU)"
+            },
+            "model_loading_ms": 44.21,
+            "compilation_ms": 133.9325,
+            "expected_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "actual_output": [
+                [
+                    5.0,
+                    7.0,
+                    9.0,
+                    11.0
+                ]
+            ],
+            "numerically_correct": true,
+            "benchmark": {
+                "warmup_runs": 5,
+                "benchmark_runs": 30,
+                "mean_ms": 0.16856,
+                "median_ms": 0.1603,
+                "minimum_ms": 0.1456,
+                "maximum_ms": 0.234
+            }
+        }
+    },
+    "converter_status": "deferred",
+    "success": true,
+    "summary": {
+        "runtime_count": 2,
+        "passed_runtimes": 2,
+        "failed_runtimes": 0,
+        "converter_required": false
+    }
+}

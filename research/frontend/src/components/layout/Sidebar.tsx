@@ -6,6 +6,7 @@ import {
   Users,
   ScanLine,
   FileJson,
+    Gauge,
   Settings,
   ShieldCheck,
   X,
@@ -55,6 +56,11 @@ const navigation = [
     id: 'settings',
     label: 'Settings',
     icon: Settings,
+  },
+  {
+    id: 'performance',
+    label: 'Performance Lab',
+    icon: Gauge,
   },
 ] as const
 

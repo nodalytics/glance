@@ -1,0 +1,1302 @@
+{
+    "timestamp_utc": "2026-11-26T14:37:28.575082+00:00",
+    "screenshot": "ss.jpeg",
+    "file_size_bytes": 232478,
+    "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "success": true,
+    "timings_ms": {
+        "pipeline_import": 4257.726,
+        "pipeline_initialization": 0.531,
+        "screenshot_processing": 101055.315,
+        "total_execution": 105323.821
+    },
+    "state_summary": {
+        "status": "valid",
+        "street": "river",
+        "recognized_card_count": 7,
+        "occupied_card_count": 7,
+        "player_count": 7,
+        "validation_valid": true,
+        "validation_error_count": 0,
+        "validation_warning_count": 0,
+        "recognition_profile": "calibration",
+        "community_cards": [
+            {
+                "rank": "A",
+                "suit": "hearts"
+            },
+            {
+                "rank": "8",
+                "suit": "spades"
+            },
+            {
+                "rank": "J",
+                "suit": "hearts"
+            },
+            {
+                "rank": "J",
+                "suit": "diamonds"
+            },
+            {
+                "rank": "2",
+                "suit": "hearts"
+            }
+        ],
+        "hero_cards": [
+            {
+                "rank": "Q",
+                "suit": "clubs"
+            },
+            {
+                "rank": "10",
+                "suit": "clubs"
+            }
+        ],
+        "backend_processing_time_seconds": 101.054853,
+        "backend_timings": {
+            "initialization_seconds": 3.105715,
+            "recognition_seconds": 26.058815,
+            "state_building_seconds": 0.000838,
+            "total_seconds": 29.165428,
+            "card_slots": {
+                "board_1": 4.500977,
+                "board_2": 3.977243,
+                "board_3": 3.853537,
+                "board_4": 3.677438,
+                "board_5": 3.605892,
+                "hero_card_1": 2.758682,
+                "hero_card_2": 3.684959
+            },
+            "screenshot_loading_seconds": 0.043134,
+            "table_extraction_seconds": 71.84605,
+            "card_cropping_seconds": 8.4e-05,
+            "screenshot_total_seconds": 101.054853
+        }
+    },
+    "resource_usage": {
+        "sample_count": 365,
+        "sampling_interval_ms": 250.0,
+        "average_process_cpu_percent": 862.555,
+        "normalized_average_cpu_percent": 71.88,
+        "maximum_process_cpu_percent": 1233.6,
+        "average_system_cpu_percent": 79.445,
+        "initial_process_memory_mib": 21.43,
+        "peak_sampled_process_memory_mib": 1622.516,
+        "final_process_memory_mib": 1616.52,
+        "minimum_available_system_memory_mib": 539.301,
+        "maximum_process_threads": 45
+    },
+    "function_statistics": {
+        "total_function_calls": 7166084,
+        "primitive_function_calls": 7099062,
+        "profiled_internal_time_ms": 101053.911,
+        "top_cumulative_functions": [
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 167,
+                "function": "process_file",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 1.167,
+                "cumulative_time_ms": 101054.869,
+                "average_internal_time_ms": 1.1667
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\ocr.py",
+                "line_number": 50,
+                "function": "extract",
+                "primitive_calls": 15,
+                "total_calls": 15,
+                "internal_time_ms": 0.529,
+                "cumulative_time_ms": 88970.525,
+                "average_internal_time_ms": 0.035287
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\ocr.py",
+                "line_number": 208,
+                "function": "predict",
+                "primitive_calls": 15,
+                "total_calls": 15,
+                "internal_time_ms": 0.155,
+                "cumulative_time_ms": 88958.06,
+                "average_internal_time_ms": 0.010327
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\_parallel.py",
+                "line_number": 148,
+                "function": "predict",
+                "primitive_calls": 30,
+                "total_calls": 30,
+                "internal_time_ms": 0.633,
+                "cumulative_time_ms": 88957.827,
+                "average_internal_time_ms": 0.021107
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\ocr\\pipeline.py",
+                "line_number": 292,
+                "function": "predict",
+                "primitive_calls": 30,
+                "total_calls": 30,
+                "internal_time_ms": 1.631,
+                "cumulative_time_ms": 88957.124,
+                "average_internal_time_ms": 0.054367
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\predictors\\base_predictor.py",
+                "line_number": 61,
+                "function": "__call__",
+                "primitive_calls": 105,
+                "total_calls": 105,
+                "internal_time_ms": 0.339,
+                "cumulative_time_ms": 88913.9,
+                "average_internal_time_ms": 0.003228
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\predictors\\base_predictor.py",
+                "line_number": 119,
+                "function": "apply",
+                "primitive_calls": 105,
+                "total_calls": 105,
+                "internal_time_ms": 25.068,
+                "cumulative_time_ms": 88913.561,
+                "average_internal_time_ms": 0.23874
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\runners\\paddle_static\\runner.py",
+                "line_number": 289,
+                "function": "__call__",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 21.689,
+                "cumulative_time_ms": 88533.294,
+                "average_internal_time_ms": 0.602472
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\runners\\paddle_static\\runner.py",
+                "line_number": 261,
+                "function": "__call__",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 1.356,
+                "cumulative_time_ms": 88510.345,
+                "average_internal_time_ms": 0.037672
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method paddle.base.libpaddle.run>",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 88393.956,
+                "cumulative_time_ms": 88393.956,
+                "average_internal_time_ms": 2455.387672
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 137,
+                "function": "extract_table_data",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.099,
+                "cumulative_time_ms": 71844.971,
+                "average_internal_time_ms": 0.0986
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\text_recognition\\predictor.py",
+                "line_number": 156,
+                "function": "process",
+                "primitive_calls": 21,
+                "total_calls": 21,
+                "internal_time_ms": 24.421,
+                "cumulative_time_ms": 60066.689,
+                "average_internal_time_ms": 1.162895
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\offline_pipeline.py",
+                "line_number": 161,
+                "function": "process",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.221,
+                "cumulative_time_ms": 29165.444,
+                "average_internal_time_ms": 0.2211
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\text_detection\\predictor.py",
+                "line_number": 121,
+                "function": "process",
+                "primitive_calls": 15,
+                "total_calls": 15,
+                "internal_time_ms": 3.726,
+                "cumulative_time_ms": 28809.982,
+                "average_internal_time_ms": 0.24842
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 859,
+                "function": "recognize_card",
+                "primitive_calls": 7,
+                "total_calls": 7,
+                "internal_time_ms": 0.231,
+                "cumulative_time_ms": 26058.621,
+                "average_internal_time_ms": 0.033014
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 308,
+                "function": "recognize_rank",
+                "primitive_calls": 7,
+                "total_calls": 7,
+                "internal_time_ms": 0.312,
+                "cumulative_time_ms": 26023.718,
+                "average_internal_time_ms": 0.044629
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\ocr.py",
+                "line_number": 42,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.055,
+                "cumulative_time_ms": 9557.64,
+                "average_internal_time_ms": 0.02765
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\ocr.py",
+                "line_number": 67,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.127,
+                "cumulative_time_ms": 9557.585,
+                "average_internal_time_ms": 0.06325
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\base.py",
+                "line_number": 55,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.063,
+                "cumulative_time_ms": 9557.423,
+                "average_internal_time_ms": 0.03145
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\base.py",
+                "line_number": 102,
+                "function": "_create_paddlex_pipeline",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.052,
+                "cumulative_time_ms": 9527.963,
+                "average_internal_time_ms": 0.02575
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\__init__.py",
+                "line_number": 105,
+                "function": "create_pipeline",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.055,
+                "cumulative_time_ms": 6654.454,
+                "average_internal_time_ms": 0.0277
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\utils\\deps.py",
+                "line_number": 205,
+                "function": "_wrapper",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.041,
+                "cumulative_time_ms": 6654.367,
+                "average_internal_time_ms": 0.02055
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\_parallel.py",
+                "line_number": 78,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.056,
+                "cumulative_time_ms": 6647.073,
+                "average_internal_time_ms": 0.02805
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\_parallel.py",
+                "line_number": 189,
+                "function": "_create_internal_pipeline",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.044,
+                "cumulative_time_ms": 6646.981,
+                "average_internal_time_ms": 0.02215
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\ocr\\pipeline.py",
+                "line_number": 42,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.171,
+                "cumulative_time_ms": 6646.928,
+                "average_internal_time_ms": 0.0857
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\base.py",
+                "line_number": 106,
+                "function": "create_model",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.182,
+                "cumulative_time_ms": 6646.348,
+                "average_internal_time_ms": 0.0454
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\__init__.py",
+                "line_number": 356,
+                "function": "create_predictor",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.308,
+                "cumulative_time_ms": 6643.635,
+                "average_internal_time_ms": 0.07695
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 56,
+                "function": "get_table_ocr",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.026,
+                "cumulative_time_ms": 6458.333,
+                "average_internal_time_ms": 0.0259
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\__init__.py",
+                "line_number": 74,
+                "function": "load",
+                "primitive_calls": 6,
+                "total_calls": 6,
+                "internal_time_ms": 4.261,
+                "cumulative_time_ms": 4971.55,
+                "average_internal_time_ms": 0.7102
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\__init__.py",
+                "line_number": 280,
+                "function": "_load_local_model_config",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.031,
+                "cumulative_time_ms": 4948.957,
+                "average_internal_time_ms": 0.0077
+            }
+        ],
+        "top_internal_functions": [
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method paddle.base.libpaddle.run>",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 88393.956,
+                "cumulative_time_ms": 88393.956,
+                "average_internal_time_ms": 2455.387672
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<fastNlMeansDenoisingColored>",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 2402.419,
+                "cumulative_time_ms": 2402.419,
+                "average_internal_time_ms": 2402.4188
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method paddle.base.libpaddle.create_predictor>",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 1656.038,
+                "cumulative_time_ms": 1656.038,
+                "average_internal_time_ms": 414.009475
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method io.open_code>",
+                "primitive_calls": 1165,
+                "total_calls": 1165,
+                "internal_time_ms": 893.387,
+                "cumulative_time_ms": 893.387,
+                "average_internal_time_ms": 0.766855
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 145,
+                "function": "need_more_tokens",
+                "primitive_calls": 417912,
+                "total_calls": 417912,
+                "internal_time_ms": 366.526,
+                "cumulative_time_ms": 641.804,
+                "average_internal_time_ms": 0.000877
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 113,
+                "function": "check_token",
+                "primitive_calls": 228428,
+                "total_calls": 228428,
+                "internal_time_ms": 343.955,
+                "cumulative_time_ms": 3570.471,
+                "average_internal_time_ms": 0.001506
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\reader.py",
+                "line_number": 99,
+                "function": "forward",
+                "primitive_calls": 264862,
+                "total_calls": 264862,
+                "internal_time_ms": 312.433,
+                "cumulative_time_ms": 346.295,
+                "average_internal_time_ms": 0.00118
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method nt.stat>",
+                "primitive_calls": 5178,
+                "total_calls": 5178,
+                "internal_time_ms": 287.58,
+                "cumulative_time_ms": 288.079,
+                "average_internal_time_ms": 0.055539
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\reader.py",
+                "line_number": 114,
+                "function": "get_mark",
+                "primitive_calls": 188832,
+                "total_calls": 188832,
+                "internal_time_ms": 273.901,
+                "cumulative_time_ms": 349.308,
+                "average_internal_time_ms": 0.00145
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 1270,
+                "function": "scan_plain",
+                "primitive_calls": 37722,
+                "total_calls": 37722,
+                "internal_time_ms": 270.86,
+                "cumulative_time_ms": 1339.761,
+                "average_internal_time_ms": 0.00718
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 156,
+                "function": "fetch_more_tokens",
+                "primitive_calls": 75516,
+                "total_calls": 75516,
+                "internal_time_ms": 269.942,
+                "cumulative_time_ms": 2716.159,
+                "average_internal_time_ms": 0.003575
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method marshal.loads>",
+                "primitive_calls": 1165,
+                "total_calls": 1165,
+                "internal_time_ms": 252.598,
+                "cumulative_time_ms": 252.598,
+                "average_internal_time_ms": 0.216822
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 1311,
+                "function": "scan_plain_spaces",
+                "primitive_calls": 37722,
+                "total_calls": 37722,
+                "internal_time_ms": 248.443,
+                "cumulative_time_ms": 687.829,
+                "average_internal_time_ms": 0.006586
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\reader.py",
+                "line_number": 87,
+                "function": "peek",
+                "primitive_calls": 872048,
+                "total_calls": 872048,
+                "internal_time_ms": 246.38,
+                "cumulative_time_ms": 254.735,
+                "average_internal_time_ms": 0.000283
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 279,
+                "function": "stale_possible_simple_keys",
+                "primitive_calls": 418064,
+                "total_calls": 418064,
+                "internal_time_ms": 214.424,
+                "cumulative_time_ms": 214.424,
+                "average_internal_time_ms": 0.000513
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<method 'read' of '_io.BufferedReader' objects>",
+                "primitive_calls": 1167,
+                "total_calls": 1167,
+                "internal_time_ms": 213.323,
+                "cumulative_time_ms": 213.323,
+                "average_internal_time_ms": 0.182796
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\parser.py",
+                "line_number": 273,
+                "function": "parse_node",
+                "primitive_calls": 37910,
+                "total_calls": 37910,
+                "internal_time_ms": 202.957,
+                "cumulative_time_ms": 853.014,
+                "average_internal_time_ms": 0.005354
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 752,
+                "function": "scan_to_next_token",
+                "primitive_calls": 75516,
+                "total_calls": 75516,
+                "internal_time_ms": 163.179,
+                "cumulative_time_ms": 341.547,
+                "average_internal_time_ms": 0.002161
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method _imp.create_dynamic>",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 138.914,
+                "cumulative_time_ms": 140.834,
+                "average_internal_time_ms": 69.4571
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 484,
+                "function": "fetch_block_entry",
+                "primitive_calls": 37532,
+                "total_calls": 37532,
+                "internal_time_ms": 134.54,
+                "cumulative_time_ms": 334.139,
+                "average_internal_time_ms": 0.003585
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\reader.py",
+                "line_number": 94,
+                "function": "prefix",
+                "primitive_calls": 150750,
+                "total_calls": 150750,
+                "internal_time_ms": 123.322,
+                "cumulative_time_ms": 152.69,
+                "average_internal_time_ms": 0.000818
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\composer.py",
+                "line_number": 63,
+                "function": "compose_node",
+                "primitive_calls": 6,
+                "total_calls": 37910,
+                "internal_time_ms": 120.378,
+                "cumulative_time_ms": 4807.56,
+                "average_internal_time_ms": 0.003175
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\parser.py",
+                "line_number": 94,
+                "function": "check_event",
+                "primitive_calls": 113880,
+                "total_calls": 113880,
+                "internal_time_ms": 111.135,
+                "cumulative_time_ms": 4383.111,
+                "average_internal_time_ms": 0.000976
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method numpy.array>",
+                "primitive_calls": 627,
+                "total_calls": 627,
+                "internal_time_ms": 103.974,
+                "cumulative_time_ms": 103.974,
+                "average_internal_time_ms": 0.165828
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 1416,
+                "function": "scan_line_break",
+                "primitive_calls": 113212,
+                "total_calls": 113212,
+                "internal_time_ms": 102.499,
+                "cumulative_time_ms": 219.999,
+                "average_internal_time_ms": 0.000905
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 295,
+                "function": "save_possible_simple_key",
+                "primitive_calls": 37792,
+                "total_calls": 37792,
+                "internal_time_ms": 99.016,
+                "cumulative_time_ms": 184.037,
+                "average_internal_time_ms": 0.00262
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method paddle.base.libpaddle.copy_to_cpu>",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 96.593,
+                "cumulative_time_ms": 96.593,
+                "average_internal_time_ms": 2.683139
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\parser.py",
+                "line_number": 402,
+                "function": "parse_indentless_sequence_entry",
+                "primitive_calls": 37504,
+                "total_calls": 37504,
+                "internal_time_ms": 96.308,
+                "cumulative_time_ms": 4193.246,
+                "average_internal_time_ms": 0.002568
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\yaml\\scanner.py",
+                "line_number": 264,
+                "function": "next_possible_simple_key",
+                "primitive_calls": 342548,
+                "total_calls": 342548,
+                "internal_time_ms": 95.887,
+                "cumulative_time_ms": 95.887,
+                "average_internal_time_ms": 0.00028
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method builtins.isinstance>",
+                "primitive_calls": 646764,
+                "total_calls": 646764,
+                "internal_time_ms": 94.254,
+                "cumulative_time_ms": 101.424,
+                "average_internal_time_ms": 0.000146
+            }
+        ],
+        "top_project_functions": [
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 167,
+                "function": "process_file",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 1.167,
+                "cumulative_time_ms": 101054.869,
+                "average_internal_time_ms": 1.1667
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\ocr.py",
+                "line_number": 50,
+                "function": "extract",
+                "primitive_calls": 15,
+                "total_calls": 15,
+                "internal_time_ms": 0.529,
+                "cumulative_time_ms": 88970.525,
+                "average_internal_time_ms": 0.035287
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 137,
+                "function": "extract_table_data",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.099,
+                "cumulative_time_ms": 71844.971,
+                "average_internal_time_ms": 0.0986
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\offline_pipeline.py",
+                "line_number": 161,
+                "function": "process",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.221,
+                "cumulative_time_ms": 29165.444,
+                "average_internal_time_ms": 0.2211
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 859,
+                "function": "recognize_card",
+                "primitive_calls": 7,
+                "total_calls": 7,
+                "internal_time_ms": 0.231,
+                "cumulative_time_ms": 26058.621,
+                "average_internal_time_ms": 0.033014
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 308,
+                "function": "recognize_rank",
+                "primitive_calls": 7,
+                "total_calls": 7,
+                "internal_time_ms": 0.312,
+                "cumulative_time_ms": 26023.718,
+                "average_internal_time_ms": 0.044629
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\ocr.py",
+                "line_number": 42,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.055,
+                "cumulative_time_ms": 9557.64,
+                "average_internal_time_ms": 0.02765
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 56,
+                "function": "get_table_ocr",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.026,
+                "cumulative_time_ms": 6458.333,
+                "average_internal_time_ms": 0.0259
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\recognition_profiles.py",
+                "line_number": 129,
+                "function": "get_recognizer",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.036,
+                "cumulative_time_ms": 3105.663,
+                "average_internal_time_ms": 0.01805
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\recognition_profiles.py",
+                "line_number": 48,
+                "function": "_create_calibration_recognizer",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.032,
+                "cumulative_time_ms": 3105.393,
+                "average_internal_time_ms": 0.0316
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 54,
+                "function": "__init__",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.056,
+                "cumulative_time_ms": 3105.266,
+                "average_internal_time_ms": 0.0559
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\preprocessing.py",
+                "line_number": 71,
+                "function": "process",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 1.942,
+                "cumulative_time_ms": 2435.002,
+                "average_internal_time_ms": 1.9417
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\preprocessing.py",
+                "line_number": 31,
+                "function": "denoise",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.007,
+                "cumulative_time_ms": 2402.426,
+                "average_internal_time_ms": 0.0068
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 70,
+                "function": "load_screenshot",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.034,
+                "cumulative_time_ms": 43.118,
+                "average_internal_time_ms": 0.0339
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\preprocessing.py",
+                "line_number": 42,
+                "function": "enhance_contrast",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.09,
+                "cumulative_time_ms": 28.715,
+                "average_internal_time_ms": 0.0899
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 689,
+                "function": "recognize_exact_suit",
+                "primitive_calls": 7,
+                "total_calls": 7,
+                "internal_time_ms": 0.538,
+                "cumulative_time_ms": 26.299,
+                "average_internal_time_ms": 0.076929
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 379,
+                "function": "normalize_suit_symbol",
+                "primitive_calls": 19,
+                "total_calls": 19,
+                "internal_time_ms": 1.088,
+                "cumulative_time_ms": 14.595,
+                "average_internal_time_ms": 0.057279
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 596,
+                "function": "calculate_similarity",
+                "primitive_calls": 76,
+                "total_calls": 76,
+                "internal_time_ms": 2.679,
+                "cumulative_time_ms": 11.035,
+                "average_internal_time_ms": 0.035257
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 555,
+                "function": "extract_symbol_contour",
+                "primitive_calls": 152,
+                "total_calls": 152,
+                "internal_time_ms": 0.692,
+                "cumulative_time_ms": 5.87,
+                "average_internal_time_ms": 0.00455
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 82,
+                "function": "_load_suit_templates",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.467,
+                "cumulative_time_ms": 5.726,
+                "average_internal_time_ms": 0.4674
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 136,
+                "function": "extract_corner",
+                "primitive_calls": 14,
+                "total_calls": 14,
+                "internal_time_ms": 0.155,
+                "cumulative_time_ms": 5.644,
+                "average_internal_time_ms": 0.0111
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\table_parser.py",
+                "line_number": 351,
+                "function": "parse_table",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.026,
+                "cumulative_time_ms": 3.802,
+                "average_internal_time_ms": 0.0258
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 215,
+                "function": "extract_suit_candidates",
+                "primitive_calls": 7,
+                "total_calls": 7,
+                "internal_time_ms": 0.138,
+                "cumulative_time_ms": 2.9,
+                "average_internal_time_ms": 0.019671
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\card_recognition.py",
+                "line_number": 176,
+                "function": "extract_fallback_rank_region",
+                "primitive_calls": 7,
+                "total_calls": 7,
+                "internal_time_ms": 0.037,
+                "cumulative_time_ms": 2.451,
+                "average_internal_time_ms": 0.005329
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\table_parser.py",
+                "line_number": 263,
+                "function": "parse_players",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.036,
+                "cumulative_time_ms": 1.908,
+                "average_internal_time_ms": 0.0361
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\preprocessing.py",
+                "line_number": 9,
+                "function": "resize",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.009,
+                "cumulative_time_ms": 1.288,
+                "average_internal_time_ms": 0.0089
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\table_parser.py",
+                "line_number": 70,
+                "function": "find_in_region",
+                "primitive_calls": 21,
+                "total_calls": 21,
+                "internal_time_ms": 0.025,
+                "cumulative_time_ms": 1.243,
+                "average_internal_time_ms": 0.001176
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\table_parser.py",
+                "line_number": 205,
+                "function": "parse_table_info",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.083,
+                "cumulative_time_ms": 1.2,
+                "average_internal_time_ms": 0.0827
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\table_parser.py",
+                "line_number": 76,
+                "function": "<listcomp>",
+                "primitive_calls": 21,
+                "total_calls": 21,
+                "internal_time_ms": 0.316,
+                "cumulative_time_ms": 1.195,
+                "average_internal_time_ms": 0.015043
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\table_parser.py",
+                "line_number": 62,
+                "function": "is_inside",
+                "primitive_calls": 978,
+                "total_calls": 978,
+                "internal_time_ms": 0.549,
+                "cumulative_time_ms": 0.874,
+                "average_internal_time_ms": 0.000562
+            }
+        ],
+        "top_ocr_functions": [
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\ocr.py",
+                "line_number": 50,
+                "function": "extract",
+                "primitive_calls": 15,
+                "total_calls": 15,
+                "internal_time_ms": 0.529,
+                "cumulative_time_ms": 88970.525,
+                "average_internal_time_ms": 0.035287
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\ocr.py",
+                "line_number": 208,
+                "function": "predict",
+                "primitive_calls": 15,
+                "total_calls": 15,
+                "internal_time_ms": 0.155,
+                "cumulative_time_ms": 88958.06,
+                "average_internal_time_ms": 0.010327
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\_parallel.py",
+                "line_number": 148,
+                "function": "predict",
+                "primitive_calls": 30,
+                "total_calls": 30,
+                "internal_time_ms": 0.633,
+                "cumulative_time_ms": 88957.827,
+                "average_internal_time_ms": 0.021107
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\ocr\\pipeline.py",
+                "line_number": 292,
+                "function": "predict",
+                "primitive_calls": 30,
+                "total_calls": 30,
+                "internal_time_ms": 1.631,
+                "cumulative_time_ms": 88957.124,
+                "average_internal_time_ms": 0.054367
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\predictors\\base_predictor.py",
+                "line_number": 61,
+                "function": "__call__",
+                "primitive_calls": 105,
+                "total_calls": 105,
+                "internal_time_ms": 0.339,
+                "cumulative_time_ms": 88913.9,
+                "average_internal_time_ms": 0.003228
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\predictors\\base_predictor.py",
+                "line_number": 119,
+                "function": "apply",
+                "primitive_calls": 105,
+                "total_calls": 105,
+                "internal_time_ms": 25.068,
+                "cumulative_time_ms": 88913.561,
+                "average_internal_time_ms": 0.23874
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\runners\\paddle_static\\runner.py",
+                "line_number": 289,
+                "function": "__call__",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 21.689,
+                "cumulative_time_ms": 88533.294,
+                "average_internal_time_ms": 0.602472
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\runners\\paddle_static\\runner.py",
+                "line_number": 261,
+                "function": "__call__",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 1.356,
+                "cumulative_time_ms": 88510.345,
+                "average_internal_time_ms": 0.037672
+            },
+            {
+                "filename": "~",
+                "line_number": 0,
+                "function": "<built-in method paddle.base.libpaddle.run>",
+                "primitive_calls": 36,
+                "total_calls": 36,
+                "internal_time_ms": 88393.956,
+                "cumulative_time_ms": 88393.956,
+                "average_internal_time_ms": 2455.387672
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\text_recognition\\predictor.py",
+                "line_number": 156,
+                "function": "process",
+                "primitive_calls": 21,
+                "total_calls": 21,
+                "internal_time_ms": 24.421,
+                "cumulative_time_ms": 60066.689,
+                "average_internal_time_ms": 1.162895
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\text_detection\\predictor.py",
+                "line_number": 121,
+                "function": "process",
+                "primitive_calls": 15,
+                "total_calls": 15,
+                "internal_time_ms": 3.726,
+                "cumulative_time_ms": 28809.982,
+                "average_internal_time_ms": 0.24842
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\vision\\ocr.py",
+                "line_number": 42,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.055,
+                "cumulative_time_ms": 9557.64,
+                "average_internal_time_ms": 0.02765
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\ocr.py",
+                "line_number": 67,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.127,
+                "cumulative_time_ms": 9557.585,
+                "average_internal_time_ms": 0.06325
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\base.py",
+                "line_number": 55,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.063,
+                "cumulative_time_ms": 9557.423,
+                "average_internal_time_ms": 0.03145
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_pipelines\\base.py",
+                "line_number": 102,
+                "function": "_create_paddlex_pipeline",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.052,
+                "cumulative_time_ms": 9527.963,
+                "average_internal_time_ms": 0.02575
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\__init__.py",
+                "line_number": 105,
+                "function": "create_pipeline",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.055,
+                "cumulative_time_ms": 6654.454,
+                "average_internal_time_ms": 0.0277
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\utils\\deps.py",
+                "line_number": 205,
+                "function": "_wrapper",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.041,
+                "cumulative_time_ms": 6654.367,
+                "average_internal_time_ms": 0.02055
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\_parallel.py",
+                "line_number": 78,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.056,
+                "cumulative_time_ms": 6647.073,
+                "average_internal_time_ms": 0.02805
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\_parallel.py",
+                "line_number": 189,
+                "function": "_create_internal_pipeline",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.044,
+                "cumulative_time_ms": 6646.981,
+                "average_internal_time_ms": 0.02215
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\ocr\\pipeline.py",
+                "line_number": 42,
+                "function": "__init__",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.171,
+                "cumulative_time_ms": 6646.928,
+                "average_internal_time_ms": 0.0857
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\pipelines\\base.py",
+                "line_number": 106,
+                "function": "create_model",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.182,
+                "cumulative_time_ms": 6646.348,
+                "average_internal_time_ms": 0.0454
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\__init__.py",
+                "line_number": 356,
+                "function": "create_predictor",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.308,
+                "cumulative_time_ms": 6643.635,
+                "average_internal_time_ms": 0.07695
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\poker_apis\\pipeline\\screenshot_pipeline.py",
+                "line_number": 56,
+                "function": "get_table_ocr",
+                "primitive_calls": 1,
+                "total_calls": 1,
+                "internal_time_ms": 0.026,
+                "cumulative_time_ms": 6458.333,
+                "average_internal_time_ms": 0.0259
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\__init__.py",
+                "line_number": 280,
+                "function": "_load_local_model_config",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.031,
+                "cumulative_time_ms": 4948.957,
+                "average_internal_time_ms": 0.0077
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\predictors\\base_predictor.py",
+                "line_number": 190,
+                "function": "load_config",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.076,
+                "cumulative_time_ms": 4948.926,
+                "average_internal_time_ms": 0.019
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\models\\utils\\model_config.py",
+                "line_number": 29,
+                "function": "load_model_config",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.07,
+                "cumulative_time_ms": 4948.834,
+                "average_internal_time_ms": 0.01745
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\utils\\io\\readers.py",
+                "line_number": 225,
+                "function": "read",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.06,
+                "cumulative_time_ms": 4948.542,
+                "average_internal_time_ms": 0.014925
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\inference\\utils\\io\\readers.py",
+                "line_number": 619,
+                "function": "read_file",
+                "primitive_calls": 4,
+                "total_calls": 4,
+                "internal_time_ms": 0.098,
+                "cumulative_time_ms": 4948.443,
+                "average_internal_time_ms": 0.024575
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddleocr\\_common_args.py",
+                "line_number": 102,
+                "function": "prepare_common_init_args",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.044,
+                "cumulative_time_ms": 2873.457,
+                "average_internal_time_ms": 0.022
+            },
+            {
+                "filename": "C:\\Users\\PMLS\\Desktop\\Fiver\\steve\\poker-apis\\.venv\\Lib\\site-packages\\paddlex\\utils\\device.py",
+                "line_number": 55,
+                "function": "get_default_device",
+                "primitive_calls": 2,
+                "total_calls": 2,
+                "internal_time_ms": 0.048,
+                "cumulative_time_ms": 2873.382,
+                "average_internal_time_ms": 0.02385
+            }
+        ]
+    }
+}

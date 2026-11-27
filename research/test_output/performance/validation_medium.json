@@ -1,0 +1,183 @@
+{
+    "model": "medium",
+    "success": true,
+    "documents": [
+        {
+            "document": "standard",
+            "inference_ms": 25770.492,
+            "accuracy": {
+                "expected_count": 8,
+                "recognized_count": 8,
+                "matched_count": 7,
+                "line_recall_percent": 87.5,
+                "line_precision_percent": 87.5,
+                "exact_match": false,
+                "missing_lines": [
+                    "date: 2026-11-26"
+                ],
+                "unexpected_lines": [
+                    "date:2026-11-26"
+                ]
+            },
+            "recognized_text": [
+                "Inventory Report",
+                "Reference: AB123789",
+                "Quantity: 3482",
+                "Total: 67219",
+                "Department: Operations",
+                "Status: Approved",
+                "Date:2026-11-26",
+                "Location: Building 12"
+            ]
+        },
+        {
+            "document": "small_text",
+            "inference_ms": 26296.806,
+            "accuracy": {
+                "expected_count": 8,
+                "recognized_count": 8,
+                "matched_count": 7,
+                "line_recall_percent": 87.5,
+                "line_precision_percent": 87.5,
+                "exact_match": false,
+                "missing_lines": [
+                    "date: 2026-11-26"
+                ],
+                "unexpected_lines": [
+                    "date:2026-11-26"
+                ]
+            },
+            "recognized_text": [
+                "Inventory Report",
+                "Reference: AB123789",
+                "Quantity: 3482",
+                "Total: 67219",
+                "Department: Operations",
+                "Status: Approved",
+                "Date:2026-11-26",
+                "Location: Building 12"
+            ]
+        },
+        {
+            "document": "low_contrast",
+            "inference_ms": 24540.974,
+            "accuracy": {
+                "expected_count": 8,
+                "recognized_count": 8,
+                "matched_count": 8,
+                "line_recall_percent": 100.0,
+                "line_precision_percent": 100.0,
+                "exact_match": true,
+                "missing_lines": [],
+                "unexpected_lines": []
+            },
+            "recognized_text": [
+                "Inventory Report",
+                "Reference: AB123789",
+                "Quantity: 3482",
+                "Total: 67219",
+                "Department: Operations",
+                "Status: Approved",
+                "Date: 2026-11-26",
+                "Location: Building 12"
+            ]
+        },
+        {
+            "document": "noisy",
+            "inference_ms": 24254.834,
+            "accuracy": {
+                "expected_count": 8,
+                "recognized_count": 8,
+                "matched_count": 8,
+                "line_recall_percent": 100.0,
+                "line_precision_percent": 100.0,
+                "exact_match": true,
+                "missing_lines": [],
+                "unexpected_lines": []
+            },
+            "recognized_text": [
+                "Inventory Report",
+                "Reference: AB123789",
+                "Quantity: 3482",
+                "Total: 67219",
+                "Department: Operations",
+                "Status: Approved",
+                "Date: 2026-11-26",
+                "Location: Building 12"
+            ]
+        },
+        {
+            "document": "dark",
+            "inference_ms": 24567.151,
+            "accuracy": {
+                "expected_count": 8,
+                "recognized_count": 8,
+                "matched_count": 8,
+                "line_recall_percent": 100.0,
+                "line_precision_percent": 100.0,
+                "exact_match": true,
+                "missing_lines": [],
+                "unexpected_lines": []
+            },
+            "recognized_text": [
+                "Inventory Report",
+                "Reference: AB123789",
+                "Quantity: 3482",
+                "Total: 67219",
+                "Department: Operations",
+                "Status: Approved",
+                "Date: 2026-11-26",
+                "Location: Building 12"
+            ]
+        },
+        {
+            "document": "dense",
+            "inference_ms": 37172.071,
+            "accuracy": {
+                "expected_count": 16,
+                "recognized_count": 16,
+                "matched_count": 15,
+                "line_recall_percent": 93.75,
+                "line_precision_percent": 93.75,
+                "exact_match": false,
+                "missing_lines": [
+                    "date: 2026-11-26"
+                ],
+                "unexpected_lines": [
+                    "date:2026-11-26"
+                ]
+            },
+            "recognized_text": [
+                "Inventory Report",
+                "Reference: AB123789",
+                "Quantity: 3482",
+                "Total: 67219",
+                "Department: Operations",
+                "Status: Approved",
+                "Date:2026-11-26",
+                "Location: Building 12",
+                "Product Code: ZX9876",
+                "Batch Number: 45019",
+                "Warehouse: Central",
+                "Delivery: Pending",
+                "Order Number: 876543",
+                "Category: Equipment",
+                "Units Received: 124",
+                "Units Remaining: 82"
+            ]
+        }
+    ],
+    "initialization_ms": 4015.574,
+    "summary": {
+        "document_count": 6,
+        "expected_lines": 56,
+        "matched_lines": 53,
+        "mean_inference_ms": 27100.388,
+        "median_inference_ms": 25168.821,
+        "minimum_inference_ms": 24254.834,
+        "maximum_inference_ms": 37172.071,
+        "line_recall_percent": 94.643,
+        "line_precision_percent": 94.643,
+        "exact_documents": 3
+    }
+}

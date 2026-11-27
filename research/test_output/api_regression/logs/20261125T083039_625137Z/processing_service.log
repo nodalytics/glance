@@ -1,0 +1,91 @@
+===========================================================================
+OFFLINE PROCESSING SERVICE VALIDATION
+===========================================================================
+
+SERVICE INITIALIZATION TESTS
+[PASS] Runtime directory created
+[PASS] Pipeline initialization is lazy
+[PASS] Service initially available
+
+FILENAME VALIDATION TESTS
+[PASS] PNG extension accepted
+[PASS] Uppercase extension normalized
+[PASS] Missing filename rejected
+[PASS] Parent path rejected
+[PASS] Windows path rejected
+[PASS] Unsupported extension rejected
+
+FILE SIZE VALIDATION TESTS
+[PASS] Empty upload rejected
+[PASS] Non-byte content rejected
+[PASS] Oversized upload rejected
+
+IMAGE VALIDATION TESTS
+[PASS] Valid PNG accepted
+[PASS] Valid JPEG accepted
+[PASS] 1600x900 dimensions accepted
+[PASS] Corrupted image rejected
+[PASS] Image extension mismatch rejected
+[PASS] Unsupported dimensions rejected
+[PASS] Upload validation does not initialize OCR
+
+SUCCESSFUL PROCESSING TESTS
+[PASS] Pipeline initialized on first request
+[PASS] Pipeline received existing temporary file
+[PASS] Validated response returned
+[PASS] Original filename preserved
+[PASS] Upload metadata included
+[PASS] Service timing included
+[PASS] Temporary file removed after success
+[PASS] Processing lock released after success
+[PASS] Pipeline reused for second request
+[PASS] Unique temporary filenames generated
+
+PROCESSING FAILURE TESTS
+[PASS] Pipeline failure converted to service error
+[PASS] Temporary file removed after failure
+[PASS] Processing lock released after failure
+[PASS] Invalid pipeline response rejected
+[PASS] Temporary file removed after schema failure
+
+CONCURRENCY TESTS
+[PASS] Worker acquired processing lock
+[PASS] Concurrent processing rejected
+[PASS] Worker completed successfully
+[PASS] Service available after worker completion
+
+REQUEST REJECTION TESTS
+[PASS] Invalid request rejected before processing
+[PASS] Structured error matches API model
+
+STATISTICS AND CLEANUP TESTS
+[PASS] Total request count correct
+[PASS] Successful request count correct
+[PASS] Failed request count correct
+[PASS] Rejected request count correct
+[PASS] Busy request count correct
+[PASS] No temporary upload files remain
+
+===========================================================================
+PROCESSING SERVICE VALIDATION SUMMARY
+===========================================================================
+{
+    "total_tests": 46,
+    "passed_tests": 46,
+    "failed_tests": 0,
+    "total_time_seconds": 0.4883,
+    "passed": true
+}
+
+SERVICE STATISTICS
+{
+    "total_requests": 7,
+    "successful_requests": 3,
+    "failed_requests": 2,
+    "rejected_requests": 1,
+    "busy_requests": 1
+}
+
+Report saved: C:\Users\PMLS\Desktop\Fiver\steve\poker-apis\test_output\processing_service_validation_report.json
+
+FINAL RESULT: ALL TESTS PASSED
