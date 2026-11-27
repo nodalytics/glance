@@ -27,11 +27,14 @@ feed — the screen is the only interface, and glance turns it into one:
    stack in `research/` — distributions, timing stats, opponent tendencies,
    model training. The structured output exists so the research side never
    has to touch images.
-3. **Bot control (the full loop, milestone M1).** Because the mapping
-   already records every field's rectangle, the action targets (call button,
-   raise bar, chips input) come from the same file: glance reads the table
-   *and* clicks the answer. A decision loop that watches state and injects
-   inputs is a thin client of the same HTTP surface.
+3. **Bot control (the full loop, milestone M1 — landed).** Because the
+   mapping already records every field's rectangle, the action targets (call
+   button, raise bar, chips input) come from the same file: glance reads the
+   table *and* clicks the answer. A decision loop that watches state and
+   injects inputs is a thin client of the same HTTP surface — today
+   `POST /click {"action": "call"}` does exactly that (see the control
+   section in `architecture.md` and the HTTP routes in
+   `core/include/server_control.h`).
 4. **Multi-table awareness (M3).** One process, many window grabs (one skin
    per table, different coordinates): a cross-table view of where action is,
    used for switching, for correlated reads, or simply for tracking.
@@ -40,8 +43,8 @@ feed — the screen is the only interface, and glance turns it into one:
    deterministic, so any action the bot took can be replayed and checked
    afterwards.
 
-The first three work or nearly work today (1–2 are a client script away;
-3 is milestone M1); 4–5 are on the roadmap below.
+The first three all work today (1–2 are a client script away; 3 is a one-line
+`POST /click` away); 4–5 are on the roadmap below.
 
 ## Reading order
 
@@ -57,27 +60,48 @@ The first three work or nearly work today (1–2 are a client script away;
   match for static elements, optional OCR for numbers (build passes without
   tesseract; numeric fields are just omitted), end-to-end selftest
   (`glance-selftest`).
+- **State validation** — done. Every parsed state is sanity-checked
+  (`core/include/state_validation.h`, port of the Python research
+  prototype's card/table validators): duplicate card faces, board gaps,
+  stage/board mismatches and negative amounts surface in the state JSON as a
+  `validation` block (`{valid, errors[], warnings[]}`) so clients can
+  distrust a broken read. Pure logic; no OCR required.
 - **Generic engine** — done. `core/` (mapping, template_match, ocr, scraper,
   ScreenshotService) is platform-free and ready to be reused elsewhere.
-- **Control (sending actions back to the screen)** — on the roadmap.
+- **Control (sending actions back to the screen)** — done (milestone M1).
+  `POST /grab`, `POST /click`, `POST /key`, `POST /sequence` on the same
+  HTTP surface: the server can grab the desktop/a window (X11 `XGetImage`),
+  click a named mapping `action` (resolved to the centre of its
+  `buttons`/`stacks` rectangle in screen-absolute coordinates) or raw
+  coordinates in the last capture's space, and inject keys/text (X11 `XTest`).
+  The mapping gained `actions` (name → `button:<name>` | `stack:<key>`, no
+  own rectangles) and `window_title` (see `core/include/mapping.h`); the
+  platform is a `Screen`/`Input` backend chosen at configure time
+  (`GLANCE_X11`), with a null fallback on headless machines — the same
+  optional pattern as tesseract.
 
 ## Roadmap: from screen-reading to screen-controlling
 
-**M1 — Control loop (poker actions).**
+**M1 — Control loop (poker actions) — done.**
 Keyboard/mouse injection against the poker window: click-by-coordinate
 (determinable from the mapping, since we already know the rectangles) and key
-input for chat/raise amounts. This closes the loop: glance *reads* the table
-and then *plays* on it — a minimal bot with zero platform access. The mapping
-gains an `actions` section (coordinate + click type per action) — same schema
-extension pattern as before, generic in `core/`, ACR-specific targets in
-`acr/`.
+input for chat/raise amounts. The mapping gains an `actions` section — named
+targets that reference the *existing* `buttons`/`stacks` geometry
+(`"call": "button:call"`), resolved to screen-absolute centres at scrape
+time — same schema extension pattern as before. The loop is closed: glance
+*reads* the table and then *plays* on it, a minimal bot with zero platform
+access. Selftest drives the whole surface in-process on fake backends
+(resolution cases, input-space conversion, HTTP round-trips through the real
+route handlers), so no window is needed to prove it.
 
-**M2 — Generic control primitives in `core/`.**
-A small, platform-safe mouse/keyboard abstraction (X11 `XTEST`, Windows
-SendInput, fallback to cliclick/input on macOS), injected through the service
-so the HTTP layer can drive it: `POST /click`, `POST /key`, `POST /sequence`.
-The service becomes the control surface any client can use, not just the
-poker scraper.
+**M2 — Generic control primitives in `core/` — landed in part.**
+The platform-safe mouse/keyboard abstraction exists: `Screen` + `Input` +
+`Backend` in `core/` (`control.h`), injected through the `ControlService` so
+the HTTP layer (`/click`, `/key`, `/sequence`, `/grab`) drives it. The Linux
+X11 backend (XGetImage + XTest) is in; Windows SendInput and macOS
+CGEvent/cliclick backends are still to come when glance moves off Linux —
+the configure-time-optional pattern means each is an additive option
+(`GLANCE_X11`, and future flags) with the null backend as fallback.
 
 **M3 — Multi-platform skins.**
 Every new game is a skin: mapping file + templates + (optional) a thin
@@ -116,5 +140,7 @@ real window attached.
   OCR, and OCR is optional — degrade to "no numbers", never to "doesn't
   work".
 - **Optional heavy dependencies.** tesseract is found at configure time, not
-  linked in; the same pattern will apply to X11/SendInput for control, so the
-  headroom of "it builds" is preserved on every machine.
+  linked in; the same pattern was applied to X11 for control (`GLANCE_X11`),
+  so the headroom of "it builds" is preserved on every machine — headless
+  hosts run the null backend and every control route degrades to a clean
+  422 "no display" instead of failing at startup.

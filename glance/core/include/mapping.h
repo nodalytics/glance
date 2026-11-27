@@ -50,6 +50,18 @@ struct Rect {
 //
 // Optionally: "max_players" (default 6), and "dealer": {"template": path,
 // "areas": {"p1": [..], ...}} to locate the button.
+//
+// "actions" (control, milestone M1) maps named click targets to existing
+// geometry: "button:<name>" references a "buttons" entry, "stack:<key>" a
+// "stacks" entry, both resolved to their centre at scrape time (the table's
+// anchored origin makes the coordinate screen-absolute). Actions never carry
+// their own rectangles — a target must exist in "buttons" or "stacks", which
+// keeps the geometry in one place. Example:
+//   "actions": { "call": "button:call", "fold": "button:fold",
+//                "raise_bar": "stack:raise" }
+//
+// "window_title" (control, M2): the title substring of the platform window
+// the server itself grabs/controls when no POST /capture stream feeds it.
 class TableMapping {
  public:
   struct Dealer {
@@ -93,6 +105,9 @@ class TableMapping {
   const std::vector<CardSlot>& card_slots() const { return card_slots_; }
   const std::vector<CardTemplate>& card_templates() const { return card_templates_; }
   const std::vector<StackArea>& stacks() const { return stacks_; }
+  const std::vector<std::pair<std::string, std::string>>& actions() const { return actions_; }
+  bool action_target(const std::string& name, std::string& out_target) const;
+  const std::string& window_title() const { return window_title_; }
   bool has_button(const std::string& name) const;
 
  private:
@@ -105,6 +120,8 @@ class TableMapping {
   double anchor_threshold_ = 0.01;
   double template_threshold_ = 0.07;
   int max_players_ = 6;
+  std::string window_title_;
+  std::vector<std::pair<std::string, std::string>> actions_;
   std::optional<Dealer> dealer_;
   std::vector<Button> buttons_;
   std::vector<CardSlot> card_slots_;

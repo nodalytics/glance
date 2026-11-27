@@ -8,6 +8,13 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 option(GLANCE_OCR "build the tesseract OCR reader (needs tesseract-dev)" ON)
+# Screen grab + synthetic input (control, milestone M2): the X11 backend uses
+# XGetImage + XTest from the distro's libx11-dev / libxext-dev. Like OCR above,
+# it is a configure-time option: on a machine without the headers the build
+# still succeeds and the null backend is used (the server then reports
+# "no display" at runtime). Windows/macOS backends go here too (SendInput,
+# CGEvent) when glance moves off Linux.
+option(GLANCE_X11 "build the X11 screen/input backend (needs libx11-dev libxext-dev)" ON)
 
 include(FetchContent)
 # Single-header deps, pinned to kestrel's known-good json build
@@ -42,12 +49,38 @@ if(GLANCE_OCR)
   endif()
 endif()
 
+# X11 screen/input backend for the control surface (POST /grab /click /key
+# /sequence). Same pattern as OCR above: never required, detected here so the
+# whole build falls back to the null backend when the dev headers are absent.
+# libxext-dev does NOT ship X11/extensions/XTest.h on Ubuntu (it only has
+# xtestext1.h) — that header is in libxtst-dev. XTestFake*Event lives in
+# libXext.so, which libxtst-dev links against, so X11::Xext is still the
+# right thing to link. Linux only; other platforms get their own backend under
+# the same flag scheme later.
+set(HAS_X11 OFF)
+if(GLANCE_X11 AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  find_package(X11 QUIET)
+  find_path(GLANCE_X11_XLIB_H X11/Xlib.h)
+  find_path(GLANCE_X11_XTEST_H X11/extensions/XTest.h)
+  if(X11_FOUND AND GLANCE_X11_XLIB_H AND GLANCE_X11_XTEST_H)
+    set(HAS_X11 ON)
+    message(STATUS "glance: X11 control enabled (libX11 + XTest from the distro)")
+  else()
+    message(STATUS "glance: no X11 development headers, control falls back to the null backend (install libx11-dev libxext-dev libxtst-dev)")
+  endif()
+endif()
+
 add_library(glance_core
   core/src/mapping.cpp
   core/src/template_match.cpp
   core/src/ocr.cpp
   core/src/scraper.cpp
-  core/src/server.cpp)
+  core/src/server.cpp
+  core/src/state_validation.cpp
+  core/src/control.cpp
+  core/src/control_service.cpp
+  core/src/screen_x11.cpp
+  core/src/server_control.cpp)
 target_include_directories(glance_core PUBLIC core/include)
 # find_package(OpenCV) exposes the per-module imported targets that carry the
 # public header include paths. The namespaced aliases (OpenCV::core) only
@@ -60,9 +93,23 @@ if(HAS_OCR)
   string(REPLACE "\"" "\\\"" TESSERACT_BIN_ESCAPED "${TESSERACT_BIN_PATH}")
   target_compile_definitions(glance_core PUBLIC "GLANCE_OCR=1" "GLANCE_TESSERACT_BIN=\"${TESSERACT_BIN_ESCAPED}\"")
 endif()
+if(HAS_X11)
+  # X11::Xext carries the XTest extension functions (XTestFake*Event) on
+  # distro packages; the XTest.h header is what the header check above needs.
+  target_link_libraries(glance_core PUBLIC X11::X11 X11::Xext)
+  target_compile_definitions(glance_core PUBLIC "GLANCE_X11=1")
+endif()
 
 FetchContent_MakeAvailable(httplib)
 target_link_libraries(glance_core PUBLIC httplib::httplib)
+# POST /capture takes raw PNG/JPEG bytes. cpp-httplib reserves a tiny (8 KB
+# by default) compile-time budget for bodies arriving labeled
+# application/x-www-form-urlencoded, so a naive client (curl --data-binary
+# sends exactly that content type) gets a silent 413 on a multi-MB
+# screenshot. Every glance binary's only POST route takes raw image bytes,
+# so the limit is lifted to match the 16 MB runtime payload cap set in
+# server/main.cpp.
+target_compile_definitions(glance_core PUBLIC CPPHTTPLIB_FORM_URL_ENCODED_PAYLOAD_MAX_LENGTH=16777216)
 
 add_library(glance_acr acr/src/acr_scraper.cpp)
 target_include_directories(glance_acr PUBLIC acr/include)

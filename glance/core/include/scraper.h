@@ -6,6 +6,8 @@
 #include <nlohmann/json.hpp>
 #include <opencv2/core.hpp>
 
+#include "mapping.h"
+
 namespace glance {
 
 struct Seat {
@@ -53,6 +55,9 @@ class TableScraper {
   const TableState* last_state() const { return last_state_ ? &*last_state_ : nullptr; }
   bool table_found() const { return table_found_; }
   const cv::Point& table_origin() const { return table_origin_; }
+  // The loaded table mapping (the control layer resolves its "actions" and
+  // "window_title" against this). Valid after a successful load_mapping.
+  const TableMapping& mapping() const { return mapping_; }
 
  private:
   int crop_w_ = 0;
@@ -94,6 +99,7 @@ class TableScraper {
 
   bool table_found_ = false;
   cv::Point table_origin_{0, 0};
+  TableMapping mapping_;
   std::optional<TableState> last_state_;
   std::string error_;
 };

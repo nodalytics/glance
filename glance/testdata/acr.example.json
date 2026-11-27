@@ -37,5 +37,10 @@
     "p1_bet": [ 700, 690, 770, 715 ],
     "p2": [ 860, 250, 930, 275 ],
     "p2_bet": [ 860, 360, 930, 385 ]
-  }
+  },
+  "actions": {
+    "call": "button:call",
+    "raise_bar": "stack:raise"
+  },
+  "window_title": "ACR Poker"
 }

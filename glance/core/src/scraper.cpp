@@ -10,6 +10,7 @@
 
 #include "mapping.h"
 #include "ocr.h"
+#include "state_validation.h"
 #include "template_match.h"
 
 namespace fs = std::filesystem;
@@ -99,6 +100,10 @@ nlohmann::json to_json(const TableState& state) {
   if (state.game_stage) j["stage"] = *state.game_stage;
   if (!state.board.empty()) j["board"] = state.board;
   if (!state.seats.empty() && !state.seats[0].cards.empty()) j["my_cards"] = state.seats[0].cards;
+  // Sanity-check the state before it crosses the wire: impossible recognitions
+  // (a card read twice, board gaps, stage/board mismatch, negative amounts)
+  // surface here so clients can distrust a broken state.
+  j["validation"] = validate_table_state(state).to_json();
   return j;
 }
 
@@ -109,6 +114,7 @@ bool TableScraper::load_mapping(const std::string& mapping_path) {
     error_ = m.error();
     return false;
   }
+  mapping_ = m;
   base_dir_ = m.base_dir();
   anchor_threshold_ = m.anchor_threshold();
   template_threshold_ = m.template_threshold();
