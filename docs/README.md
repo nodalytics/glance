@@ -9,10 +9,51 @@ the way a human does: it looks.
 
 The design principle: **the engine never knows what it is looking at.**
 `core/` is a generic screen-scraping + control engine (it does not even know
-that poker exists); every platform is a thin skin: a mapping file plus a few
-hundred lines (`acr/`). Adding a new platform — poker, blackjack, dice,
+that poker exists); every application is a **package**: a manifest, mapping
+files and template PNGs (`packages/acr/` is the default one), installed with
+`glance pkg install`. Adding a new platform — poker, blackjack, dice,
 crash, a game you play to farm a bonus — is a mapping file and some template
 PNGs, not new code.
+
+## The ultimate test: any desktop app, no human
+
+Poker tables are the first target, not the finish line. **glance's ultimate
+test is to navigate any desktop application it comes across, understand it,
+and operate it without human assistance.** The bar is **hands-off desktop control**: once
+started, nobody touches the mouse or keyboard. Pointed at an app it has never
+seen — no mapping file, no templates, no SDK — glance should be able to:
+
+1. **See** it: grab the window, find its controls, text, images and state;
+2. **Understand** it: work out what the app is for, what each control does
+   and what state the app is in (a learned, platform-free model of UIs, not
+   a hand-written mapping per app);
+3. **Operate** it: pick the actions that reach a goal, inject them through
+   the same `Screen`/`Input` backends (X11, Windows, macOS), and check from
+   the next grab that each action had the intended effect, recovering when
+   it did not.
+
+Getting there is open research, and we are prepared to do it ourselves:
+when off-the-shelf models do not see or reason about arbitrary UIs well
+enough (or cheaply/locally enough), **we research and train our own
+foundation models** for screen understanding and action — trained on the
+grabs, structured states and verified action traces glance itself produces
+(use cases 1, 2 and 5 below are exactly that data pipeline). Nothing about
+the model side is fixed: how screens are tokenized and arranged (pixel
+patches, UI-element tokens, OCR text tokens, interleaved state/action
+sequences), which encoders and decoders, and which architectures are all
+research questions to try and measure, not settle up front. **This is where glance should evolve to** — see
+[models.md](models.md) for the direction, borrowed ideas (Kronos) and the
+research axes. The C++ engine
+stays the fast, deterministic runtime; models plug in behind the same
+`Screen`/`Input` + state-JSON contracts.
+
+Everything below is a step towards that. Mapping files and template PNGs are
+the scaffolding that gets one app working today; the template-free card
+reader (`core/include/card_vision.h`), the generic engine/skin split, the
+cross-platform control backends and the verify-after-act loop (M4/M5) are
+the pieces that generalize. A feature that only works because a human
+pre-mapped the screen is useful, but it does not pass the test; prefer
+designs that move a step closer to "never seen it, operated it anyway".
 
 ## Use cases: what we can do with this
 
@@ -48,10 +89,14 @@ The first three all work today (1–2 are a client script away; 3 is a one-line
 
 ## Reading order
 
-- [architecture.md](architecture.md) — **start here**: the layer diagram, a
+- [architecture.md](architecture.md) — **start here**: the whole-system map
+  (engine, packages, front ends, platforms, research).
+- [engine.md](engine.md) — engine internals: the layer diagram, a
   request traced end to end, the "who knows what" layering contract, and the
   design invariants.
-- [acr.md](acr.md) — the complete ACR Poker technique: anchor, crop, template
+- [models.md](models.md) — where we evolve to: our own foundation model for
+  understanding and operating any desktop app (direction, not built yet).
+- [acr.md](../research/acr.md) — the complete ACR Poker technique: anchor, crop, template
   matching, OCR, the mapping-JSON contract, and how to produce template PNGs.
 
 ## Where glance is today
@@ -103,12 +148,15 @@ CGEvent/cliclick backends are still to come when glance moves off Linux —
 the configure-time-optional pattern means each is an additive option
 (`GLANCE_X11`, and future flags) with the null backend as fallback.
 
-**M3 — Multi-platform skins.**
-Every new game is a skin: mapping file + templates + (optional) a thin
-scraper subclass, exactly how `acr/` sits on `core/`. Poker is the first
-skin; the design is deliberately not poker-shaped. A skin registry in the
-server (one process, several platforms at different coordinates) is a
-straightforward extension of `ScreenshotService`.
+**M3 — Packages (landed in part).**
+Every application is an installable package (`core/include/packages.h`):
+`glance-package.json` + mappings + templates, data-only so it installs the
+same way on Linux, Windows and macOS. ACR ships as the built-in `acr`
+package; `glance pkg install <dir|git-url>` adds more, `glance serve
+--package <name>` runs one, `GET /packages` lists them. Still to come: a
+package index (search/install by name), several active packages in one
+process (multi-table / multi-app), and optional native extensions for apps
+that need code beyond a mapping.
 
 **M4 — Reliability & timing.**
 Capture cadence and jitter (so grabs land at stable moments in the game

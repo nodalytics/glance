@@ -2,13 +2,15 @@
 
 Screen scraping for [ACR Poker](https://www.acrpoker.eu/) — a web poker client.
 Because it is a web client, the "screenshot" is a grab of the poker window. The
-engine in `core/` is generic (no ACR knowledge); `acr/` is a thin wrapper.
+engine in `core/` is generic (no ACR knowledge); ACR is a **package**
+(`packages/acr/`: `glance-package.json` + `mappings/6max.json` + template
+PNGs), the default one shipped with glance (`glance serve --package acr`).
 
-All screen-specific scraping lives in `acr/`.
+All ACR-specific knowledge lives in that package — data, not code.
 
 ## Conventions
 
-- New generic scraping code goes in `core/`; ACR-only stuff in `acr/`.
+- New generic scraping code goes in `core/`; ACR-only stuff in `packages/acr/`.
 - Use OpenCV for image processing (`imread`/`imdecode`, `matchTemplate`,
   `cvtColor`, `threshold`). No GUI.
 - OCR is optional: `glance::ocr_available()` gates every numeric read. The
@@ -157,6 +159,32 @@ in the mapping, so `actions` never carries geometry of its own. Example:
 Unknown names, unknown target names, or malformed targets are rejected (a
 clean 422, never a click on a guess); a grab whose anchor was not found
 resolves no action at all.
+
+### Template-free cards (`card_vision`)
+
+Optional. For slots where no `card_templates` entry matches, the scraper reads
+the card from its crop with the card-vision engine (`core/include/card_vision.h`,
+ported from the research prototype): occupancy check → suit by symbol shape
+(Dice + Hu moments against `<suit>.png` / `<suit>_*.png`, colour-gated in the
+`simulator` profile) → rank by glyph template (`<rank>_*.png`; Dice, accepted
+only with a clear lead over the runner-up) → optional tesseract cross-check.
+A skin then needs a handful of glyph PNGs instead of 52 card images.
+
+```json
+"card_vision": {
+  "suit_templates": "suits/",
+  "rank_templates": "ranks/",
+  "profile": "simulator",
+  "occupancy": true
+}
+```
+
+`rank_templates` omitted → built-in Hershey glyphs (only good for synthetic
+tests). Glyph templates are per-font: cut them from the platform's own
+rendering with `glance-cardvision harvest <labelled-dataset> <out-dir>`, and
+measure with `glance-cardvision eval` (see `tools/cardvision.cpp`). Profiles:
+`simulator` (several templates per suit, colour-gated) and `calibration`
+(one template per suit; slot names `my1`/`my2` select hero-card regions).
 
 ### Window title (`window_title`)
 

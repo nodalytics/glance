@@ -1,67 +1,305 @@
-# CI: build + selftest on every push/PR to main.
+# CI: build + test glance on Linux, Windows and macOS, plus docs checks.
 #
-# What this covers that the lab does NOT: the tesseract/OCR numeric path. The
-# lab host has no tesseract, so GLANCE_OCR is off there and the selftest always
-# skips the pot/stack/bet checks. Installing tesseract-ocr here forces
-# GLANCE_OCR=1 (see CMakeLists find_program(tesseract)) so the numeric branch
-# is exercised. The anchor/cards/turn/dealer checks run on both.
+# This is the canonical full test: the lab (primary build host) has no
+# tesseract and no Qt dev packages, so OCR, the Qt admin app and the
+# Windows/macOS backends are only compiled and tested here.
 #
-# OpenCV is the distro's prebuilt libopencv-dev (Ubuntu 24.04: 4.6.0), NOT a
-# source build — building it from source is what this workflow previously
-# dominated. (A from-source 5.1.0 selftest abort was once blamed on the OpenCV
-# build itself; a correct probe showed the prebuilt 4.6 computes everything
-# exactly right, so it was our test code — see global memory.)
-# json + cpp-httplib are still FetchContent, but they are tiny. No _deps cache
-# is worth it, so there is no cache step at all.
+# OpenCV always comes PREBUILT (distro package / choco / Homebrew) — never a
+# source build (AGENTS.md). json + cpp-httplib are FetchContent'ed (tiny).
 name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+
+# A newer push to the same branch/PR cancels the run it supersedes.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
-  build-and-test:
+  # ---------------------------------------------------------------- linux
+  # The fullest job: OCR (tesseract), X11 backend, Qt admin app, the card
+  # vision accuracy gates, a server smoke test over the real CLI, and
+  # artifacts (accuracy reports, app screenshots, test logs).
+  linux:
+    name: linux (gcc, ubuntu-24.04)
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    # Explicit bash = `bash -eo pipefail`: a failing command piped into tee
+    # must fail the step (the implicit default shell has no pipefail, which
+    # once let a broken build "pass" into the next step).
+    defaults:
+      run:
+        shell: bash
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # libopencv-dev: glance links the distro's prebuilt OpenCV 4.x.
-      # tesseract-ocr: enables GLANCE_OCR=1 so the selftest's numeric checks
-      # run (see CMakeLists find_program(tesseract)).
+      # libopencv-dev: prebuilt OpenCV 4.6. tesseract-ocr: GLANCE_OCR=1, so
+      # numeric OCR and the card-vision rank cross-check run. libx11-dev +
+      # libxext-dev + libxtst-dev: compile the X11 backend (tests use fakes;
+      # no display needed). qt6-base-dev: build glance-admin. ccache: fast
+      # rebuilds.
       - name: Install host dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq libopencv-dev tesseract-ocr
+          sudo apt-get install -y -qq libopencv-dev tesseract-ocr \
+            libx11-dev libxext-dev libxtst-dev qt6-base-dev ccache
+
+      - name: ccache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ccache
+          key: ccache-linux-${{ github.sha }}
+          restore-keys: ccache-linux-
 
       - name: Configure
-        run: cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release
+        run: |
+          cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_C_COMPILER_LAUNCHER=ccache \
+            | tee configure.log
+          # Fail loudly if an optional part silently fell back: on this
+          # runner every one of them must be compiled.
+          for want in "OCR enabled" "X11 control enabled" "building glance-admin"; do
+            grep -q "$want" configure.log || { echo "::error::configure did not report: $want"; exit 1; }
+          done
 
       - name: Build
-        run: cmake --build glance/build -j"$(nproc)"
+        run: |
+          cmake --build glance/build -j"$(nproc)" 2>&1 | tee build.log
+          ccache -s | tail -5
+          # Zero-warning policy (-Wall -Wextra on our targets).
+          if grep -E "warning:" build.log | grep -v "_deps/"; then
+            echo "::error::compiler warnings in glance sources"; exit 1
+          fi
 
-      # Runs the glance-selftest target registered in CMakeLists.txt via
-      # add_test(selftest ...). Fails the build if any check trips. Includes
-      # a sanity check that byte-identical template matching scores 0 (the
-      # property the from-source 5.1.0 build violated before we switched to
-      # the distro package).
+      # Footprint budget (AGENTS.md: small, nimble, efficient). Raise the
+      # budget only with a measured reason in the commit message.
+      - name: Size budget
+        run: |
+          BUDGET_KB=3072
+          strip -o glance.stripped glance/build/glance
+          SIZE_KB=$(( $(stat -c %s glance.stripped) / 1024 ))
+          LIBS=$(ldd glance/build/glance | grep -c "=>")
+          echo "glance: ${SIZE_KB} KB stripped (budget ${BUDGET_KB} KB), ${LIBS} shared libs" | tee -a "$GITHUB_STEP_SUMMARY"
+          ls -la glance/build/glance* | awk '{print $5, $9}' >> "$GITHUB_STEP_SUMMARY"
+          [ "$SIZE_KB" -le "$BUDGET_KB" ] || { echo "::error::glance is ${SIZE_KB} KB, over the ${BUDGET_KB} KB budget"; exit 1; }
+
       - name: Test
         run: |
-          # Diagnostics must run even when ctest fails (that is when we need
-          # them most), so ctest's result is captured, not fatal, until the
-          # end of the script.
+          # Diagnostics must run even when ctest fails, so the rc is kept.
           CTEST_RC=0
           ctest --test-dir glance/build --output-on-failure || CTEST_RC=$?
-          # imgcodecs diagnostics: what encoders does this runner's OpenCV
-          # actually expose? Kept after run 45493631662 ("could not find a
-          # writer for the specified extension" from imwrite) as a guard:
-          # the root cause turned out to be an extensionless mkstemp path in
-          # ocr.cpp (imwrite resolves encoders BY EXTENSION), but if a future
-          # runner ever ships OpenCV without a PNG encoder, this step tells
-          # us so even when the selftest dies before reaching it.
+          # imgcodecs diagnostics (guard from the extensionless-imwrite abort).
           ./glance/build/glance-opencv-probe || true
-          echo "--- apt: opencv/imgcodecs image-related packages ---"
-          dpkg -l | grep -iE 'opencv|libpng|libjpeg|libtiff|libwebp|libopenexr|libjasper|libgif' | awk '{print $2, $3}' || true
           exit $CTEST_RC
+
+      # Accuracy reports for every research dataset (the gates already ran in
+      # ctest; these are the full per-card JSONs for inspection).
+      - name: Card-vision accuracy reports
+        if: always()
+        run: |
+          mkdir -p reports
+          V=research/test_assets/validation T=glance/testdata/card_vision B=glance/build/glance-cardvision
+          for d in heldout_v1 independent_v1 datasets/preflop_sample_001 datasets/flop_sample_001 \
+                   datasets/turn_sample_001 datasets/river_sample_001; do
+            $B eval $V/$d --suits $T/suits_simulator --ranks $T/ranks_simulator \
+              --json reports/$(basename $d).json | head -2 | tee -a reports/summary.txt
+          done
+          $B eval $V/datasets/calibration_sample_001 --suits $T/suits_calibration \
+            --ranks $T/ranks_simulator --profile calibration \
+            --json reports/calibration_sample_001.json | head -2 | tee -a reports/summary.txt
+          cat reports/summary.txt >> "$GITHUB_STEP_SUMMARY"
+
+      # The real binaries end to end: serve the selftest fixtures, then drive
+      # the API through the `glance` CLI (dashboard, info, capture, state,
+      # packages). Catches wiring bugs no unit test sees.
+      - name: Server smoke test
+        run: |
+          B=glance/build
+          $B/glance-selftest --fixtures "$RUNNER_TEMP/fx" > /dev/null
+          $B/glance serve --mapping "$RUNNER_TEMP/fx/mapping.json" --host 127.0.0.1 --port 18080 &
+          SRV=$!
+          for i in $(seq 1 50); do curl -sf http://127.0.0.1:18080/health > /dev/null && break; sleep 0.1; done
+          export GLANCE_URL=http://127.0.0.1:18080
+          curl -sf http://127.0.0.1:18080/ | grep -qi "<html" || { echo "::error::dashboard not served"; exit 1; }
+          $B/glance info | tee info.json | grep -q '"name": "glance"'
+          $B/glance capture "$RUNNER_TEMP/fx/screenshot.png" > /dev/null
+          $B/glance state | grep -q '"board"'
+          $B/glance packages | grep -q '"acr"'
+          $B/glance pkg list | grep -q '^acr'
+          kill $SRV
+
+      # Qt admin app: render every page offscreen with demo data (proves it
+      # starts, lays out and paints) and keep the screenshots.
+      - name: Qt admin app screenshots
+        run: |
+          QT_QPA_PLATFORM=offscreen glance/build/app/glance-admin --demo --screenshot app-shots
+          ls app-shots | tee -a "$GITHUB_STEP_SUMMARY"
+          test "$(ls app-shots | wc -l)" -ge 7
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-reports
+          path: |
+            reports/
+            app-shots/
+            configure.log
+            glance/build/Testing/Temporary/LastTest.log
+          if-no-files-found: ignore
+
+  # -------------------------------------------------------------- windows
+  # MSVC (multi-config: --config/-C Release) against the official prebuilt
+  # OpenCV Windows package (choco `opencv`, an opencv_world build). The Win32
+  # control backend (GLANCE_WIN32) is compiled in; tests use fakes.
+  windows:
+    name: windows (msvc)
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Locates OpenCVConfig.cmake under <tools>/opencv/build/x64/vc*/lib and
+      # puts the matching bin/ (opencv_world*.dll) on PATH for later steps.
+      - name: Install prebuilt OpenCV
+        shell: pwsh
+        run: |
+          choco install opencv -y --no-progress
+          $tools = if ($env:ChocolateyToolsLocation) { $env:ChocolateyToolsLocation } else { 'C:\tools' }
+          $cfg = Get-ChildItem (Join-Path $tools 'opencv\build') -Recurse -Filter OpenCVConfig.cmake |
+                 Where-Object { $_.DirectoryName -match '\\x64\\vc\d+\\lib$' } |
+                 Sort-Object FullName -Descending | Select-Object -First 1
+          if (-not $cfg) { throw "OpenCVConfig.cmake not found under $tools\opencv\build" }
+          $bin = Join-Path (Split-Path $cfg.DirectoryName -Parent) 'bin'
+          Write-Host "OpenCV_DIR=$($cfg.DirectoryName)  bin=$bin"
+          "OpenCV_DIR=$($cfg.DirectoryName)" | Out-File $env:GITHUB_ENV -Append -Encoding utf8
+          $bin | Out-File $env:GITHUB_PATH -Append -Encoding utf8
+
+      # Optional, like everywhere: exercises ocr.cpp's Windows path.
+      - name: Install tesseract (optional)
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          choco install tesseract -y --no-progress
+          $dir = Join-Path $env:ProgramFiles 'Tesseract-OCR'
+          if (Test-Path (Join-Path $dir 'tesseract.exe')) { $dir | Out-File $env:GITHUB_PATH -Append -Encoding utf8 }
+
+      - name: Configure
+        run: cmake -B glance/build -S glance -DOpenCV_DIR="$env:OpenCV_DIR" -DGLANCE_APP=OFF
+
+      - name: Build
+        run: cmake --build glance/build --config Release --parallel
+
+      - name: Test
+        shell: pwsh
+        run: |
+          ctest --test-dir glance/build -C Release --output-on-failure
+          $rc = $LASTEXITCODE
+          & glance/build/Release/glance-opencv-probe.exe
+          exit $rc
+
+      - name: Upload test log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-test-log
+          path: glance/build/Testing/Temporary/LastTest.log
+          if-no-files-found: ignore
+
+  # ---------------------------------------------------------------- macos
+  # Apple clang against Homebrew's prebuilt OpenCV (+ tesseract). The
+  # CoreGraphics backend (GLANCE_MACOS) is compiled in; tests use fakes, so
+  # no Screen Recording / Accessibility permission is needed.
+  macos:
+    name: macos (apple clang)
+    runs-on: macos-latest
+    # Explicit bash = `bash -eo pipefail`: a failing command piped into tee
+    # must fail the step (the implicit default shell has no pipefail, which
+    # once let a broken build "pass" into the next step).
+    defaults:
+      run:
+        shell: bash
+    timeout-minutes: 40
+    env:
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      HOMEBREW_NO_ENV_HINTS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install host dependencies
+        run: brew install opencv tesseract ccache
+
+      - name: ccache
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/ccache
+          key: ccache-macos-${{ github.sha }}
+          restore-keys: ccache-macos-
+
+      - name: Configure
+        run: |
+          cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release -DGLANCE_APP=OFF \
+            -DCMAKE_PREFIX_PATH="$(brew --prefix)" -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
+
+      - name: Build
+        run: cmake --build glance/build -j"$(sysctl -n hw.ncpu)"
+
+      - name: Test
+        run: |
+          CTEST_RC=0
+          ctest --test-dir glance/build --output-on-failure || CTEST_RC=$?
+          ./glance/build/glance-opencv-probe || true
+          exit $CTEST_RC
+
+      - name: Upload test log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-test-log
+          path: glance/build/Testing/Temporary/LastTest.log
+          if-no-files-found: ignore
+
+  # ----------------------------------------------------------------- docs
+  # Relative links across the markdown docs (docs/, research/*.md, READMEs,
+  # AGENTS.md) must resolve — the docs were reorganized and code comments
+  # point into them. Offline: external URLs are not fetched.
+  docs:
+    name: docs (links)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check relative links
+        run: |
+          python3 - <<'EOF'
+          import pathlib, re, sys
+          root = pathlib.Path('.')
+          files = [p for p in root.rglob('*.md')
+                   if not any(part in {'node_modules', '.git', 'test_output', '.venv', 'build'} for part in p.parts)]
+          bad = 0
+          for f in files:
+              text = f.read_text(errors='ignore')
+              text = re.sub(r'```.*?```', '', text, flags=re.S)  # skip code blocks
+              for target in re.findall(r'\]\(([^)\s]+)\)', text):
+                  if re.match(r'^[a-z]+:', target) or target.startswith('#'):
+                      continue
+                  path = target.split('#', 1)[0]
+                  if path and not (f.parent / path).exists():
+                      print(f'{f}: broken link -> {target}')
+                      bad += 1
+          print(f'checked {len(files)} markdown files, {bad} broken link(s)')
+          sys.exit(1 if bad else 0)
+          EOF

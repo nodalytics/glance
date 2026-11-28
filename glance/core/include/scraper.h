@@ -6,6 +6,7 @@
 #include <nlohmann/json.hpp>
 #include <opencv2/core.hpp>
 
+#include "card_vision.h"
 #include "mapping.h"
 
 namespace glance {
@@ -58,6 +59,13 @@ class TableScraper {
   // The loaded table mapping (the control layer resolves its "actions" and
   // "window_title" against this). Valid after a successful load_mapping.
   const TableMapping& mapping() const { return mapping_; }
+  // The mapping's optional "card_vision" recognizer (template-free card
+  // reading, core/card_vision.h); nullptr when the mapping has no
+  // "card_vision" section. Used for slots no card template matched, and by
+  // the HTTP layer for POST /recognize-card.
+  const vision::CardRecognizer* card_recognizer() const {
+    return has_card_vision_ ? &card_vision_ : nullptr;
+  }
 
  private:
   int crop_w_ = 0;
@@ -90,6 +98,8 @@ class TableScraper {
     std::vector<std::pair<int, cv::Rect>> areas;  // (seat_index, area)
   };
   bool has_dealer_ = false;
+  bool has_card_vision_ = false;
+  vision::CardRecognizer card_vision_;
 
   std::vector<ButtonRef> buttons_;
   std::vector<CardTemplateRef> card_templates_;

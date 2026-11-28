@@ -8,8 +8,9 @@ API. The read side works today; the control side is in progress, and its wire
 contract is the [Slumbot API](https://slumbot.com/) (below) — so any engine
 written against Slumbot can talk to a glance table window unmodified.
 
-[docs/README.md](glance/docs/README.md) has the vision, roadmap and
-architecture; [docs/slumbot.md](glance/docs/slumbot.md) pins the control-side
+[docs/architecture.md](docs/architecture.md) is the whole-system map (engine,
+packages, front ends, platforms); [docs/README.md](docs/README.md) has
+the vision and roadmap; [research/slumbot.md](research/slumbot.md) pins the control-side
 protocol.
 
 ## Prerequisites
@@ -106,8 +107,8 @@ code changes.
 **Status.** The read side above is live and end-to-end tested. The control
 plane (click-by-mapping, key input, the `/slumbot/api/*` surface) is in
 progress — roadmap M1–M2 in
-[docs/README.md](glance/docs/README.md). The contract below is already pinned
-in [docs/slumbot.md](glance/docs/slumbot.md) — endpoints, grammar, token rules
+[docs/README.md](docs/README.md). The contract below is already pinned
+in [research/slumbot.md](research/slumbot.md) — endpoints, grammar, token rules
 and the parser contract — so engines can be built against it now.
 
 ### Endpoints (mirror of slumbot.com)
@@ -178,7 +179,7 @@ bettor, position to act, and the full set of validation errors — illegal
 check/call/fold, bets too small or too big, overrunning the streets, `b20000c///`
 all-in handling, optional trailing `/`). glance ports it verbatim and unit-
 tests it against the reference's cases; the contract, including every error
-path, is pinned in [docs/slumbot.md](glance/docs/slumbot.md).
+path, is pinned in [research/slumbot.md](research/slumbot.md).
 
 What glance adds on top (additive only, documented in the same file):
 real-window mode, where the table is an [ACR](https://www.acrpoker.eu/) window
@@ -205,12 +206,31 @@ OCR number-parsing unit cases (thousands separators and all). The numeric
 installed, so the canonical full check is the CI run — a machine without
 tesseract (e.g. the lab) stays green minus those.
 
+## Packages and the `glance` command
+
+Support for one application ships as a **package**: a folder with
+`glance-package.json` plus table mappings and template PNGs (data only, so
+it installs the same way on every OS). ACR Poker is the default built-in
+package `acr` (`glance/packages/acr/`).
+
+```sh
+glance pkg list                      # built-in + user packages
+glance pkg install ./my-app-package  # or a git URL; --force to upgrade
+glance pkg remove my-app
+glance serve --package acr           # = glance-server acr
+glance state | capture shot.png | read-card card.png | packages   # API client
+```
+
+The HTTP API stays the integration point: the web dashboard (read-only), the
+Qt admin app and any external system are all clients of it. Contract:
+`glance/core/include/packages.h`.
+
 ## Table mapping
 
-The server is driven by a table-mapping JSON (the "table skin" descriptor):
-which template PNGs to look for and where each field sits. See
-[docs/acr.md](glance/docs/acr.md) for the format and the scraping technique,
-and `glance/testdata/acr.example.json` for a starter. When the control plane
+A package's mappings are table-mapping JSON files (the "table skin"
+descriptor): which template PNGs to look for and where each field sits. See
+[research/acr.md](research/acr.md) for the format and the scraping technique,
+and `glance/packages/acr/mappings/6max.json` for a starter. When the control plane
 lands (roadmap M1–M2), the same file carries its targets — named `actions`
 (e.g. `call` → a button rectangle) and the window to drive — so reading and
 clicking share one source of truth.
@@ -225,12 +245,14 @@ glance/              # repo root
 │   │   ├── include/       #   scraper, service, state validation, screen
 │   │   │                  #   + input control (no poker knowledge)
 │   │   └── src/           #   (incl. the optional X11 backend)
-│   ├── acr/               # ACR-specific scraper (thin wrapper over core)
-│   ├── server/main.cpp    # HTTP entry point (cpp-httplib)
-│   ├── tools/selftest.cpp # synthesized-scenario end-to-end test
-│   ├── testdata/          # example table mapping
-│   └── docs/              # README.md (vision + roadmap), architecture.md,
-│                          #   acr.md (technique), slumbot.md (control spec)
+│   ├── packages/acr/      # default package: ACR Poker mapping (+ templates)
+│   ├── server/main.cpp    # glance-server (compat entry; = glance serve)
+│   ├── tools/             # glance CLI, selftest, webtest, pkgtest, cardvision
+│   ├── web/               # dashboard (embedded into the server binary)
+│   ├── app/               # Qt admin desktop app (optional)
+│   └── testdata/          # card-vision glyph templates
+├── docs/            # architecture.md (system map), engine.md (internals),
+│                    #   README.md (vision + roadmap), models.md (where we evolve to)
 └── research/        # Python side, uv-managed
     ├── notebooks/     #   YOLO card-detection experiments
     ├── poker_apis/    #   PaddleOCR vision-pipeline research prototype
@@ -250,10 +272,4 @@ glance/              # repo root
   OpenCV build step to wait for.
 - No linter/format tooling yet.
 
-## References
-
-- [Slumbot](https://slumbot.com/) — the bot API standard glance's control
-  plane mirrors; `sample_api.py` is the reference action-string parser
-- [dickreuter/Poker](https://github.com/dickreuter/Poker/) — screen-scraping technique reference
-- [Gongsta/Poker-AI](https://github.com/Gongsta/Poker-AI/) — CFR + equity-based strategy reference (the consumer side of glance's parsed state)
-- [ACR Poker](https://www.acrpoker.eu/)
+References (prior art, related projects): see [research/README.md](research/README.md#references).

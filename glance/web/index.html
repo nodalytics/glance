@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>glance</title>
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/app.css">
+<script>
+  // Apply the saved theme before first paint so the page never flashes.
+  try {
+    const t = localStorage.getItem("glance.theme");
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  } catch (_) {}
+</script>
+<script type="module" src="/assets/app.js"></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="rail" aria-label="Sections">
+    <a class="wordmark" href="#/table">
+      <svg viewBox="0 0 32 32" aria-hidden="true" class="mark"><ellipse cx="16" cy="16" rx="14" ry="9.5"/><circle cx="16" cy="16" r="3.2"/></svg>
+      <span>glance</span>
+    </a>
+    <nav class="nav">
+      <a href="#/table" data-page="table">Live table</a>
+      <a href="#/capture" data-page="capture">Capture</a>
+      <a href="#/cards" data-page="cards">Card lab</a>
+      <a href="#/system" data-page="system">System</a>
+      <a href="#/inspector" data-page="inspector">Inspector <span class="count" id="inspector-count"></span></a>
+    </nav>
+    <div class="rail-foot">
+      <div class="conn" id="conn"><span class="dot"></span><span id="conn-text">Connecting</span></div>
+      <div class="build" id="build"></div>
+      <div class="theme" role="group" aria-label="Theme">
+        <button type="button" data-theme-choice="light">Light</button>
+        <button type="button" data-theme-choice="system">Auto</button>
+        <button type="button" data-theme-choice="dark">Dark</button>
+      </div>
+    </div>
+  </aside>
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>

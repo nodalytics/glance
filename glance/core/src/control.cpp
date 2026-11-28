@@ -79,10 +79,16 @@ Backend make_null() {
 }
 
 Backend make_default() {
+  // Exactly one platform backend can be compiled in (each is guarded by its
+  // OS macro and its CMake option). Each fails its calls, not its
+  // construction, when there is no usable display / permission, so selecting
+  // it here costs nothing on headless hosts.
 #if defined(__linux__) && defined(GLANCE_X11)
-  // The X11 backend fails its calls (not its construction) when there is no
-  // openable display, so selecting it here costs nothing on headless hosts.
   return make_x11();
+#elif defined(_WIN32) && defined(GLANCE_WIN32)
+  return make_win32();
+#elif defined(__APPLE__) && defined(GLANCE_MACOS)
+  return make_macos();
 #else
   return make_null();
 #endif

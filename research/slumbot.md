@@ -3,7 +3,7 @@
 Status: **design doc, not implemented.** glance's control-side API is built on
 this blueprint (the user named it the blueprint, Nov 2026). The read side
 (`/capture` → table JSON) already works; the control side is milestone **M1** in
-[README.md](README.md#roadmap-from-screen-reading-to-screen-controlling).
+[docs/README.md](../docs/README.md#roadmap-from-screen-reading-to-screen-controlling).
 This document pins the wire contract so M1 can be built without re-deriving it,
 and defines the *extras* (things Slumbot does not do) that glance adds on top.
 The rule: **the Slumbot protocol is the standard; anything glance adds is an

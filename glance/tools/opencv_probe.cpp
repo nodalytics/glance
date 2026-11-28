@@ -13,6 +13,7 @@
 // diagnostics before anything is assumed to work.
 
 #include <cstdio>
+#include <filesystem>
 #include <string>
 #include <vector>
 
@@ -72,7 +73,8 @@ int main() {
   for (const char* ext : exts) {
     // imwrite to a real path
     try {
-      std::string p = std::string("/tmp/glance_probe") + ext;
+      // Platform temp dir (not a hard-coded /tmp: Windows has none).
+      std::string p = (std::filesystem::temp_directory_path() / (std::string("glance_probe") + ext)).string();
       bool ok = cv::imwrite(p, img);
       std::printf("  %s %-8s imwrite -> %s\n", ok ? "ok  " : "FAIL", ext,
                   ok ? "written" : "returned false");

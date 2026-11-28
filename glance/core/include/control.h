@@ -39,7 +39,7 @@ class Screen {
     (void)h;
     return false;
   }
-  // Human-readable name of the backend ("null", "x11", "win32").
+  // Human-readable name of the backend ("null", "x11", "win32", "macos").
   virtual std::string backend_name() const = 0;
 };
 
@@ -86,6 +86,21 @@ Backend make_null();
 // when CMake found the X development packages; every method degrades to
 // false/no-op at runtime when there is no openable display.
 Backend make_x11();
+#endif
+
+#if defined(_WIN32) && defined(GLANCE_WIN32)
+// The Windows backend (screen via GDI BitBlt of the virtual desktop, input via
+// SendInput). Coordinates are physical pixels relative to the top-left of the
+// virtual desktop (the process is made per-monitor DPI aware on creation).
+Backend make_win32();
+#endif
+
+#if defined(__APPLE__) && defined(GLANCE_MACOS)
+// The macOS backend (screen via CoreGraphics window-list capture, input via
+// CGEvent). Coordinates are PIXELS (Quartz points x the main display's
+// backing scale factor) relative to the top-left of the union of all active
+// displays. Needs the Screen Recording and Accessibility permissions.
+Backend make_macos();
 #endif
 
 // The mapping's "actions" section: named click targets. A target is

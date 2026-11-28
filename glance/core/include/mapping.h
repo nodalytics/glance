@@ -62,6 +62,16 @@ struct Rect {
 //
 // "window_title" (control, M2): the title substring of the platform window
 // the server itself grabs/controls when no POST /capture stream feeds it.
+//
+// "card_vision" (optional): template-free card reading (core/card_vision.h)
+// for slots where no "card_templates" entry matched — a new skin then needs
+// a few suit/rank glyph PNGs instead of 52 card images:
+//   "card_vision": { "suit_templates": "suits/",   // <suit>.png / <suit>_*.png
+//                    "rank_templates": "ranks/",   // <rank>_*.png; omitted =
+//                                                  //   built-in Hershey glyphs
+//                    "profile": "simulator",       // or "calibration"
+//                    "occupancy": true }           // skip empty slots
+// The card id produced is the same two-character form ("Th", "As").
 class TableMapping {
  public:
   struct Dealer {
@@ -108,6 +118,14 @@ class TableMapping {
   const std::vector<std::pair<std::string, std::string>>& actions() const { return actions_; }
   bool action_target(const std::string& name, std::string& out_target) const;
   const std::string& window_title() const { return window_title_; }
+
+  struct CardVision {
+    std::string suit_templates;  // relative to the mapping's directory
+    std::string rank_templates;  // empty: synthesized templates
+    std::string profile = "simulator";
+    bool occupancy = true;
+  };
+  const std::optional<CardVision>& card_vision() const { return card_vision_; }
   bool has_button(const std::string& name) const;
 
  private:
@@ -123,6 +141,7 @@ class TableMapping {
   std::string window_title_;
   std::vector<std::pair<std::string, std::string>> actions_;
   std::optional<Dealer> dealer_;
+  std::optional<CardVision> card_vision_;
   std::vector<Button> buttons_;
   std::vector<CardSlot> card_slots_;
   std::vector<CardTemplate> card_templates_;

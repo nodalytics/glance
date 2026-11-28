@@ -24,7 +24,7 @@ struct ValidationReport {
   int warning_count = 0;
   std::vector<ValidationIssue> issues;  // errors and warnings, in check order
 
-  // Serializes to the shape documented in docs/architecture.md:
+  // Serializes to the shape documented in docs/engine.md (repo root):
   //   {"valid":bool,"error_count":n,"warning_count":n,
   //    "errors":[{code,message,slots}],"warnings":[{code,message,slots}]}
   nlohmann::json to_json() const;
