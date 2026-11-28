@@ -181,10 +181,30 @@ A skin then needs a handful of glyph PNGs instead of 52 card images.
 
 `rank_templates` omitted → built-in Hershey glyphs (only good for synthetic
 tests). Glyph templates are per-font: cut them from the platform's own
-rendering with `glance-cardvision harvest <labelled-dataset> <out-dir>`, and
-measure with `glance-cardvision eval` (see `tools/cardvision.cpp`). Profiles:
-`simulator` (several templates per suit, colour-gated) and `calibration`
-(one template per suit; slot names `my1`/`my2` select hero-card regions).
+rendering and measure with `glance-cardvision eval` (see `tools/cardvision.cpp`).
+Profiles: `simulator` (several templates per suit, colour-gated) and
+`calibration` (one template per suit; slot names `my1`/`my2` select hero-card
+regions).
+
+- `glance-cardvision harvest <dataset> <out>` writes one normalized **rank**
+  glyph per labelled crop, from the first rank region that yields one. ACR's
+  corner rank glyph is large and reaches the card edge, so the tight rank box
+  clips it; `rank_glyph_regions` adds a padded corner box and
+  `normalize_rank_glyph` keeps a glyph that is large or flush against **one**
+  edge (a "2" pressed to the left card edge) while still rejecting the felt /
+  card frame (which hugs two+ sides).
+- `glance-cardvision harvest-suits <dataset> <out> [--profile P]` writes the
+  normalized **suit** symbols, one per suit-candidate region — the ACR
+  counterpart to the committed `suits_simulator` set.
+
+The shipped `acr` package (`packages/acr/`) is built this way from the two real
+grabs in `research/test_images/`. It uses the `simulator` profile with the
+simulator suit set **plus** ACR-harvested suit symbols (the simulator set alone
+left A♥ hearts-vs-diamonds below the accept margin), and ACR rank glyphs for
+**A, 2, 8, 10, J, Q, K**. Ranks **3, 4, 5, 6, 7, 9** are a known gap (no ACR
+sample yet): such a card reads its suit but not its rank until harvested. The
+end-to-end read is gated by ctest `acrtest` (`tools/acrtest.cpp`), which runs
+the real mapping over `ss.jpeg` and asserts the board **A♥ 8♠ J♥ J♦ 2♥**.
 
 ### Window title (`window_title`)
 

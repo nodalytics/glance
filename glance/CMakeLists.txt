@@ -236,6 +236,15 @@ target_link_libraries(glance-webtest PRIVATE glance_core)
 add_executable(glance-cardvision tools/cardvision.cpp)
 target_link_libraries(glance-cardvision PRIVATE glance_core)
 
+# Real-table end-to-end test: run the shipped acr package mapping over a real
+# ACR screenshot (research/test_images/ss.jpeg) and assert the board read. It
+# skips itself when the research image tree is absent (tools/acrtest.cpp).
+add_executable(glance-acrtest tools/acrtest.cpp)
+target_link_libraries(glance-acrtest PRIVATE glance_core)
+target_compile_definitions(glance-acrtest PRIVATE
+  GLANCE_ACR_PACKAGE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/packages/acr"
+  GLANCE_RESEARCH_DIR="${CMAKE_CURRENT_SOURCE_DIR}/../research")
+
 # Diagnostics only: prints the imgcodecs "Image I/O" build section and
 # exercises imwrite/imencode per format. Run standalone (the CI workflow has
 # a dedicated step for it) so a host without the right codecs still reports
@@ -251,6 +260,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(glance_core PRIVATE -Wall -Wextra)
   target_compile_options(glance PRIVATE -Wall -Wextra)
   target_compile_options(glance-cardvision PRIVATE -Wall -Wextra)
+  target_compile_options(glance-acrtest PRIVATE -Wall -Wextra)
 endif()
 
 enable_testing()
@@ -266,6 +276,11 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 endif()
 add_test(NAME pkgtest COMMAND glance-pkgtest)
 add_test(NAME webtest COMMAND glance-webtest)
+
+# Real-table read: runs the acr package mapping over research/test_images/ss.jpeg.
+# Registered unconditionally; glance-acrtest self-skips (exit 0) when the image
+# is not present, so it is a no-op on checkouts without the research tree.
+add_test(NAME acrtest COMMAND glance-acrtest)
 
 # Slumbot action-string parser unit tests (tools/slumbottest.cpp): the ported
 # ParseAction against the reference's example, all-in and error cases.
