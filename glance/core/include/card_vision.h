@@ -219,4 +219,10 @@ class CardRecognizer {
 // template harvesting cuts exactly what recognition compares.
 std::vector<cv::Mat> rank_glyph_regions(const cv::Mat& card);
 
+// The normalized suit symbols a card yields, one per suit-candidate region of
+// the given profile/slot (most specific first; empty symbols dropped). Exposed
+// so suit-template harvesting cuts exactly what read_suit compares.
+std::vector<cv::Mat> suit_symbol_regions(const std::string& profile, const cv::Mat& card,
+                                         const std::string& slot = "");
+
 }  // namespace glance::vision

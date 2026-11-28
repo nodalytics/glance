@@ -1,46 +1,48 @@
 {
   "name": "acr-6max",
-  "crop": { "x": 1600, "y": 900 },
+  "crop": { "x": 1600, "y": 899 },
   "topleft": "templates/anchor.png",
-  "anchor_threshold": 0.01,
-  "template_threshold": 0.07,
-  "max_players": 6,
-  "card_templates": [
-    "cards/covered.png"
-  ],
+  "anchor_threshold": 0.02,
+  "template_threshold": 0.08,
+  "max_players": 9,
+  "card_vision": {
+    "suit_templates": "cards/suits",
+    "rank_templates": "cards/ranks",
+    "profile": "simulator",
+    "occupancy": true
+  },
   "cards": {
-    "my1": [ 700, 780, 740, 830 ],
-    "my2": [ 745, 780, 785, 830 ],
-    "board1": [ 400, 420, 440, 470 ],
-    "board2": [ 445, 420, 485, 470 ],
-    "board3": [ 490, 420, 530, 470 ],
-    "board4": [ 535, 420, 575, 470 ],
-    "board5": [ 580, 420, 620, 470 ],
-    "p2_hand1": [ 850, 300, 890, 350 ],
-    "p2_hand2": [ 925, 300, 965, 350 ]
+    "board1": [ 547, 387, 637, 537 ],
+    "board2": [ 651, 387, 741, 537 ],
+    "board3": [ 755, 387, 845, 537 ],
+    "board4": [ 857, 387, 947, 537 ],
+    "board5": [ 961, 387, 1051, 537 ],
+    "my1": [ 730, 645, 805, 745 ],
+    "my2": [ 808, 648, 885, 745 ]
   },
   "buttons": {
-    "call": { "template": "templates/call.png", "area": [ 740, 640, 860, 690 ] }
+    "fold": { "template": "templates/fold.png", "area": [ 928, 818, 1145, 900 ] },
+    "call": { "template": "templates/call.png", "area": [ 1152, 818, 1372, 900 ] }
   },
   "dealer": {
     "template": "templates/dealer.png",
     "areas": {
-      "p1": [ 680, 840, 705, 865 ],
-      "p2": [ 900, 360, 925, 385 ]
+      "p1": [ 876, 618, 922, 660 ],
+      "p2": [ 516, 524, 568, 572 ]
     }
   },
   "stacks": {
-    "pot": [ 420, 360, 560, 390 ],
-    "call": [ 750, 580, 810, 605 ],
-    "raise": [ 880, 580, 960, 605 ],
-    "p1": [ 700, 840, 770, 865 ],
-    "p1_bet": [ 700, 690, 770, 715 ],
-    "p2": [ 860, 250, 930, 275 ],
-    "p2_bet": [ 860, 360, 930, 385 ]
+    "pot": [ 805, 338, 879, 364 ],
+    "p1": [ 762, 782, 868, 806 ],
+    "p2": [ 448, 710, 522, 736 ],
+    "p3": [ 300, 521, 396, 549 ],
+    "p4": [ 338, 264, 440, 291 ],
+    "p5": [ 1182, 271, 1262, 298 ],
+    "p6": [ 1250, 521, 1330, 549 ]
   },
   "actions": {
     "call": "button:call",
-    "raise_bar": "stack:raise"
+    "fold": "button:fold"
   },
-  "window_title": "ACR Poker"
+  "window_title": "Hold'em"
 }

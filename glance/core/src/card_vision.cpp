@@ -217,13 +217,20 @@ cv::Mat normalize_rank_glyph(const cv::Mat& image) {
     cv::Rect b(stats.at<int>(i, cv::CC_STAT_LEFT), stats.at<int>(i, cv::CC_STAT_TOP),
                stats.at<int>(i, cv::CC_STAT_WIDTH), stats.at<int>(i, cv::CC_STAT_HEIGHT));
     const int area = stats.at<int>(i, cv::CC_STAT_AREA);
-    // Glyph-sized, not background: no border contact (the table felt, the
-    // card edge or a neighbouring card are what touches the crop border),
-    // not tiny specks, not a region-spanning blob.
-    const bool touches = b.x <= 0 || b.y <= 0 || b.x + b.width >= W || b.y + b.height >= H;
-    if (touches) continue;
+    // Glyph-sized, not background. The table felt, the card edge and a
+    // neighbouring card are what reach the crop border — but they hug two or
+    // more sides or span the crop, whereas a rank glyph that ACR draws flush in
+    // the very corner touches at most ONE side (a "2" pressed against the left
+    // card edge). So reject a component that touches two+ borders, and keep a
+    // single-border touch as long as the size filters below still hold.
+    const int touches = (b.x <= 0) + (b.y <= 0) + (b.x + b.width >= W) + (b.y + b.height >= H);
+    if (touches >= 2) continue;
     if (area < 0.003 * W * H) continue;
-    if (b.height < 0.12 * H || b.height > 0.85 * H || b.width > 0.7 * W) continue;
+    // Height ceiling: a rank glyph can be large (ACR's corner glyph nearly
+    // fills a tight rank box), so accept up to 0.92*H; only a region-spanning
+    // blob is rejected. The ceiling, with the width cap, still keeps out the
+    // card body / a felt strip / a filled suit that would span the crop.
+    if (b.height < 0.12 * H || b.height > 0.92 * H || b.width > 0.7 * W) continue;
     comps.push_back({i, b});
   }
   if (comps.empty()) return {};
@@ -387,11 +394,17 @@ std::vector<GlyphTemplate> synthesize_rank_templates() {
 std::vector<cv::Mat> rank_glyph_regions(const cv::Mat& card) {
   std::vector<cv::Mat> out;
   // 1. the tight rank box of the research RankFallback (simulator cards);
-  // 2. the corner's upper part (research primary rank region);
-  // 3. the card's top-left 65% (research fallback; hero cards whose rank
+  // 2. a generously padded corner box. Some skins (e.g. ACR) draw a LARGE
+  //    corner rank glyph that fills the tight box edge to edge, so it is
+  //    clipped there and rejected (too tall / border contact). Anchoring at
+  //    the crop's top-left and reaching 52% across / 36% down keeps the whole
+  //    glyph with margin on its right and bottom, while the card edge and the
+  //    felt around the slot stay out of the way of the glyph's own row;
+  // 3. the corner's upper part (research primary rank region);
+  // 4. the card's top-left 65% (research fallback; hero cards whose rank
   //    sits lower because the card is partly covered).
-  for (const RelRect& r : {RelRect{0.03, 0.01, 0.43, 0.24}, RelRect{0.02, 0.02, 0.65, 0.43},
-                           RelRect{0.0, 0.0, 0.65, 0.65}}) {
+  for (const RelRect& r : {RelRect{0.03, 0.01, 0.43, 0.24}, RelRect{0.0, 0.0, 0.52, 0.36},
+                           RelRect{0.02, 0.02, 0.65, 0.43}, RelRect{0.0, 0.0, 0.65, 0.65}}) {
     cv::Mat c = crop_relative(card, r);
     if (!c.empty()) out.push_back(c);
   }
@@ -452,13 +465,19 @@ bool CardRecognizer::load(const CardVisionConfig& config, const std::string& sui
   return true;
 }
 
-std::vector<CardRecognizer::NamedCrop> CardRecognizer::suit_candidates(
-    const cv::Mat& card, const std::string& slot) const {
-  std::vector<NamedCrop> out;
+namespace {
+
+// The suit-candidate crops (name + image) a profile/slot yields, shared by the
+// recognizer's read_suit and by suit-template harvesting so the two cut the
+// exact same regions.
+std::vector<std::pair<std::string, cv::Mat>> suit_candidate_crops(const std::string& profile,
+                                                                  const cv::Mat& card,
+                                                                  const std::string& slot) {
+  std::vector<std::pair<std::string, cv::Mat>> out;
   auto add = [&](const std::string& name, const cv::Mat& img) {
     if (!img.empty()) out.push_back({name, img});
   };
-  if (config_.profile == "simulator") {
+  if (profile == "simulator") {
     add("simulator_small_suit", crop_relative(card, {0.04, 0.24, 0.40, 0.46}));
     add("simulator_small_suit_wide", crop_relative(card, {0.02, 0.23, 0.43, 0.48}));
     add("simulator_center_suit", crop_relative(card, {0.23, 0.43, 0.77, 0.79}));
@@ -478,6 +497,29 @@ std::vector<CardRecognizer::NamedCrop> CardRecognizer::suit_candidates(
     int i = 0;
     for (const auto& r : regions) add("board_region_" + std::to_string(i++), crop_relative(suit_region, r));
   }
+  return out;
+}
+
+}  // namespace
+
+std::vector<cv::Mat> suit_symbol_regions(const std::string& profile, const cv::Mat& card,
+                                         const std::string& slot) {
+  std::vector<cv::Mat> out;
+  if (card.empty()) return out;
+  const cv::Mat bgr = to_bgr(card);
+  for (const auto& [name, crop] : suit_candidate_crops(profile, bgr, slot)) {
+    (void)name;
+    cv::Mat s = normalize_suit_symbol(crop);
+    if (!s.empty()) out.push_back(s);
+  }
+  return out;
+}
+
+std::vector<CardRecognizer::NamedCrop> CardRecognizer::suit_candidates(
+    const cv::Mat& card, const std::string& slot) const {
+  std::vector<NamedCrop> out;
+  for (auto& [name, img] : suit_candidate_crops(config_.profile, card, slot))
+    out.push_back({name, img});
   return out;
 }
 
@@ -522,7 +564,7 @@ SuitRead CardRecognizer::read_suit(const cv::Mat& card, const std::string& slot)
 
 RankRead CardRecognizer::read_rank_glyph(const cv::Mat& card) const {
   RankRead res;
-  static const char* names[] = {"rank_box", "corner", "top_left"};
+  static const char* names[] = {"rank_box", "rank_pad", "corner", "top_left"};
   std::map<std::string, std::pair<double, std::string>> best;  // rank -> (score, region)
   auto regions = rank_glyph_regions(card);
   for (std::size_t i = 0; i < regions.size(); ++i) {
@@ -557,7 +599,7 @@ namespace {
 // 20px white border) on each rank region; best-confidence valid rank.
 RankRead read_rank_ocr(const cv::Mat& card) {
   RankRead best;
-  static const char* names[] = {"ocr:rank_box", "ocr:corner", "ocr:top_left"};
+  static const char* names[] = {"ocr:rank_box", "ocr:rank_pad", "ocr:corner", "ocr:top_left"};
   auto regions = rank_glyph_regions(card);
   for (std::size_t i = 0; i < regions.size(); ++i) {
     cv::Mat big;

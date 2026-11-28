@@ -15,7 +15,14 @@
 //
 //   glance-cardvision harvest <dataset-dir> <out-dir> [--filter SUBSTR]
 //       write one normalized rank-glyph template per labelled crop
-//       (<rank>_<file-stem>.png), from the tight rank box recognition uses.
+//       (<rank>_<file-stem>.png), from the first rank region that yields a
+//       glyph (the tight box for small glyphs, the padded corner for large
+//       ones such as ACR's).
+//
+//   glance-cardvision harvest-suits <dataset-dir> <out-dir> [--profile P] [--filter SUBSTR]
+//       write the normalized suit symbols of each labelled crop
+//       (<suit>_<file-stem>_r<n>.png), one per suit-candidate region of the
+//       profile — the ACR counterpart to the committed simulator suit set.
 //
 // Two expected.json shapes are understood: {"records": [{"file", "occupied",
 // "rank", "suit"}]} (generated datasets) and {"cards": {"<slot>": {"rank",
@@ -73,7 +80,8 @@ int usage() {
                "  glance-cardvision eval <dataset-dir> --suits DIR [--ranks DIR] [--profile P] [--json OUT]\n"
                "                    [--min-card-accuracy X] [--min-suit-accuracy X] [--max-incorrect N]\n"
                "                    [--min-empty-rejection X]\n"
-               "  glance-cardvision harvest <dataset-dir> <out-dir> [--filter SUBSTR]\n");
+               "  glance-cardvision harvest <dataset-dir> <out-dir> [--filter SUBSTR]\n"
+               "  glance-cardvision harvest-suits <dataset-dir> <out-dir> [--profile P] [--filter SUBSTR]\n");
   return 2;
 }
 
@@ -318,9 +326,14 @@ int cmd_harvest(const Args& a) {
     if (!filter.empty() && fs::path(s.file).filename().string().find(filter) == std::string::npos) continue;
     cv::Mat img = cv::imread(s.file, cv::IMREAD_COLOR);
     if (img.empty()) continue;
-    auto regions = glance::vision::rank_glyph_regions(img);
-    if (regions.empty()) continue;
-    cv::Mat g = glance::vision::normalize_rank_glyph(regions[0]);
+    // Harvest from the first rank region that yields a glyph. The tight box
+    // comes first (what simulator cards normalize from); a skin whose corner
+    // glyph is too large for it — ACR — falls through to the padded corner box.
+    cv::Mat g;
+    for (const cv::Mat& region : glance::vision::rank_glyph_regions(img)) {
+      g = glance::vision::normalize_rank_glyph(region);
+      if (!g.empty()) break;
+    }
     if (g.empty()) {
       std::fprintf(stderr, "no glyph in %s\n", s.file.c_str());
       continue;
@@ -329,6 +342,40 @@ int cmd_harvest(const Args& a) {
     if (cv::imwrite(out.string(), g)) ++n;
   }
   std::printf("harvested %d rank templates into %s\n", n, a.pos[1].c_str());
+  return n > 0 ? 0 : 1;
+}
+
+int cmd_harvest_suits(const Args& a) {
+  if (a.pos.size() != 2) return usage();
+  std::vector<Sample> samples;
+  std::string err;
+  if (!load_dataset(a.pos[0], samples, err)) {
+    std::fprintf(stderr, "%s\n", err.c_str());
+    return 1;
+  }
+  fs::create_directories(a.pos[1]);
+  const std::string profile = a.get("profile", "simulator");
+  const std::string filter = a.get("filter");
+  int n = 0;
+  for (const auto& s : samples) {
+    if (!s.occupied || s.suit.empty()) continue;
+    if (!filter.empty() && fs::path(s.file).filename().string().find(filter) == std::string::npos) continue;
+    cv::Mat img = cv::imread(s.file, cv::IMREAD_COLOR);
+    if (img.empty()) continue;
+    // One template per suit-candidate region that yields a symbol, so the
+    // recognizer self-matches whichever region it scores highest at read time.
+    auto syms = glance::vision::suit_symbol_regions(profile, img, s.slot);
+    if (syms.empty()) {
+      std::fprintf(stderr, "no suit symbol in %s\n", s.file.c_str());
+      continue;
+    }
+    const std::string stem = fs::path(s.file).stem().string();
+    for (std::size_t i = 0; i < syms.size(); ++i) {
+      const fs::path out = fs::path(a.pos[1]) / (s.suit + "_" + stem + "_r" + std::to_string(i) + ".png");
+      if (cv::imwrite(out.string(), syms[i])) ++n;
+    }
+  }
+  std::printf("harvested %d suit templates into %s\n", n, a.pos[1].c_str());
   return n > 0 ? 0 : 1;
 }
 
@@ -341,5 +388,6 @@ int main(int argc, char** argv) {
   if (cmd == "read") return cmd_read(a);
   if (cmd == "eval") return cmd_eval(a);
   if (cmd == "harvest") return cmd_harvest(a);
+  if (cmd == "harvest-suits") return cmd_harvest_suits(a);
   return usage();
 }
