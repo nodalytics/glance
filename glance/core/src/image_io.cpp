@@ -1,16 +1,27 @@
 #include "image_io.h"
 
 #include <cstdint>
+#include <cstring>
 #include <fstream>
 #include <iterator>
 #include <limits>
+#include <new>
 
 #include <opencv2/imgproc.hpp>
 
 // Single-header PNG/JPEG decoders, vendored via CMake FetchContent and pinned
-// in glance/CMakeLists.txt (nothings/stb). They are added as a SYSTEM include
-// dir so their own -Wall/-Wextra noise does not trip glance's zero-warning
-// gate; glance's code in this file is still compiled with warnings on.
+// in glance/CMakeLists.txt to an exact nothings/stb commit (stb_image v2.34,
+// well past the heap-overflow CVE fixes of the v2.27/2.28 era). They are added
+// as a SYSTEM include dir so their own -Wall/-Wextra noise does not trip
+// glance's zero-warning gate; glance's code in this file is still compiled with
+// warnings on.
+//
+// stb runs on UNTRUSTED input here: POST /capture and /recognize-card decode
+// bytes straight off the network, and the server may bind 0.0.0.0. stb_image
+// is memory-unsafe on malformed input and will allocate whatever a header
+// claims (a decompression bomb), so decode_image() below bounds the geometry
+// BEFORE decoding, checks the format by signature first, and wraps the decode
+// in try/catch — those bounds are the mitigation, not stb itself.
 //
 // The implementations are emitted in THIS translation unit only (the two
 // IMPLEMENTATION macros below), so every other glance TU just sees the small
@@ -31,6 +42,30 @@
 namespace glance {
 
 namespace {
+
+// Upper bounds for decoding UNTRUSTED image bytes. stb will allocate whatever a
+// header claims, so a few-KB payload can still demand gigabytes (a
+// decompression bomb). We bound the geometry from the header before decoding.
+// Real ACR grabs are ~1600x899; 8192 per side and 64 Mpx total leave generous
+// headroom for any legitimate screenshot while refusing absurd dimensions.
+constexpr int kMaxImageDim = 8192;                            // per side
+constexpr long long kMaxImagePixels = 64LL * 1024 * 1024;     // 64 Mpx total
+
+// Accept only the formats glance handles, by signature, before handing bytes to
+// stb: PNG (\x89PNG\r\n\x1a\n) or JPEG (SOI \xFF\xD8 + a marker \xFF). Anything
+// else is rejected fast, so stb never parses a format we did not intend.
+bool has_png_or_jpeg_magic(const unsigned char* d, std::size_t n) {
+  static const unsigned char kPng[8] = {0x89, 'P', 'N', 'G', 0x0D, 0x0A, 0x1A, 0x0A};
+  if (n >= sizeof(kPng) && std::memcmp(d, kPng, sizeof(kPng)) == 0) return true;
+  if (n >= 3 && d[0] == 0xFF && d[1] == 0xD8 && d[2] == 0xFF) return true;  // JPEG
+  return false;
+}
+
+// True if (w, h) is a sane, decodable size within the untrusted-input bounds.
+bool dims_ok(int w, int h) {
+  return w > 0 && h > 0 && w <= kMaxImageDim && h <= kMaxImageDim &&
+         static_cast<long long>(w) * h <= kMaxImagePixels;
+}
 
 // Build a BGR/gray cv::Mat that OWNS its pixels from a tightly packed stb
 // buffer. For colour we swap stb's RGB into OpenCV's BGR (cvtColor allocates a
@@ -61,18 +96,34 @@ cv::Mat decode_image(const unsigned char* data, std::size_t size, bool color) {
   if (data == nullptr || size == 0) return {};
   // stb takes an int length; refuse anything that would overflow it.
   if (size > static_cast<std::size_t>(std::numeric_limits<int>::max())) return {};
+  // Untrusted input: reject by format signature, then by header dimensions,
+  // before stb allocates anything.
+  if (!has_png_or_jpeg_magic(data, size)) return {};
 
-  int w = 0, h = 0, channels_in_file = 0;
+  const int len = static_cast<int>(size);
+  int info_w = 0, info_h = 0, info_c = 0;
+  if (!stbi_info_from_memory(data, len, &info_w, &info_h, &info_c)) return {};
+  if (!dims_ok(info_w, info_h)) return {};
+
   const int desired = color ? 3 : 1;
-  unsigned char* pixels =
-      stbi_load_from_memory(data, static_cast<int>(size), &w, &h, &channels_in_file, desired);
-  if (pixels == nullptr || w <= 0 || h <= 0) {
-    if (pixels != nullptr) stbi_image_free(pixels);
+  try {
+    int w = 0, h = 0, channels_in_file = 0;
+    unsigned char* pixels = stbi_load_from_memory(data, len, &w, &h, &channels_in_file, desired);
+    if (pixels == nullptr) return {};
+    // Re-check against the real decoded size (defence in depth: the header and
+    // the decoder must agree, and neither may exceed the bound).
+    if (!dims_ok(w, h)) {
+      stbi_image_free(pixels);
+      return {};
+    }
+    cv::Mat out = adopt_stb_pixels(pixels, w, h, color);
+    stbi_image_free(pixels);
+    return out;
+  } catch (const std::bad_alloc&) {
+    return {};
+  } catch (const cv::Exception&) {
     return {};
   }
-  cv::Mat out = adopt_stb_pixels(pixels, w, h, color);
-  stbi_image_free(pixels);
-  return out;
 }
 
 cv::Mat decode_image(const std::vector<unsigned char>& data, bool color) {
@@ -80,6 +131,9 @@ cv::Mat decode_image(const std::vector<unsigned char>& data, bool color) {
 }
 
 cv::Mat load_image(const std::string& path, bool color) {
+  // Reads our own template/glyph PNGs, so lower risk than the network path, but
+  // it funnels through decode_image() and so inherits the same signature check,
+  // dimension/pixel caps and try/catch for free.
   std::ifstream f(path, std::ios::binary);
   if (!f) return {};
   const std::vector<unsigned char> buf((std::istreambuf_iterator<char>(f)),

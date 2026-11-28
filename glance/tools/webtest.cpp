@@ -222,6 +222,45 @@ int main() {
     CHECK(n && parse_or_null(n->body).contains("error"), "the 409 carries a JSON error");
   }
 
+  // decode_image() is the untrusted-bytes boundary (POST /capture,
+  // /recognize-card). It must return an empty Mat — never crash or attempt a
+  // huge allocation — on malformed/hostile input.
+  std::printf("webtest: decode_image hardening (untrusted bytes)\n");
+  {
+    // Sanity: a valid PNG still decodes, so the guards don't reject real input.
+    cv::Mat ok_img(12, 20, CV_8UC3, cv::Scalar(40, 90, 160));
+    std::vector<unsigned char> ok_png;
+    glance::encode_png(ok_img, ok_png);
+    cv::Mat good = glance::decode_image(ok_png, /*color=*/true);
+    CHECK(good.cols == 20 && good.rows == 12 && good.channels() == 3,
+          "decode_image accepts a valid PNG");
+
+    // Truncated PNG: valid signature, body cut off.
+    const std::vector<unsigned char> truncated(ok_png.begin(), ok_png.begin() + 30);
+    CHECK(glance::decode_image(truncated, true).empty(), "decode_image rejects a truncated PNG");
+
+    // A non-image blob and a wrong-magic blob (GIF signature).
+    const std::string junk = "definitely not an image, just some text bytes";
+    CHECK(glance::decode_image(reinterpret_cast<const unsigned char*>(junk.data()), junk.size(),
+                               true)
+              .empty(),
+          "decode_image rejects a non-image blob");
+    const std::vector<unsigned char> gif = {'G', 'I', 'F', '8', '9', 'a', 0x00, 0x00};
+    CHECK(glance::decode_image(gif, true).empty(), "decode_image rejects a wrong-magic (GIF) blob");
+
+    // A tiny crafted PNG header claiming 100000x100000: the dimension cap must
+    // reject it before any large allocation (a decompression bomb).
+    const std::vector<unsigned char> bomb = {
+        0x89, 'P',  'N',  'G',  0x0D, 0x0A, 0x1A, 0x0A,  // PNG signature
+        0x00, 0x00, 0x00, 0x0D, 'I',  'H',  'D',  'R',   // IHDR, length 13
+        0x00, 0x01, 0x86, 0xA0,                          // width  = 100000
+        0x00, 0x01, 0x86, 0xA0,                          // height = 100000
+        0x08, 0x02, 0x00, 0x00, 0x00,                    // 8-bit RGB, deflate, no filter/interlace
+        0x00, 0x00, 0x00, 0x00};                         // CRC placeholder
+    CHECK(glance::decode_image(bomb, true).empty(),
+          "decode_image rejects an oversized-dimension header (decompression bomb)");
+  }
+
   srv.stop();
   serve.join();
   fs::remove_all(base);

@@ -33,6 +33,11 @@ FetchContent_Declare(httplib GIT_REPOSITORY https://github.com/yhirose/cpp-httpl
 # uses). Pinned to an exact upstream commit, like httplib above; the repo has no
 # CMakeLists, so MakeAvailable just populates it and we add it as a SYSTEM
 # include dir below.
+# SECURITY: stb decodes UNTRUSTED network bytes (POST /capture, /recognize-card).
+# This commit is stb_image v2.34 / stb_image_write v1.19 — past the heap-overflow
+# CVE fixes of the v2.27/2.28 era. Do not downgrade below that. The decode-side
+# mitigations (format-signature + dimension/pixel caps + try/catch) live in
+# core/src/image_io.cpp.
 FetchContent_Declare(stb GIT_REPOSITORY https://github.com/nothings/stb.git
                      GIT_TAG 6b5799bae8a1fe3792691ef4b72ae26434c3e799)
 set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
