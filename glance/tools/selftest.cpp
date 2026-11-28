@@ -27,7 +27,6 @@
 #include <vector>
 
 #include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 
 #include <httplib.h>
@@ -35,6 +34,7 @@
 #include "card_vision.h"
 #include "control.h"
 #include "control_service.h"
+#include "image_io.h"
 #include "ocr.h"
 #include "scraper.h"
 #include "server.h"
@@ -129,9 +129,9 @@ static void write_img(const fs::path& p, const cv::Mat& m) {
   fs::create_directories(p.parent_path());
   bool ok = false;
   try {
-    ok = cv::imwrite(p.string(), m);
+    ok = glance::write_png(p.string(), m);
   } catch (const cv::Exception& e) {
-    std::printf("  imwrite %s threw: %s\n", p.string().c_str(), e.what());
+    std::printf("  write_png %s threw: %s\n", p.string().c_str(), e.what());
   }
   if (!ok || !fs::exists(p)) {
     std::printf("  FAIL: could not write %s\n", p.string().c_str());
@@ -152,9 +152,9 @@ static cv::Mat make_vision_card(const std::string& rank, const std::string& suit
   const cv::Scalar ink = red ? cv::Scalar(30, 30, 200) : cv::Scalar(25, 25, 25);
   cv::Mat card(148, 108, CV_8UC3, cv::Scalar(250, 250, 250));
   cv::putText(card, rank, {6, 30}, cv::FONT_HERSHEY_SIMPLEX, 0.9, ink, 2, cv::LINE_AA);
-  cv::Mat glyph = cv::imread(std::string(GLANCE_TESTDATA_DIR) + "/card_vision/suits_simulator/" + suit +
-                                 "_arial.png",
-                             cv::IMREAD_GRAYSCALE);
+  cv::Mat glyph = glance::load_image(
+      std::string(GLANCE_TESTDATA_DIR) + "/card_vision/suits_simulator/" + suit + "_arial.png",
+      /*color=*/false);
   if (glyph.empty()) return {};
   auto paint = [&](int x, int y, int size) {
     cv::Mat g;
@@ -519,7 +519,7 @@ int main(int argc, char** argv) {
 
     // --- ScreenshotService (the HTTP layer's state holder) ---------------------
     std::vector<unsigned char> buf;
-    cv::imencode(".png", shot, buf);
+    glance::encode_png(shot, buf);
     glance::ScreenshotService service(&scraper);
     CHECK(service.update(buf), "service accepts an encoded screenshot");
     CHECK(service.has_state(), "service holds the parsed state");
@@ -565,7 +565,7 @@ int main(int argc, char** argv) {
   {
     std::printf("selftest: http round-trip\n");
     std::vector<unsigned char> http_buf;
-    cv::imencode(".png", shot, http_buf);
+    glance::encode_png(shot, http_buf);
     glance::TableScraper http_scraper;
     if (!http_scraper.load_mapping((base / "mapping.json").string())) {
       std::printf("  FAIL: http round-trip: mapping loads for the test server\n");
@@ -622,7 +622,7 @@ int main(int argc, char** argv) {
   {
     std::printf("selftest: control http round-trip\n");
     std::vector<unsigned char> http_buf;
-    cv::imencode(".png", shot, http_buf);
+    glance::encode_png(shot, http_buf);
     glance::TableScraper ctrl_scraper;
     if (!ctrl_scraper.load_mapping((base / "mapping.json").string())) {
       std::printf("  FAIL: control http: mapping loads for the test server\n");
@@ -987,7 +987,7 @@ int main(int argc, char** argv) {
   {
     std::printf("selftest: slumbot control-plane http round-trip\n");
     std::vector<unsigned char> http_buf;
-    cv::imencode(".png", shot, http_buf);
+    glance::encode_png(shot, http_buf);
     glance::TableScraper sb_scraper;
     if (!sb_scraper.load_mapping((base / "mapping.json").string())) {
       std::printf("  FAIL: slumbot http: mapping loads for the test server\n");

@@ -1,7 +1,6 @@
 #include "server.h"
 
-#include <opencv2/imgcodecs.hpp>
-
+#include "image_io.h"
 #include "scraper.h"
 
 namespace glance {
@@ -10,7 +9,7 @@ ScreenshotService::ScreenshotService(TableScraper* scraper) : scraper_(scraper) 
 
 bool ScreenshotService::update(const std::vector<unsigned char>& data) {
   if (data.empty() || !scraper_) return false;
-  cv::Mat img = cv::imdecode(cv::Mat(data), cv::IMREAD_COLOR);
+  cv::Mat img = decode_image(data, /*color=*/true);
   if (img.empty()) {
     has_state_ = false;
     return false;

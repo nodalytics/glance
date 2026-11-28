@@ -18,8 +18,8 @@
 #include <vector>
 
 #include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
 
+#include "image_io.h"
 #include "ocr.h"
 #include "scraper.h"
 #include "template_match.h"
@@ -63,7 +63,7 @@ int main() {
   }
   CHECK(scraper.card_recognizer() != nullptr, "acr mapping loads with a card_vision recognizer");
 
-  cv::Mat shot = cv::imread(image, cv::IMREAD_COLOR);
+  cv::Mat shot = glance::load_image(image, /*color=*/true);
   CHECK(!shot.empty() && shot.cols == 1600 && shot.rows == 899, "ss.jpeg decodes at 1600x899");
 
   std::optional<glance::TableState> st = scraper.scrape(shot);
@@ -136,7 +136,7 @@ int main() {
   // work on a different hand: the Fold/Call buttons are up, so my_turn is true.
   const std::string image2 = std::string(GLANCE_RESEARCH_DIR) + "/test_images/img.jpeg";
   if (fs::exists(image2)) {
-    cv::Mat shot2 = cv::imread(image2, cv::IMREAD_COLOR);
+    cv::Mat shot2 = glance::load_image(image2, /*color=*/true);
     std::optional<glance::TableState> st2 = scraper.scrape(shot2);
     CHECK(st2.has_value(), "img.jpeg (preflop, second table) parses through the same mapping");
     if (st2) {

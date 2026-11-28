@@ -4,9 +4,9 @@
 #include <vector>
 
 #include <nlohmann/json.hpp>
-#include <opencv2/imgcodecs.hpp>
 
 #include "card_vision.h"
+#include "image_io.h"
 #include "ocr.h"
 
 #ifndef GLANCE_VERSION
@@ -110,7 +110,7 @@ void DashboardRoutes::install(httplib::Server& srv) {
       return;
     }
     std::vector<unsigned char> png;
-    if (!cv::imencode(".png", frame, png)) {
+    if (!encode_png(frame, png)) {
       json_error(res, 500, "could not encode the last frame as PNG");
       return;
     }
@@ -127,12 +127,9 @@ void DashboardRoutes::install(httplib::Server& srv) {
       return;
     }
     const std::vector<unsigned char> bytes(req.body.begin(), req.body.end());
-    cv::Mat card;
-    try {
-      card = cv::imdecode(bytes, cv::IMREAD_COLOR);
-    } catch (const cv::Exception&) {
-      card.release();
-    }
+    // decode_image returns an empty Mat on any bad/undecodable input (it does
+    // not throw), so a garbage upload falls straight through to the 400 below.
+    cv::Mat card = decode_image(bytes, /*color=*/true);
     if (card.empty()) {
       json_error(res, 400, "could not decode the body as a PNG/JPEG image");
       return;

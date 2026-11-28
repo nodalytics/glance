@@ -92,13 +92,7 @@ jobs:
           [ "$SIZE_KB" -le "$BUDGET_KB" ] || { echo "::error::glance is ${SIZE_KB} KB, over the ${BUDGET_KB} KB budget"; exit 1; }
 
       - name: Test
-        run: |
-          # Diagnostics must run even when ctest fails, so the rc is kept.
-          CTEST_RC=0
-          ctest --test-dir glance/build --output-on-failure || CTEST_RC=$?
-          # imgcodecs diagnostics (guard from the extensionless-imwrite abort).
-          ./glance/build/glance-opencv-probe || true
-          exit $CTEST_RC
+        run: ctest --test-dir glance/build --output-on-failure
 
       # Accuracy reports for every research dataset (the gates already ran in
       # ctest; these are the full per-card JSONs for inspection).
@@ -201,11 +195,7 @@ jobs:
 
       - name: Test
         shell: pwsh
-        run: |
-          ctest --test-dir glance/build -C Release --output-on-failure
-          $rc = $LASTEXITCODE
-          & glance/build/Release/glance-opencv-probe.exe
-          exit $rc
+        run: ctest --test-dir glance/build -C Release --output-on-failure
 
       - name: Upload test log
         if: failure()
@@ -256,11 +246,7 @@ jobs:
         run: cmake --build glance/build -j"$(sysctl -n hw.ncpu)"
 
       - name: Test
-        run: |
-          CTEST_RC=0
-          ctest --test-dir glance/build --output-on-failure || CTEST_RC=$?
-          ./glance/build/glance-opencv-probe || true
-          exit $CTEST_RC
+        run: ctest --test-dir glance/build --output-on-failure
 
       - name: Upload test log
         if: failure()

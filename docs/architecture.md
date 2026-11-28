@@ -162,19 +162,32 @@ and the build still succeeds.
 
 ## 7. Footprint: small, nimble, efficient, effective
 
-A design goal, not an afterthought. Measured on the lab (Nov 2026):
+A design goal, not an afterthought. Measured on the lab (OpenCV 4.6, Nov 2026):
 
-| | |
-|---|---|
-| `glance` (CLI + server + embedded dashboard) | 1.5 MB (1.2 MB stripped) |
-| Card read (card vision) | ~2 ms per card (Python prototype: ~6.6 s) |
-| Clean build (48 cores) | 38 s; build dir 49 MB |
-| Runtime shared libraries | ~135, almost all pulled in by OpenCV `imgcodecs` |
+| | before | after |
+|---|---|---|
+| `glance` stripped binary | 1331 KB | 1531 KB |
+| Runtime shared libraries (`ldd`) | 135 | 22 |
+| Card read (card vision) | ~2 ms per card (Python prototype: ~6.6 s) | unchanged |
+
+The big win is runtime shared libraries: **135 → 22**. glance only ever reads
+and writes PNG and JPEG, but OpenCV's `imgcodecs` module linked in decoders for
+TIFF, WebP, OpenEXR, GDAL, … — ~113 shared libraries loaded at startup for
+formats we never touch. glance now decodes/encodes PNG+JPEG itself
+(`core/src/image_io.cpp`, backed by the single-header stb decoders pinned in
+`glance/CMakeLists.txt`) and links only OpenCV `core` + `imgproc` (+ `geometry`
+on OpenCV 5). The stb code compiles into the binary, so the stripped binary
+grows ~200 KB — a deliberate trade, and still well under the CI size budget
+(3072 KB).
+
+Decode cost moves a little (one decode per captured frame, not a hot loop): on
+a real 1600×899 ACR grab, N=100, JPEG 2.9 → 6.8 ms and PNG 12.9 → 15.0 ms per
+decode (libjpeg/libpng vs stb). Recognition is unchanged: PNG decode is
+lossless so every card-vision accuracy gate is bit-identical, and the real ACR
+board still reads **Ah 8s Jh Jd 2h** template-free from the JPEG grab.
 
 Rules: no dependency without a measured reason; optional parts stay
 optional; CI fails if the stripped `glance` binary exceeds its budget.
-Next lever: decode PNG/JPEG without `imgcodecs` (e.g. single-header
-decoders) to drop most of those runtime libraries.
 
 ## 8. Repository map
 
@@ -190,7 +203,7 @@ decoders) to drop most of those runtime libraries.
 │   ├── core/                #   engine (include/ + src/)
 │   ├── packages/acr/        #   default package: ACR Poker
 │   ├── server/              #   glance-server (compat entry)
-│   ├── tools/               #   glance CLI, selftest, webtest, pkgtest, cardvision, opencv probe
+│   ├── tools/               #   glance CLI, selftest, webtest, pkgtest, cardvision
 │   ├── web/                 #   dashboard sources (embedded at build time)
 │   ├── app/                 #   Qt admin app (optional)
 │   ├── cmake/               #   build helpers (web embedding)

@@ -27,8 +27,16 @@ include(FetchContent)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz
                      URL_HASH SHA256=d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d)
 FetchContent_Declare(httplib GIT_REPOSITORY https://github.com/yhirose/cpp-httplib.git GIT_TAG v0.67.0)
+# stb: single-header PNG/JPEG decode + PNG encode (core/src/image_io.cpp). This
+# is what lets glance_core drop OpenCV's imgcodecs module (and the ~130 runtime
+# shared libraries it drags in for TIFF/WebP/OpenEXR/GDAL/... that glance never
+# uses). Pinned to an exact upstream commit, like httplib above; the repo has no
+# CMakeLists, so MakeAvailable just populates it and we add it as a SYSTEM
+# include dir below.
+FetchContent_Declare(stb GIT_REPOSITORY https://github.com/nothings/stb.git
+                     GIT_TAG 6b5799bae8a1fe3792691ef4b72ae26434c3e799)
 set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
-FetchContent_MakeAvailable(json)
+FetchContent_MakeAvailable(json stb)
 
 # OpenCV: the distro's prebuilt package (libopencv-dev), NOT a source build.
 # The from-source 5.1.0 we previously Fetched is what made builds slow and disk
@@ -44,9 +52,15 @@ FetchContent_MakeAvailable(json)
 # build/x64/vc*/lib). A 5.x package (e.g. a newer Homebrew bottle) is accepted
 # too: OpenCV's version file only matches within one major version, so retry
 # without a version and check the floor by hand.
-find_package(OpenCV 4.5 QUIET COMPONENTS core imgproc imgcodecs)
+# No imgcodecs: glance decodes/encodes PNG+JPEG itself (core/src/image_io.cpp,
+# backed by stb), so it links only core + imgproc (matchTemplate, cvtColor,
+# resize, threshold, ...). Dropping the imgcodecs component is what removes the
+# TIFF/WebP/OpenEXR/GDAL/... runtime libraries. On the Windows prebuilt this is
+# a no-op for linkage (opencv_world bundles every module), but it keeps the
+# requested-component list honest across all three OSes.
+find_package(OpenCV 4.5 QUIET COMPONENTS core imgproc)
 if(NOT OpenCV_FOUND)
-  find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs)
+  find_package(OpenCV REQUIRED COMPONENTS core imgproc)
   if(OpenCV_VERSION VERSION_LESS 4.5)
     message(FATAL_ERROR "glance needs OpenCV >= 4.5, found ${OpenCV_VERSION}")
   endif()
@@ -58,7 +72,7 @@ set(GLANCE_OPENCV_LIBS ${OpenCV_LIBS})
 # OpenCV 5 split contour geometry (contourArea, boundingRect, matchShapes —
 # used by core/card_vision.cpp) into a new `geometry` module.
 if(OpenCV_VERSION VERSION_GREATER_EQUAL 5.0)
-  find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs geometry)
+  find_package(OpenCV REQUIRED COMPONENTS core imgproc geometry)
   set(GLANCE_OPENCV_LIBS ${OpenCV_LIBS})
 endif()
 message(STATUS "glance: OpenCV ${OpenCV_VERSION} (${GLANCE_OPENCV_LIBS})")
@@ -134,6 +148,7 @@ add_custom_command(
 
 add_library(glance_core
   core/src/mapping.cpp
+  core/src/image_io.cpp
   core/src/template_match.cpp
   core/src/card_vision.cpp
   core/src/ocr.cpp
@@ -162,6 +177,9 @@ target_compile_definitions(glance_core PUBLIC "GLANCE_VERSION=\"${GLANCE_VERSION
 target_link_libraries(glance_core
   PUBLIC nlohmann_json::nlohmann_json ${GLANCE_OPENCV_LIBS} Threads::Threads)
 target_include_directories(glance_core SYSTEM PUBLIC ${OpenCV_INCLUDE_DIRS})
+# stb headers are PRIVATE (only image_io.cpp includes them) and SYSTEM so their
+# -Wall/-Wextra noise is not counted against glance's zero-warning gate.
+target_include_directories(glance_core SYSTEM PRIVATE ${stb_SOURCE_DIR})
 if(HAS_OCR)
   string(REPLACE "\"" "\\\"" TESSERACT_BIN_ESCAPED "${TESSERACT_BIN_PATH}")
   target_compile_definitions(glance_core PUBLIC "GLANCE_OCR=1" "GLANCE_TESSERACT_BIN=\"${TESSERACT_BIN_ESCAPED}\"")
@@ -244,17 +262,6 @@ target_link_libraries(glance-acrtest PRIVATE glance_core)
 target_compile_definitions(glance-acrtest PRIVATE
   GLANCE_ACR_PACKAGE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/packages/acr"
   GLANCE_RESEARCH_DIR="${CMAKE_CURRENT_SOURCE_DIR}/../research")
-
-# Diagnostics only: prints the imgcodecs "Image I/O" build section and
-# exercises imwrite/imencode per format. Run standalone (the CI workflow has
-# a dedicated step for it) so a host without the right codecs still reports
-# what it can encode before the selftest is expected to work.
-add_executable(glance-opencv-probe tools/opencv_probe.cpp)
-target_link_libraries(glance-opencv-probe PRIVATE ${GLANCE_OPENCV_LIBS})
-target_include_directories(glance-opencv-probe SYSTEM PRIVATE ${OpenCV_INCLUDE_DIRS})
-if(MSVC)
-  target_compile_options(glance-opencv-probe PRIVATE /utf-8)
-endif()
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(glance_core PRIVATE -Wall -Wextra)

@@ -3,14 +3,14 @@
 #include <algorithm>
 
 #include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
+
+#include "image_io.h"
 
 namespace glance {
 
 cv::Mat load_template(const std::string& path) {
-  cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
-  return img;
+  return load_image(path, /*color=*/true);
 }
 
 // Clamp a search-area rect into the image bounds. Returns false when the

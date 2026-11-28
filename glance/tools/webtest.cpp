@@ -23,10 +23,10 @@
 #include <httplib.h>
 #include <nlohmann/json.hpp>
 #include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 
 #include "control_service.h"
+#include "image_io.h"
 #include "scraper.h"
 #include "server.h"
 #include "server_control.h"
@@ -62,7 +62,7 @@ int main() {
   // A noisy anchor that will not be found in a flat grey frame.
   cv::Mat anchor(24, 24, CV_8UC3);
   cv::randu(anchor, cv::Scalar::all(0), cv::Scalar::all(255));
-  cv::imwrite((base / "templates" / "anchor.png").string(), anchor);
+  glance::write_png((base / "templates" / "anchor.png").string(), anchor);
   nlohmann::json m;
   m["name"] = "webtest";
   m["crop"] = {{"x", 200}, {"y", 100}};
@@ -190,7 +190,7 @@ int main() {
 
     cv::Mat shot(120, 160, CV_8UC3, cv::Scalar(90, 90, 90));
     std::vector<unsigned char> buf;
-    cv::imencode(".png", shot, buf);
+    glance::encode_png(shot, buf);
     auto c = cli.Post("/capture", std::string(buf.begin(), buf.end()), "image/png");
     CHECK(c && c->status == 422, "a frame without the table is a 422 capture");
     auto f = cli.Get("/frame.png");
@@ -198,7 +198,7 @@ int main() {
           "GET /frame.png serves the last captured frame as PNG");
     if (f && f->status == 200) {
       std::vector<unsigned char> png(f->body.begin(), f->body.end());
-      cv::Mat back = cv::imdecode(png, cv::IMREAD_COLOR);
+      cv::Mat back = glance::decode_image(png, /*color=*/true);
       CHECK(back.cols == 160 && back.rows == 120, "the served frame has the captured size");
     }
   }
@@ -215,7 +215,7 @@ int main() {
     cv::Mat card(80, 56, CV_8UC3, cv::Scalar(250, 250, 250));
     cv::putText(card, "A", {6, 26}, cv::FONT_HERSHEY_SIMPLEX, 0.8, cv::Scalar(0, 0, 0), 2);
     std::vector<unsigned char> buf;
-    cv::imencode(".png", card, buf);
+    glance::encode_png(card, buf);
     auto n = cli.Post("/recognize-card?slot=board1", std::string(buf.begin(), buf.end()),
                       "image/png");
     CHECK(n && n->status == 409, "a valid crop without card_vision is 409");
