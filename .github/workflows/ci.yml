@@ -1,4 +1,4 @@
-# CI: build + selftest on every push/PR to main.
+# CI: build + selftest on every push/PR to main, on Linux, Windows and macOS.
 #
 # What this covers that the lab does NOT: the tesseract/OCR numeric path. The
 # lab host has no tesseract, so GLANCE_OCR is off there and the selftest always
@@ -22,6 +22,7 @@ on:
 
 jobs:
   build-and-test:
+    name: linux (ubuntu-24.04)
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -31,14 +32,14 @@ jobs:
       # libopencv-dev: glance links the distro's prebuilt OpenCV 4.x.
       # tesseract-ocr: enables GLANCE_OCR=1 so the selftest's numeric checks
       # run (see CMakeLists find_program(tesseract)).
-      # libx11-dev libxtst-dev: compile the X11 control backend (GLANCE_X11);
-      # without them configure silently falls back to the null backend and
-      # screen_x11.cpp is never compiled. The selftest uses fake backends, so
-      # no display is needed.
+      # libx11-dev/libxext-dev/libxtst-dev: compiles the X11 control backend
+      # (GLANCE_X11=1). Nothing exercises it at runtime here — the runner has
+      # no display and the tests drive fake Screen/Input objects — but the
+      # backend is at least compiled on every push.
       - name: Install host dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq libopencv-dev tesseract-ocr libx11-dev libxtst-dev
+          sudo apt-get install -y -qq libopencv-dev tesseract-ocr libx11-dev libxext-dev libxtst-dev
 
       - name: Configure
         run: cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release
@@ -68,4 +69,90 @@ jobs:
           ./glance/build/glance-opencv-probe || true
           echo "--- apt: opencv/imgcodecs image-related packages ---"
           dpkg -l | grep -iE 'opencv|libpng|libjpeg|libtiff|libwebp|libopenexr|libjasper|libgif' | awk '{print $2, $3}' || true
+          exit $CTEST_RC
+
+  # Windows: MSVC (Visual Studio generator, multi-config -> --config/-C
+  # Release) against the OFFICIAL PREBUILT OpenCV Windows package (choco
+  # `opencv`, an opencv_world build), never a source build. The Win32
+  # control backend (GLANCE_WIN32) is compiled in; the tests still use fakes.
+  windows:
+    name: windows (msvc)
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Locates OpenCVConfig.cmake under <tools>/opencv/build/x64/vc*/lib
+      # (the per-toolset config, which avoids the top-level config's MSVC
+      # version sniffing) and puts the matching bin/ (opencv_world*.dll) on
+      # PATH for every later step — the tests cannot start without it.
+      - name: Install prebuilt OpenCV
+        shell: pwsh
+        run: |
+          choco install opencv -y --no-progress
+          $tools = if ($env:ChocolateyToolsLocation) { $env:ChocolateyToolsLocation } else { 'C:\tools' }
+          $cfg = Get-ChildItem (Join-Path $tools 'opencv\build') -Recurse -Filter OpenCVConfig.cmake |
+                 Where-Object { $_.DirectoryName -match '\\x64\\vc\d+\\lib$' } |
+                 Sort-Object FullName -Descending | Select-Object -First 1
+          if (-not $cfg) { throw "OpenCVConfig.cmake not found under $tools\opencv\build" }
+          $bin = Join-Path (Split-Path $cfg.DirectoryName -Parent) 'bin'
+          Write-Host "OpenCV_DIR=$($cfg.DirectoryName)  bin=$bin"
+          "OpenCV_DIR=$($cfg.DirectoryName)" | Out-File $env:GITHUB_ENV -Append -Encoding utf8
+          $bin | Out-File $env:GITHUB_PATH -Append -Encoding utf8
+
+      # Optional, like everywhere: exercises ocr.cpp's Windows path (_popen
+      # through cmd.exe, double-quoted args, GetTempPath temp PNGs). If the
+      # package is unavailable the build simply has no OCR.
+      - name: Install tesseract (optional)
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          choco install tesseract -y --no-progress
+          $dir = Join-Path $env:ProgramFiles 'Tesseract-OCR'
+          if (Test-Path (Join-Path $dir 'tesseract.exe')) { $dir | Out-File $env:GITHUB_PATH -Append -Encoding utf8 }
+
+      - name: Configure
+        run: cmake -B glance/build -S glance -DOpenCV_DIR="$env:OpenCV_DIR"
+
+      - name: Build
+        run: cmake --build glance/build --config Release --parallel
+
+      - name: Test
+        shell: pwsh
+        run: |
+          ctest --test-dir glance/build -C Release --output-on-failure
+          $rc = $LASTEXITCODE
+          & glance/build/Release/glance-opencv-probe.exe
+          exit $rc
+
+  # macOS: Apple clang against Homebrew's prebuilt OpenCV bottle (+ tesseract
+  # so the OCR numeric checks run here too). The CoreGraphics control backend
+  # (GLANCE_MACOS) is compiled in; the tests still use fakes, so no Screen
+  # Recording / Accessibility permission is needed on the runner.
+  macos:
+    name: macos (apple clang)
+    runs-on: macos-latest
+    timeout-minutes: 40
+    env:
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      HOMEBREW_NO_ENV_HINTS: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install host dependencies
+        run: brew install opencv tesseract
+
+      - name: Configure
+        run: cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$(brew --prefix)"
+
+      - name: Build
+        run: cmake --build glance/build -j"$(sysctl -n hw.ncpu)"
+
+      - name: Test
+        run: |
+          CTEST_RC=0
+          ctest --test-dir glance/build --output-on-failure || CTEST_RC=$?
+          ./glance/build/glance-opencv-probe || true
           exit $CTEST_RC

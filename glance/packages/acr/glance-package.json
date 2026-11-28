@@ -1,0 +1,15 @@
+{
+  "name": "acr",
+  "version": "0.1.0",
+  "description": "ACR Poker tables (6-max): cards, buttons, dealer, stacks/bets/pot, named actions.",
+  "glance": ">=0.2.0",
+  "app": {
+    "name": "ACR Poker",
+    "url": "https://www.acrpoker.eu/",
+    "window_title": "ACR"
+  },
+  "mappings": {
+    "6max": "mappings/6max.json"
+  },
+  "default_mapping": "6max"
+}

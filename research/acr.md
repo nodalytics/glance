@@ -2,13 +2,15 @@
 
 Screen scraping for [ACR Poker](https://www.acrpoker.eu/) — a web poker client.
 Because it is a web client, the "screenshot" is a grab of the poker window. The
-engine in `core/` is generic (no ACR knowledge); `acr/` is a thin wrapper.
+engine in `core/` is generic (no ACR knowledge); ACR is a **package**
+(`packages/acr/`: `glance-package.json` + `mappings/6max.json` + template
+PNGs), the default one shipped with glance (`glance serve --package acr`).
 
-All screen-specific scraping lives in `acr/`.
+All ACR-specific knowledge lives in that package — data, not code.
 
 ## Conventions
 
-- New generic scraping code goes in `core/`; ACR-only stuff in `acr/`.
+- New generic scraping code goes in `core/`; ACR-only stuff in `packages/acr/`.
 - Use OpenCV for image processing (`imread`/`imdecode`, `matchTemplate`,
   `cvtColor`, `threshold`). No GUI.
 - OCR is optional: `glance::ocr_available()` gates every numeric read. The

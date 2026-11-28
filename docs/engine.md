@@ -8,9 +8,9 @@ box below stops matching the source, the doc is stale.
 A screenshot goes in as image bytes; parsed table state comes out as JSON —
 and, since milestone M1, the same HTTP surface drives the platform back:
 `POST /click`, `/key`, `/sequence` turn client coordinates and named actions
-(defined in the mapping JSON) into screen-absolute input injected by the X11
-backend (synthetic mouse/keys via XTest), or by a null backend on machines
-without a display. **glance is the screen's replacement API** — for platforms
+(defined in the mapping JSON) into screen-absolute input injected by the
+platform backend (X11/XTest on Linux, SendInput on Windows, CGEvent on
+macOS), or by a null backend on machines without a display. **glance is the screen's replacement API** — for platforms
 that expose no programming interface at all, it manufactures one from pixels,
 in both directions.
 
@@ -47,10 +47,10 @@ in both directions.
                                       | Screen::grab / Input::click / key
                                       v
     +---------------------------------------------------------------------+
-    |  control backend  (core/src/screen_x11.cpp or the null backend)    |
+    |  control backend  (core/src/screen_{x11,win,mac}.cpp or null)      |
     |  Screen (pixel grab) + Input (synthetic mouse/keys) + name;        |
-    |  make_default() picks X11 when the headers were found at configure |
-    |  time, else null (same optional pattern as tesseract).             |
+    |  make_default() picks the platform backend compiled in at          |
+    |  configure time, else null (same optional pattern as tesseract).   |
     +---------------------------------------------------------------------+
    +---------------------------------------------------------------------+
    |  AcrScraper  (acr/acr_scraper.cpp)  -- the platform "skin"         |
@@ -175,7 +175,8 @@ report from step 8 as a `validation` key.
 | `ControlService`     | "last frame's input space",  | pixels, the platform, what an  |
 |                      | action->coordinate           |   action *means*               |
 | `control backend`    | the platform's pixels &      | tables, mappings, card faces   |
-|                      | input device (X11/null)      |                                |
+|                      | input device (x11/win32/     |                                |
+|                      | macos/null)                  |                                |
 | `acr/` (skin)        | ACR's skin layout & mapping  | HTTP, OpenCV details           |
 | `TableScraper`       | anchors, slots, thresholds   | ACR specifically (any skin)    |
 | `template_match.cpp` | pixel similarity             | games, tables, cards           |
@@ -187,7 +188,7 @@ Two rules make this hold:
 
 - **The mapping JSON is the only platform-specific input.** Everything a
   scraper does comes from `name/crop/topleft/cards/buttons/dealer/stacks`
-  (contract in `core/include/mapping.h` and `docs/acr.md`). A new platform is
+  (contract in `core/include/mapping.h` and `research/acr.md`). A new platform is
   data plus, at most, a ~40-line wrapper like `AcrScraper`.
 - **Control attaches to the same seam (milestone M1, landed).** The
   `ControlService` (core/control_service.cpp, routes in
@@ -197,10 +198,53 @@ Two rules make this hold:
   (client coordinates are re-based to screen-absolute with that frame's
   origin), and resolves the mapping's `actions` names to the centre of the
   existing `buttons`/`stacks` rectangles. The platform itself is a
-  `Screen`+`Input` *backend* behind it (X11 via XGetImage/XTest when the
-  headers were found at configure time, null otherwise — the same
+  `Screen`+`Input` *backend* behind it (X11, Win32 or macOS — see below —
+  when compiled in at configure time, null otherwise — the same
   configure-time-optional pattern as tesseract), so the arrow direction is
   unchanged: the service is platform-ignorant, the backend is game-ignorant.
+
+### Control backends (per platform)
+
+One `Screen`+`Input` pair per OS (`core/include/control.h`), each in its own
+file, each compiled only on its OS and only when its CMake option is ON
+(default ON); `make_default()` in `core/src/control.cpp` returns whichever was
+compiled in, else `make_null()`. Every backend fails its *calls* (grab returns
+false, input is dropped), never its construction, when there is no usable
+display or permission — so the server always starts.
+
+| Backend (`backend_name`) | Option / file | Grab | Window lookup | Input |
+|---|---|---|---|---|
+| `x11` | `GLANCE_X11`, `screen_x11.cpp` (needs libx11-dev libxext-dev libxtst-dev) | `XGetImage` on the root window | `_NET_WM_NAME`/`WM_NAME` walk of the window tree; client-window geometry | XTest fake motion/button/key events |
+| `win32` | `GLANCE_WIN32`, `screen_win.cpp` (system libs user32/gdi32/dwmapi) | GDI `BitBlt` (`SRCCOPY\|CAPTUREBLT`) of the virtual desktop into a 32-bit top-down DIB section | `EnumWindows` + `GetWindowTextW` (UTF-16 → lower-case substring; visible, non-minimized, non-cloaked); client area via `GetClientRect`+`ClientToScreen`, falling back to `DWMWA_EXTENDED_FRAME_BOUNDS`/`GetWindowRect` | `SendInput`: absolute moves normalized 0..65535 with `MOUSEEVENTF_VIRTUALDESK`; named keys → VK codes (extended-key flag, scancode filled), characters via `VkKeyScanW`; `type_text` via `KEYEVENTF_UNICODE` |
+| `macos` | `GLANCE_MACOS`, `screen_mac.cpp` (CoreGraphics + CoreFoundation frameworks) | `CGWindowListCreateImage` (fallback `CGDisplayCreateImageForRect`) drawn into a BGRA bitmap context | `CGWindowListCopyWindowInfo`, layer-0 on-screen windows front to back, `kCGWindowName` then `kCGWindowOwnerName` (case-insensitive `CFStringFind`); frame = `kCGWindowBounds` (includes the title bar) | `CGEventCreateMouseEvent` / `CGEventCreateKeyboardEvent` posted at the HID tap; text via `CGEventKeyboardSetUnicodeString` |
+| `null` | always (`control.cpp`) | deterministic checkerboard | unsupported | recorded, no-op |
+
+Coordinate space is the same everywhere: **screen-absolute pixels with 0,0 at
+the top-left of the virtual desktop** (the bounding box of all monitors).
+
+- **Windows**: physical pixels. The process is made per-monitor DPI aware
+  (`SetProcessDpiAwarenessContext(PER_MONITOR_AWARE_V2)`, falling back to
+  `SetProcessDPIAware`) when the backend is created, so GDI and SendInput are
+  not DPI-virtualized. The Win32 virtual-screen origin
+  (`SM_XVIRTUALSCREEN`/`SM_YVIRTUALSCREEN`, negative with a monitor left of or
+  above the primary) is subtracted, so glance coordinates never go negative.
+  `SendInput` obeys UIPI: input aimed at an elevated window is dropped unless
+  glance runs elevated too. Session-0 services have no desktop to grab.
+- **macOS**: Quartz works in *points*; glance space is *pixels* = (global
+  point − top-left of the union of active displays) × the main display's
+  backing scale factor (2 on Retina). Grabs come back at native Retina
+  resolution and the same numbers fed to `/click` land on the same pixels.
+  With mixed-scale displays the secondary ones are resampled to the main
+  display's scale. **Permissions** (System Settings → Privacy & Security, for
+  the binary or the terminal launching it): *Screen Recording* — without it
+  grabs show only the desktop/own windows and other apps' window titles are
+  hidden (lookup then matches only owner/app names); *Accessibility* —
+  without it posted events are silently dropped. `CGWindowListCreateImage` and
+  `CGDisplayCreateImageForRect` are deprecated (macOS 14) and *obsoleted* in
+  the macOS 15 SDK (a hard compile error at deployment target ≥ 15), so they
+  are resolved at runtime with `dlsym` and the file builds against any SDK.
+  Future work: a ScreenCaptureKit (`SCScreenshotManager`, Objective-C++)
+  grab path for OS releases that drop those symbols.
 
 ## 4. Design invariants
 
@@ -215,8 +259,9 @@ Two rules make this hold:
 4. **Configure-time, not link-time, optionals.** `GLANCE_OCR` is decided
    by `find_program(tesseract)` at configure time and burned in as a compiled
    default; `ocr_available()` still re-checks the binary at runtime. The same
-   pattern exists for `GLANCE_X11`: the X development packages decide whether
-   the X11 screen/input backend is compiled in, and `backend_name()` reports
+   pattern exists for the control backends (`GLANCE_X11`, `GLANCE_WIN32`,
+   `GLANCE_MACOS`): the platform's dev packages/SDK decide whether its
+   screen/input backend is compiled in, and `backend_name()` reports
    `null` at runtime on machines without one — the build never breaks and a
    headless machine degrades to "no display", never to "no server".
 5. **Synth-proof correctness.** `glance-selftest` generates its own
@@ -239,7 +284,8 @@ Two rules make this hold:
   |  | bot / research | --------> (JSON)  + ControlService  |   |
   |  | client         | <----  POST (state)   + control     |   |
   |  +----------------+              /click /key   backend  |   |
-  |                                    /sequence  (X11)     |   |
+  |                                    /sequence  (x11/win32 |   |
+  |                                               /macos)   |   |
   +-----------------------------------------------------------+
 ```
 

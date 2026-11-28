@@ -39,3 +39,6 @@ dist/
 # Local environment secrets
 .env
 .env.local
+
+# Browser-automation scratch (Playwright MCP)
+.playwright-mcp/

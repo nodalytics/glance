@@ -15,6 +15,12 @@ option(GLANCE_OCR "build the tesseract OCR reader (needs tesseract-dev)" ON)
 # "no display" at runtime). Windows/macOS backends go here too (SendInput,
 # CGEvent) when glance moves off Linux.
 option(GLANCE_X11 "build the X11 screen/input backend (needs libx11-dev libxext-dev)" ON)
+# Windows (GDI BitBlt + SendInput, core/src/screen_win.cpp) and macOS
+# (CoreGraphics capture + CGEvent, core/src/screen_mac.cpp) backends: same
+# optional pattern, each only ever ON on its own OS; turning one off falls
+# back to the null backend.
+option(GLANCE_WIN32 "build the Win32 screen/input backend (user32/gdi32/dwmapi, Windows only)" ON)
+option(GLANCE_MACOS "build the macOS screen/input backend (CoreGraphics, Apple only)" ON)
 
 include(FetchContent)
 # Single-header deps, pinned to kestrel's known-good json build
@@ -33,7 +39,23 @@ FetchContent_MakeAvailable(json)
 # test code — see global memory, Nov 2026). Either way: the distro package
 # (4.6 on Ubuntu 24.04; 4.x elsewhere) is already built and tuned by the
 # maintainer, so we never compile OpenCV at build time.
-find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
+# Prebuilt per OS: libopencv-dev (Linux), `brew install opencv` (macOS), the
+# official prebuilt Windows package (choco `opencv`; point OpenCV_DIR at its
+# build/x64/vc*/lib). A 5.x package (e.g. a newer Homebrew bottle) is accepted
+# too: OpenCV's version file only matches within one major version, so retry
+# without a version and check the floor by hand.
+find_package(OpenCV 4.5 QUIET COMPONENTS core imgproc imgcodecs)
+if(NOT OpenCV_FOUND)
+  find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs)
+  if(OpenCV_VERSION VERSION_LESS 4.5)
+    message(FATAL_ERROR "glance needs OpenCV >= 4.5, found ${OpenCV_VERSION}")
+  endif()
+endif()
+# OpenCV_LIBS = the requested modules' imported targets: opencv_core;... on a
+# per-module install, opencv_world on the Windows prebuilt (a single-library
+# "world" build that exports no per-module targets).
+set(GLANCE_OPENCV_LIBS ${OpenCV_LIBS})
+message(STATUS "glance: OpenCV ${OpenCV_VERSION} (${GLANCE_OPENCV_LIBS})")
 
 find_package(Threads REQUIRED)
 
@@ -69,6 +91,41 @@ if(GLANCE_X11 AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
   endif()
 endif()
 
+# Win32 backend: system libraries only (always present with the Windows SDK /
+# MinGW), so it is ON whenever we target Windows.
+set(HAS_WIN32 OFF)
+if(GLANCE_WIN32 AND WIN32)
+  set(HAS_WIN32 ON)
+  message(STATUS "glance: Win32 control enabled (GDI + SendInput)")
+endif()
+
+# macOS backend: CoreGraphics + CoreFoundation frameworks from the SDK.
+set(HAS_MACOS OFF)
+if(GLANCE_MACOS AND APPLE)
+  find_library(GLANCE_COREGRAPHICS_FW CoreGraphics)
+  find_library(GLANCE_COREFOUNDATION_FW CoreFoundation)
+  if(GLANCE_COREGRAPHICS_FW AND GLANCE_COREFOUNDATION_FW)
+    set(HAS_MACOS ON)
+    message(STATUS "glance: macOS control enabled (CoreGraphics + CGEvent)")
+  else()
+    message(STATUS "glance: CoreGraphics not found, control falls back to the null backend")
+  endif()
+endif()
+
+# Web dashboard (glance/web/**): embedded into the binary as byte arrays by
+# cmake/embed_web.cmake so glance-server serves it with no files on disk.
+# Regenerated whenever a web file changes (CONFIGURE_DEPENDS picks up new ones).
+set(GLANCE_VERSION "0.2.0")
+file(GLOB_RECURSE GLANCE_WEB_FILES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/web/*")
+set(GLANCE_WEB_CPP "${CMAKE_CURRENT_BINARY_DIR}/generated/web_assets.cpp")
+add_custom_command(
+  OUTPUT "${GLANCE_WEB_CPP}"
+  COMMAND ${CMAKE_COMMAND} -DWEB_DIR=${CMAKE_CURRENT_SOURCE_DIR}/web -DOUT=${GLANCE_WEB_CPP}
+          -P ${CMAKE_CURRENT_SOURCE_DIR}/cmake/embed_web.cmake
+  DEPENDS ${GLANCE_WEB_FILES} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/embed_web.cmake
+  COMMENT "glance: embedding the web dashboard"
+  VERBATIM)
+
 add_library(glance_core
   core/src/mapping.cpp
   core/src/template_match.cpp
@@ -80,15 +137,23 @@ add_library(glance_core
   core/src/control.cpp
   core/src/control_service.cpp
   core/src/screen_x11.cpp
-  core/src/server_control.cpp)
+  core/src/screen_win.cpp
+  core/src/screen_mac.cpp
+  core/src/server_control.cpp
+  core/src/server_dashboard.cpp
+  core/src/packages.cpp
+  core/src/app_server.cpp
+  ${GLANCE_WEB_CPP})
 target_include_directories(glance_core PUBLIC core/include)
+target_compile_definitions(glance_core PUBLIC "GLANCE_VERSION=\"${GLANCE_VERSION}\"")
 # find_package(OpenCV) exposes the per-module imported targets that carry the
 # public header include paths. The namespaced aliases (OpenCV::core) only
 # exist in OpenCV >= 4.9 configs, but the classic opencv_* names are what
 # every 4.x install exports (Ubuntu 24.04 ships 4.6; newer distros both), so
 # link those.
 target_link_libraries(glance_core
-  PUBLIC nlohmann_json::nlohmann_json opencv_core opencv_imgproc opencv_imgcodecs Threads::Threads)
+  PUBLIC nlohmann_json::nlohmann_json ${GLANCE_OPENCV_LIBS} Threads::Threads)
+target_include_directories(glance_core SYSTEM PUBLIC ${OpenCV_INCLUDE_DIRS})
 if(HAS_OCR)
   string(REPLACE "\"" "\\\"" TESSERACT_BIN_ESCAPED "${TESSERACT_BIN_PATH}")
   target_compile_definitions(glance_core PUBLIC "GLANCE_OCR=1" "GLANCE_TESSERACT_BIN=\"${TESSERACT_BIN_ESCAPED}\"")
@@ -97,6 +162,28 @@ if(HAS_X11)
   # X11::Xtst carries XTestFake*Event; Xkb keysym lookups are in libX11.
   target_link_libraries(glance_core PUBLIC X11::X11 X11::Xtst)
   target_compile_definitions(glance_core PUBLIC "GLANCE_X11=1")
+endif()
+if(HAS_WIN32)
+  target_link_libraries(glance_core PUBLIC user32 gdi32 dwmapi)
+  target_compile_definitions(glance_core PUBLIC "GLANCE_WIN32=1")
+endif()
+if(HAS_MACOS)
+  target_link_libraries(glance_core PUBLIC ${GLANCE_COREGRAPHICS_FW} ${GLANCE_COREFOUNDATION_FW})
+  target_compile_definitions(glance_core PUBLIC "GLANCE_MACOS=1")
+endif()
+if(WIN32)
+  # Win32 hygiene for every TU (also what cpp-httplib expects): no min/max
+  # macros, lean <windows.h> (no winsock.h vs winsock2.h clash), Windows 10
+  # API level (cpp-httplib refuses older), no CRT "unsafe function" noise for
+  # getenv/fopen.
+  target_compile_definitions(glance_core PUBLIC NOMINMAX WIN32_LEAN_AND_MEAN _WIN32_WINNT=0x0A00
+                                                _CRT_SECURE_NO_WARNINGS)
+endif()
+if(MSVC)
+  # /utf-8: sources are UTF-8 (comments with em dashes); /bigobj: httplib and
+  # nlohmann TUs exceed the default section limit; /Zc:__cplusplus: report
+  # the real standard version to headers that check it.
+  target_compile_options(glance_core PUBLIC /utf-8 /bigobj /Zc:__cplusplus)
 endif()
 
 FetchContent_MakeAvailable(httplib)
@@ -110,12 +197,23 @@ target_link_libraries(glance_core PUBLIC httplib::httplib)
 # server/main.cpp.
 target_compile_definitions(glance_core PUBLIC CPPHTTPLIB_FORM_URL_ENCODED_PAYLOAD_MAX_LENGTH=16777216)
 
-add_library(glance_acr acr/src/acr_scraper.cpp)
-target_include_directories(glance_acr PUBLIC acr/include)
-target_link_libraries(glance_acr PUBLIC glance_core)
+# Packages (core/include/packages.h): built-in packages ship in packages/ and
+# are found in the source tree (build/dev use) or under the install prefix.
+include(GNUInstallDirs)
+target_compile_definitions(glance_core PRIVATE
+  GLANCE_BUILTIN_PACKAGES_DIR="${CMAKE_CURRENT_SOURCE_DIR}/packages"
+  GLANCE_INSTALLED_PACKAGES_DIR="${CMAKE_INSTALL_FULL_DATADIR}/glance/packages")
 
+# `glance` — the command-line front end (serve, pkg, client commands).
+add_executable(glance tools/glance_cli.cpp)
+target_link_libraries(glance PRIVATE glance_core)
+
+# glance-server: compatibility entry point (same as `glance serve`).
 add_executable(glance-server server/main.cpp)
-target_link_libraries(glance-server PRIVATE glance_acr glance_core)
+target_link_libraries(glance-server PRIVATE glance_core)
+
+install(TARGETS glance glance-server RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(DIRECTORY packages/ DESTINATION ${CMAKE_INSTALL_DATADIR}/glance/packages)
 
 add_executable(glance-selftest tools/selftest.cpp)
 target_link_libraries(glance-selftest PRIVATE glance_core)
@@ -123,6 +221,10 @@ target_compile_definitions(glance-selftest PRIVATE GLANCE_TESTDATA_DIR="${CMAKE_
 
 # Card vision CLI: read one card crop, evaluate a labelled dataset, harvest
 # rank-glyph templates (see tools/cardvision.cpp).
+# Dashboard routes test (GET /, /info, /frame.png, POST /recognize-card).
+add_executable(glance-webtest tools/webtest.cpp)
+target_link_libraries(glance-webtest PRIVATE glance_core)
+
 add_executable(glance-cardvision tools/cardvision.cpp)
 target_link_libraries(glance-cardvision PRIVATE glance_core)
 
@@ -131,16 +233,31 @@ target_link_libraries(glance-cardvision PRIVATE glance_core)
 # a dedicated step for it) so a host without the right codecs still reports
 # what it can encode before the selftest is expected to work.
 add_executable(glance-opencv-probe tools/opencv_probe.cpp)
-target_link_libraries(glance-opencv-probe PRIVATE opencv_core opencv_imgcodecs)
+target_link_libraries(glance-opencv-probe PRIVATE ${GLANCE_OPENCV_LIBS})
+target_include_directories(glance-opencv-probe SYSTEM PRIVATE ${OpenCV_INCLUDE_DIRS})
+if(MSVC)
+  target_compile_options(glance-opencv-probe PRIVATE /utf-8)
+endif()
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(glance_core PRIVATE -Wall -Wextra)
-  target_compile_options(glance_acr PRIVATE -Wall -Wextra)
+  target_compile_options(glance PRIVATE -Wall -Wextra)
   target_compile_options(glance-cardvision PRIVATE -Wall -Wextra)
 endif()
 
 enable_testing()
 add_test(NAME selftest COMMAND glance-selftest)
+
+# Package manager + CLI checks (tools/pkgtest.cpp).
+add_executable(glance-pkgtest tools/pkgtest.cpp)
+target_link_libraries(glance-pkgtest PRIVATE glance_core)
+target_compile_definitions(glance-pkgtest PRIVATE
+  GLANCE_SOURCE_PACKAGES_DIR="${CMAKE_CURRENT_SOURCE_DIR}/packages")
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(glance-pkgtest PRIVATE -Wall -Wextra)
+endif()
+add_test(NAME pkgtest COMMAND glance-pkgtest)
+add_test(NAME webtest COMMAND glance-webtest)
 
 # Card-vision accuracy gates on the research prototype's labelled datasets
 # (research/test_assets/validation, committed next to glance/). Templates live
@@ -171,4 +288,19 @@ if(EXISTS "${GLANCE_VALIDATION_DIR}/heldout_v1/expected.json")
            COMMAND glance-cardvision eval ${GLANCE_VALIDATION_DIR}/datasets/calibration_sample_001
                    --suits ${GLANCE_CV_DIR}/suits_calibration --ranks ${GLANCE_CV_DIR}/ranks_simulator
                    --profile calibration --min-suit-accuracy 1.0 --max-incorrect 0)
+endif()
+
+# Qt6 desktop admin app (glance/app): a client of the HTTP API that links only
+# QtWidgets + QtNetwork (no OpenCV, no glance_core). Same optional pattern as
+# OCR/X11 above: built when Qt6 is found, skipped with a STATUS line otherwise.
+# glance/app/CMakeLists.txt also builds standalone (cmake -S glance/app).
+option(GLANCE_APP "build the Qt admin app (glance-admin, needs Qt6 Widgets + Network)" ON)
+if(GLANCE_APP)
+  find_package(Qt6 QUIET COMPONENTS Widgets Network)
+  if(Qt6_FOUND AND Qt6Widgets_FOUND AND Qt6Network_FOUND)
+    message(STATUS "glance: Qt ${Qt6_VERSION} found, building glance-admin")
+    add_subdirectory(app)
+  else()
+    message(STATUS "glance: no Qt6 Widgets/Network, skipping glance-admin (install qt6-base-dev)")
+  endif()
 endif()

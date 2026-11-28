@@ -9,8 +9,9 @@ the way a human does: it looks.
 
 The design principle: **the engine never knows what it is looking at.**
 `core/` is a generic screen-scraping + control engine (it does not even know
-that poker exists); every platform is a thin skin: a mapping file plus a few
-hundred lines (`acr/`). Adding a new platform — poker, blackjack, dice,
+that poker exists); every application is a **package**: a manifest, mapping
+files and template PNGs (`packages/acr/` is the default one), installed with
+`glance pkg install`. Adding a new platform — poker, blackjack, dice,
 crash, a game you play to farm a bonus — is a mapping file and some template
 PNGs, not new code.
 
@@ -88,12 +89,14 @@ The first three all work today (1–2 are a client script away; 3 is a one-line
 
 ## Reading order
 
-- [architecture.md](architecture.md) — **start here**: the layer diagram, a
+- [architecture.md](architecture.md) — **start here**: the whole-system map
+  (engine, packages, front ends, platforms, research).
+- [engine.md](engine.md) — engine internals: the layer diagram, a
   request traced end to end, the "who knows what" layering contract, and the
   design invariants.
 - [models.md](models.md) — where we evolve to: our own foundation model for
   understanding and operating any desktop app (direction, not built yet).
-- [acr.md](acr.md) — the complete ACR Poker technique: anchor, crop, template
+- [acr.md](../research/acr.md) — the complete ACR Poker technique: anchor, crop, template
   matching, OCR, the mapping-JSON contract, and how to produce template PNGs.
 
 ## Where glance is today
@@ -145,12 +148,15 @@ CGEvent/cliclick backends are still to come when glance moves off Linux —
 the configure-time-optional pattern means each is an additive option
 (`GLANCE_X11`, and future flags) with the null backend as fallback.
 
-**M3 — Multi-platform skins.**
-Every new game is a skin: mapping file + templates + (optional) a thin
-scraper subclass, exactly how `acr/` sits on `core/`. Poker is the first
-skin; the design is deliberately not poker-shaped. A skin registry in the
-server (one process, several platforms at different coordinates) is a
-straightforward extension of `ScreenshotService`.
+**M3 — Packages (landed in part).**
+Every application is an installable package (`core/include/packages.h`):
+`glance-package.json` + mappings + templates, data-only so it installs the
+same way on Linux, Windows and macOS. ACR ships as the built-in `acr`
+package; `glance pkg install <dir|git-url>` adds more, `glance serve
+--package <name>` runs one, `GET /packages` lists them. Still to come: a
+package index (search/install by name), several active packages in one
+process (multi-table / multi-app), and optional native extensions for apps
+that need code beyond a mapping.
 
 **M4 — Reliability & timing.**
 Capture cadence and jitter (so grabs land at stable moments in the game
