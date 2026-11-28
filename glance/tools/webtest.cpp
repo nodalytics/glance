@@ -15,11 +15,10 @@
 #include <cstdio>
 #include <filesystem>
 #include <fstream>
+#include <random>
 #include <string>
 #include <thread>
 #include <vector>
-
-#include <unistd.h>
 
 #include <httplib.h>
 #include <nlohmann/json.hpp>
@@ -57,7 +56,7 @@ static nlohmann::json parse_or_null(const std::string& body) {
 }
 
 int main() {
-  const fs::path base = fs::temp_directory_path() / ("glance-webtest-" + std::to_string(::getpid()));
+  const fs::path base = fs::temp_directory_path() / ("glance-webtest-" + std::to_string(std::random_device{}()));
   fs::create_directories(base / "templates");
 
   // A noisy anchor that will not be found in a flat grey frame.

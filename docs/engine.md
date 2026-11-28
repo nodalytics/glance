@@ -22,10 +22,10 @@ in both directions.
                      POST /capture (PNG/JPEG bytes)  |  GET /state, /health
                                                      v
    +---------------------------------------------------------------------+
-   |  glance-server  (server/main.cpp, cpp-httplib)                     |
-   |  - owns the HTTP surface                                            |
-   |  - wires the platform scraper into the ScreenshotService           |
-   |  - wires the same scraper into the ControlService (control layer)  |
+   |  glance serve / glance-server  (core/app_server.cpp, cpp-httplib) |
+   |  - owns the HTTP surface (+ dashboard, /info, /packages)           |
+   |  - resolves the package -> mapping, builds the TableScraper        |
+   |  - wires it into the ScreenshotService and the ControlService      |
    +---------------------------------+-----------------------------------+
                                      | .update(img_bytes)
                                      v
@@ -53,9 +53,9 @@ in both directions.
     |  configure time, else null (same optional pattern as tesseract).   |
     +---------------------------------------------------------------------+
    +---------------------------------------------------------------------+
-   |  AcrScraper  (acr/acr_scraper.cpp)  -- the platform "skin"         |
-   |  owns the ACR mapping; delegates everything to the core engine.    |
-   |  A new platform = a new thin layer like this one.                  |
+   |  package  (packages/<name>/, e.g. packages/acr)  -- the app "skin" |
+   |  glance-package.json + mappings + templates: DATA, no code.        |
+   |  A new application = a new package (`glance pkg install`).         |
    +---------------------------------+-----------------------------------+
                                      | (composition)
                                      v
@@ -170,14 +170,14 @@ report from step 8 as a `validation` key.
 
 | Layer                | Knows about                  | Must NOT know about            |
 |----------------------|------------------------------|--------------------------------|
-| `server/main.cpp`    | HTTP verbs, exit codes       | card faces, seat numbers       |
+| `app_server.cpp`     | HTTP verbs, exit codes       | card faces, seat numbers       |
 | `ScreenshotService`  | "last frame + last state"    | what a table *is*              |
 | `ControlService`     | "last frame's input space",  | pixels, the platform, what an  |
 |                      | action->coordinate           |   action *means*               |
 | `control backend`    | the platform's pixels &      | tables, mappings, card faces   |
 |                      | input device (x11/win32/     |                                |
 |                      | macos/null)                  |                                |
-| `acr/` (skin)        | ACR's skin layout & mapping  | HTTP, OpenCV details           |
+| package (data)       | one app's layout & mapping   | HTTP, OpenCV details, code     |
 | `TableScraper`       | anchors, slots, thresholds   | ACR specifically (any skin)    |
 | `template_match.cpp` | pixel similarity             | games, tables, cards           |
 | `ocr.cpp`            | digits in a region           | poker, money, seats            |
@@ -188,8 +188,8 @@ Two rules make this hold:
 
 - **The mapping JSON is the only platform-specific input.** Everything a
   scraper does comes from `name/crop/topleft/cards/buttons/dealer/stacks`
-  (contract in `core/include/mapping.h` and `research/acr.md`). A new platform is
-  data plus, at most, a ~40-line wrapper like `AcrScraper`.
+  (contract in `core/include/mapping.h` and `research/acr.md`). A new application is
+  data only: a package (`core/include/packages.h`).
 - **Control attaches to the same seam (milestone M1, landed).** The
   `ControlService` (core/control_service.cpp, routes in
   core/server_control.cpp) is another `core/` service driven by the *same*

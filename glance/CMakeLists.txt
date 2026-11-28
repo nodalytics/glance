@@ -55,6 +55,12 @@ endif()
 # per-module install, opencv_world on the Windows prebuilt (a single-library
 # "world" build that exports no per-module targets).
 set(GLANCE_OPENCV_LIBS ${OpenCV_LIBS})
+# OpenCV 5 split contour geometry (contourArea, boundingRect, matchShapes —
+# used by core/card_vision.cpp) into a new `geometry` module.
+if(OpenCV_VERSION VERSION_GREATER_EQUAL 5.0)
+  find_package(OpenCV REQUIRED COMPONENTS core imgproc imgcodecs geometry)
+  set(GLANCE_OPENCV_LIBS ${OpenCV_LIBS})
+endif()
 message(STATUS "glance: OpenCV ${OpenCV_VERSION} (${GLANCE_OPENCV_LIBS})")
 
 find_package(Threads REQUIRED)

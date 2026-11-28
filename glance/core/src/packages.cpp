@@ -309,6 +309,14 @@ std::optional<Package> install_package(const std::string& source, bool force, st
   if (fs::is_directory(source, ec)) {
     staging = source;
   } else if (looks_like_git_url(source)) {
+#ifdef _WIN32
+    // cmd.exe expands %VAR% even inside double quotes: refuse rather than
+    // let a URL be rewritten by the environment.
+    if (source.find('%') != std::string::npos) {
+      err = "git URLs containing '%' are not supported on Windows";
+      return std::nullopt;
+    }
+#endif
     std::mt19937_64 rng{std::random_device{}()};
     staging = fs::temp_directory_path() / ("glance_pkg_" + std::to_string(rng()));
     const std::string cmd = "git clone --depth 1 --quiet " + shell_quote(source) + " " +
