@@ -30,6 +30,12 @@ jobs:
   linux:
     name: linux (gcc, ubuntu-24.04)
     runs-on: ubuntu-24.04
+    # Explicit bash = `bash -eo pipefail`: a failing command piped into tee
+    # must fail the step (the implicit default shell has no pipefail, which
+    # once let a broken build "pass" into the next step).
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 20
     steps:
       - name: Checkout
@@ -216,6 +222,12 @@ jobs:
   macos:
     name: macos (apple clang)
     runs-on: macos-latest
+    # Explicit bash = `bash -eo pipefail`: a failing command piped into tee
+    # must fail the step (the implicit default shell has no pipefail, which
+    # once let a broken build "pass" into the next step).
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 40
     env:
       HOMEBREW_NO_INSTALL_CLEANUP: 1

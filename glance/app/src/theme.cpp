@@ -86,8 +86,14 @@ void Theme::apply(const QString& name) {
   if (name == QLatin1String("light")) {
     m = Mode::Light;
   } else if (name == QLatin1String("system")) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
     m = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Light ? Mode::Light
                                                                                : Mode::Dark;
+#else
+    // Qt < 6.5 (e.g. Ubuntu 24.04's 6.4) has no colorScheme(): infer it from
+    // the platform's default window colour.
+    m = QGuiApplication::palette().color(QPalette::Window).lightness() > 128 ? Mode::Light : Mode::Dark;
+#endif
   }
   mode_ = m;
   colors_ = m == Mode::Dark ? dark() : light();

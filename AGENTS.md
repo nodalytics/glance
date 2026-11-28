@@ -137,6 +137,16 @@ bugs, built from the bug classes this repo has actually shipped) and
 `glance-verify` (lab build + ctest + CI). Use them for reviews and before
 claiming a change works.
 
+## Commits and PRs
+
+- No AI attribution anywhere: no `Co-Authored-By:` trailers in commit
+  messages and no "Generated with …" lines in PR descriptions (user's
+  instruction, Nov 2026). Write messages as plain engineering notes.
+- Commit/push only when asked; branch first (never straight to `main`).
+- CI must be green on all jobs (linux, windows, macos, docs) before a PR
+  leaves draft. CI runs on PRs and `main` pushes (and manually via
+  `workflow_dispatch`).
+
 ## Memory (always keep current)
 
 - **After meaningful work, update global memory before ending the session.**
