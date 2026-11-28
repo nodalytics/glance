@@ -158,6 +158,32 @@ Unknown names, unknown target names, or malformed targets are rejected (a
 clean 422, never a click on a guess); a grab whose anchor was not found
 resolves no action at all.
 
+### Template-free cards (`card_vision`)
+
+Optional. For slots where no `card_templates` entry matches, the scraper reads
+the card from its crop with the card-vision engine (`core/include/card_vision.h`,
+ported from the research prototype): occupancy check → suit by symbol shape
+(Dice + Hu moments against `<suit>.png` / `<suit>_*.png`, colour-gated in the
+`simulator` profile) → rank by glyph template (`<rank>_*.png`; Dice, accepted
+only with a clear lead over the runner-up) → optional tesseract cross-check.
+A skin then needs a handful of glyph PNGs instead of 52 card images.
+
+```json
+"card_vision": {
+  "suit_templates": "suits/",
+  "rank_templates": "ranks/",
+  "profile": "simulator",
+  "occupancy": true
+}
+```
+
+`rank_templates` omitted → built-in Hershey glyphs (only good for synthetic
+tests). Glyph templates are per-font: cut them from the platform's own
+rendering with `glance-cardvision harvest <labelled-dataset> <out-dir>`, and
+measure with `glance-cardvision eval` (see `tools/cardvision.cpp`). Profiles:
+`simulator` (several templates per suit, colour-gated) and `calibration`
+(one template per suit; slot names `my1`/`my2` select hero-card regions).
+
 ### Window title (`window_title`)
 
 `window_title` (optional; control) is the title substring of the platform

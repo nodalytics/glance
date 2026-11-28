@@ -197,6 +197,20 @@ bool TableScraper::load_mapping(const std::string& mapping_path) {
     has_dealer_ = !dealer_.areas.empty();
   }
 
+  has_card_vision_ = false;
+  if (m.card_vision()) {
+    const auto& cv = *m.card_vision();
+    vision::CardVisionConfig cfg;
+    cfg.profile = cv.profile;
+    cfg.occupancy = cv.occupancy;
+    const std::string ranks = cv.rank_templates.empty() ? "" : join(base_dir_, cv.rank_templates);
+    if (!card_vision_.load(cfg, join(base_dir_, cv.suit_templates), ranks)) {
+      error_ = card_vision_.error();
+      return false;
+    }
+    has_card_vision_ = true;
+  }
+
   last_state_.reset();
   table_found_ = false;
   return true;
@@ -235,6 +249,12 @@ std::optional<TableState> TableScraper::scrape(const cv::Mat& screenshot) {
         card_id = ct.id;
         break;
       }
+    }
+    if (card_id.empty() && has_card_vision_) {
+      // No card template matched: read the slot template-free.
+      const cv::Rect r = cv::Rect(cs.x1, cs.y1, cs.x2 - cs.x1, cs.y2 - cs.y1) &
+                         cv::Rect(0, 0, window.cols, window.rows);
+      if (r.width > 0 && r.height > 0) card_id = card_vision_.recognize(window(r), cs.slot).id();
     }
     if (card_id.empty() || card_id == "empty") continue;
     if (kind.board) {

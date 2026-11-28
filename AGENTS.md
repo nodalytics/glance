@@ -8,6 +8,14 @@ template matching + tesseract OCR on a grab of a window (first target:
 project lives in `glance/`; the old Python prototype is preserved in
 `research/`.
 
+**North star (the ultimate test):** glance must be able to navigate any
+desktop application it comes across — understand it and operate it without
+human assistance (no per-app mapping, no SDK). Poker is the first target, not
+the goal. When choosing between designs, prefer the one that generalizes to
+apps glance has never seen (template-free recognition, generic control
+primitives, verify-after-act) over per-app special cases. See
+`glance/docs/README.md` ("The ultimate test").
+
 ## Commands
 
 (all from the repo root; the CMake list lives in `glance/`)

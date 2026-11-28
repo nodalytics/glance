@@ -233,6 +233,42 @@ bool TableMapping::load(const std::string& path) {
     }
   }
 
+  if (j.contains("card_vision")) {
+    const auto& cv = j["card_vision"];
+    if (!cv.is_object()) {
+      error_ = "card_vision must be an object {\"suit_templates\":dir, ...}";
+      return false;
+    }
+    CardVision v;
+    if (!cv.contains("suit_templates") || !cv["suit_templates"].is_string()) {
+      error_ = "card_vision.suit_templates must be a directory string";
+      return false;
+    }
+    v.suit_templates = cv["suit_templates"].get<std::string>();
+    if (cv.contains("rank_templates")) {
+      if (!cv["rank_templates"].is_string()) {
+        error_ = "card_vision.rank_templates must be a directory string";
+        return false;
+      }
+      v.rank_templates = cv["rank_templates"].get<std::string>();
+    }
+    if (cv.contains("profile")) {
+      if (!cv["profile"].is_string()) {
+        error_ = "card_vision.profile must be \"simulator\" or \"calibration\"";
+        return false;
+      }
+      v.profile = cv["profile"].get<std::string>();
+    }
+    if (cv.contains("occupancy")) {
+      if (!cv["occupancy"].is_boolean()) {
+        error_ = "card_vision.occupancy must be a boolean";
+        return false;
+      }
+      v.occupancy = cv["occupancy"].get<bool>();
+    }
+    card_vision_ = v;
+  }
+
   loaded_ = true;
   return true;
 }

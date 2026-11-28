@@ -53,16 +53,15 @@ endif()
 # /sequence). Same pattern as OCR above: never required, detected here so the
 # whole build falls back to the null backend when the dev headers are absent.
 # libxext-dev does NOT ship X11/extensions/XTest.h on Ubuntu (it only has
-# xtestext1.h) — that header is in libxtst-dev. XTestFake*Event lives in
-# libXext.so, which libxtst-dev links against, so X11::Xext is still the
-# right thing to link. Linux only; other platforms get their own backend under
-# the same flag scheme later.
+# xtestext1.h) — that header is in libxtst-dev, and XTestFake*Event live in
+# libXtst.so (X11::Xtst), not libXext. Linux only; other platforms get their
+# own backend under the same flag scheme.
 set(HAS_X11 OFF)
 if(GLANCE_X11 AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
   find_package(X11 QUIET)
   find_path(GLANCE_X11_XLIB_H X11/Xlib.h)
   find_path(GLANCE_X11_XTEST_H X11/extensions/XTest.h)
-  if(X11_FOUND AND GLANCE_X11_XLIB_H AND GLANCE_X11_XTEST_H)
+  if(X11_FOUND AND X11_XTest_FOUND AND GLANCE_X11_XLIB_H AND GLANCE_X11_XTEST_H)
     set(HAS_X11 ON)
     message(STATUS "glance: X11 control enabled (libX11 + XTest from the distro)")
   else()
@@ -73,6 +72,7 @@ endif()
 add_library(glance_core
   core/src/mapping.cpp
   core/src/template_match.cpp
+  core/src/card_vision.cpp
   core/src/ocr.cpp
   core/src/scraper.cpp
   core/src/server.cpp
@@ -94,9 +94,8 @@ if(HAS_OCR)
   target_compile_definitions(glance_core PUBLIC "GLANCE_OCR=1" "GLANCE_TESSERACT_BIN=\"${TESSERACT_BIN_ESCAPED}\"")
 endif()
 if(HAS_X11)
-  # X11::Xext carries the XTest extension functions (XTestFake*Event) on
-  # distro packages; the XTest.h header is what the header check above needs.
-  target_link_libraries(glance_core PUBLIC X11::X11 X11::Xext)
+  # X11::Xtst carries XTestFake*Event; Xkb keysym lookups are in libX11.
+  target_link_libraries(glance_core PUBLIC X11::X11 X11::Xtst)
   target_compile_definitions(glance_core PUBLIC "GLANCE_X11=1")
 endif()
 
@@ -120,6 +119,12 @@ target_link_libraries(glance-server PRIVATE glance_acr glance_core)
 
 add_executable(glance-selftest tools/selftest.cpp)
 target_link_libraries(glance-selftest PRIVATE glance_core)
+target_compile_definitions(glance-selftest PRIVATE GLANCE_TESTDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/testdata")
+
+# Card vision CLI: read one card crop, evaluate a labelled dataset, harvest
+# rank-glyph templates (see tools/cardvision.cpp).
+add_executable(glance-cardvision tools/cardvision.cpp)
+target_link_libraries(glance-cardvision PRIVATE glance_core)
 
 # Diagnostics only: prints the imgcodecs "Image I/O" build section and
 # exercises imwrite/imencode per format. Run standalone (the CI workflow has
@@ -131,7 +136,39 @@ target_link_libraries(glance-opencv-probe PRIVATE opencv_core opencv_imgcodecs)
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(glance_core PRIVATE -Wall -Wextra)
   target_compile_options(glance_acr PRIVATE -Wall -Wextra)
+  target_compile_options(glance-cardvision PRIVATE -Wall -Wextra)
 endif()
 
 enable_testing()
 add_test(NAME selftest COMMAND glance-selftest)
+
+# Card-vision accuracy gates on the research prototype's labelled datasets
+# (research/test_assets/validation, committed next to glance/). Templates live
+# in testdata/card_vision. Skipped when the research tree is not present.
+set(GLANCE_VALIDATION_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../research/test_assets/validation")
+set(GLANCE_CV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/testdata/card_vision")
+if(EXISTS "${GLANCE_VALIDATION_DIR}/heldout_v1/expected.json")
+  set(_sim --suits ${GLANCE_CV_DIR}/suits_simulator --ranks ${GLANCE_CV_DIR}/ranks_simulator --profile simulator)
+  # Gates = what the port achieves today, with ZERO wrong cards accepted
+  # everywhere. independent_v1 renders ranks in fonts no template comes from
+  # (glyph templates are per-font; the Python reached 0.99 there with
+  # PaddleOCR), so its recall gate is lower — wrong reads stay at 0.
+  foreach(ds heldout_v1 datasets/preflop_sample_001 datasets/flop_sample_001
+             datasets/turn_sample_001 datasets/river_sample_001)
+    string(REPLACE "/" "_" _name "${ds}")
+    add_test(NAME cardvision_${_name}
+             COMMAND glance-cardvision eval ${GLANCE_VALIDATION_DIR}/${ds} ${_sim}
+                     --min-card-accuracy 0.95 --min-suit-accuracy 0.99 --max-incorrect 0
+                     --min-empty-rejection 1.0)
+  endforeach()
+  add_test(NAME cardvision_independent_v1
+           COMMAND glance-cardvision eval ${GLANCE_VALIDATION_DIR}/independent_v1 ${_sim}
+                   --min-card-accuracy 0.80 --min-suit-accuracy 0.99 --max-incorrect 0
+                   --min-empty-rejection 1.0)
+  # Calibration = a real-client crop set in a font we have no rank templates
+  # for: suits must be perfect and nothing wrong may be accepted.
+  add_test(NAME cardvision_calibration_sample_001
+           COMMAND glance-cardvision eval ${GLANCE_VALIDATION_DIR}/datasets/calibration_sample_001
+                   --suits ${GLANCE_CV_DIR}/suits_calibration --ranks ${GLANCE_CV_DIR}/ranks_simulator
+                   --profile calibration --min-suit-accuracy 1.0 --max-incorrect 0)
+endif()

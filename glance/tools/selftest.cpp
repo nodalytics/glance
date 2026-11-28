@@ -32,6 +32,7 @@
 
 #include <httplib.h>
 
+#include "card_vision.h"
 #include "control.h"
 #include "control_service.h"
 #include "ocr.h"
@@ -129,12 +130,153 @@ static void write_img(const fs::path& p, const cv::Mat& m) {
   try {
     ok = cv::imwrite(p.string(), m);
   } catch (const cv::Exception& e) {
-    std::printf("  imwrite %s threw: %s\n", p.c_str(), e.what());
+    std::printf("  imwrite %s threw: %s\n", p.string().c_str(), e.what());
   }
   if (!ok || !fs::exists(p)) {
-    std::printf("  FAIL: could not write %s\n", p.c_str());
+    std::printf("  FAIL: could not write %s\n", p.string().c_str());
     ++failures;
   }
+}
+
+// --- card vision (template-free card reading) --------------------------------
+// Synthetic card: white face, Hershey rank glyph top-left (the built-in rank
+// templates are Hershey too), a suit symbol cut from the committed simulator
+// suit templates painted small under the rank and large in the centre.
+#ifndef GLANCE_TESTDATA_DIR
+#define GLANCE_TESTDATA_DIR "testdata"
+#endif
+
+static cv::Mat make_vision_card(const std::string& rank, const std::string& suit) {
+  const bool red = suit == "hearts" || suit == "diamonds";
+  const cv::Scalar ink = red ? cv::Scalar(30, 30, 200) : cv::Scalar(25, 25, 25);
+  cv::Mat card(148, 108, CV_8UC3, cv::Scalar(250, 250, 250));
+  cv::putText(card, rank, {6, 30}, cv::FONT_HERSHEY_SIMPLEX, 0.9, ink, 2, cv::LINE_AA);
+  cv::Mat glyph = cv::imread(std::string(GLANCE_TESTDATA_DIR) + "/card_vision/suits_simulator/" + suit +
+                                 "_arial.png",
+                             cv::IMREAD_GRAYSCALE);
+  if (glyph.empty()) return {};
+  auto paint = [&](int x, int y, int size) {
+    cv::Mat g;
+    cv::resize(glyph, g, cv::Size(size, size), 0, 0, cv::INTER_AREA);
+    cv::Mat mask = g < 128;
+    card(cv::Rect(x, y, size, size)).setTo(ink, mask);
+  };
+  paint(8, 40, 26);
+  paint(30, 64, 48);
+  return card;
+}
+
+static void card_vision_checks(const fs::path& base) {
+  namespace v = glance::vision;
+  std::printf("card vision:\n");
+  CHECK(v::normalize_rank_text("T") == std::optional<std::string>("10"), "rank text: T -> 10");
+  CHECK(v::normalize_rank_text(" io ") == std::optional<std::string>("10"), "rank text: IO -> 10");
+  CHECK(v::normalize_rank_text("k") == std::optional<std::string>("K"), "rank text: lowercase k -> K");
+  CHECK(v::normalize_rank_text("Q.") == std::optional<std::string>("Q"), "rank text: one token among noise");
+  CHECK(!v::normalize_rank_text("AK"), "rank text: two tokens rejected");
+  CHECK(!v::normalize_rank_text(""), "rank text: empty rejected");
+  CHECK(v::card_id("10", "hearts") == "Th" && v::card_id("A", "spades") == "As", "card id: 10h -> Th, As");
+  CHECK(v::card_id("A", "stars").empty(), "card id: unknown suit -> empty");
+
+  // Occupancy: felt green is empty, a white card face is occupied.
+  const cv::Mat felt(148, 108, CV_8UC3, cv::Scalar(40, 110, 30));
+  const cv::Mat face(148, 108, CV_8UC3, cv::Scalar(245, 245, 245));
+  CHECK(v::detect_occupancy(felt).state == "empty", "occupancy: green felt -> empty");
+  CHECK(v::detect_occupancy(face).state == "occupied", "occupancy: white face -> occupied");
+  CHECK(!v::detect_occupancy(cv::Mat()).valid, "occupancy: empty image -> invalid");
+
+  // Normalization is size-stable: a glyph and its 2x-scaled copy normalize
+  // to (nearly) the same canvas.
+  cv::Mat k1(60, 60, CV_8UC3, cv::Scalar(255, 255, 255));
+  cv::putText(k1, "K", {12, 45}, cv::FONT_HERSHEY_SIMPLEX, 1.2, cv::Scalar(0, 0, 0), 3, cv::LINE_AA);
+  cv::Mat k2;
+  cv::resize(k1, k2, cv::Size(), 2.0, 2.0, cv::INTER_CUBIC);
+  const double self = v::glyph_similarity(v::normalize_rank_glyph(k1), v::normalize_rank_glyph(k2));
+  CHECK(self > 0.85, "rank glyph: normalization is scale-stable (Dice > 0.85)");
+
+  v::CardRecognizer rec;
+  v::CardVisionConfig cfg;
+  cfg.profile = "simulator";
+  const bool loaded = rec.load(cfg, std::string(GLANCE_TESTDATA_DIR) + "/card_vision/suits_simulator", "");
+  CHECK(loaded, "card vision: loads simulator suits + synthesized rank templates");
+  if (!loaded) {
+    std::printf("  (%s)\n", rec.error().c_str());
+    return;
+  }
+  CHECK(!v::CardRecognizer().load(cfg, (base / "no_such_dir").string(), ""),
+        "card vision: missing suit templates is a load error");
+
+  struct Case {
+    const char* rank;
+    const char* suit;
+    const char* id;
+  };
+  const Case cases[] = {{"Q", "clubs", "Qc"}, {"7", "hearts", "7h"}, {"10", "spades", "Ts"},
+                        {"A", "diamonds", "Ad"}, {"K", "hearts", "Kh"}, {"3", "clubs", "3c"}};
+  for (const auto& c : cases) {
+    const cv::Mat card = make_vision_card(c.rank, c.suit);
+    const auto r = rec.recognize(card);
+    char msg[160];
+    std::snprintf(msg, sizeof(msg), "card vision: synthetic %s of %s -> %s (got '%s', rank %.2f/%.2f suit %.2f)",
+                  c.rank, c.suit, c.id, r.id().c_str(), r.rank.confidence, r.rank.margin, r.suit.confidence);
+    CHECK(r.id() == c.id, msg);
+  }
+  {
+    const auto r = rec.recognize(felt);
+    CHECK(r.skipped && !r.recognized() && r.rank_verification == "empty",
+          "card vision: empty felt slot is skipped, not recognized");
+    const auto j = r.to_json();
+    CHECK(j["card"].is_null() && j["occupancy"]["state"] == "empty", "card vision: empty slot JSON");
+  }
+
+  // Scraper integration: a mapping whose card_templates match nothing on
+  // the board falls back to card_vision for those slots.
+  const fs::path dir = base / "cardvision";
+  fs::create_directories(dir);
+  const cv::Mat anchor = make_pattern(40, 28, 911);
+  write_img(dir / "anchor.png", anchor);
+  write_img(dir / "cards" / "Xx.png", make_pattern(30, 40, 912));  // never on screen
+  cv::Mat shot = make_background(700, 450, 913);
+  const cv::Point at(50, 40);
+  anchor.copyTo(shot(cv::Rect(at.x, at.y, anchor.cols, anchor.rows)));
+  const Case board[] = {{"J", "spades", "Js"}, {"9", "diamonds", "9d"}, {"5", "clubs", "5c"}};
+  for (int i = 0; i < 3; ++i) {
+    const cv::Mat card = make_vision_card(board[i].rank, board[i].suit);
+    card.copyTo(shot(cv::Rect(at.x + 60 + i * 120, at.y + 100, card.cols, card.rows)));
+  }
+  nlohmann::json m;
+  m["name"] = "cardvision-selftest";
+  m["crop"] = {{"x", 520}, {"y", 300}};
+  m["topleft"] = "anchor.png";
+  m["card_templates"] = {"cards/Xx.png"};
+  for (int i = 0; i < 3; ++i)
+    m["cards"]["board" + std::to_string(i + 1)] = {60 + i * 120, 100, 60 + i * 120 + 108, 100 + 148};
+  m["card_vision"] = {{"suit_templates", std::string(GLANCE_TESTDATA_DIR) + "/card_vision/suits_simulator"},
+                      {"profile", "simulator"}};
+  std::ofstream(dir / "mapping.json") << m.dump(2);
+  glance::TableScraper scraper;
+  const bool ok = scraper.load_mapping((dir / "mapping.json").string());
+  CHECK(ok && scraper.card_recognizer() != nullptr, "card vision: mapping card_vision section loads");
+  if (!ok) {
+    std::printf("  (%s)\n", scraper.error().c_str());
+    return;
+  }
+  auto st = scraper.scrape(shot);
+  CHECK(st.has_value(), "card vision: table found");
+  if (st) {
+    const std::vector<std::string> want = {"Js", "9d", "5c"};
+    std::string got;
+    for (const auto& b : st->board) got += b + " ";
+    char msg[160];
+    std::snprintf(msg, sizeof(msg), "card vision: board read template-free = Js 9d 5c (got %s)", got.c_str());
+    CHECK(st->board == want, msg);
+    CHECK(st->game_stage && *st->game_stage == "Flop", "card vision: stage from template-free board = Flop");
+  }
+  nlohmann::json bad = m;
+  bad["card_vision"] = {{"profile", "simulator"}};
+  std::ofstream(dir / "bad.json") << bad.dump(2);
+  CHECK(!glance::TableScraper().load_mapping((dir / "bad.json").string()),
+        "card vision: card_vision without suit_templates is rejected");
 }
 
 int main(int argc, char** argv) {
@@ -146,10 +288,23 @@ int main(int argc, char** argv) {
   for (int i = 1; i + 1 < argc; ++i)
     if (std::string(argv[i]) == "--fixtures") fixture_dir = argv[i + 1];
 
-  char tmpl[] = "/tmp/glance_selftest_XXXXXX";
-  char* dir = mkdtemp(tmpl);
-  fs::path base = dir ? dir : std::string("/tmp/glance_selftest");
-  fs::create_directories(base);
+  // A fresh scratch dir under the platform temp dir (portable mkdtemp:
+  // TMPDIR or /tmp on POSIX, GetTempPath on Windows). create_directory
+  // returns false when the name already exists, so retry with a new suffix.
+  fs::path base;
+  {
+    std::mt19937_64 rng{std::random_device{}()};
+    const fs::path tmp = fs::temp_directory_path();
+    for (int attempt = 0; attempt < 16 && base.empty(); ++attempt) {
+      char name[64];
+      std::snprintf(name, sizeof(name), "glance_selftest_%016llx",
+                    static_cast<unsigned long long>(rng()));
+      std::error_code ec;
+      if (fs::create_directory(tmp / name, ec)) base = tmp / name;
+    }
+    if (base.empty()) base = tmp / "glance_selftest";
+    fs::create_directories(base);
+  }
 
   // --- geometry -------------------------------------------------------------
   constexpr int shot_w = 1000, shot_h = 700;
@@ -256,7 +411,7 @@ int main(int argc, char** argv) {
   }
 
   // --- run the scraper --------------------------------------------------------
-  std::printf("selftest: mapping at %s, ocr=%s\n", (base / "mapping.json").c_str(),
+  std::printf("selftest: mapping at %s, ocr=%s\n", (base / "mapping.json").string().c_str(),
               glance::ocr_available() ? "yes" : "no (numeric checks skipped)");
   std::fflush(stdout);
 
@@ -821,13 +976,16 @@ int main(int argc, char** argv) {
     }
   }
 
+  card_vision_checks(base);
+
   // --- fixture mode ------------------------------------------------------------
   if (!fixture_dir.empty()) {
     fs::create_directories(fixture_dir);
     fs::copy(base, fixture_dir,
              fs::copy_options::recursive | fs::copy_options::skip_existing);
-    std::printf("fixtures left in %s (mapping: %s, screenshot: %s)\n", fixture_dir.c_str(),
-                (fixture_dir / "mapping.json").c_str(), (fixture_dir / "screenshot.png").c_str());
+    std::printf("fixtures left in %s (mapping: %s, screenshot: %s)\n", fixture_dir.string().c_str(),
+                (fixture_dir / "mapping.json").string().c_str(),
+                (fixture_dir / "screenshot.png").string().c_str());
   } else {
     fs::remove_all(base);
   }

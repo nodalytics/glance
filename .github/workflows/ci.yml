@@ -31,10 +31,14 @@ jobs:
       # libopencv-dev: glance links the distro's prebuilt OpenCV 4.x.
       # tesseract-ocr: enables GLANCE_OCR=1 so the selftest's numeric checks
       # run (see CMakeLists find_program(tesseract)).
+      # libx11-dev libxtst-dev: compile the X11 control backend (GLANCE_X11);
+      # without them configure silently falls back to the null backend and
+      # screen_x11.cpp is never compiled. The selftest uses fake backends, so
+      # no display is needed.
       - name: Install host dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq libopencv-dev tesseract-ocr
+          sudo apt-get install -y -qq libopencv-dev tesseract-ocr libx11-dev libxtst-dev
 
       - name: Configure
         run: cmake -B glance/build -S glance -DCMAKE_BUILD_TYPE=Release

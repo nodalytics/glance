@@ -80,17 +80,6 @@ std::optional<double> parse_ocr_number_text(const std::string& text) {
   return val;
 }
 
-namespace {
-
-// Build the tesseract command for a prepared single-line region: PSM 7 with
-// a digits + currency whitelist. Single quotes keep the shell from expanding
-// the '$' in the whitelist.
-std::string tesseract_cmd(const std::string& in_path) {
-  return std::string("'") + GLANCE_TESSERACT_BIN + "' '" + in_path +
-         "' stdout --psm 7 -c 'tessedit_char_whitelist=0123456789.,$,-B' 2>/dev/null";
-}
-
-}  // namespace
 
 bool ocr_available() {
 #if GLANCE_OCR
@@ -128,29 +117,28 @@ cv::Mat prepare_for_ocr(const cv::Mat& region) {
   return bin;
 }
 
-std::optional<double> ocr_number(const cv::Mat& region) {
-  if (!ocr_available()) return std::nullopt;
-  cv::Mat prep = prepare_for_ocr(region);
-  if (prep.empty()) return std::nullopt;
+namespace {
 
-  // The temp path MUST end in a real image extension: cv::imwrite looks up
-  // its encoder by file extension (findEncoder in loadsave.cpp), and an
-  // extensionless name throws "could not find a writer for the specified
-  // extension" — the CI imwrite abort from run 45477292136.
+// Write `image` to a temp PNG, run tesseract with `args` and capture stdout.
+// The temp path MUST end in a real image extension: cv::imwrite looks up its
+// encoder by file extension (findEncoder in loadsave.cpp), and an extensionless
+// name throws "could not find a writer for the specified extension" — the CI
+// imwrite abort from run 45477292136.
+bool run_tesseract(const cv::Mat& image, const std::string& args, std::string& text) {
   char tmpl[] = "/tmp/glance_ocr_XXXXXX.png";
   int fd = mkstemps(tmpl, 4);
-  if (fd < 0) return std::nullopt;
+  if (fd < 0) return false;
   ::close(fd);
   std::string in_path = tmpl;
-  if (!cv::imwrite(in_path, prep)) {
+  if (!cv::imwrite(in_path, image)) {
     unlink(in_path.c_str());
-    return std::nullopt;
+    return false;
   }
-
-  std::string text;
   bool ok = true;
   {
-    std::FILE* p = popen(tesseract_cmd(in_path).c_str(), "r");
+    std::string cmd = std::string("'") + GLANCE_TESSERACT_BIN + "' '" + in_path + "' stdout " + args +
+                      " 2>/dev/null";
+    std::FILE* p = popen(cmd.c_str(), "r");
     if (!p) {
       ok = false;
     } else {
@@ -161,9 +149,60 @@ std::optional<double> ocr_number(const cv::Mat& region) {
     }
   }
   unlink(in_path.c_str());
-  if (!ok) return std::nullopt;
+  return ok;
+}
 
+}  // namespace
+
+std::optional<double> ocr_number(const cv::Mat& region) {
+  if (!ocr_available()) return std::nullopt;
+  cv::Mat prep = prepare_for_ocr(region);
+  if (prep.empty()) return std::nullopt;
+  std::string text;
+  if (!run_tesseract(prep, "--psm 7 -c 'tessedit_char_whitelist=0123456789.,$,-B'", text))
+    return std::nullopt;
   return parse_ocr_number_text(text);
+}
+
+std::vector<OcrWord> ocr_words(const cv::Mat& image, int psm, const std::string& whitelist) {
+  std::vector<OcrWord> out;
+  if (!ocr_available() || image.empty()) return out;
+  // The whitelist is single-quoted for the shell; refuse quotes in it.
+  if (whitelist.find('\'') != std::string::npos) return out;
+  std::string args = "--psm " + std::to_string(psm);
+  if (!whitelist.empty()) args += " -c 'tessedit_char_whitelist=" + whitelist + "'";
+  args += " tsv";
+  std::string tsv;
+  if (!run_tesseract(image, args, tsv)) return out;
+  // TSV columns: level page block par line word left top width height conf text
+  std::size_t pos = 0;
+  bool header = true;
+  while (pos < tsv.size()) {
+    std::size_t end = tsv.find('\n', pos);
+    if (end == std::string::npos) end = tsv.size();
+    std::string line = tsv.substr(pos, end - pos);
+    pos = end + 1;
+    if (header) {
+      header = false;
+      continue;
+    }
+    std::vector<std::string> cols;
+    std::size_t s = 0;
+    while (true) {
+      std::size_t t = line.find('\t', s);
+      cols.push_back(line.substr(s, t == std::string::npos ? std::string::npos : t - s));
+      if (t == std::string::npos) break;
+      s = t + 1;
+    }
+    if (cols.size() < 12 || cols[0] != "5") continue;
+    std::string text = cols[11];
+    while (!text.empty() && (text.back() == '\r' || text.back() == ' ')) text.pop_back();
+    if (text.empty()) continue;
+    const double conf = std::strtod(cols[10].c_str(), nullptr);
+    if (conf < 0) continue;
+    out.push_back({text, conf / 100.0});
+  }
+  return out;
 }
 
 }  // namespace glance

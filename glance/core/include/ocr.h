@@ -2,6 +2,7 @@
 
 #include <string>
 #include <optional>
+#include <vector>
 #include <opencv2/core.hpp>
 
 namespace glance {
@@ -18,6 +19,18 @@ std::optional<double> parse_ocr_number_text(const std::string& text);
 // with tesseract. Returns std::nullopt when OCR is unavailable or yields no
 // parseable number.
 std::optional<double> ocr_number(const cv::Mat& region);
+
+// One word tesseract recognized, with its confidence in [0,1].
+struct OcrWord {
+  std::string text;
+  double confidence = 0.0;
+};
+
+// Run tesseract on an (already prepared) image with the given page
+// segmentation mode and character whitelist, returning every recognized word
+// with its confidence (tesseract's TSV output). Empty when OCR is
+// unavailable or nothing was read.
+std::vector<OcrWord> ocr_words(const cv::Mat& image, int psm, const std::string& whitelist);
 
 // True when OCR support was compiled in and the tesseract binary is present.
 bool ocr_available();
