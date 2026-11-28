@@ -142,11 +142,13 @@ add_library(glance_core
   core/src/state_validation.cpp
   core/src/control.cpp
   core/src/control_service.cpp
+  core/src/slumbot_action.cpp
   core/src/screen_x11.cpp
   core/src/screen_win.cpp
   core/src/screen_mac.cpp
   core/src/server_control.cpp
   core/src/server_dashboard.cpp
+  core/src/server_slumbot.cpp
   core/src/packages.cpp
   core/src/app_server.cpp
   ${GLANCE_WEB_CPP})
@@ -264,6 +266,15 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 endif()
 add_test(NAME pkgtest COMMAND glance-pkgtest)
 add_test(NAME webtest COMMAND glance-webtest)
+
+# Slumbot action-string parser unit tests (tools/slumbottest.cpp): the ported
+# ParseAction against the reference's example, all-in and error cases.
+add_executable(glance-slumbottest tools/slumbottest.cpp)
+target_link_libraries(glance-slumbottest PRIVATE glance_core)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(glance-slumbottest PRIVATE -Wall -Wextra)
+endif()
+add_test(NAME slumbottest COMMAND glance-slumbottest)
 
 # Card-vision accuracy gates on the research prototype's labelled datasets
 # (research/test_assets/validation, committed next to glance/). Templates live

@@ -51,9 +51,24 @@ build/glance-server path/to/mapping.json [port]   # default port 8000
 
 | Endpoint              | What it does                                                                                                  |
 | --------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `GET /health`         | liveness                                                                                                       |
+| `GET /health`         | liveness + the control backend/grab state                                                                     |
+| `GET /info`           | build + configuration (version, OCR, control backend, mapping `actions`, and a `control` endpoint list)       |
 | `POST /capture`       | body: raw PNG/JPEG bytes of the poker window (any content type, ≤ 16 MB) → parses and returns the table state JSON (422 when the table anchor is not found) |
 | `GET /state`          | last successfully parsed state (404 until the first capture)                                                  |
+| `POST /grab`          | the server grabs a region/window itself, parses it, and records it as the input-space reference               |
+| `POST /click`         | one click: a named action (mapping `actions`), a `button:`/`stack:` target, or a raw last-capture coordinate  |
+| `POST /key`           | one key press (`{"key":…}`) or typed text (`{"type":…}`)                                                       |
+| `POST /sequence`      | a JSON array of click/key steps, run in order, each reported                                                  |
+| `POST /login`         | mint an opaque session token (`{username?,password?}` → `{token}`; local tool, any credentials)               |
+| `POST /new_hand`      | start a hand: the Slumbot-shaped state (`old_action`/`action`/`client_pos`/`hole_cards`/`board`/`token`) read from the current table |
+| `POST /act`           | take an action (`{token, incr}`): validates `incr` with `ParseAction`, maps its last token to a named click, injects it |
+
+The control routes (`/grab`…`/act`) are a thin control + translation surface,
+not a game engine; their exact request/response JSON, status codes, coordinate
+spaces (screen-absolute vs last-capture) and what a "named action" is are
+documented in [docs/engine.md](docs/engine.md#6-control-api-http). The
+Slumbot-mirroring plane (`/login`, `/new_hand`, `/act`) uses glance's plain,
+flat paths — never `/api/...` or `/slumbot/...`.
 
 Example:
 
@@ -93,33 +108,44 @@ not `"valid": true`.
 ## Slumbot API — the control-plane spec
 
 glance's control plane speaks the [Slumbot API](https://slumbot.com/)
-verbatim. Slumbot is the de-facto standard against which poker bots are built
+grammar. Slumbot is the de-facto standard against which poker bots are built
 and benchmarked, and its sample client (`sample_api.py`, served from the
 project page) ships the canonical action-string parser. The rule for glance:
 
 > **The Slumbot protocol is the standard; anything glance adds is an extra,
 > never a deviation.**
 
-The consequence is that a bot written for slumbot.com is a drop-in client for
-a glance table — and glance clients can play hands against Slumbot itself, no
-code changes.
+glance mirrors the protocol's bodies, token rules and action grammar, but
+serves them under its own **plain, flat paths** (`/login`, `/new_hand`,
+`/act`) — never the upstream's nested URLs. A bot written against the Slumbot
+grammar is a drop-in client for a glance table once pointed at these paths, and
+glance clients can play hands against the upstream benchmark server at
+slumbot.com unchanged.
 
 **Status.** The read side above is live and end-to-end tested. The control
-plane (click-by-mapping, key input, the `/slumbot/api/*` surface) is in
-progress — roadmap M1–M2 in
-[docs/README.md](docs/README.md). The contract below is already pinned
-in [research/slumbot.md](research/slumbot.md) — endpoints, grammar, token rules
-and the parser contract — so engines can be built against it now.
+plane has landed as a thin control + translation surface: `/login`,
+`/new_hand`, `/act` are wired over the existing capture + click services, the
+reference `ParseAction` is ported to C++ (`core/src/slumbot_action.cpp`) and
+unit-tested (`glance-slumbottest`). It is **not** a poker game engine — glance
+reads the real table and clicks it; dealing, turn enforcement and multi-street
+autoplay stay on the roadmap (M-series in [docs/README.md](docs/README.md)).
+The full contract — bodies, grammar, token rules and every parser error path —
+is pinned in [research/slumbot.md](research/slumbot.md).
 
-### Endpoints (mirror of slumbot.com)
+### Endpoints (glance, mirroring the Slumbot grammar)
 
-HTTPS POSTs, JSON bodies, `Content-Type: application/json`:
+JSON bodies, `Content-Type: application/json`. Errors ride inside a 200 body
+as `error_msg` (parse the body, not just the status); a malformed HTTP request
+is a 400:
 
-| Endpoint               | Purpose                                                    | Body                                                                  |
-| ---------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
-| `POST /slumbot/api/login`   | authenticate; required to make the leaderboards            | `{"username": ..., "password": ...}` → `{token, ...}`                  |
-| `POST /slumbot/api/new_hand`| start a new hand; the response carries the action if the bot is first to act | `{"token": ...}` — the token may be omitted on the very first call only |
-| `POST /slumbot/api/act`     | take an action in the current hand                         | `{"token": ..., "incr": <action string>}`                              |
+| Endpoint          | Purpose                                                    | Body                                                                  |
+| ----------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
+| `POST /login`     | mint a session token (local tool; any credentials)         | `{"username": ..., "password": ...}` → `{token}`                       |
+| `POST /new_hand`  | start a hand; returns the Slumbot-shaped state from the current table | `{"token": ...}` — the token may be omitted on the very first call only |
+| `POST /act`       | take an action in the current hand                         | `{"token": ..., "incr": <action string>}`                              |
+
+(The upstream benchmark server at slumbot.com exposes the same grammar under
+its own nested paths; glance only ever serves the flat ones above.)
 
 Game constants (Slumbot house rules): blinds **50/100**, stacks **200 BB**,
 stacks reset every hand. A session starts in the less favorable position (big
@@ -128,7 +154,7 @@ blind); play an even number of hands so the button is split evenly.
 ### Token rules
 
 - Every request carries a `token`; the sole exception is the first-ever
-  `/api/new_hand`, where it may be omitted.
+  `/new_hand`, where it may be omitted.
 - A response can return a **new** token (usually only after a long pause).
   Always read `token` out of the previous response and use it in the next
   request — never cache one across hands.
@@ -168,7 +194,7 @@ you are taking now.
 ```
 
 `winnings` (plus session counters) appear on the terminal response of a hand.
-If the bot is first to act, the `/api/new_hand` response already contains its
+If the bot is first to act, the `/new_hand` response already contains its
 initial action.
 
 ### Extras & the in-progress surface

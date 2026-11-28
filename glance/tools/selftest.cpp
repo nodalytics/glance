@@ -39,6 +39,7 @@
 #include "scraper.h"
 #include "server.h"
 #include "server_control.h"
+#include "server_slumbot.h"
 #include "state_validation.h"
 
 namespace fs = std::filesystem;
@@ -973,6 +974,152 @@ int main(int argc, char** argv) {
       CHECK(ectrl.click(c4, d4, &err), "a raw click resolves after an externally-parsed frame");
       CHECK(d4["x"] == 5 && d4["y"] == 6,
             "externally-POSTed frames are used as given (no re-base)");
+    }
+  }
+
+  // --- HTTP round-trip: the Slumbot-mirroring control plane -------------------
+  // The SAME SlumbotRoutes the server registers (POST /login, /new_hand, /act),
+  // installed in-process alongside ControlRoutes (for /capture, which anchors
+  // the table and makes click injection resolvable), driven over HTTP with the
+  // fake platform backend. This proves the /login -> /new_hand -> /act
+  // round-trip without a display: token minting, the Slumbot-shaped state
+  // readback, ParseAction validation, and the action -> named-control click.
+  {
+    std::printf("selftest: slumbot control-plane http round-trip\n");
+    std::vector<unsigned char> http_buf;
+    cv::imencode(".png", shot, http_buf);
+    glance::TableScraper sb_scraper;
+    if (!sb_scraper.load_mapping((base / "mapping.json").string())) {
+      std::printf("  FAIL: slumbot http: mapping loads for the test server\n");
+      ++failures;
+    } else {
+      glance::ScreenshotService sb_service(&sb_scraper);
+      auto fake_screen = std::make_shared<FakeScreen>();
+      fake_screen->region = shot;
+      auto fake_input = std::make_shared<FakeInput>();
+      auto backend = std::make_shared<glance::control::Backend>();
+      backend->name = "fake";
+      backend->screen = fake_screen;
+      backend->input = fake_input;
+      glance::ControlService sb_ctrl(&sb_scraper, backend);
+      glance::ControlRoutes sb_control_routes(&sb_service, &sb_scraper, &sb_ctrl);
+      glance::SlumbotRoutes sb_routes(&sb_scraper, &sb_ctrl);
+
+      httplib::Server srv;
+      srv.set_payload_max_length(16u * 1024 * 1024);
+      sb_control_routes.install(srv);
+      sb_routes.install(srv);
+      int port = srv.bind_to_any_port("127.0.0.1");
+      CHECK(port > 0, "slumbot test server binds an ephemeral port");
+      if (port > 0) {
+        std::thread serve([&srv]() { srv.listen_after_bind(); });
+        srv.wait_until_ready();
+        httplib::Client cli("127.0.0.1", port);
+
+        // /login mints an opaque token (any/empty credentials accepted).
+        auto lres = cli.Post("/login", R"({"username":"x","password":"y"})", "application/json");
+        CHECK(lres && lres->status == 200, "POST /login is 200");
+        std::string token;
+        if (lres && lres->status == 200) {
+          auto lj = nlohmann::json::parse(lres->body);
+          CHECK(lj.contains("token") && lj["token"].is_string() &&
+                    !lj["token"].get<std::string>().empty(),
+                "/login returns a non-empty token");
+          token = lj.value("token", std::string());
+        }
+        // /login with a malformed body is a 400 (real HTTP error, not a game error).
+        auto lbad = cli.Post("/login", "not json", "application/json");
+        CHECK(lbad && lbad->status == 400, "POST /login rejects a malformed body with 400");
+
+        // /new_hand before any capture: 200 with an error_msg (Slumbot style).
+        auto nh0 = cli.Post("/new_hand", std::string("{\"token\":\"") + token + "\"}",
+                            "application/json");
+        CHECK(nh0 && nh0->status == 200, "POST /new_hand before a capture is still 200");
+        if (nh0 && nh0->status == 200) {
+          auto nj = nlohmann::json::parse(nh0->body);
+          CHECK(nj.contains("error_msg"), "/new_hand without state carries an error_msg, not a crash");
+        }
+
+        // Capture the flop frame: it anchors the table (clicks become resolvable)
+        // and parses the state (/new_hand can read hole cards + board).
+        std::string body(http_buf.begin(), http_buf.end());
+        auto cres = cli.Post("/capture", body, "application/x-www-form-urlencoded");
+        CHECK(cres && cres->status == 200, "POST /capture anchors + parses the frame");
+
+        // /new_hand now returns the Slumbot-shaped state built from the frame.
+        auto nh = cli.Post("/new_hand", std::string("{\"token\":\"") + token + "\"}",
+                          "application/json");
+        CHECK(nh && nh->status == 200, "POST /new_hand is 200 after a capture");
+        if (nh && nh->status == 200) {
+          auto nj = nlohmann::json::parse(nh->body);
+          CHECK(nj.value("old_action", "x") == "" && nj.value("action", "x") == "",
+                "/new_hand starts a hand with empty old_action/action");
+          CHECK(nj.contains("hole_cards") && nj["hole_cards"].size() == 2 &&
+                    nj["hole_cards"][0] == "Ah" && nj["hole_cards"][1] == "2c",
+                "/new_hand reports the hero's hole cards from the parsed state");
+          CHECK(nj.contains("board") && nj["board"].size() == 3 && nj["board"][0] == "7d",
+                "/new_hand reports the board from the parsed state");
+          CHECK(nj.contains("client_pos") && nj["client_pos"].is_number(),
+                "/new_hand reports client_pos");
+          CHECK(nj.contains("token"), "/new_hand echoes the token");
+        }
+
+        // /act: a legal call ('c') validates through ParseAction and injects the
+        // mapping's "call" button click.
+        auto a1 = cli.Post("/act", std::string("{\"token\":\"") + token + "\",\"incr\":\"c\"}",
+                          "application/json");
+        CHECK(a1 && a1->status == 200, "POST /act (call) is 200");
+        if (a1 && a1->status == 200) {
+          auto aj = nlohmann::json::parse(a1->body);
+          CHECK(!aj.contains("error_msg"), "/act (call) does not error");
+          CHECK(aj.value("old_action", "x") == "" && aj.value("action", "x") == "c",
+                "/act appends the incr to the action history");
+          CHECK(aj.contains("injected") && aj["injected"]["kind"] == "button",
+                "/act injects the mapped button click");
+        }
+
+        // /act with a legal raise whose action the mapping lacks: error_msg
+        // naming the missing action (the mapping has no "raise" entry).
+        auto a2 = cli.Post("/act", std::string("{\"token\":\"") + token + "\",\"incr\":\"b200\"}",
+                          "application/json");
+        CHECK(a2 && a2->status == 200, "POST /act (unmapped action) is 200 with an error_msg");
+        if (a2 && a2->status == 200) {
+          auto aj = nlohmann::json::parse(a2->body);
+          CHECK(aj.contains("error_msg") &&
+                    aj["error_msg"].get<std::string>().find("raise") != std::string::npos,
+                "/act names the action the mapping lacks");
+        }
+
+        // /act with an unknown token: error_msg, not a crash.
+        auto a3 = cli.Post("/act", R"({"token":"nope","incr":"c"})", "application/json");
+        CHECK(a3 && a3->status == 200 && nlohmann::json::parse(a3->body).contains("error_msg"),
+              "POST /act with an unknown token is a 200 error_msg");
+
+        // /act with an illegal action string: ParseAction rejects it (reported).
+        auto nh2 = cli.Post("/new_hand", std::string("{\"token\":\"") + token + "\"}",
+                           "application/json");
+        CHECK(nh2 && nh2->status == 200, "POST /new_hand resets the hand");
+        auto a4 = cli.Post("/act", std::string("{\"token\":\"") + token + "\",\"incr\":\"k\"}",
+                          "application/json");
+        CHECK(a4 && a4->status == 200, "POST /act (illegal check) is 200");
+        if (a4 && a4->status == 200) {
+          auto aj = nlohmann::json::parse(a4->body);
+          CHECK(aj.contains("error_msg") &&
+                    aj["error_msg"].get<std::string>().find("Illegal check") != std::string::npos,
+                "/act reports the ParseAction error for an illegal incr");
+        }
+
+        // /act with no incr: a protocol error_msg.
+        auto a5 = cli.Post("/act", std::string("{\"token\":\"") + token + "\"}", "application/json");
+        CHECK(a5 && a5->status == 200 && nlohmann::json::parse(a5->body).contains("error_msg"),
+              "POST /act without incr is a 200 error_msg");
+        // /act with a malformed body: a 400.
+        auto a6 = cli.Post("/act", "not json", "application/json");
+        CHECK(a6 && a6->status == 400, "POST /act rejects a malformed body with 400");
+
+        srv.stop();
+        serve.join();
+      }
     }
   }
 

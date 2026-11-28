@@ -11,6 +11,7 @@
 #include "server.h"
 #include "server_control.h"
 #include "server_dashboard.h"
+#include "server_slumbot.h"
 
 namespace glance {
 
@@ -45,6 +46,7 @@ int serve(const ServeOptions& opts) {
   ControlService control(&scraper);
   ControlRoutes routes(&service, &scraper, &control);
   DashboardRoutes dashboard(&service, &scraper, &control);
+  SlumbotRoutes slumbot(&scraper, &control);
   std::fprintf(stderr, "glance control backend: %s\n", control.backend_name().c_str());
 
   httplib::Server srv;
@@ -59,6 +61,10 @@ int serve(const ServeOptions& opts) {
   // Web dashboard (GET /, /assets/...) + GET /info, /frame.png,
   // POST /recognize-card. Embedded at build time (cmake/embed_web.cmake).
   dashboard.install(srv);
+  // Slumbot-mirroring control plane (POST /login, /new_hand, /act): a thin
+  // control + translation surface over the services above, under glance's
+  // plain flat paths (never /slumbot/... or /api/...).
+  slumbot.install(srv);
 
   // GET /state — the last successfully parsed state.
   srv.Get("/state", [&service](const httplib::Request&, httplib::Response& res) {

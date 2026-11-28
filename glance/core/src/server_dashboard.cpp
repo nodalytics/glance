@@ -67,6 +67,15 @@ void DashboardRoutes::install(httplib::Server& srv) {
     j["ocr_available"] = ocr_available();
     j["control_backend"] = ctrl_ ? ctrl_->backend_name() : std::string("none");
 
+    // The control surface, so a client can discover it without reading the
+    // docs: the backend name plus every flat control endpoint this server
+    // installs (the plain-path control plane + the Slumbot-mirroring one).
+    nlohmann::json control;
+    control["backend"] = ctrl_ ? ctrl_->backend_name() : std::string("none");
+    control["endpoints"] = nlohmann::json::array({"/grab", "/click", "/key", "/sequence", "/login",
+                                                  "/new_hand", "/act"});
+    j["control"] = std::move(control);
+
     nlohmann::json m;
     const TableMapping& mapping = scraper_->mapping();
     m["name"] = mapping.name();
