@@ -22,9 +22,9 @@ is required. Three endpoints:
 
 | Endpoint               | Purpose                                        | Body                                                        |
 | ---------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
-| `/slumbot/api/login`   | authenticate; required for leaderboard play    | `{"username": ..., "password": ...}` → `{token, ...}`       |
-| `/slumbot/api/new_hand`| start a hand; the response may carry an action | `{"token": ...}` (token optional only on the very first call)|
-| `/slumbot/api/act`     | take an action in the current hand             | `{"token": ..., "incr": <action string>}`                   |
+| `/login`   | authenticate; required for leaderboard play    | `{"username": ..., "password": ...}` → `{token, ...}`       |
+| `/new_hand`| start a hand; the response may carry an action | `{"token": ...}` (token optional only on the very first call)|
+| `/act`     | take an action in the current hand             | `{"token": ..., "incr": <action string>}`                   |
 
 Game constants: blinds **50/100**, stack **20,000 chips (200 BB)**, stacks
 reset every hand. You start the session in the less favorable position (big
@@ -33,7 +33,7 @@ blind); play an even number of hands so the button is split evenly.
 ### Token rules
 
 - Every request carries a `token`; the only exception is the first-ever
-  `/api/new_hand`, where it may be omitted.
+  `/new_hand`, where it may be omitted.
 - A response may return a **new** token (usually only after a long pause).
   Always read `token` out of the previous response and use it in the next
   request — never cache one across hands.
@@ -76,7 +76,7 @@ street by street, separated by `/`; an `incr` in a request is the
 
 `winnings` (plus `baseline_winnings`, `session_num_hands`, `session_total`,
 `session_baseline_total`) appear on the terminal response of a hand. If the bot
-is first to act, the `/api/new_hand` response already contains its initial
+is first to act, the `/new_hand` response already contains its initial
 action.
 
 ### Action-string parser (canonical, ported 1:1)
@@ -107,8 +107,8 @@ The loop for a Slumbot-backed bot where **Slumbot is the table** (research /
 benchmarking, no real platform window):
 
 ```
-POST /slumbot/api/new_hand {token}                    ──┐
-POST /slumbot/api/act    {token, incr}                 │  the standard
+POST /new_hand {token}                    ──┐
+POST /act    {token, incr}                 │  the standard
                                                          ▼
       response {action, client_pos, hole_cards, board, token, winnings}
                       │
