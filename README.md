@@ -81,6 +81,14 @@ dashboard on the same port (default 8000).
 | `GET /frame.png` | the last captured frame (404 until the first capture) |
 | `POST /recognize-card[?slot=]` | body: a card-crop image → the card-vision reading (409 when the mapping has no `card_vision`) |
 | `POST /grab` `/click` `/key` `/sequence` | control: grab a window/region, click a named action or coordinates, inject keys/text |
+| `POST /login` `/new_hand` `/act` | the Slumbot-mirroring control plane (plain flat paths): mint a token, read the hand's state, and take an action (`{token, incr}`) that maps to a click |
+
+The control routes (`/grab`…`/act`) are a thin control + translation surface,
+not a game engine; their request/response JSON, status codes and coordinate
+spaces are documented in [docs/engine.md](docs/engine.md), and the
+Slumbot-grammar contract (bodies, tokens, `ParseAction` errors) in
+[research/slumbot.md](research/slumbot.md). Every path is plain and flat — no
+`/api` or `/slumbot` nesting.
 
 ```sh
 curl -s -X POST --data-binary @screenshot.png http://127.0.0.1:8000/capture | jq

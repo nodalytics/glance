@@ -1,13 +1,19 @@
 # Slumbot integration blueprint
 
-Status: **design doc, not implemented.** glance's control-side API is built on
-this blueprint (the user named it the blueprint, Nov 2026). The read side
-(`/capture` → table JSON) already works; the control side is milestone **M1** in
-[docs/README.md](../docs/README.md#roadmap-from-screen-reading-to-screen-controlling).
-This document pins the wire contract so M1 can be built without re-deriving it,
-and defines the *extras* (things Slumbot does not do) that glance adds on top.
-The rule: **the Slumbot protocol is the standard; anything glance adds is an
-extra, never a deviation.**
+Status: glance's control-side API is built on this blueprint (the user named it
+the blueprint, Nov 2026). The read side (`/capture` → table JSON) already works.
+The control side has **landed** as a thin control + translation surface: glance
+serves this protocol under its own **plain, flat paths** — `POST /login`,
+`POST /new_hand`, `POST /act` (never the upstream's nested `/slumbot/api/*`
+URLs) — wired over the existing capture + click services, with the reference
+`ParseAction` ported to C++ (`glance/core/src/slumbot_action.cpp`) and
+unit-tested (`glance-slumbottest`). It is not a poker game engine; dealing,
+turn enforcement and multi-street autoplay remain roadmap. The endpoint tables
+below document the **upstream** slumbot.com server's wire contract (the
+standard glance mirrors); glance's own routes are the flat ones named above.
+This document pins the wire contract, and defines the *extras* (things Slumbot
+does not do) that glance adds on top. The rule: **the Slumbot protocol is the
+standard; anything glance adds is an extra, never a deviation.**
 
 ## The Slumbot standard (mirror of the official spec)
 

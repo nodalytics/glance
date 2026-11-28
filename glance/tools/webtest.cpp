@@ -166,6 +166,21 @@ int main() {
           "/info lists the mapping's named actions");
     CHECK(j.contains("card_vision") && j["card_vision"]["configured"] == false,
           "/info card_vision.configured is false without a card_vision section");
+    CHECK(j.contains("control") && j["control"]["backend"] == control.backend_name(),
+          "/info carries a control object with the backend name");
+    {
+      bool has_login = false, has_new_hand = false, has_act = false;
+      if (j.contains("control") && j["control"].contains("endpoints") &&
+          j["control"]["endpoints"].is_array()) {
+        for (const auto& e : j["control"]["endpoints"]) {
+          if (e == "/login") has_login = true;
+          if (e == "/new_hand") has_new_hand = true;
+          if (e == "/act") has_act = true;
+        }
+      }
+      CHECK(has_login && has_new_hand && has_act,
+            "/info control.endpoints lists the flat /login, /new_hand, /act paths");
+    }
   }
 
   std::printf("webtest: GET /frame.png\n");
