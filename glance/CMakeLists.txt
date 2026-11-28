@@ -352,3 +352,36 @@ if(GLANCE_APP)
     message(STATUS "glance: no Qt6 Widgets/Network, skipping glance-admin (install qt6-base-dev)")
   endif()
 endif()
+
+
+
+# Optional offline image helper tests.
+option(GLANCE_OFFLINE_IMAGE_TESTS
+  "Build offline image preprocessing and region tests" OFF)
+
+if(GLANCE_OFFLINE_IMAGE_TESTS)
+  find_package(OpenCV REQUIRED COMPONENTS core imgproc photo)
+
+  add_executable(glance-image-helpers-selftest
+    tools/image_helpers_selftest.cpp
+    core/src/preprocessing.cpp
+    core/src/reference_region.cpp
+  )
+
+  target_include_directories(glance-image-helpers-selftest
+    PRIVATE core/include
+  )
+
+  target_include_directories(glance-image-helpers-selftest
+    SYSTEM PRIVATE ${OpenCV_INCLUDE_DIRS}
+  )
+
+  target_link_libraries(glance-image-helpers-selftest
+    PRIVATE ${OpenCV_LIBS}
+  )
+
+  add_test(
+    NAME image_helpers_selftest
+    COMMAND glance-image-helpers-selftest
+  )
+endif()
