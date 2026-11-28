@@ -1,6 +1,7 @@
 #include "image_io.h"
 
 #include <cstdint>
+#include <cstdlib>
 #include <cstring>
 #include <fstream>
 #include <iterator>
@@ -8,6 +9,67 @@
 #include <new>
 
 #include <opencv2/imgproc.hpp>
+
+// ---------------------------------------------------------------------------
+// stb decode allocation budget — defence in depth for the untrusted path.
+//
+// dims_ok() (below) bounds the FINAL image from the header, but stb allocates
+// while it inflates the zlib stream and, for 16-bit PNGs, in 2-bytes-per-channel
+// buffers, so peak memory during decode can exceed the final size even when the
+// header looks sane. We hand stb a custom allocator that tracks a thread-local
+// running total for the current decode and refuses once it passes a hard
+// per-decode budget: a crafted file then fails early (stb returns null -> empty
+// Mat) instead of allocating gigabytes. stb is single-threaded per call, so a
+// thread_local counter suffices. Each block carries its size in a max-aligned
+// header so realloc/free keep the total honest. (stb_image_write keeps its own
+// STBIW_* allocators — plain malloc — which is fine: encode runs on our own
+// trusted Mats, not on untrusted bytes.)
+namespace {
+
+constexpr long long kStbDecodeByteBudget = 96LL * 1024 * 1024;  // ~96 MB per decode
+constexpr std::size_t kStbHeader = alignof(std::max_align_t) > sizeof(std::size_t)
+                                       ? alignof(std::max_align_t)
+                                       : sizeof(std::size_t);
+
+thread_local long long g_stb_live_bytes = 0;
+
+void reset_stb_budget() { g_stb_live_bytes = 0; }
+
+void* stb_budget_malloc(std::size_t size) {
+  if (size == 0) size = 1;
+  if (size > static_cast<std::size_t>(kStbDecodeByteBudget)) return nullptr;
+  if (g_stb_live_bytes + static_cast<long long>(size) > kStbDecodeByteBudget) return nullptr;
+  void* raw = std::malloc(size + kStbHeader);
+  if (raw == nullptr) return nullptr;
+  *static_cast<std::size_t*>(raw) = size;
+  g_stb_live_bytes += static_cast<long long>(size);
+  return static_cast<char*>(raw) + kStbHeader;
+}
+
+void stb_budget_free(void* ptr) {
+  if (ptr == nullptr) return;
+  void* raw = static_cast<char*>(ptr) - kStbHeader;
+  g_stb_live_bytes -= static_cast<long long>(*static_cast<std::size_t*>(raw));
+  std::free(raw);
+}
+
+void* stb_budget_realloc(void* ptr, std::size_t new_size) {
+  if (ptr == nullptr) return stb_budget_malloc(new_size);
+  if (new_size == 0) new_size = 1;
+  void* raw = static_cast<char*>(ptr) - kStbHeader;
+  const std::size_t old_size = *static_cast<std::size_t*>(raw);
+  const long long projected =
+      g_stb_live_bytes - static_cast<long long>(old_size) + static_cast<long long>(new_size);
+  if (new_size > static_cast<std::size_t>(kStbDecodeByteBudget) || projected > kStbDecodeByteBudget)
+    return nullptr;
+  void* new_raw = std::realloc(raw, new_size + kStbHeader);
+  if (new_raw == nullptr) return nullptr;
+  *static_cast<std::size_t*>(new_raw) = new_size;
+  g_stb_live_bytes = projected;
+  return static_cast<char*>(new_raw) + kStbHeader;
+}
+
+}  // namespace
 
 // Single-header PNG/JPEG decoders, vendored via CMake FetchContent and pinned
 // in glance/CMakeLists.txt to an exact nothings/stb commit (stb_image v2.34,
@@ -19,14 +81,25 @@
 // stb runs on UNTRUSTED input here: POST /capture and /recognize-card decode
 // bytes straight off the network, and the server may bind 0.0.0.0. stb_image
 // is memory-unsafe on malformed input and will allocate whatever a header
-// claims (a decompression bomb), so decode_image() below bounds the geometry
-// BEFORE decoding, checks the format by signature first, and wraps the decode
-// in try/catch — those bounds are the mitigation, not stb itself.
+// claims (a decompression bomb). The mitigation is layered, not stb itself:
+// (1) a format-signature check, (2) a header dimension/pixel cap, both before
+// decoding; (3) STBI_MAX_DIMENSIONS and (4) a per-decode allocation budget that
+// bound the worst case DURING inflation; and (5) a try/catch backstop so any
+// std::bad_alloc / cv::Exception becomes an empty Mat, never a crash.
 //
 // The implementations are emitted in THIS translation unit only (the two
 // IMPLEMENTATION macros below), so every other glance TU just sees the small
 // header. We decode from memory and write through a callback, so stb never
 // touches stdio: no fopen, no platform path quirks (NO_STDIO drops that code).
+//
+// STBI_MAX_DIMENSIONS makes stb refuse >4096-per-side mid-decode (not just at
+// the header), and STBI_MALLOC/REALLOC/FREE route stb_image's allocations
+// through the budget allocator above — the two internal backstops behind the
+// header check in decode_image().
+#define STBI_MALLOC(sz) stb_budget_malloc(sz)
+#define STBI_REALLOC(p, newsz) stb_budget_realloc(p, newsz)
+#define STBI_FREE(p) stb_budget_free(p)
+#define STBI_MAX_DIMENSIONS 4096
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_NO_STDIO
 #define STBI_NO_LINEAR
@@ -43,13 +116,14 @@ namespace glance {
 
 namespace {
 
-// Upper bounds for decoding UNTRUSTED image bytes. stb will allocate whatever a
-// header claims, so a few-KB payload can still demand gigabytes (a
-// decompression bomb). We bound the geometry from the header before decoding.
-// Real ACR grabs are ~1600x899; 8192 per side and 64 Mpx total leave generous
-// headroom for any legitimate screenshot while refusing absurd dimensions.
-constexpr int kMaxImageDim = 8192;                            // per side
-constexpr long long kMaxImagePixels = 64LL * 1024 * 1024;     // 64 Mpx total
+// Upper bounds on the geometry when decoding UNTRUSTED image bytes, checked
+// from the header before stb allocates anything. Real ACR grabs are ~1600x899
+// and card crops are tiny, so 4096 per side / 16 Mpx is already generous while
+// refusing absurd dimensions. The per-decode byte budget above accounts for
+// channel count and bit depth (the part geometry alone can't see); this cap and
+// stb's own STBI_MAX_DIMENSIONS keep the two in agreement.
+constexpr int kMaxImageDim = 4096;                            // per side
+constexpr long long kMaxImagePixels = 16LL * 1024 * 1024;     // 16 Mpx total
 
 // Accept only the formats glance handles, by signature, before handing bytes to
 // stb: PNG (\x89PNG\r\n\x1a\n) or JPEG (SOI \xFF\xD8 + a marker \xFF). Anything
@@ -93,6 +167,9 @@ void append_bytes(void* ctx, void* data, int size) {
 }  // namespace
 
 cv::Mat decode_image(const unsigned char* data, std::size_t size, bool color) {
+  // Fresh budget for this decode (stb frees as it goes, so this is normally
+  // already zero — belt and suspenders against a prior aborted decode).
+  reset_stb_budget();
   if (data == nullptr || size == 0) return {};
   // stb takes an int length; refuse anything that would overflow it.
   if (size > static_cast<std::size_t>(std::numeric_limits<int>::max())) return {};

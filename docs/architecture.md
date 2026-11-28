@@ -166,7 +166,7 @@ A design goal, not an afterthought. Measured on the lab (OpenCV 4.6, Nov 2026):
 
 | | before | after |
 |---|---|---|
-| `glance` stripped binary | 1331 KB | 1531 KB |
+| `glance` stripped binary | 1331 KB | 1535 KB |
 | Runtime shared libraries (`ldd`) | 135 | 22 |
 | Card read (card vision) | ~2 ms per card (Python prototype: ~6.6 s) | unchanged |
 

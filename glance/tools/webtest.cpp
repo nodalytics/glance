@@ -259,6 +259,30 @@ int main() {
         0x00, 0x00, 0x00, 0x00};                         // CRC placeholder
     CHECK(glance::decode_image(bomb, true).empty(),
           "decode_image rejects an oversized-dimension header (decompression bomb)");
+
+    // A real, valid 16-bit RGBA PNG at the 4096 dimension cap: the header
+    // passes the geometry check, but decoding would inflate to ~128 MB
+    // (4096*4096*4*2). STBI_MAX_DIMENSIONS + the per-decode allocation budget
+    // must fail it to an empty Mat, not OOM. (Tiny committed asset — solid
+    // colour compresses to ~140 KB but blows up on decode.)
+#ifdef GLANCE_WEBTEST_DATA_DIR
+    {
+      const fs::path bomb_file =
+          fs::path(GLANCE_WEBTEST_DATA_DIR) / "decode_budget_bomb_16bit_4096.png";
+      if (fs::exists(bomb_file)) {
+        const auto sz = static_cast<std::size_t>(fs::file_size(bomb_file));
+        std::vector<unsigned char> bytes(sz);
+        std::ifstream bf(bomb_file, std::ios::binary);
+        if (sz) bf.read(reinterpret_cast<char*>(bytes.data()), static_cast<std::streamsize>(sz));
+        CHECK(sz > 0 && sz < 2u * 1024 * 1024, "budget-bomb asset is a small file");
+        CHECK(glance::decode_image(bytes, true).empty(),
+              "decode_image rejects a 16-bit PNG that would inflate past the budget");
+      } else {
+        std::printf("  (skip: budget-bomb asset not present)\n");
+        std::fflush(stdout);
+      }
+    }
+#endif
   }
 
   srv.stop();

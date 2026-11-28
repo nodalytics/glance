@@ -255,6 +255,10 @@ target_compile_definitions(glance-selftest PRIVATE GLANCE_TESTDATA_DIR="${CMAKE_
 # Dashboard routes test (GET /, /info, /frame.png, POST /recognize-card).
 add_executable(glance-webtest tools/webtest.cpp)
 target_link_libraries(glance-webtest PRIVATE glance_core)
+# Committed test asset for the decode_image allocation-budget check (a tiny
+# 16-bit RGBA PNG that would inflate to ~128 MB on decode).
+target_compile_definitions(glance-webtest PRIVATE
+  GLANCE_WEBTEST_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/testdata/webtest")
 
 add_executable(glance-cardvision tools/cardvision.cpp)
 target_link_libraries(glance-cardvision PRIVATE glance_core)
