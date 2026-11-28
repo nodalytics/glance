@@ -7,8 +7,9 @@
 #include <string>
 #include <system_error>
 
-#include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
+
+#include "image_io.h"
 
 #ifndef GLANCE_OCR
 #define GLANCE_OCR 0
@@ -234,16 +235,17 @@ bool make_temp_png(std::string& path) {
 }
 
 // Write `image` to a temp PNG, run tesseract with `args` and capture stdout.
-// The temp path MUST end in a real image extension: cv::imwrite looks up its
-// encoder by file extension (findEncoder in loadsave.cpp), and an extensionless
-// name throws "could not find a writer for the specified extension" — the CI
-// imwrite abort from run 45477292136. Each element of `args` is one argv
-// entry; quoting for the platform shell happens in build_command.
+// The temp path MUST still end in `.png`: write_png always emits PNG (so our
+// side no longer depends on the extension the way cv::imwrite's findEncoder did
+// — the CI imwrite abort from run 45477292136), but tesseract picks its decoder
+// from the file's extension, so the file we hand it has to be named `.png`.
+// Each element of `args` is one argv entry; quoting for the platform shell
+// happens in build_command.
 bool run_tesseract(const cv::Mat& image, const std::vector<std::string>& args, std::string& text) {
   std::string in_path;
   if (!make_temp_png(in_path)) return false;
   std::error_code ec;
-  if (!cv::imwrite(in_path, image)) {
+  if (!write_png(in_path, image)) {
     std::filesystem::remove(in_path, ec);
     return false;
   }

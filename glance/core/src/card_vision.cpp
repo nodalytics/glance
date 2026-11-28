@@ -6,7 +6,6 @@
 #include <filesystem>
 #include <regex>
 
-#include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 // OpenCV 5 moved contour geometry (contourArea, boundingRect, matchShapes)
 // out of imgproc into the new `geometry` module; 4.x has no such header.
@@ -14,6 +13,7 @@
 #include <opencv2/geometry.hpp>
 #endif
 
+#include "image_io.h"
 #include "ocr.h"
 
 namespace fs = std::filesystem;
@@ -159,7 +159,7 @@ std::vector<GlyphTemplate> load_glyph_dir(const std::string& dir,
       label = head;
     }
     if (label.empty()) continue;
-    cv::Mat img = cv::imread(p.string(), cv::IMREAD_GRAYSCALE);
+    cv::Mat img = load_image(p.string(), /*color=*/false);
     if (img.empty()) continue;
     cv::resize(img, img, cv::Size(kTemplateSize, kTemplateSize), 0, 0, cv::INTER_NEAREST);
     cv::threshold(img, img, 127, 255, cv::THRESH_BINARY);

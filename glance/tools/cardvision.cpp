@@ -38,9 +38,9 @@
 #include <vector>
 
 #include <nlohmann/json.hpp>
-#include <opencv2/imgcodecs.hpp>
 
 #include "card_vision.h"
+#include "image_io.h"
 #include "ocr.h"
 
 namespace fs = std::filesystem;
@@ -153,7 +153,7 @@ int cmd_read(const Args& a) {
   if (a.pos.size() != 1 || !a.has("suits")) return usage();
   CardRecognizer rec;
   if (!make_recognizer(a, rec)) return 1;
-  cv::Mat img = cv::imread(a.pos[0], cv::IMREAD_COLOR);
+  cv::Mat img = glance::load_image(a.pos[0], /*color=*/true);
   if (img.empty()) {
     std::fprintf(stderr, "cannot read %s\n", a.pos[0].c_str());
     return 1;
@@ -207,7 +207,7 @@ int cmd_eval(const Args& a) {
   std::map<std::string, int> verification;
   const auto t0 = std::chrono::steady_clock::now();
   for (const auto& s : samples) {
-    cv::Mat img = cv::imread(s.file, cv::IMREAD_COLOR);
+    cv::Mat img = glance::load_image(s.file, /*color=*/true);
     CardReading r;
     if (!img.empty()) r = rec.recognize(img, s.slot);
     verification[r.rank_verification]++;
@@ -324,7 +324,7 @@ int cmd_harvest(const Args& a) {
   for (const auto& s : samples) {
     if (!s.occupied || s.rank.empty()) continue;
     if (!filter.empty() && fs::path(s.file).filename().string().find(filter) == std::string::npos) continue;
-    cv::Mat img = cv::imread(s.file, cv::IMREAD_COLOR);
+    cv::Mat img = glance::load_image(s.file, /*color=*/true);
     if (img.empty()) continue;
     // Harvest from the first rank region that yields a glyph. The tight box
     // comes first (what simulator cards normalize from); a skin whose corner
@@ -339,7 +339,7 @@ int cmd_harvest(const Args& a) {
       continue;
     }
     const fs::path out = fs::path(a.pos[1]) / (s.rank + "_" + fs::path(s.file).stem().string() + ".png");
-    if (cv::imwrite(out.string(), g)) ++n;
+    if (glance::write_png(out.string(), g)) ++n;
   }
   std::printf("harvested %d rank templates into %s\n", n, a.pos[1].c_str());
   return n > 0 ? 0 : 1;
@@ -360,7 +360,7 @@ int cmd_harvest_suits(const Args& a) {
   for (const auto& s : samples) {
     if (!s.occupied || s.suit.empty()) continue;
     if (!filter.empty() && fs::path(s.file).filename().string().find(filter) == std::string::npos) continue;
-    cv::Mat img = cv::imread(s.file, cv::IMREAD_COLOR);
+    cv::Mat img = glance::load_image(s.file, /*color=*/true);
     if (img.empty()) continue;
     // One template per suit-candidate region that yields a symbol, so the
     // recognizer self-matches whichever region it scores highest at read time.
@@ -372,7 +372,7 @@ int cmd_harvest_suits(const Args& a) {
     const std::string stem = fs::path(s.file).stem().string();
     for (std::size_t i = 0; i < syms.size(); ++i) {
       const fs::path out = fs::path(a.pos[1]) / (s.suit + "_" + stem + "_r" + std::to_string(i) + ".png");
-      if (cv::imwrite(out.string(), syms[i])) ++n;
+      if (glance::write_png(out.string(), syms[i])) ++n;
     }
   }
   std::printf("harvested %d suit templates into %s\n", n, a.pos[1].c_str());

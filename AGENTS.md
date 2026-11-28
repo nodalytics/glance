@@ -22,9 +22,12 @@ earn its place. Prefer a few lines of our own code over a new library, keep
 optional parts optional (OCR, platform backends, Qt), measure before and
 after (binary size, startup, per-frame latency, accuracy) and never trade
 effectiveness (zero wrong reads) for size. CI enforces a size budget on the
-`glance` binary. Today (Nov 2026): `glance` 1.2 MB stripped, card read about
-2 ms, clean build 38 s; the biggest weight is OpenCV `imgcodecs` pulling
-about 130 shared libraries at runtime (glance needs only PNG/JPEG).
+`glance` binary. Today (Nov 2026): `glance` ~1.5 MB stripped, card read about
+2 ms, clean build 38 s. It links only OpenCV `core` + `imgproc`: PNG/JPEG I/O
+is our own (`core/src/image_io.cpp`, stb single headers), which dropped the
+runtime shared libraries from ~135 to ~22 by cutting OpenCV `imgcodecs` and
+the TIFF/WebP/OpenEXR/GDAL/… decoders it dragged in for formats glance never
+uses.
 
 ## Commands
 
