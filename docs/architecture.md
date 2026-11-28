@@ -160,7 +160,23 @@ and the build still succeeds.
   traces, running behind the same `Screen`/`Input` and state-JSON
   contracts. The C++ engine stays the fast, deterministic runtime.
 
-## 7. Repository map
+## 7. Footprint: small, nimble, efficient, effective
+
+A design goal, not an afterthought. Measured on the lab (Nov 2026):
+
+| | |
+|---|---|
+| `glance` (CLI + server + embedded dashboard) | 1.5 MB (1.2 MB stripped) |
+| Card read (card vision) | ~2 ms per card (Python prototype: ~6.6 s) |
+| Clean build (48 cores) | 38 s; build dir 49 MB |
+| Runtime shared libraries | ~135, almost all pulled in by OpenCV `imgcodecs` |
+
+Rules: no dependency without a measured reason; optional parts stay
+optional; CI fails if the stripped `glance` binary exceeds its budget.
+Next lever: decode PNG/JPEG without `imgcodecs` (e.g. single-header
+decoders) to drop most of those runtime libraries.
+
+## 8. Repository map
 
 ```
 .

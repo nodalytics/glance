@@ -16,6 +16,16 @@ apps glance has never seen (template-free recognition, generic control
 primitives, verify-after-act) over per-app special cases. See
 `docs/README.md` ("The ultimate test").
 
+**Small, nimble, efficient, effective.** glance must stay as small and fast
+as possible: every dependency, binary byte and millisecond per frame has to
+earn its place. Prefer a few lines of our own code over a new library, keep
+optional parts optional (OCR, platform backends, Qt), measure before and
+after (binary size, startup, per-frame latency, accuracy) and never trade
+effectiveness (zero wrong reads) for size. CI enforces a size budget on the
+`glance` binary. Today (Nov 2026): `glance` 1.2 MB stripped, card read about
+2 ms, clean build 38 s; the biggest weight is OpenCV `imgcodecs` pulling
+about 130 shared libraries at runtime (glance needs only PNG/JPEG).
+
 ## Commands
 
 (all from the repo root; the CMake list lives in `glance/`)

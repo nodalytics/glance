@@ -73,6 +73,18 @@ jobs:
             echo "::error::compiler warnings in glance sources"; exit 1
           fi
 
+      # Footprint budget (AGENTS.md: small, nimble, efficient). Raise the
+      # budget only with a measured reason in the commit message.
+      - name: Size budget
+        run: |
+          BUDGET_KB=3072
+          strip -o glance.stripped glance/build/glance
+          SIZE_KB=$(( $(stat -c %s glance.stripped) / 1024 ))
+          LIBS=$(ldd glance/build/glance | grep -c "=>")
+          echo "glance: ${SIZE_KB} KB stripped (budget ${BUDGET_KB} KB), ${LIBS} shared libs" | tee -a "$GITHUB_STEP_SUMMARY"
+          ls -la glance/build/glance* | awk '{print $5, $9}' >> "$GITHUB_STEP_SUMMARY"
+          [ "$SIZE_KB" -le "$BUDGET_KB" ] || { echo "::error::glance is ${SIZE_KB} KB, over the ${BUDGET_KB} KB budget"; exit 1; }
+
       - name: Test
         run: |
           # Diagnostics must run even when ctest fails, so the rc is kept.
