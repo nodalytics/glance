@@ -292,3 +292,145 @@ the top-left of the virtual desktop** (the bounding box of all monitors).
 Nothing here is a daemon: `glance-server` holds state only "last frame" and
 "last input-space reference" — the capture cadence lives in whatever posts to
 it, which is what keeps the server boring.
+
+## 6. Control API (HTTP)
+
+All routes are plain, flat paths — `/grab`, `/click`, `/key`, `/sequence`,
+`/health`, `/info`, `/login`, `/new_hand`, `/act` — never nested (`/api/...`
+or `/slumbot/...`). Bodies and responses are JSON unless noted. Routes are
+registered by `ControlRoutes` (`core/src/server_control.cpp`),
+`DashboardRoutes` (`/info`, `core/src/server_dashboard.cpp`) and
+`SlumbotRoutes` (`core/src/server_slumbot.cpp`).
+
+### Coordinate spaces (read this first)
+
+There are two spaces, and the control layer converts between them
+(`ControlService::to_screen`, `core/src/control_service.cpp`):
+
+- **Screen-absolute**: pixels with `0,0` at the top-left of the virtual
+  desktop. This is what the platform backend injects, and it is the space of
+  the `x`/`y` a `/click` response reports.
+- **Last-capture space**: pixels relative to the top-left of the *last frame
+  glance captured*. Every `/click` request coordinate and every named action
+  is expressed here. How the frame was obtained decides the conversion:
+  - a `POST /grab` of a **region** or **window** carries that region/window's
+    screen origin, so a request coordinate `(x,y)` is injected at
+    `(x + origin_x, y + origin_y)`;
+  - a whole-desktop grab has origin `(0,0)`, so its space already *is*
+    screen-absolute;
+  - a frame a client sent to `POST /capture` is used **as given** — no origin
+    is added (clients are expected to POST whole-desktop grabs; for a
+    window-relative frame use `POST /grab` with a title instead).
+
+A **named action** is a key in the mapping's `"actions"` section
+(`core/include/mapping.h`). Its value is `"button:<name>"` (a rectangle from
+the mapping's `"buttons"`) or `"stack:<key>"` (a rectangle from `"stacks"`);
+`control::resolve_action` returns the **centre** of that rectangle, placed at
+the last capture's anchored table origin, in last-capture space — then
+re-based to screen-absolute exactly like a raw coordinate. An action resolves
+only when the table anchor was found in the last capture; otherwise the click
+is refused (422) rather than landing on a guess.
+
+### POST /grab — server-side grab
+
+The server grabs the screen itself; the grabbed frame becomes the
+input-space reference and is parsed. Body (all fields optional):
+
+```jsonc
+{"region": {"x": 0, "y": 0, "w": 1920, "h": 1080}}  // grab a screen rectangle
+{"title": "ACR"}                                     // grab the matching window
+{}                                                   // grab the mapping's window_title
+```
+
+- 200: `{"table_found": bool, "state"?: {…}}` (the parsed state when the table
+  was found).
+- 400: no `region`/`title` and the mapping has no `window_title`, or a
+  non-string/empty `title`.
+- 422: the platform grab failed (no display, window not found).
+
+### POST /click — one click
+
+```jsonc
+{"action": "call"}                       // a named action (mapping "actions")
+{"action": "button:call"}                // a direct button:/stack: target
+{"click": {"x": 120, "y": 40, "button": 1}}  // raw point in last-capture space
+```
+
+`button` is 1=left, 2=middle, 3=right (default 1).
+
+- 200: `{"x", "y", "kind", "action"?}` — `x`/`y` are screen-absolute, `kind`
+  is `"button"`, `"stack"` or `"raw"`, `action` echoes a named target.
+- 400: body is not a JSON object, or has neither `action` nor `click`.
+- 422: an action that cannot be resolved (unknown name, unknown target, or the
+  table is not anchored in the last capture).
+
+### POST /key — one key press or typed text
+
+```jsonc
+{"key": "Return"}   // one keysym (X keysym names: Return, Tab, F5, 9, a, …)
+{"type": "200"}     // type a short printable string (chip amounts, chat)
+```
+
+- 200: `{}`.
+- 400: body is not a JSON object, or has neither `key` nor `type`.
+- 422: the backend rejected the key (unrecognised keysym).
+
+### POST /sequence — a batch of steps
+
+Body is a JSON **array** of steps, each one of the `/click`/`/key` shapes:
+`{"action":…}`, `{"click":{…}}`, `{"key":…}` or `{"type":…}`. Steps run in
+order; every step is reported whether it succeeded or not (an audit trail).
+
+- 200: `{"steps": [{"request", "ok", "error"?, "detail"?}, …]}`.
+- 400: the body is not a JSON array.
+
+### GET /health — liveness + control state
+
+200: `{"status": "ok", "control": {"backend": "x11"|"win32"|"macos"|"null"|…,
+"window"?: {"title","x","y"}}}`. `window` appears only when the last grab was
+of a located window.
+
+### GET /info — build + configuration
+
+200 includes `name`, `version`, `ocr_available`, `control_backend`, a
+`mapping` object (`name`, `window_title`, `actions[]`), a `card_vision`
+object, and a `control` object: `{"backend": …, "endpoints": ["/grab",
+"/click", "/key", "/sequence", "/login", "/new_hand", "/act"]}` so a client can
+discover the control surface without the docs.
+
+### The Slumbot-mirroring control plane (POST /login, /new_hand, /act)
+
+These mirror the Slumbot protocol's bodies, token rules and action grammar
+(`research/slumbot.md`) under glance's flat paths. They are a thin
+real-window **control + translation** surface over the services above — **not
+a poker game engine**: glance does not deal cards or run a game, it reads the
+real table and clicks it. Errors ride inside a **200** body as `error_msg`
+(the Slumbot convention — parse the body, not just the status); a genuinely
+malformed HTTP request (unparseable JSON) is still a 400.
+
+What is real: the opaque session token + in-memory session map; the ported
+`ParseAction` validator (`core/src/slumbot_action.cpp`) run on every `/act`;
+the action → named-control-action → click mapping; and the Slumbot-shaped
+state readback from the last parsed `TableState`. What is roadmap: no real
+auth (any/empty credentials mint a token), no dealing or turn enforcement, no
+auto-recapture after a click (call `/grab` or `/capture` again to see the
+result), and no typing of a specific bet size for `b<n>` (only the `"raise"`
+button is clicked).
+
+- **POST /login** `{username?, password?}` → `{token}`. Any (or empty)
+  credentials mint an opaque session token. 400 on a malformed body.
+- **POST /new_hand** `{token?}` → the Slumbot-shaped response
+  `{old_action:"", action:"", client_pos, hole_cards, board, token, state?}`.
+  The token may be omitted **only** on the very first call (then one is
+  minted); a provided token must be a known session. `client_pos` is `0`=big
+  blind / `1`=small blind, derived from the parsed dealer (the hero is seat 0;
+  holding the button in heads-up means small blind). `hole_cards` and `board`
+  come from the last parsed state; `state` is the full glance state JSON when a
+  capture is available. With no state yet: 200 with an `error_msg`.
+- **POST /act** `{token, incr}` → the updated Slumbot-shaped response (plus an
+  `injected` detail of the click). `incr` is validated with `ParseAction`
+  (illegal strings come back as `error_msg`); its **last** action token maps to
+  a named control action — `f`→`"fold"`, `c`→`"call"`, `k`→`"check"`,
+  `b<n>`→`"raise"` — resolved through the mapping's `"actions"` and injected
+  via the `ControlService`. A missing action in the mapping, or a click that
+  cannot be resolved (table not anchored), is reported as an `error_msg`.

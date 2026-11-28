@@ -1,34 +1,39 @@
 # Glance
 
-**For poker platforms without APIs, Glance is the way in.** A C++ (CMake,
-OpenCV, cpp-httplib) screen-scraping and control tool that turns a grab of the
-[ACR Poker](https://www.acrpoker.eu/) table window into clean JSON — template
-match for the fixed elements, OCR for the numbers — exposed over a small HTTP
-API. The read side works today; the control side is in progress, and its wire
-contract is the [Slumbot API](https://slumbot.com/) (below) — so any engine
-written against Slumbot can talk to a glance table window unmodified.
+**glance turns the screen into an API.** For software with no SDK, no event
+feed and no API, the screen is the only interface — so glance grabs the
+window, reads what is on it (OpenCV template matching + card vision + optional
+OCR), serves that as JSON over a small HTTP API, and drives the app back with
+synthetic mouse and keyboard input. The engine never knows what it is looking
+at; each application is an installable **package** of mappings and templates.
 
-[docs/architecture.md](docs/architecture.md) is the whole-system map (engine,
-packages, front ends, platforms); [docs/README.md](docs/README.md) has
-the vision and roadmap; [research/slumbot.md](research/slumbot.md) pins the control-side
-protocol.
+The first target is poker (ACR Poker), shipped as the built-in `acr` package.
+The north star is to operate **any desktop app, hands-off** — no per-app SDK,
+no human at the keyboard. See [docs/README.md](docs/README.md) for the vision
+and roadmap, and [docs/models.md](docs/models.md) for where it evolves to.
+
+- [docs/architecture.md](docs/architecture.md) — the whole-system map (engine,
+  packages, the three front ends, platform backends).
+- [docs/engine.md](docs/engine.md) — engine internals, a request end to end.
+- Poker, the ACR scraping technique and the Slumbot control-plane spec live in
+  [research/README.md](research/README.md) (`research/acr.md`,
+  `research/slumbot.md`).
 
 ## Prerequisites
 
-- CMake >= 3.24
-- C++20 compiler (tested with g++ 13 on Ubuntu 24.04)
+- CMake >= 3.24 and a C++20 compiler (g++ 13 on Ubuntu 24.04 is the reference)
 - `libopencv-dev` — the distro's prebuilt OpenCV 4.x. glance links it; it is
   never built from source. (`bash research/scripts/install_deps.sh` installs
-  all of the above in one go.)
-- Optional: `tesseract-ocr` — enables reading pot/stack/bet numbers (the build
-  auto-disables OCR when the binary is missing)
-- Optional: `libx11-dev` + `libxext-dev` — the X11 screen-grab / synthetic-input
-  backend for the control plane. Like OCR, it is a configure-time option:
-  without the headers the build still succeeds, on the null backend, and the
-  server reports "no display" at runtime.
+  the toolchain + OpenCV in one go.)
+- Optional: `tesseract-ocr` — enables reading numbers (pot/stack/bet); the
+  build auto-disables OCR when the binary is missing.
+- Optional: `libx11-dev libxext-dev libxtst-dev` (Linux) — the X11 screen-grab
+  / synthetic-input backend. Like OCR it is configure-time: without the headers
+  the build still succeeds on the null backend. Windows (GDI + SendInput) and
+  macOS (CoreGraphics) backends build on their own platforms.
+- Optional: `qt6-base-dev` — the `glance-admin` desktop app.
 
-nlohmann/json and cpp-httplib are single-header deps fetched by CMake at
-configure time — nothing else to install.
+nlohmann/json and cpp-httplib are single-header deps fetched by CMake.
 
 ## Build
 
@@ -36,34 +41,61 @@ configure time — nothing else to install.
 cd glance
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j$(nproc)
+ctest --test-dir build        # selftest, webtest, pkgtest, card-vision gates
 ```
 
-Targets:
+Targets: `glance` (the CLI + server), `glance-server` (compat entry),
+`glance-admin` (Qt app, when Qt6 is found), and the test tools.
 
-- `glance-server` — the HTTP API
-- `glance-selftest` — synthesized-scenario end-to-end test (`ctest --test-dir build` runs it)
+## The `glance` command and packages
 
-## Server API (live today)
+Support for one application ships as a **package**: a directory with a
+`glance-package.json` manifest plus table mappings and template PNGs — data
+only, so it installs the same way on Linux, Windows and macOS with no compiler.
 
 ```sh
-build/glance-server path/to/mapping.json [port]   # default port 8000
+glance serve --package acr            # serve the built-in ACR package
+glance serve --mapping path/to.json   # or a bare mapping file
+glance pkg list                       # built-in + user packages
+glance pkg install ./my-app-package   # or a git URL; --force to upgrade
+glance pkg remove my-app
+
+glance health | info | state | packages      # API client commands
+glance capture shot.png                       # POST a screenshot, print state
+glance read-card card.png [--slot board1]     # recognize one card crop
 ```
 
-| Endpoint              | What it does                                                                                                  |
-| --------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `GET /health`         | liveness                                                                                                       |
-| `POST /capture`       | body: raw PNG/JPEG bytes of the poker window (any content type, ≤ 16 MB) → parses and returns the table state JSON (422 when the table anchor is not found) |
-| `GET /state`          | last successfully parsed state (404 until the first capture)                                                  |
+## HTTP API
 
-Example:
+`glance serve` (and `glance-server`) exposes the API and a read-only web
+dashboard on the same port (default 8000).
+
+| Endpoint | What it does |
+| --- | --- |
+| `GET /` | the web dashboard (read-only: live table, capture, card lab, system, JSON) |
+| `GET /health` | liveness + control backend name |
+| `GET /info` | version, OCR availability, control backend, active package/mapping, card-vision config |
+| `GET /packages` | installed packages and the active one |
+| `POST /capture` | body: raw PNG/JPEG bytes of the window (≤ 16 MB) → parses and returns the state JSON (422 when the anchor is not found) |
+| `GET /state` | last successfully parsed state (404 until the first capture) |
+| `GET /frame.png` | the last captured frame (404 until the first capture) |
+| `POST /recognize-card[?slot=]` | body: a card-crop image → the card-vision reading (409 when the mapping has no `card_vision`) |
+| `POST /grab` `/click` `/key` `/sequence` | control: grab a window/region, click a named action or coordinates, inject keys/text |
+| `POST /login` `/new_hand` `/act` | the Slumbot-mirroring control plane (plain flat paths): mint a token, read the hand's state, and take an action (`{token, incr}`) that maps to a click |
+
+The control routes (`/grab`…`/act`) are a thin control + translation surface,
+not a game engine; their request/response JSON, status codes and coordinate
+spaces are documented in [docs/engine.md](docs/engine.md), and the
+Slumbot-grammar contract (bodies, tokens, `ParseAction` errors) in
+[research/slumbot.md](research/slumbot.md). Every path is plain and flat — no
+`/api` or `/slumbot` nesting.
 
 ```sh
-curl -s -X POST -H 'Content-Type: application/octet-stream' \
-     --data-binary @screenshot.png http://127.0.0.1:8000/capture | jq
+curl -s -X POST --data-binary @screenshot.png http://127.0.0.1:8000/capture | jq
 ```
 
-State shape (field presence is data-driven — a seat's `cards`/`stack`/`bet` and
-the board/stage/pot appear only when actually read):
+State shape (field presence is data-driven — a seat's `cards`/`stack`/`bet`
+and the board/stage/pot appear only when actually read):
 
 ```json
 {
@@ -84,192 +116,65 @@ the board/stage/pot appear only when actually read):
 }
 ```
 
-Every state crosses the wire with a `validation` block — a port of the card/
-table-state validators from the research prototype in `research/` (duplicate
-card faces, board gaps, stage/board mismatches, negative amounts, each with a
-`code`, `message` and affected `slots`). Clients can distrust any state that is
-not `"valid": true`.
+Every state carries a `validation` block (duplicate card faces, board gaps,
+stage/board mismatches, negative amounts, each with a `code`, `message` and
+affected `slots`), so a client can distrust any state that is not
+`"valid": true`.
 
-## Slumbot API — the control-plane spec
+## Front ends
 
-glance's control plane speaks the [Slumbot API](https://slumbot.com/)
-verbatim. Slumbot is the de-facto standard against which poker bots are built
-and benchmarked, and its sample client (`sample_api.py`, served from the
-project page) ships the canonical action-string parser. The rule for glance:
+Three, all clients of the HTTP API above, which is also the integration point
+for anything else (bots, loggers, research pipelines):
 
-> **The Slumbot protocol is the standard; anything glance adds is an extra,
-> never a deviation.**
-
-The consequence is that a bot written for slumbot.com is a drop-in client for
-a glance table — and glance clients can play hands against Slumbot itself, no
-code changes.
-
-**Status.** The read side above is live and end-to-end tested. The control
-plane (click-by-mapping, key input, the `/slumbot/api/*` surface) is in
-progress — roadmap M1–M2 in
-[docs/README.md](docs/README.md). The contract below is already pinned
-in [research/slumbot.md](research/slumbot.md) — endpoints, grammar, token rules
-and the parser contract — so engines can be built against it now.
-
-### Endpoints (mirror of slumbot.com)
-
-HTTPS POSTs, JSON bodies, `Content-Type: application/json`:
-
-| Endpoint               | Purpose                                                    | Body                                                                  |
-| ---------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
-| `POST /slumbot/api/login`   | authenticate; required to make the leaderboards            | `{"username": ..., "password": ...}` → `{token, ...}`                  |
-| `POST /slumbot/api/new_hand`| start a new hand; the response carries the action if the bot is first to act | `{"token": ...}` — the token may be omitted on the very first call only |
-| `POST /slumbot/api/act`     | take an action in the current hand                         | `{"token": ..., "incr": <action string>}`                              |
-
-Game constants (Slumbot house rules): blinds **50/100**, stacks **200 BB**,
-stacks reset every hand. A session starts in the less favorable position (big
-blind); play an even number of hands so the button is split evenly.
-
-### Token rules
-
-- Every request carries a `token`; the sole exception is the first-ever
-  `/api/new_hand`, where it may be omitted.
-- A response can return a **new** token (usually only after a long pause).
-  Always read `token` out of the previous response and use it in the next
-  request — never cache one across hands.
-- Errors arrive as an `error_msg` key inside an otherwise-200 JSON body —
-  parse the body, not just the status code.
-
-### Action strings
-
-An `action` in a response is the **full action history of the hand so far**,
-streets separated by `/`. An `incr` in a request is the **incremental** action
-you are taking now.
-
-| Token        | Meaning                                                          |
-| ------------ | ---------------------------------------------------------------- |
-| `k`          | check                                                            |
-| `c`          | call                                                             |
-| `f`          | fold                                                             |
-| `b<number>`  | bet (or raise) **to `<number>` chips total for that street only** — never the delta |
-| `/`          | street transition (preflop → flop → turn → river)               |
-
-- `b200c/kk/kk/kb200` — a full hand's history: a raise to 200 (called) preflop,
-  checks around on the flop and turn, a bet to 200 on the river.
-- An all-in can carry streets with no action: `b20000c///`.
-- `client_pos`: `0` = big blind, `1` = small blind.
-
-### Response shape
-
-```json
-{
-  "old_action": "",
-  "action": "b200",
-  "client_pos": 0,
-  "hole_cards": ["Ac", "9d"],
-  "board": [],
-  "token": "a2f42f44-7ff6-40dd-906b-4c2f03fcee57"
-}
-```
-
-`winnings` (plus session counters) appear on the terminal response of a hand.
-If the bot is first to act, the `/api/new_hand` response already contains its
-initial action.
-
-### Extras & the in-progress surface
-
-The reference `ParseAction` in Slumbot's `sample_api.py` is the ground truth
-for turning an action string into machine state (current street, bet-to, last
-bettor, position to act, and the full set of validation errors — illegal
-check/call/fold, bets too small or too big, overrunning the streets, `b20000c///`
-all-in handling, optional trailing `/`). glance ports it verbatim and unit-
-tests it against the reference's cases; the contract, including every error
-path, is pinned in [research/slumbot.md](research/slumbot.md).
-
-What glance adds on top (additive only, documented in the same file):
-real-window mode, where the table is an [ACR](https://www.acrpoker.eu/) window
-rather than a benchmark server and the same `incr` vocabulary drives the
-clicks; the mapping between the parsed state JSON above and the action grammar;
-and a state-diff event log for replay/audit. The glance-specific helpers
-(`POST /capture`, `GET /state`) stay outside the Slumbot contract — extras a
-standard client simply ignores.
-
-## Selftest
-
-```sh
-build/glance-selftest
-# optional: leave generated mapping + screenshot around for server smoke tests
-build/glance-selftest --fixtures /tmp/acr-fixtures
-```
-
-The selftest synthesizes its own scenario (anchor, cards, button, dealer, a
-screenshot with text numbers), writes a real mapping file and image to disk,
-and runs the full pipeline — including the state-validation checks and the
-OCR number-parsing unit cases (thousands separators and all). The numeric
-*OCR* checks are skipped when tesseract is absent; CI
-(`.github/workflows/ci.yml`) runs on ubuntu-24.04 **with** tesseract
-installed, so the canonical full check is the CI run — a machine without
-tesseract (e.g. the lab) stays green minus those.
-
-## Packages and the `glance` command
-
-Support for one application ships as a **package**: a folder with
-`glance-package.json` plus table mappings and template PNGs (data only, so
-it installs the same way on every OS). ACR Poker is the default built-in
-package `acr` (`glance/packages/acr/`).
-
-```sh
-glance pkg list                      # built-in + user packages
-glance pkg install ./my-app-package  # or a git URL; --force to upgrade
-glance pkg remove my-app
-glance serve --package acr           # = glance-server acr
-glance state | capture shot.png | read-card card.png | packages   # API client
-```
-
-The HTTP API stays the integration point: the web dashboard (read-only), the
-Qt admin app and any external system are all clients of it. Contract:
-`glance/core/include/packages.h`.
+- **Web dashboard** — read-only, served by `glance serve` itself (embedded in
+  the binary). Live table, capture, card lab, system info, JSON inspector.
+- **`glance-admin`** — the Qt6 desktop app, the only front end with the
+  **control** surface (grab/click/key/sequence) behind a confirm dialog.
+- **`glance` CLI** — `serve`, `pkg …`, and the client commands above.
 
 ## Table mapping
 
-A package's mappings are table-mapping JSON files (the "table skin"
-descriptor): which template PNGs to look for and where each field sits. See
-[research/acr.md](research/acr.md) for the format and the scraping technique,
-and `glance/packages/acr/mappings/6max.json` for a starter. When the control plane
-lands (roadmap M1–M2), the same file carries its targets — named `actions`
-(e.g. `call` → a button rectangle) and the window to drive — so reading and
-clicking share one source of truth.
+A package's mappings are table-mapping JSON files: which template PNGs to look
+for and where each field sits, plus named `actions` and the `window_title` to
+drive. The contract is documented in `glance/core/include/mapping.h`; the
+scraping technique and a worked ACR example are in
+[research/acr.md](research/acr.md).
+
+## Footprint
+
+glance is meant to stay small, nimble, efficient and effective: the `glance`
+binary is ~1.2 MB stripped, a card reads in ~2 ms, and CI enforces a size
+budget. See the footprint section in
+[docs/architecture.md](docs/architecture.md).
 
 ## Layout
 
 ```
-glance/              # repo root
+.
+├── docs/            # architecture.md (system map), engine.md (internals),
+│                    #   README.md (vision + roadmap), models.md (where we evolve to)
 ├── glance/          # the C++ project
-│   ├── CMakeLists.txt     # pinned deps (OpenCV distro pkg, json, httplib)
-│   ├── core/              # generic engine: mapping, template match, OCR,
-│   │   ├── include/       #   scraper, service, state validation, screen
-│   │   │                  #   + input control (no poker knowledge)
-│   │   └── src/           #   (incl. the optional X11 backend)
+│   ├── core/              # generic engine (include/ + src/): mapping, template
+│   │                      #   match, card vision, OCR, scraper, validation,
+│   │                      #   control backends, packages, server
 │   ├── packages/acr/      # default package: ACR Poker mapping (+ templates)
-│   ├── server/main.cpp    # glance-server (compat entry; = glance serve)
+│   ├── server/            # glance-server (compat entry)
 │   ├── tools/             # glance CLI, selftest, webtest, pkgtest, cardvision
 │   ├── web/               # dashboard (embedded into the server binary)
 │   ├── app/               # Qt admin desktop app (optional)
 │   └── testdata/          # card-vision glyph templates
-├── docs/            # architecture.md (system map), engine.md (internals),
-│                    #   README.md (vision + roadmap), models.md (where we evolve to)
-└── research/        # Python side, uv-managed
-    ├── notebooks/     #   YOLO card-detection experiments
-    ├── poker_apis/    #   PaddleOCR vision-pipeline research prototype
-    │                  #   (FastAPI; the source the state validators were
-    │                  #   ported from)
-    ├── frontend/      #   React dashboard prototype
-    ├── tests/         #   research-prototype test suite
-    └── scripts/       #   host setup (install_deps.sh, ...)
+└── research/        # Python prototype, datasets, frontend prototype;
+                     #   poker/ACR/Slumbot material (acr.md, slumbot.md)
 ```
 
 ## Development
 
-- Deps: OpenCV comes from the distro (`libopencv-dev`; pinned to >= 4.5 in
-  CMakeLists), json + httplib are pinned in `CMakeLists.txt` via FetchContent —
-  bump versions there to update, no lockfile.
-- The build is small (glance's sources + two single-header deps); there is no
-  OpenCV build step to wait for.
-- No linter/format tooling yet.
+- OpenCV comes from the distro (`libopencv-dev`, >= 4.5); json + httplib are
+  pinned in `glance/CMakeLists.txt` via FetchContent — bump versions there.
+- The lab is the primary build host; CI (`.github/workflows/ci.yml`) is the
+  canonical full test across Linux, Windows and macOS, and the only place OCR
+  runs. Project skills `glance-verify` and `glance-bug-hunt` are in
+  `.claude/skills/`.
 
-References (prior art, related projects): see [research/README.md](research/README.md#references).
+Prior art and related projects: see
+[research/README.md](research/README.md#references).

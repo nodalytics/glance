@@ -1,13 +1,19 @@
 # Slumbot integration blueprint
 
-Status: **design doc, not implemented.** glance's control-side API is built on
-this blueprint (the user named it the blueprint, Nov 2026). The read side
-(`/capture` → table JSON) already works; the control side is milestone **M1** in
-[docs/README.md](../docs/README.md#roadmap-from-screen-reading-to-screen-controlling).
-This document pins the wire contract so M1 can be built without re-deriving it,
-and defines the *extras* (things Slumbot does not do) that glance adds on top.
-The rule: **the Slumbot protocol is the standard; anything glance adds is an
-extra, never a deviation.**
+Status: glance's control-side API is built on this blueprint (the user named it
+the blueprint, Nov 2026). The read side (`/capture` → table JSON) already works.
+The control side has **landed** as a thin control + translation surface: glance
+serves this protocol under its own **plain, flat paths** — `POST /login`,
+`POST /new_hand`, `POST /act` (never the upstream's nested `/slumbot/api/*`
+URLs) — wired over the existing capture + click services, with the reference
+`ParseAction` ported to C++ (`glance/core/src/slumbot_action.cpp`) and
+unit-tested (`glance-slumbottest`). It is not a poker game engine; dealing,
+turn enforcement and multi-street autoplay remain roadmap. The endpoint tables
+below document the **upstream** slumbot.com server's wire contract (the
+standard glance mirrors); glance's own routes are the flat ones named above.
+This document pins the wire contract, and defines the *extras* (things Slumbot
+does not do) that glance adds on top. The rule: **the Slumbot protocol is the
+standard; anything glance adds is an extra, never a deviation.**
 
 ## The Slumbot standard (mirror of the official spec)
 
@@ -16,9 +22,9 @@ is required. Three endpoints:
 
 | Endpoint               | Purpose                                        | Body                                                        |
 | ---------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
-| `/slumbot/api/login`   | authenticate; required for leaderboard play    | `{"username": ..., "password": ...}` → `{token, ...}`       |
-| `/slumbot/api/new_hand`| start a hand; the response may carry an action | `{"token": ...}` (token optional only on the very first call)|
-| `/slumbot/api/act`     | take an action in the current hand             | `{"token": ..., "incr": <action string>}`                   |
+| `/login`   | authenticate; required for leaderboard play    | `{"username": ..., "password": ...}` → `{token, ...}`       |
+| `/new_hand`| start a hand; the response may carry an action | `{"token": ...}` (token optional only on the very first call)|
+| `/act`     | take an action in the current hand             | `{"token": ..., "incr": <action string>}`                   |
 
 Game constants: blinds **50/100**, stack **20,000 chips (200 BB)**, stacks
 reset every hand. You start the session in the less favorable position (big
@@ -27,7 +33,7 @@ blind); play an even number of hands so the button is split evenly.
 ### Token rules
 
 - Every request carries a `token`; the only exception is the first-ever
-  `/api/new_hand`, where it may be omitted.
+  `/new_hand`, where it may be omitted.
 - A response may return a **new** token (usually only after a long pause).
   Always read `token` out of the previous response and use it in the next
   request — never cache one across hands.
@@ -70,7 +76,7 @@ street by street, separated by `/`; an `incr` in a request is the
 
 `winnings` (plus `baseline_winnings`, `session_num_hands`, `session_total`,
 `session_baseline_total`) appear on the terminal response of a hand. If the bot
-is first to act, the `/api/new_hand` response already contains its initial
+is first to act, the `/new_hand` response already contains its initial
 action.
 
 ### Action-string parser (canonical, ported 1:1)
@@ -101,8 +107,8 @@ The loop for a Slumbot-backed bot where **Slumbot is the table** (research /
 benchmarking, no real platform window):
 
 ```
-POST /slumbot/api/new_hand {token}                    ──┐
-POST /slumbot/api/act    {token, incr}                 │  the standard
+POST /new_hand {token}                    ──┐
+POST /act    {token, incr}                 │  the standard
                                                          ▼
       response {action, client_pos, hole_cards, board, token, winnings}
                       │
